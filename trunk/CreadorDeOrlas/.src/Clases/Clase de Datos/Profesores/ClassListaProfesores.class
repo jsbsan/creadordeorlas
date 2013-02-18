@@ -1,0 +1,97 @@
+' Gambas class file
+
+Property Registros As ClassProfesor[] 
+Private hRegistros As New ClassProfesor[] 
+
+Public Sub generarId() As Integer
+  
+  Dim a As Integer
+  Dim valor As Integer
+  
+  valor = -1
+  For a = 0 To hRegistros.Max
+    valor = Max(valor, hRegistros[a].Id)
+    
+  Next
+  
+  Return (valor + 1)
+  
+End
+
+Public Sub buscar(id As Integer) As Integer
+  
+  Dim a As Integer
+  'recorremos todos los indices hasta encontrar el id, devolviendo la posicion del array donde esta (a)
+  For a = 0 To hRegistros.Max
+    If id = hRegistros[a].id Then Return a
+  Next
+  Message.info("se ha producido un error al buscar el indice")
+  Return -1
+  
+End
+
+Public Sub contenido() As String
+  
+  Dim texto As String
+  Dim regtmp As ClassProfesor 'esta clase me sirve para las iteracciones
+  
+  For Each regtmp In hRegistros
+    texto &= regtmp.Text()
+  Next
+  Return texto
+  
+End
+
+Public Sub lecturaDatos(cadenas As String[]) As Boolean
+  
+  Dim a As Integer
+  Dim regtmp As New ClassProfesor
+  
+  For a = 0 To cadenas.count - 2
+    regtmp.Foto = cadenas[a]
+    a += 1
+    regtmp.Nombre = cadenas[a]
+    a += 1
+    regtmp.Apellidos = cadenas[a]
+    a += 1
+    regtmp.posicion.x = cadenas[a]
+    a += 1
+    regtmp.posicion.y = cadenas[a]
+    a += 1
+    regtmp.colocado = cadenas[a]
+    a += 1
+    
+    If cadenas[a] <> "" Then 
+      regtmp.id = cadenas[a]
+    Else
+      regtmp.id = 0  
+    Endif
+    a += 1
+    regtmp.tag = cadenas[a]
+    a += 1
+    regtmp.Orden = cadenas[a]
+    a += 1
+    
+    regtmp.Asignatura = cadenas[a]
+    
+    hRegistros.Add(regtmp)
+    regtmp = New ClassAlumno
+    
+  Next
+  
+End
+
+'----------------------------------------------------
+'PROPIEDADES
+'----------------------------------------------------
+Private Function Registros_read() As ClassProfesor[] 
+  
+  Return hRegistros 
+  
+End  
+
+Private Sub Registros_write(Valor As ClassProfesor[])
+  
+  hRegistros = Valor 
+  
+End

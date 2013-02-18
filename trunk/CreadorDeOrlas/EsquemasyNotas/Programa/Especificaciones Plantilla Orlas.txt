@@ -1,0 +1,38 @@
+Especificaciones para los formatos de Orla:
+
+El archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .
+ -mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)
+ - o embebidas en ellas.
+
+
+
+Etiquetas de Texto, "con alineacion centrado"
+	Texto a sustituir y que se rellenará con datos
+		COLEGIO .......................... indica el colegio donde estan los niños
+	        CURSO............................. texto: 1º de ESO
+	        PROMOCIÓN ........................ texto: 2012-2013
+	        TEXTOOPCIONAL01................... texto opcional, por si quiere indicar algo
+	        TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo
+	(en la plantilla .svg, se elige el tamaño y el tipo de letra)
+
+	Texto para indicar posicion del grupo de imagenes de alumnos y profesores
+		ZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              
+                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla
+
+
+
+Imagenes:
+         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)
+	 ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)
+         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)
+         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)
+
+
+
+
+
+ 
+
+
+
+

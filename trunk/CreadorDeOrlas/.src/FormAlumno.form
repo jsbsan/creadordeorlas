@@ -1,0 +1,76 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,57,51)
+  { PictureBoxFoto PictureBox
+    MoveScaled(3,10,12,17)
+    Picture = Picture["icono_fotos_personas.png"]
+    Stretch = True
+    Border = Border.Plain
+  }
+  { Label1 Label
+    MoveScaled(20,8,9,4)
+    Text = ("Nombre:")
+  }
+  { TextBoxNombre TextBox
+    MoveScaled(31,8,21,4)
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(12,1,38,6)
+    Text = ("<h3>Alumnos</h3>")
+    Alignment = Align.Center
+    Border = Border.Plain
+  }
+  { ToolButton1 ToolButton
+    MoveScaled(0,28,17,5)
+    Font = Font["Bitstream Charter,-2"]
+    Text = ("Foto WebCam")
+    Picture = Picture["camara_icono.png"]
+    Border = True
+  }
+  { TextBoxApellidos TextBox
+    MoveScaled(31,14,21,4)
+  }
+  { Label2 Label
+    MoveScaled(20,14,9,4)
+    Text = ("Apellidos:")
+  }
+  { TextBoxPueblo TextBox
+    MoveScaled(31,20,21,4)
+  }
+  { Label3 Label
+    MoveScaled(20,20,9,4)
+    Text = ("Pueblo:")
+  }
+  { Label4 Label
+    MoveScaled(20,26,9,4)
+    Text = ("Provincia:")
+  }
+  { TextBoxProvincia TextBox
+    MoveScaled(31,26,21,4)
+  }
+  { Label5 Label
+    MoveScaled(20,32,9,4)
+    Text = ("Orden:")
+  }
+  { ValueBoxOrden ValueBox
+    MoveScaled(31,32,6,4)
+    Text = ("ValueBox1")
+  }
+  { ToolButtonAceptar ToolButton
+    MoveScaled(8,42,15,6)
+    Text = ("Aceptar")
+    Picture = Picture["icon:/22/apply"]
+    Border = True
+  }
+  { ToolButtonCancelar ToolButton
+    MoveScaled(32,42,15,6)
+    Text = ("Cancelar")
+    Picture = Picture["icon:/22/cancel"]
+    Border = True
+  }
+  { Label6 Label
+    MoveScaled(42,32,12,4)
+    Text = ("(opcional)")
+  }
+}

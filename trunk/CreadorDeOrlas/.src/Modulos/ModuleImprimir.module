@@ -1,0 +1,30 @@
+' Gambas module file
+
+' 
+' --------------------------
+' Dibujar
+'--------------------------
+
+Public Sub dibujarSVG(fichero As String, AreaDibujo As DrawingArea)
+  
+  Dim escalax As Float
+  Dim dra As SvgImage
+  
+  dra = New SvgImage
+  AreaDibujo.Cached = True
+  AreaDibujo.Border = 1
+  
+  AreaDibujo.Painted = True
+  
+  If Exist(fichero) Then 
+    dra = dra.Load(fichero)
+  Endif
+  
+  Paint.Begin(AreaDibujo)
+  escalax = AreaDibujo.W / dra.Width
+  
+  paint.Scale(escalax, escalax)
+  dra.Paint
+  Paint.End
+  
+End

@@ -1,0 +1,65 @@
+' Gambas class file
+
+Public observador As New Observer(Me) As "observador1"
+
+Inherits GridView
+
+Property indice As Integer[]
+
+Private hindice As New Integer[]
+
+Private Function indice_Read() As Integer[]
+  
+  Return hindice
+  
+End
+
+Private Sub indice_Write(Value As Integer[])
+  
+  hindice = Value
+  
+End
+
+'-----------------------------------------------------------------------
+' codigo que genera copiar al portapapeles
+'-----------------------------------------------------------------------
+
+Public Sub copiaralportapapeles()
+  
+  Dim texto As String
+  Dim a As Integer
+  Dim b As Integer
+  
+  If Me.header = 1 Or Me.header = 3 Then 
+    For a = 0 To Me.Columns.count - 1
+      texto &= Me.Columns[a].Title & "\t"  
+    Next 
+    texto &= "\n"
+  Endif 
+  For a = 0 To Me.Rows.Count - 1
+    For b = 0 To Me.Columns.count - 1
+      texto &= revisa(Me[a, b].text) & "\t"  'separa los datos con un tabulador
+    Next ' b
+    texto &= "\n"  'fin de linea
+  Next 'a
+  Clipboard.Copy(texto)
+  Message.Info(("Copiado contenido al portapapeles"))  
+  
+End
+
+Private Function revisa(cadena As String) As String
+  
+  Dim a As Integer
+  Dim letra As String
+  Dim devuelta As String
+  
+  For a = 1 To Len(cadena)
+    letra = Mid$(cadena, a, 1)
+    If letra = "." Then 
+      letra = ","
+    Endif 
+    devuelta &= letra
+  Next 
+  Return devuelta
+  
+End

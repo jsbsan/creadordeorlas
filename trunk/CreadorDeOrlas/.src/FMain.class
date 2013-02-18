@@ -1,0 +1,91 @@
+' Gambas class file
+
+Public Sub _new()
+  
+End
+
+Public Sub Form_Open()
+  
+  Me.center
+  ModulePruebas.escribe()
+  FormPlantillaOrla.show
+  FormEditorGrafico.show
+  
+End
+
+Public Sub ButtonEditorOrla_Click()
+  'Reemplaza la plantilla con los datos que ha introducido (colegio, curso,etc )
+  
+  FormEditorGrafico.show
+  
+End
+
+Public Sub Label9_MouseDown()
+  
+  Desktop.Open("http://www.jsbsan.blogspot.com.es/")
+  
+End
+
+Public Sub Label13_MouseDown()
+  
+  Desktop.Open("http://minino.galpon.org/es/descargas")  
+  
+End
+
+Public Sub Label12_MouseDown()
+  
+  Desktop.Open("http://inkscape.org/")
+  
+End
+
+Public Sub ToolButtonEditar3_Click()
+  
+  FormPlantillaOrla.Show()
+  
+End
+
+Public Sub ToolButtonTipoLetraAlumno_Click()
+  
+  Dialog.font = LabelTipoAlumno.Font
+  If Not Dialog.selectFont() Then 
+    LabelTipoAlumno.text = Dialog.Font.name 
+    LabelTipoAlumno.font = Dialog.Font
+  Endif
+  
+End
+
+Public Sub ToolButtonTipoLetraProfesor_Click()
+  
+  Dialog.font = LabelTipoProfesor.Font
+  If Not Dialog.selectFont() Then 
+    LabelTipoProfesor.text = Dialog.Font.name
+    LabelTipoProfesor.font = Dialog.Font
+  Endif
+  
+End
+
+Public Sub ToolButtonCrear_Click()
+  
+  Dim respuesta As Integer
+  
+  If TextBoxNombreFicheroNuevo.Text = "" Then
+    Message.Error("Necesita poner un nombre")
+  Else
+    'comprobar que si existe...
+    If Not Exist(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".Orla") Then
+      
+    Else
+      respuesta = Message.Question("Existe el fichero:" & gb.CrLf & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & gb.crlf & "¿que desea hacer?", " SobreEscribir ", " Cancelar ")
+      If respuesta = 1 Then 
+        
+      Else
+        'ha cancelado la operacion...
+        Print "Cancelado Crear Grupo"
+        
+      Endif
+      
+    Endif
+    
+  Endif
+  
+End

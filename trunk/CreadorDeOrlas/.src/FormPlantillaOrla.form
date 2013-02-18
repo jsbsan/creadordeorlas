@@ -1,0 +1,83 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,91,55)
+  Icon = Picture["icon:/22/book"]
+  Resizable = False
+  { Label11 Label
+    MoveScaled(20,28,12,3)
+    Text = ("Escudo 4")
+    Alignment = Align.Center
+    Border = Border.Plain
+  }
+  { PictureBox5 PictureBox
+    MoveScaled(20,31,12,10)
+    Border = Border.Plain
+  }
+  { PictureBox3 PictureBox
+    MoveScaled(20,16,12,10)
+    Border = Border.Plain
+  }
+  { Label9 Label
+    MoveScaled(20,13,12,3)
+    Text = ("Escudo 2")
+    Alignment = Align.Center
+    Border = Border.Plain
+  }
+  { Label8 Label
+    MoveScaled(5,13,12,3)
+    Text = ("Escudo 1")
+    Alignment = Align.Center
+    Border = Border.Plain
+  }
+  { PictureBox2 PictureBox
+    MoveScaled(5,16,12,10)
+    Border = Border.Plain
+  }
+  { PictureBox4 PictureBox
+    MoveScaled(5,31,12,10)
+    Border = Border.Plain
+  }
+  { Label10 Label
+    MoveScaled(5,28,12,3)
+    Text = ("Escudo 3")
+    Alignment = Align.Center
+    Border = Border.Plain
+  }
+  { DrawingArea1 DrawingArea
+    MoveScaled(45,11,42.4286,30)
+    Background = &HFFFFFF&
+    Foreground = &H000000&
+  }
+  { ToolButton1 ToolButton
+    MoveScaled(58,41,18,4)
+    Text = ("Previsualizar")
+    Border = True
+  }
+  { ToolButton2 ToolButton
+    MoveScaled(19,49,17,4)
+    Text = ("Aceptar")
+    Picture = Picture["icon:/22/apply"]
+    Border = True
+  }
+  { ToolButton3 ToolButton
+    MoveScaled(52,49,18,4)
+    Text = ("Cancelar")
+    Picture = Picture["icon:/22/cancel"]
+    Border = True
+  }
+  { Label2 Label
+    MoveScaled(1,2,22,5)
+    Text = ("Nombre de plantilla:")
+  }
+  { TextBox1 TextBox
+    MoveScaled(25,2,21,5)
+    Text = ("TextBox1")
+  }
+  { ToolButton4 ToolButton
+    MoveScaled(48,2,17,5)
+    Text = ("Editar .svg")
+    Picture = Picture["icon:/22/edit"]
+    Border = True
+  }
+}

@@ -1,0 +1,201 @@
+' Gambas class file
+
+Property oficio As String 
+Private hoficio As String 
+
+Property coeficiente As Float 
+Private hcoeficiente As Float 
+
+Property nombre As String 
+Private hnombre As String 
+Property apellidos As String 
+Private hapellidos As String 
+
+Property pto1 As ClassPto
+Private hpto1 As Classpto
+
+Private hancholinea As Float = 3
+Private hcolorlinea As Integer = Color.RGB(255, 0.2 * 255, 0.2 * 255, 0.6 * 255)
+Private hx1 As Integer
+Private hy1 As Integer
+
+Property largo As Integer
+Property ancho As Integer
+
+Public Sub _new(AreaDibujo As DrawingArea, x0 As Integer, y0 As Integer, x1 As Integer, y1 As Integer, Optional ancholinea As Float, Optional colorlinea As Integer)
+  
+  Me.pto1 = New ClassPto(areadibujo, x0, y0, Color.blue)
+  hx1 = x1 ' New ClassPto(areadibujo, x1, y1, Color.red)
+  hy1 = y1
+  
+  Me.pto1.tag = Me
+  '  Me.AreaLinea = areadibujo
+  If ancholinea <> 0 Then 
+    hancholinea = ancholinea
+  Endif
+  
+  hcolorlinea = Color.Orange
+  
+End
+
+Public Function resumen() As String
+  
+  Dim contenido As String
+  
+  contenido = "[Rectangulo]" & gb.cr
+  contenido &= Str$(Me.pto1.x) & gb.cr
+  contenido &= Str$(Me.pto1.y) & gb.cr
+  contenido &= Str$(hx1) & gb.cr
+  contenido &= Str$(hy1) & gb.cr
+  contenido &= Str$(hancholinea) & gb.cr
+  contenido &= Str$(hcolorlinea) & gb.cr
+  
+  Return contenido
+  
+End
+
+Public Sub dibuja()
+  
+  If hoficio = "alumno" Then 
+    hcolorlinea = Color.Orange
+  Else 
+    hcolorlinea = Color.green
+  Endif
+  
+  Paint.brush = Paint.Color(hcolorlinea)
+  Paint.LineWidth = hancholinea
+  Paint.Rectangle(Me.pto1.x * hcoeficiente, Me.pto1.y * hcoeficiente, hx1 * hcoeficiente, hy1 * hcoeficiente)
+  Paint.stroke
+  Paint.Font.Name = "Arial"
+  Paint.Font.Size = 12
+  Paint.Font.Bold = True
+  paint.Text(hnombre, Me.pto1.x, Me.pto1.y + 20)
+  paint.Fill
+  ' paint.stroke
+  Paint.text(hapellidos, Me.pto1.x, Me.pto1.y + 40)
+  paint.Fill
+  
+End
+
+Private Function largo_Read() As Integer
+  
+  Return hx1
+  
+End
+
+Private Sub largo_Write(Value As Integer)
+  
+  hx1 = value
+  
+End
+
+Private Function ancho_Read() As Integer
+  
+  Return hy1
+  
+End
+
+Private Sub ancho_Write(Value As Integer)
+  
+  hy1 = value
+  
+End
+
+Private Function pto1_Read() As ClassPto
+  
+  Return hpto1
+  
+End
+
+Private Sub pto1_Write(Value As ClassPto)
+  
+  hpto1 = value
+  
+End
+
+Private Function pto2_Read() As ClassPto
+  
+End
+
+Private Sub pto2_Write(Value As ClassPto)
+  
+End
+
+Private Function apellidos_read() As String 
+  
+  Return hapellidos 
+  
+End  
+
+Private Sub apellidos_write(Valor As String)
+  
+  hapellidos = Valor 
+  
+End
+
+Private Function nombre_read() As String 
+  
+  Return hnombre 
+  
+End  
+
+Private Sub nombre_write(Valor As String)
+  
+  hnombre = Valor 
+  
+End
+
+Private Function coeficiente_read() As Float 
+  
+  Return hcoeficiente 
+  
+End  
+
+Private Sub coeficiente_write(Valor As Float)
+  
+  hpto1.coeficiente = valor
+  hcoeficiente = Valor 
+  
+End
+
+Private Function oficio_read() As String 
+  
+  Return hoficio 
+  
+End  
+
+Private Sub oficio_write(Valor As String)
+  
+  hoficio = Valor 
+  
+End
+
+Property xinicial As Integer 
+Private hxinicial As Integer 
+
+Private Function xinicial_read() As Integer 
+  
+  Return hxinicial 
+  
+End  
+
+Private Sub xinicial_write(Valor As Integer)
+  
+  hxinicial = Valor 
+  
+End
+
+Property yinicial As Integer 
+Private hyinicial As Integer 
+
+Private Function yinicial_read() As Integer 
+  
+  Return hyinicial 
+  
+End  
+
+Private Sub yinicial_write(Valor As Integer)
+  
+  hyinicial = Valor 
+  
+End

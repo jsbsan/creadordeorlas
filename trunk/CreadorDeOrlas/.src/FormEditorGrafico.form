@@ -1,0 +1,103 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,123,77)
+  Icon = Picture["icon:/22/select"]
+  Margin = True
+  { ScrollViewVentana ScrollView
+    MoveScaled(44,1,78,65)
+    { DrawingAreaMayor DrawingArea
+      MoveScaled(-2,0,342.8571,245)
+      Background = &HFFFFFF&
+      Border = Border.Plain
+      Cached = True
+    }
+  }
+  { ToolButtonZoomMenos ToolButton
+    MoveScaled(35,33,6,5)
+    Visible = False
+    Picture = Picture["icon:/22/zoom-out"]
+    Border = True
+  }
+  { MinimapObjeto DrawingArea
+    MoveScaled(1,1,42.4286,30)
+    Background = &HFFFFFF&
+    Foreground = &H000000&
+    Border = Border.Plain
+  }
+  { ToolButtonZoomMas ToolButton
+    MoveScaled(28,33,6,5)
+    Visible = False
+    Picture = Picture["icon:/22/zoom-in"]
+    Border = True
+  }
+  { ToolButton3 ToolButton
+    MoveScaled(5,64,31,5)
+    Font = Font["-1"]
+    Text = ("Guardar Distribución")
+    Picture = Picture["icon:/22/save"]
+    Border = True
+  }
+  { ToolButton4 ToolButton
+    MoveScaled(5,71,31,5)
+    Font = Font["-1"]
+    Text = ("Cerrar sin guardar")
+    Picture = Picture["icon:/22/cancel"]
+    Border = True
+  }
+  { Frame1 Frame
+    MoveScaled(3,40,39,13)
+    Font = Font["-1"]
+    Text = ("Distribución fotos")
+    { RadioButton1 RadioButton
+      MoveScaled(2,3,17,3)
+      Font = Font["-1"]
+      Text = ("Automatizada")
+    }
+    { RadioButton2 RadioButton
+      MoveScaled(2,8,17,3)
+      Font = Font["-1"]
+      Text = ("Personalizada ")
+    }
+    { Label1 Label
+      MoveScaled(22,3,6,3)
+      Font = Font["-1"]
+      Text = ("Filas:")
+    }
+    { SpinBox1 SpinBox
+      MoveScaled(29,2,6,4)
+      Font = Font["-1"]
+      MinValue = 1
+      MaxValue = 7
+    }
+  }
+  { TimerActualizarDibujo #Timer
+    #MoveScaled(0,61)
+    Enabled = True
+    Delay = 10
+  }
+  { CheckBoxFondo CheckBox
+    MoveScaled(2,52,17,5)
+    Text = ("Fondo visible")
+  }
+  { CheckBoxRejilla CheckBox
+    MoveScaled(22,52,14,6)
+    Text = ("Rejilla")
+  }
+  { ToolButtonZoomInicial ToolButton
+    MoveScaled(21,33,6,5)
+    Visible = False
+    Picture = Picture["icon:/22/zoom-normal"]
+    Border = True
+  }
+  { CheckBoxReglas CheckBox
+    MoveScaled(2,56,17,5)
+    Text = ("Reglas visibles")
+  }
+  { ToolButtonRedibuja ToolButton
+    MoveScaled(1,33,15,5)
+    Text = ("Redibuja")
+    Picture = Picture["icon:/22/refresh"]
+    Border = True
+  }
+}

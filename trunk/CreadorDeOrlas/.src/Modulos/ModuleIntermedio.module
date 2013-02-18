@@ -1,0 +1,41 @@
+' Gambas module file
+
+Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas a crear...siendo la 0 la ruta del programa
+  
+  Dim a As Integer 'contador para bucle For...Next
+  ' User.Home & "/ConstructorDiplomas/"
+  'Crear Directorios del trabajo Actual
+  For a = 0 To rutaSprograma.count - 1 
+    If Not Exist(rutaSprograma[a]) Then Mkdir rutaSprograma[a]
+  Next
+  
+  copiarPlantillasInternas()
+  
+  ModuleHacerTransparente.copiarScriptTransparente(ModulePrincipal.RutaPrograma)
+  'borrar datos anteriores
+  
+  borradoDatosAnteriores(rutaSprograma.Extract(1, rutaSprograma.max))
+  
+End
+
+Public Sub copiarPlantillasInternas()
+  
+  Dim a As Integer
+  
+  For a = 1 To 2 'orlas que tengo en plantillas
+    If Not Exist(ModulePrincipal.RutaPrograma & "plantillasOrla/orla" & Str$(a)) Then 
+      Mkdir ModulePrincipal.RutaPrograma & "plantillasOrla/orla" & Str$(a)
+      ModuleUtilidadesDisco.CopiarFicheros("Plantillas/orla" & Str$(a), ModulePrincipal.RutaPrograma & "plantillasOrla/orla" & Str$(a), "*.*")
+    Endif
+  Next
+  
+End
+
+Public Sub borradoDatosAnteriores(rutas As String[])
+
+  Dim a As Integer
+  For a = 0 To rutas.count - 1 
+    ModuleUtilidadesDisco.vaciarDirectorio(rutas[a])
+  Next
+  
+End

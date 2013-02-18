@@ -1,0 +1,79 @@
+' Gambas module file
+
+Public RutaPrograma As String = User.home & "/CreadorOrlas/" ''ruta donde estan los archivos de datos y de trabajo temporal del programa
+Public RutaDatos As String '' ruta donde esta el proyecto
+Public Rutas As New String[] ''rutas de trabajo
+Public DatosOrla As New ClassDatosOrla
+
+Public Sub main()
+  
+  Dim feditor As New FormEditorGrafico
+  
+  iniciarDirectorios()
+  
+  ModulePruebas.escribe()
+  Print "hola iniciandome..."
+  
+  'feditor.plantillaActual = User.home & "/Imágenes/Orlas/ORLAplantillasAntonio/ORLAejemplo01/orla.svg"
+  Try Mkdir User.home & "/temporal.orla"
+  Try Copy "Plantillas/orla1/adorno.png" To User.home & "/temporal.orla/adorno.png"
+  Try Copy "Plantillas/orla1/borde.png" To User.home & "/temporal.orla/borde.png"
+  Try Copy "Plantillas/orla1/cinta.svg" To User.home & "/temporal.orla/cinta.svg"
+  Try Copy "Plantillas/orla1/ESCUDO01" To User.home & "/temporal.orla/ESCUDO01"
+  Try Copy "Plantillas/orla1/ESCUDO02" To User.home & "/temporal.orla/ESCUDO02"
+  Try Copy "Plantillas/orla1/esquina.png" To User.home & "/temporal.orla/esquina.png"
+  Try Copy "Plantillas/orla1/Detalles_en_azul_y_negro_marco.svg" To User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
+  
+  feditor.plantillaActual = User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
+  feditor.Show()
+  ' iniciarDirectorios()
+  
+End
+
+Public Sub iniciarDirectorios()
+  
+  rutas.add(RutaPrograma)
+  rutas.add(RutaPrograma & "plantillasOrla")
+  rutas.add(RutaPrograma & "temporales")
+  rutas.add(RutaPrograma & "temporales/FotosAlumnos")
+  rutas.add(RutaPrograma & "temporales/FotosAlumnosMini")
+  rutas.Add(RutaPrograma & "temporales/FotosProfesores")
+  rutas.add(RutaPrograma & "temporales/FotosProfesoresMini")
+  rutas.Add(RutaPrograma & "temporales/FotosPlantillaOrla")
+  rutas.Add(RutaPrograma & "trabjotmp")
+  rutas.Add(RutaPrograma & "trabjotmp/pdf")
+  rutas.Add(RutaPrograma & "trabjotmp/exportar")
+  rutas.Add(RutaPrograma & "trabjotmp/importar")
+  
+  ModuleIntermedio.IniciarLaPrimeraVez(rutas)
+  
+  ModuleGestionAlumnos.guardado = True
+  ModuleGestionProfesores.guardado = True
+  
+  ModuleGestionAlumnos.lista.Registros.Clear()
+  ModuleGestionProfesores.lista.Registros.Clear()
+  
+End
+
+Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Boolean
+  
+End
+
+Public Sub CargarDatos() As Boolean ''fichero de datos a cargar
+  
+End
+' ---------------------------------------------------
+' Guardar Datos
+' ---------------------------------------------------
+
+Public Sub guardarDatos() As Boolean
+  
+End
+
+Public Sub copiarplantillas() As Boolean
+  
+End
+
+Public Sub comprimirDatos() As Boolean
+  
+End
