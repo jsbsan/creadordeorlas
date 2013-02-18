@@ -1,0 +1,20 @@
+http://www.rpublica.net/imagemagick/basicas.html#trim
+
+Eliminar márgenes: La opción [-trim]
+| Índice Sección |  | Final Sección |
+
+Con la opción [-trim] eliminamos cualquier pixel de los márgenes de una imagen que sean del mismo color que los de sus esquinas.
+
+convert -trim input output 
+
+Veamos un ejemplo de la acción de la opción [-trim] sobre la imagen maremagnum.png,
+que tiene un borde negro de 5 px.
+
+comvert -trim maremagnum.png maremagnum.tif
+
+maremagnum.png  
+maremagnum.tif
+
+En ocasiones podrá observarse que no se ha eliminado la totalidad del borde. Ello es debido a pequeñas variaciones en el color del borde. Para solucionar este problema debemos "ajustar" más la definición del color que deseamos eliminar. Para ello utilizaremos la opción [-fuzz], que se descibe en esta misma sección.
+
+convert -trim -fuzz 20% maremagnum.png maremagnum.gif 

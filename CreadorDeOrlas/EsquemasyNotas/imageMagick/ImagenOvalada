@@ -1,0 +1,10 @@
+http://www.rpublica.net/imagemagick/artisticas.html#paint
+
+Imagen ovalada: y transparente:
+
+convert llac.jpg -background color -vignette radioxsigma output
+
+radio=9
+sigma=5
+color=None
+

@@ -1,0 +1,61 @@
+' Gambas class file
+
+Property oficio As String 
+Private hoficio As String 
+
+Property nombre As String 
+Private hnombre As String 
+
+Property apellidos As String 
+Private hapellidos As String 
+
+Property pto1 As ClassPto
+Private hpto1 As ClassPto
+
+Private Function apellidos_read() As String 
+  
+  Return hapellidos 
+  
+End  
+
+Private Sub apellidos_write(Valor As String)
+  
+  hapellidos = Valor 
+  
+End
+
+Private Function nombre_read() As String 
+  
+  Return hnombre 
+  
+End  
+
+Private Sub nombre_write(Valor As String)
+  
+  hnombre = Valor 
+  
+End
+
+Private Function oficio_read() As String 
+  
+  Return hoficio 
+  
+End  
+
+Private Sub oficio_write(Valor As String)
+  
+  hoficio = Valor 
+  
+End
+
+Private Function pto1_read() As ClassPto
+  
+  Return hpto1 
+  
+End  
+
+Private Sub pto1_write(Valor As ClassPto)
+  
+  hpto1 = Valor 
+  
+End

@@ -1,0 +1,61 @@
+
+Pon texto en una imagen (tipo de letra de texto)
+
+convert $f -resize 512 -quality 85 -font $HOME/.gimp-2.2/fonts/Got_Heroin.ttf -fill red -pointsize 24 -draw ‘text 480,374 “texto de la firma”‘ 512-$f.JPG
+done
+
+http://plagatux.es/2009/07/tips-imagemagick/
+
+
+Poner texto en dos lineas: y foto tipo polaroid
+
+convert -caption '%c \n (%wx%h)' playa.png -pointsize 14 -bordercolor gray -background black -fill green -polaroid 10 polaroid-caption.png
+
+
+Tratar una foto de una alumno:
+1) obtener foto por fichero o por webcam
+2) giro la foto 90º
+mogrify -rotate 90 imagen.extensión
+http://www.kubuntu-es.org/wiki/graficos/imagemagick-manipulacion-centenares-imagenes-vez
+
+3) la convierto en ovalada y transparente
+
+4) En otra imagen "fondo" , le pongo el texto: Nombre / Apellido / Ciudad/ Provincia
+
+5) Mezclo las dos imagenes, obteniendo el resultado final
+
+
+Mezclar dos imagenes:
+http://systemadmin.es/2010/07/mezclar-dos-imagenes-por-consola-con-imagemagick
+
+Para mezclar la captura de pantalla con la marca de systemadmin.es podemos utilizar el siguiente comando:
+
+$ composite -dissolve 20 -gravity Center fondo.png  captura.png resultado.png
+
+Las opciones son:
+
+    -dissolve: Indica que queremos mezclar las dos imágenes. Indicamos como parámetro con que grado la primera imagen debe aparecer en la segunda. Por ejemplo, si indicamos 90 se verá preferentemente la primera, pero si indicamos 10 se verá más la segunda
+    -gravity: Indica si los tamaños son diferentes dónde se mezcla la imágen. En el caso del ejemplo es en el centro de la imágen (Center) pero sus posibles valores son: SorthWest, North, NorthEast, West, Center, East, SouthWest, Southy SouthEast
+
+ver tambien aqui http://www.rpublica.net/imagemagick/compuestas.html para la explicacion de Center, SorthWest,...
+
+Añadir bordes, texto a imagenes: (son script)
+http://www.dondado.es/2007/07/modificar-imagenes-en-linux-con-imagemagick/
+
+imgelp <fichero> [<ancho%> [<alto%>]] Redondea la imagen con forma de elipse
+
+http://www.linux-magazine.es/issue/39/072-076_ImageMagickLM39.pdf
+
+'Capturar pantalla
+http://www.rpublica.net/imagemagick/capturas.html#import
+comando import
+
+
+Creando un logo:
+
+Algo divertido es que con el comando "convert" podemos crear, en un click, un simpático logo y, por supuesto, desde la terminal con, por ejemplo, este comando:
+$ convert -size 310x70 xc:transparent -font Bookman-DemiItalic -pointsize 72 -draw "text 25,60 'bersil'" -gaussian 0x6 -fill yellow -stroke black -draw "text 20,55 'bersil'" logobersil.png
+
+
+convert -font @/home/tim/fonts/font.ttf -pointsize 20 -fill black
+draw "text 100, 150 ' Vacaciones en la montaña ' " imagen.tiff pie.tiff

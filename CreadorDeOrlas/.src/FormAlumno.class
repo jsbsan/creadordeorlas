@@ -1,0 +1,41 @@
+' Gambas class file
+
+Public Sub Label1_MouseDown()
+  
+End
+
+Public Sub TextBoxNombre_KeyPress()
+  
+End
+
+Public Sub PictureBoxFoto_MouseDown()
+  
+End
+
+Public Sub TextBoxApellidos_KeyPress()
+  
+End
+
+Public Sub Form_Open()
+  
+End
+
+Public Sub Label3_MouseDown()
+  
+End
+
+Public Sub Label5_MouseDown()
+  
+End
+
+Public Sub ToolButtonCancelar_Click()
+  
+End
+
+Public Sub ToolButtonAceptar_Click()
+  
+End
+
+Public Sub Label6_MouseDown()
+  
+End

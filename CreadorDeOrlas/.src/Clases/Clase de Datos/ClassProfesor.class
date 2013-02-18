@@ -1,0 +1,41 @@
+' Gambas class file
+
+Inherits ClassPersona
+Property Asignatura As String 
+Private hAsignatura As String 
+
+'subrutinas
+
+Public Sub vacio()
+  
+  Super.vacio()
+  hAsignatura = ""
+  
+End
+
+Public Sub Text() As String
+  
+  Dim cadena As String
+  
+  cadena = Super.Text()
+  cadena &= Me.Asignatura & "\n"
+  Return cadena
+  
+End
+
+'----------------------------------------------------
+'PROPIEDADES
+'----------------------------------------------------
+'
+'
+Private Function Asignatura_read() As String 
+  
+  Return hAsignatura 
+  
+End  
+
+Private Sub Asignatura_write(Valor As String)
+  
+  hAsignatura = Valor 
+  
+End

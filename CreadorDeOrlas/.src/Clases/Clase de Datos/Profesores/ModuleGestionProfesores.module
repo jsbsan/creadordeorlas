@@ -1,0 +1,90 @@
+' Gambas module file
+
+'Esta clase gestiona una lista (profesores o de alumnos)
+Public lista As New ClassListaProfesores
+
+Public rutaFicheroDatos As String 
+
+Public guardado As Boolean 
+
+Public rutasTemporales As New String[] 
+
+Public Sub CrearGrupo(ruta As Action) As Boolean
+  
+  Dim a As Integer
+  'borrado de rutas donde se guardan los temporales
+  For a = 0 To rutasTemporales.count - 1
+    ModuleUtilidadesDisco.vaciarDirectorio(rutasTemporales[a], "*.*") 
+  Next
+  
+  'limpio lista
+  lista.registros.clear()
+  rutaFicheroDatos = ruta
+  guardado = False
+  
+  Return True
+  
+End
+
+Public Sub anadirRegistro(registro As ClassProfesor)
+  
+  registro.id = lista.generarid()
+  lista.registros.add(registro)
+  guardado = False
+  
+End
+
+Public Sub EditarRegistros(reg As ClassProfesor, id As Integer)
+  
+  Dim listaArrayReg As New ClassProfesor[]
+  Dim indice As Integer
+  
+  indice = lista.buscar(id)
+  If indice <> -1 Then 
+    reg.id = indice
+    
+    listaArrayReg.Add(reg)
+    
+    lista.Registros.Delete(indice)
+    lista.Registros.Insert(listaArrayReg, indice)
+    
+  Endif
+  
+End
+
+Public Sub BorrarRegistro(id As Integer)
+  
+  Dim indice As Integer
+  
+  indice = lista.buscar(id)
+  If indice <> -1 Then 
+    lista.registros.Delete(indice)
+    guardado = False
+  Endif
+  
+End
+
+'---------------------------------------------
+'Carga de datos desde el fichero "datos"
+'---------------------------------------------
+
+Public Sub CargarDatos(rutaLecturaFichero As String) As Boolean
+  
+  'rutaLecturaFichero=ModulePrincipal.rutaprograma & "temporales/datosDimplomasTematicos.txt"
+  
+  Dim contenido As String
+  Dim cadenas As New String[]
+  
+  contenido = file.Load(rutaLecturaFichero)
+  cadenas = Split(contenido, "\n")
+  
+  If cadenas[0] = "version 1" Then
+    cadenas.Delete(0) 'borro la primera linea,que solo me sirve para averiguar la version
+    Return lista.LecturaDatos(cadenas)
+    
+  Else
+    Message.Error("El fichero no lo puedo leer.\n Versión Desconocida.")
+    Return False
+  Endif
+  
+End

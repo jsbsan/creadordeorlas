@@ -1,0 +1,55 @@
+' Gambas class file
+
+Inherits ClassPersona
+Property Pueblo As String 
+Private hPueblo As String 
+Property Provincia As String 
+Private hProvincia As String 
+
+'subrutinas
+Public Sub vacio()
+
+  Super.vacio()
+  hPueblo = ""
+  hProvincia = ""
+  
+End
+
+Public Sub Text() As String
+  
+  Dim cadena As String
+  
+  cadena = Super.Text()
+  cadena &= Me.Pueblo & "\n"
+  cadena &= Me.Provincia & "\n"
+  Return cadena
+  
+End
+
+'----------------------------------------------------
+'PROPIEDADES
+'----------------------------------------------------
+
+Private Function Provincia_read() As String 
+  
+  Return hProvincia 
+  
+End  
+
+Private Sub Provincia_write(Valor As String)
+  
+  hProvincia = Valor 
+  
+End
+
+Private Function Pueblo_read() As String 
+  
+  Return hPueblo 
+  
+End  
+
+Private Sub Pueblo_write(Valor As String)
+  
+  hPueblo = Valor 
+  
+End

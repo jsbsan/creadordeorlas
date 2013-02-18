@@ -1,0 +1,55 @@
+' Gambas class file
+
+Property x As Integer 
+Private hx As Integer 
+Property y As Integer 
+Private hy As Integer 
+
+Public Sub New(Optional xx As Integer, Optional yy As Integer)
+
+  hx = xx
+  hy = yy
+  
+End
+
+Public Sub vacio() '' Pone a cero la coordenada
+  
+  hx = 0
+  hy = 0
+  
+End
+
+Public Sub Text() As String
+  
+  Dim cadena As String
+  
+  cadena = hx & "\n"
+  cadena &= hy & "\n"
+  
+  Return cadena
+  
+End
+
+Private Function y_read() As Integer 
+  
+  Return hy 
+  
+End  
+
+Private Sub y_write(Valor As Integer)
+  
+  hy = Valor 
+  
+End
+
+Private Function x_read() As Integer 
+  
+  Return hx 
+  
+End  
+
+Private Sub x_write(Valor As Integer)
+  
+  hx = Valor 
+  
+End
