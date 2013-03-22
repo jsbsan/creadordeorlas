@@ -1,0 +1,61 @@
+' Gambas class file
+
+Inherits PictureBox
+
+Property indice As Integer ' indice del array 
+
+Property tipo As String 'tipo de alumno/profesor
+Private htipo As String 
+Property Texto As String 
+Private hTexto As String 
+'Private hObserver As Observer
+
+Public Sub _New()
+  
+  '  hObserver = New Observer(Me) As "obs"
+  
+End
+
+Private Function Texto_read() As String 
+  
+  Return hTexto 
+  
+End  
+
+Private Sub Texto_write(Valor As String)
+  
+  hTexto = Valor 
+  
+End
+
+Private Function tipo_read() As String 
+  
+  Return htipo
+  
+End  
+
+Private Sub tipo_write(Valor As String)
+  
+  htipo = Valor 
+  
+End
+
+Private hindice As Integer 
+
+Private Function indice_read() As Integer 
+  
+  Return hindice 
+  
+End  
+
+Private Sub indice_write(Valor As Integer)
+  
+  hindice = Valor 
+  
+End
+
+'Public Sub obs_MouseDown()
+
+' Print "hola", 
+
+'End

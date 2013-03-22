@@ -1,0 +1,270 @@
+' Gambas class file
+
+Public plantillaActual As String 'plantilla actual a la que tendriamos que cargar
+Public arrayBox As New ClassMejorPictureBox[]
+Public objetoCapturado As ClassMejorPictureBox
+
+Public imagenAlumno As Picture = Picture["Editor/Alu.png"]
+Public imagenAlumnoDes As Picture = Picture["Editor/AluDes.png"]
+
+Public imagenPro As Picture = Picture["Editor/Pro.png"]
+Public imagenProDes As Picture = Picture["Editor/ProDes.png"]
+Public escalafoto As Integer = 4
+Public coeficienteEscala As Float = 0.65
+Public imagenfondo As Picture
+
+Public Sub _new()
+  
+End
+
+Public Sub Form_Open()
+  
+  Dim temporalpicture As ClassMejorPictureBox
+  
+  '  Me.Maximized = True
+  
+  LabelTextoPersona.Visible = False
+  'uno las dos imagenes del fondo y de la rejilla-reglas
+  
+  'cargo el fondo...
+  Imagenfondo = Picture.Load(UnirImagenes("hola"))
+  
+  PictureBoxFONDO.h = imagenfondo.H * coeficienteEscala
+  PictureBoxFONDO.w = imagenfondo.w * coeficienteEscala
+  PictureBoxFONDO.Stretch = True
+  PictureBoxFONDO.Picture = imagenfondo
+  'creo 2 objetos ClassMejorPictureBox (en verdad seria todos los que me pasen como argumento
+  
+  temporalpicture = New ClassMejorPictureBox(ScrollView1)
+  temporalpicture.Picture = imagenAlumno
+  temporalpicture.w = imagenAlumno.w / escalafoto
+  temporalpicture.h = imagenAlumno.h / escalafoto
+  temporalpicture.Stretch = True
+  Object.Attach(temporalpicture, Me, "Obs")
+  temporalpicture.x = 420
+  temporalpicture.y = 40
+  temporalpicture.tipo = "Alumno"
+  temporalpicture.indice = 0
+  temporalpicture.texto = "Julio\nSanchez Berro\nDos Hermanas"
+  arrayBox.Add(temporalpicture)
+  
+  temporalpicture = New ClassMejorPictureBox(ScrollView1)
+  temporalpicture.Picture = imagenPro
+  temporalpicture.w = imagenPro.w / escalafoto
+  temporalpicture.h = imagenPro.h / escalafoto
+  temporalpicture.Stretch = True
+  temporalpicture.x = 510
+  temporalpicture.y = 40
+  temporalpicture.tipo = "Profesor"
+  temporalpicture.indice = 0
+  temporalpicture.texto = "Antonio\nSanchez\nAlcala"
+  Object.Attach(temporalpicture, Me, "Obs")
+  arrayBox.Add(temporalpicture)
+  
+  temporalpicture = New ClassMejorPictureBox(ScrollView1)
+  temporalpicture.Picture = imagenAlumno
+  temporalpicture.w = imagenAlumno.w / escalafoto
+  temporalpicture.h = imagenAlumno.h / escalafoto
+  temporalpicture.Stretch = True
+  Object.Attach(temporalpicture, Me, "Obs")
+  temporalpicture.x = 420
+  temporalpicture.y = 300
+  temporalpicture.tipo = "Alumno"
+  temporalpicture.indice = 0
+  temporalpicture.texto = "Eva\nMuñoz Poto\nDos Hermanas"
+  arrayBox.Add(temporalpicture)
+  FormPensando.parar = True
+  FormPensando.Delete
+  
+  Me.Center
+  
+End
+
+Public Sub Form_Resize()
+  
+  ScrollView1.w = Me.w - ScrollView1.x - 5
+  ScrollView1.h = Me.h - ScrollView1.y - 5
+  
+End
+
+Public Sub Obs_MouseDown()
+  
+  ' Print "Evento en Obs.....mousedoww" 
+  capturaDown(Mouse.ScreenX, Mouse.screeny)
+  
+End
+
+Public Sub Obs_MouseUp()
+  
+  ' Print "....up"
+  capturaUp()
+  
+End
+
+Public Sub obs_MouseMove()
+  
+  '  Print "Evento en Obs...mousemove"
+  capturaMoviendo(Mouse.screenx, Mouse.screeny)
+  'If Not IsNull(objetoCapturado) Then
+  
+  '    objetoCapturado.x += Mouse.X / escalafoto
+  '   objetoCapturado.y += Mouse.y / escalafoto
+  '   LabelTextoPersona.x = objetoCapturado.x
+  '   LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
+  '   LabelTextoPersona.Visible = True
+  
+  '  LabelCoordenada.x = objetoCapturado.x
+  '  LabelCoordenada.y = objetoCapturado.y - 20
+  '  LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
+  '  LabelCoordenada.Visible = True
+  ' Endif
+  
+End
+
+Public Sub PictureBoxFONDO_MouseDown()
+  
+  ' Print "Evento producido en PictureBoxFondo.... mousedown"
+  capturaDown(Mouse.screenX, Mouse.screenY)
+  
+End
+
+Public Sub PictureBoxFONDO_MouseMove()
+  
+  ' Print "Evento producido en PictureBoxFondo.... mousemove"
+  capturaMoviendo(Mouse.screenx, Mouse.screeny) 
+  
+End
+
+Public Sub PictureBoxFONDO_MouseUp()
+  
+  ' Print "Evento producido en PictureBoxFondo....UP"
+  '  Print "Evento producidoen PictureBoxFondo...mouseup"
+  capturaUp()
+  
+End
+
+Public Sub ScrollView1_Scroll()
+  
+  '  Print "Evento producido en ScrollView1....scroll"
+  'ScrollView1.EnsureVisible(0, 0, imagenfondo.w, imagenfondo.h)
+  PictureBoxFONDo.setfocus()
+  
+End
+
+Public Sub ScrollView1_MouseUp()
+  
+  ' Print "Evento producido en ScrollView1....mouseUp"
+  capturaUp()
+  
+End
+
+Public Sub ScrollView1_MouseDown()
+  
+  '  Print "Evento producido en ScrollView1.....MOuseDown"
+  capturaDown(Mouse.screenX, Mouse.screenY)
+  
+End
+
+Public Sub ScrollView1_MouseMove()
+  
+  '  Print "Evento producido en ScrollView1....mouseMove"
+  capturaMoviendo(Mouse.screenX, Mouse.screenY)
+  
+End
+
+'------------------------------------------------------------------------
+' up, down, y move
+'------------------------------------------------------------------------
+
+Public Sub capturaUp()
+  'suelta el boton...
+  
+  If Not IsNull(objetoCapturado) Then 
+    If objetoCapturado.tipo = "Alumno" Then 
+      objetoCapturado.Picture = imagenAlumno
+      
+    Else
+      If objetoCapturado.tipo = "Profesor" Then 
+        objetoCapturado.Picture = imagenPro
+        
+      Endif
+    Endif
+    LabelCoordenada.x = objetoCapturado.x
+    LabelCoordenada.y = objetoCapturado.y - 20
+    LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
+    LabelTextoPersona.Visible = False
+    LabelCoordenada.Visible = False
+    objetoCapturado = Null
+  Endif
+  
+End
+
+Public Sub capturaMoviendo(mousex As Integer, mousey As Integer)
+  
+  If Not IsNull(objetoCapturado) Then 
+    objetoCapturado.X += (MouseX - objetoCapturado.ScreenX) / escalafoto
+    objetoCapturado.y += (Mousey - objetoCapturado.ScreenY) / escalafoto 
+    LabelTextoPersona.x = objetoCapturado.x
+    LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
+    LabelTextoPersona.Visible = True
+    
+    LabelCoordenada.x = objetoCapturado.x
+    LabelCoordenada.y = objetoCapturado.y - 20
+    LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
+    LabelCoordenada.Visible = True
+  Endif
+  
+End
+
+Public Sub capturaDown(mouseScreenx As Integer, mouseScreeny As Integer)
+  
+  Dim objtemp As ClassMejorPictureBox
+  
+  'busco si algun array 
+  For Each objtemp In arrayBox
+    Print "       Objeto:", objtemp.screenX, objtemp.screenY
+    Print "       scrollX:", ScrollView1.Scrollx
+    If (MousescreenX + 50) >= objtemp.screenX And objtemp.screenX >= (MousescreenX - 20) Then 
+      If (MousescreenY - 20) <= objtemp.ScreenY And (MousescreenY + 50) >= objtemp.screenY Then 
+        objetoCapturado = objtemp
+        If objetoCapturado.tipo = "Alumno" Then 
+          objetoCapturado.Picture = imagenAlumnoDes
+          LabelTextoPersona.text = objetoCapturado.Texto
+          LabelCoordenada.x = objetoCapturado.x
+          LabelCoordenada.y = objetoCapturado.y - 20
+          LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
+          LabelCoordenada.Visible = True
+          Break
+        Else
+          If objetoCapturado.tipo = "Profesor" Then 
+            objetoCapturado.Picture = imagenProDes
+            LabelTextoPersona.text = objetoCapturado.Texto
+            LabelCoordenada.x = objetoCapturado.x
+            LabelCoordenada.y = objetoCapturado.y - 20
+            LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
+            LabelCoordenada.Visible = True
+            Break
+          Endif
+        Endif
+        Break
+      Endif
+    Endif
+    
+  Next
+  
+End
+
+Public Sub UnirImagenes(orladibujopng As String) As String
+  'copio ficheros muestras a un directorio temporal
+  
+  Try Mkdir "/tmp" & "/pruebaCombinacion" 
+  
+  Try Copy "enblancoA3.png" To "/tmp" & "/pruebaCombinacion/enblancoA3.png"
+  Try Copy "temporalFondo.png" To "/tmp" & "/pruebaCombinacion/temporalFondo.png"
+  Try Copy "cuadriculaA3.png" To "/tmp" & "/pruebaCombinacion/cuadriculaA3.png"
+  
+  Exec ["composite", "/tmp" & "/pruebaCombinacion/temporalFondo.png", "-geometry", "+40+35", "/tmp" & "/pruebaCombinacion/enblancoA3.png", "/tmp" & "/pruebaCombinacion/c0.png"] Wait
+  Exec ["composite", "/tmp" & "/pruebaCombinacion/c0.png", "/tmp" & "/pruebaCombinacion/cuadriculaA3.png", "/tmp" & "/pruebaCombinacion/c2.png"] Wait
+  Return "/tmp" & "/pruebaCombinacion/c2.png"
+  
+End

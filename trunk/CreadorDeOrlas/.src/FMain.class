@@ -9,14 +9,18 @@ Public Sub Form_Open()
   Me.center
   ModulePruebas.escribe()
   FormPlantillaOrla.show
-  FormEditorGrafico.show
   
 End
 
 Public Sub ButtonEditorOrla_Click()
   'Reemplaza la plantilla con los datos que ha introducido (colegio, curso,etc )
   
-  FormEditorGrafico.show
+  Dim feditor As New FMainEditor
+  
+  FormPensando.show()
+  Wait 0.5
+  feditor.plantillaActual = User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
+  feditor.Show()
   
 End
 
@@ -87,5 +91,11 @@ Public Sub ToolButtonCrear_Click()
     Endif
     
   Endif
+  
+End
+
+Public Sub IconPanel1_Click()
+  
+  If IconPanel1.Index = 9 Then Me.Close
   
 End
