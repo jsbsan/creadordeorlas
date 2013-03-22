@@ -1,7 +1,7 @@
 ' Gambas class file
 
 Public observador As New Observer(Me) As "observador1"
-
+Private filaseleccionada As Integer
 Inherits GridView
 
 Property indice As Integer[]
@@ -61,5 +61,31 @@ Private Function revisa(cadena As String) As String
     devuelta &= letra
   Next 
   Return devuelta
+  
+End
+
+Public Sub observador1_Select()
+  
+  Dim a As Integer
+  
+  If filaseleccionada >= 0 Then
+    'borro la anterior fila seleccionada
+    For a = 0 To Me.Columns.Count - 1
+      Me[filaseleccionada, a].Background = Color.White
+      
+    Next
+  Endif
+  
+  'marcar fila
+  For a = 0 To Me.Columns.Count - 1
+    Me[Me.row, a].Background = Color.green
+    
+  Next
+  filaseleccionada = Me.row
+  
+  '
+  'marcar celda
+  'GridviewPrueba[gridviewprueba.row, gridviewprueba.column].Background = Color.green
+  '
   
 End

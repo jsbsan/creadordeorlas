@@ -1,0 +1,138 @@
+[Bookmarks]
+FormEditorGrafico=[9]
+
+[Breakpoints]
+Count=0
+
+[DebugWindow]
+Count=0
+
+[DebugWindow/ArrayFotosRectangulos]
+Geometry=[1305,66,210,210]
+
+[DebugWindow/ArrayFotosRectangulos[0]]
+Geometry=[1312,72,210,573]
+
+[DebugWindow/ArrayFotosRectangulos[0].pto1]
+Geometry=[1319,78,210,573]
+
+[DebugWindow/Dialog]
+Geometry=[-10,-8,295,584]
+
+[DebugWindow/Dialog.Font]
+Geometry=[1018,259,1274,933]
+
+[DebugWindow/FormEditorGrafico]
+Geometry=[-7,-8,210,210]
+
+[DebugWindow/FormPensando]
+Geometry=[-10,-8,210,524]
+
+[DebugWindow/Me]
+Geometry=[-7,-8,210,661]
+
+[DebugWindow/ModulePrincipal]
+Geometry=[1534,801,964,210]
+
+[DebugWindow/fototemp]
+Geometry=[1270,66,210,210]
+
+[DebugWindow/himagen]
+Geometry=[-3,98,1124,312]
+
+[DebugWindow/rutaSprograma]
+Geometry=[568,89,466,669]
+
+[FCommit]
+LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\nA       .\nA       .src\nA       .src/FMain.class\nA       .src/FormAlumno.form\nA       .src/Modulos\nA       .src/Modulos/ModuleImprimir.module\nA       .src/Modulos/ModuleHacerTransparente.module\nA       .src/Modulos/ModuleUtilidadesDisco.module\nA       .src/Modulos/ModuleIntermedio.module\nA       .src/Modulos/ModulePrincipal.module\nA       .src/FormAlumno.class\nA       .src/FormPlantillaOrla.form\nA       .src/FormProfesor.form\nA       .src/FormPlantillaOrla.class\nA       .src/FormProfesor.class\nA       .src/FormEditorGrafico.form\nA       .src/FormEditorGrafico.class\nA       .src/Clases\nA       .src/Clases/Clase de Datos\nA       .src/Clases/Clase de Datos/ClassProfesor.class\nA       .src/Clases/Clase de Datos/ClassPos.class\nA       .src/Clases/Clase de Datos/Alumnos\nA       .src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module\nA       .src/Clases/Clase de Datos/Alumnos/ClassListaAlumnos.class\nA       .src/Clases/Clase de Datos/ClassPersona.class\nA       .src/Clases/Clase de Datos/ClassDatosOrla.class\nA       .src/Clases/Clase de Datos/ClassGestion.class\nA       .src/Clases/Clase de Datos/ClassAlumno.class\nA       .src/Clases/Clase de Datos/Profesores\nA       .src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module\nA       .src/Clases/Clase de Datos/Profesores/ClassListaProfesores.class\nA       .src/Clases/DeTrabajo\nA       .src/Clases/DeTrabajo/ClassSuperGridview.class\nA       .src/Clases/DeTrabajo/ClassZip.class\nA       .src/Clases/Editor\nA       .src/Clases/Editor/ClassMiniMapa.class\nA       .src/Clases/Editor/ClassRectanguloFijo.class\nA       .src/Clases/Editor/ClassPto.class\nA       .src/Clases/Editor/ClassPtoControl.class\nA       .src/Clases/Editor/ClassRectanguloRelleno.class\nA       .src/ModulePruebas.module\nA       .src/FMain.form\nA       gambas360.png\nA       orlaicono.png\nA       .hidden\nA       ojo22.png\nA       icono_fotos_personas.png\nA       .startup\nA       importar.png\nA       icono_transparente.png\nA       EsquemasyNotas\nA       EsquemasyNotas/UrlPlantillas\nA       EsquemasyNotas/Programa\nA       EsquemasyNotas/Programa/Especificaciones Plantilla Orlas.txt\nA       EsquemasyNotas/Programa/EstruturaDeDatos\nA       EsquemasyNotas/Programa/SvgTextoImagen\nA       EsquemasyNotas/Programa/Organizar en filas y Columnas\nA       EsquemasyNotas/Programa/EsquemaGeneralDeLaAplición\nA       EsquemasyNotas/Letras\nA       EsquemasyNotas/imageMagick\nA       EsquemasyNotas/imageMagick/Convertir A3 a A4\nA       EsquemasyNotas/imageMagick/TextoEnImagen\nA       EsquemasyNotas/imageMagick/ImagenOvalada\nA       EsquemasyNotas/imageMagick/Eliminar color en esquina\nA       .directory\nA       .project\nA       inkscape-icono.png\nA       gestorOrlas.png\nA       exportar.png\nA       transparente.png\nA       .icon.png\nA       magicwand\nA       .action\nA       icono_galeria2.jpg\nA       FotoCarnetMyWebCam-3.0.3.tar.gz\nA       camara_icono.png\nA       .lang\nA       dibujos\nA       dibujos/Iconos_Educatronica_01.png\nA       dibujos/gatojugando.png\nA       dibujos/Editor\nA       dibujos/Editor/banderita.png\nA       dibujos/Editor/chinchetaAmarilla.png\nA       dibujos/Editor/barra297.png\nA       dibujos/Editor/barra210.png\nA       dibujos/Editor/barra420.png\nA       dibujos/Editor/chinchetaRoja.png\nA       dibujos/ORLA GENERADOR.png\nA       dibujos/icono_profesor.png\nA       mininopicaros2012.png\nA       Plantillas\nA       Plantillas/orla1\nA       Plantillas/orla1/esquina.png\nA       Plantillas/orla1/Detalles_en_azul_y_negro_marco.svg\nA       Plantillas/orla1/cinta.svg\nA       Plantillas/orla1/borde.png\nA       Plantillas/orla1/ESCUDO01\nA       Plantillas/orla1/ESCUDO02\nA       Plantillas/orla1/adorno.png\nA       Plantillas/orla2\nA       Plantillas/orla2/border.jpg\nA       Plantillas/orla2/cinta.svg\nA       Plantillas/orla2/Antorcha y orla rojaref.svg\nA       Plantillas/orla2/antorcha.jpg\nA       Plantillas/orla2/ESCUDO01\nA       Plantillas/orla2/ESCUDO02"
+
+[OpenFile]
+Active=1
+File[1]=".src/FMain.form"
+File[2]=".src/FMain.class:101.0"
+File[3]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
+File[4]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
+File[5]="EsquemasyNotas/UrlPlantillas:9.45"
+File[6]="dibujos/ORLA GENERADOR.png"
+File[7]="orlaicono.png"
+File[8]=".src/Modulos/ModuleUtilidadesDisco.module:99.8"
+File[9]=".src/FormPlantillaOrla.form"
+File[10]="gestorOrlas.png"
+File[11]="ojo22.png"
+File[12]="inkscape-icono.png"
+File[13]="mininopicaros2012.png"
+File[14]="transparente.png"
+File[15]="importar.png"
+File[16]="exportar.png"
+File[17]="gambas360.png"
+File[18]="icono_galeria2.jpg"
+File[19]="icono_transparente.png"
+File[20]="dibujos/Iconos_Educatronica_01.png"
+File[21]="dibujos/icono_profesor.png"
+File[22]=".src/FormPlantillaOrla.class:3.0"
+File[23]="EsquemasyNotas/Programa/EsquemaGeneralDeLaAplición:53.7"
+File[24]="dibujos/gatojugando.png"
+File[25]="dibujos/Editor/barra420.png"
+File[26]="dibujos/Editor/barra297.png"
+File[27]="dibujos/Editor/barra210.png"
+File[28]="EsquemasyNotas/Programa/EstruturaDeDatos:23.9"
+File[29]="EsquemasyNotas/Programa/Organizar en filas y Columnas:0.0"
+File[30]="EsquemasyNotas/Programa/SvgTextoImagen:25.21"
+File[31]="EsquemasyNotas/imageMagick/Convertir A3 a A4:1.77"
+File[32]="EsquemasyNotas/imageMagick/Eliminar color en esquina:0.0"
+File[33]="EsquemasyNotas/Letras:3.59"
+File[34]="EsquemasyNotas/Programa/Especificaciones Plantilla Orlas.txt:14.86"
+File[35]=".src/Clases/Clase de Datos/ClassPos.class:11.0"
+File[36]=".src/Clases/Clase de Datos/ClassPersona.class:47.3"
+File[37]=".src/Clases/Clase de Datos/ClassAlumno.class:2.0"
+File[38]=".src/Clases/Clase de Datos/ClassProfesor.class:14.0"
+File[39]=".src/Clases/Clase de Datos/ClassDatosOrla.class:207.0"
+File[40]=".src/ModulePruebas.module:23.32"
+File[41]=".src/Clases/Clase de Datos/Alumnos/ClassListaAlumnos.class:1.0"
+File[42]=".src/Clases/Clase de Datos/Profesores/ClassListaProfesores.class:1.0"
+File[43]="camara_icono.png"
+File[44]="icono_fotos_personas.png"
+File[45]="Plantillas/orla2/antorcha.jpg"
+File[46]="Plantillas/orla2/border.jpg"
+File[47]="Plantillas/orla2/cinta.svg:0.0"
+File[48]="Plantillas/orla2/Antorcha y orla rojaref.svg:0.0"
+File[49]="Plantillas/orla1/adorno.png"
+File[50]="Plantillas/orla1/borde.png"
+File[51]="Plantillas/orla1/esquina.png"
+File[52]="Plantillas/orla1/cinta.svg:0.0"
+File[53]="Plantillas/orla1/Detalles_en_azul_y_negro_marco.svg:0.0"
+File[54]=".src/Clases/Clase de Datos/ClassGestion.class:1.0"
+File[55]=".src/Modulos/ModulePrincipal.module:24.14"
+File[56]=".src/Modulos/ModuleIntermedio.module:25.2"
+File[57]=".src/Modulos/ModuleHacerTransparente.module:7.3"
+File[58]="magicwand:0.0"
+File[59]=".src/Modulos/ModuleImprimir.module:18.25"
+File[60]=".src/FormAlumno.form"
+File[61]=".src/FormAlumno.class:39.0"
+File[62]=".src/FormProfesor.form"
+File[63]=".src/FormProfesor.class:1.0"
+File[64]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:29.33"
+File[65]=".src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module:10.0"
+File[66]=".src/Formularios Comunes/FormError.form"
+File[67]="icoLoading.gif"
+File[68]=".src/Formularios Comunes/FormElegirFichero.form"
+File[69]=".src/Formularios Comunes/FormPensando.form"
+File[70]=".src/Formularios Comunes/FormElegirFichero.class:12.2"
+File[71]=".src/Clases/Clase de Datos/ClassDato.class:0.19"
+File[72]=".src/Clases/Editor/FMainEditor.form"
+File[73]=".src/Clases/Editor/ClassMejorPictureBox.class:0.19"
+File[74]="Editor/Alu.png"
+File[75]="Editor/AluDes.png"
+File[76]="Editor/cuadriculaA3.png"
+File[77]="Editor/enblancoA3.png"
+File[78]="Editor/Pro.png"
+File[79]="Editor/ProDes.png"
+File[80]="Editor/temporalFondo.png"
+File[81]=".src/Clases/Editor/FMainEditor.class:76.21"
+File[82]=".src/Clases/DeTrabajo/ClassSuperGridview.class:0.19"
+File[83]=".src/Formularios Comunes/FormPensando.class:3.0"
+Count=83
+
+[Watches]
+Count=0
+

@@ -1,0 +1,29 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,119,71)
+  Tracking = True
+  AutoResize = True
+  { ScrollView1 ScrollView
+    MoveScaled(25,2,92,65)
+    { PictureBoxFONDO PictureBox
+      MoveScaled(0,0,58,45)
+      Background = &HFFFFFF&
+      Border = Border.Plain
+    }
+    { LabelTextoPersona Label
+      MoveScaled(18,33,11,7)
+      Font = Font["Andale Mono,Italic,-2"]
+      Background = &HFFFF5F&
+      Text = ("Label2")
+    }
+    { LabelCoordenada Label
+      MoveScaled(33,28,9,3)
+      Visible = False
+      Font = Font["Courier 10 Pitch,-2"]
+      Background = &HBFFFDF&
+      Text = ("Label1")
+      Alignment = Align.Center
+    }
+  }
+}

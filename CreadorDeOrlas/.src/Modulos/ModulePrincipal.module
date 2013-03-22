@@ -7,8 +7,6 @@ Public DatosOrla As New ClassDatosOrla
 
 Public Sub main()
   
-  Dim feditor As New FormEditorGrafico
-  
   iniciarDirectorios()
   
   ModulePruebas.escribe()
@@ -24,9 +22,7 @@ Public Sub main()
   Try Copy "Plantillas/orla1/esquina.png" To User.home & "/temporal.orla/esquina.png"
   Try Copy "Plantillas/orla1/Detalles_en_azul_y_negro_marco.svg" To User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
   
-  feditor.plantillaActual = User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
-  feditor.Show()
-  ' iniciarDirectorios()
+  FMain.Show()
   
 End
 
