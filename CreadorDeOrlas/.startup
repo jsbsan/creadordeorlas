@@ -1,13 +1,15 @@
-ModulePrincipal
+FMain
 CreadorDeOrlas
 0
 0
-0.0.3
+0.0.4
 
 gb.image
 gb.qt4
 gb.form
 gb.desktop
 gb.form.dialog
+gb.net
+gb.net.curl
 gb.qt4.ext
 

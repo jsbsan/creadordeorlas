@@ -5,27 +5,6 @@ Public RutaDatos As String '' ruta donde esta el proyecto
 Public Rutas As New String[] ''rutas de trabajo
 Public DatosOrla As New ClassDatosOrla
 
-Public Sub main()
-  
-  iniciarDirectorios()
-  
-  ModulePruebas.escribe()
-  Print "hola iniciandome..."
-  
-  'feditor.plantillaActual = User.home & "/Imágenes/Orlas/ORLAplantillasAntonio/ORLAejemplo01/orla.svg"
-  Try Mkdir User.home & "/temporal.orla"
-  Try Copy "Plantillas/orla1/adorno.png" To User.home & "/temporal.orla/adorno.png"
-  Try Copy "Plantillas/orla1/borde.png" To User.home & "/temporal.orla/borde.png"
-  Try Copy "Plantillas/orla1/cinta.svg" To User.home & "/temporal.orla/cinta.svg"
-  Try Copy "Plantillas/orla1/ESCUDO01" To User.home & "/temporal.orla/ESCUDO01"
-  Try Copy "Plantillas/orla1/ESCUDO02" To User.home & "/temporal.orla/ESCUDO02"
-  Try Copy "Plantillas/orla1/esquina.png" To User.home & "/temporal.orla/esquina.png"
-  Try Copy "Plantillas/orla1/Detalles_en_azul_y_negro_marco.svg" To User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
-  
-  FMain.Show()
-  
-End
-
 Public Sub iniciarDirectorios()
   
   rutas.add(RutaPrograma)

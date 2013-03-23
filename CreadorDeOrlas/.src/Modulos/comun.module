@@ -1,0 +1,150 @@
+' Gambas module file
+
+Public Sub comprobarEntorno()
+  
+  Dim texto As String
+  Dim falta As Boolean = False
+  
+  If Not comun.instalado("zip") Then 
+    texto = ("zip") & "\n"
+    falta = True
+  Endif
+  
+  If Not comun.instalado("pdftk") Then 
+    texto &= ("pdftk") & "\n"
+    falta = True
+  Endif
+  
+  If Not comun.instalado("imagemagick") Then 
+    texto &= ("imagemagick") & "\n"
+    falta = True
+  Endif
+  
+  If falta = True Then
+    Message.Info(("Falta los siguientes programas por instarlar:") & "\n" & texto & ("Instalelos para poder ejecutar el programa correctamente"))
+  Endif
+  
+End
+
+Public Function instalado(paquete As String) As Boolean
+  'Indica si un paquete de software está instalado en el sistema o no (Debian y derivados)
+  
+  Dim contenido As String
+  Dim n As Integer
+  
+  Shell "dpkg -l|grep " & paquete & " > /tmp/paq.txt" Wait 
+  Try contenido = File.load("/tmp/paq.txt")
+  n = InStr(contenido, " " & paquete & " ")
+  
+  If n > 0 And Left(contenido, 2) = "ii" Then 'si el paquete se desinstaló pero no completamente la línea empieza por rc
+    Return True
+  Else 
+    Return False
+  Endif 
+  
+End 
+
+Public Function BetweenLista(Datos As String, Cadena1 As String, Cadena2 As String) As String[]
+  
+  Dim lista As New String[]
+  Dim subcadena As String
+  Dim iinf As Integer
+  Dim isup As Integer
+  Dim a As Integer
+  
+  For a = 0 To String.Len(datos) - String.Len(cadena2) - String.Len(cadena1)
+    
+    iinf = String.InStr(Datos, Cadena1, a) + Len(Cadena1)
+    isup = String.InStr(Datos, Cadena2, iinf)
+    
+    If iinf <= (isup - iinf) Then
+      subcadena = String.Mid(Datos, iinf, isup - iinf)
+      lista.add(subcadena)
+      a = isup + String.Len(cadena2)
+    Endif
+    
+  Next
+  
+  Return lista
+  
+End
+
+Public Function Between(Datos As String, Cadena1 As String, Cadena2 As String) As String
+  
+  Dim iinf As Integer
+  Dim isup As Integer
+  
+  iinf = InStr(Datos, Cadena1) + Len(Cadena1)
+  isup = InStr(Datos, Cadena2, iinf)
+  Return Mid(Datos, iinf, isup - iinf)
+  
+End
+
+Public Function ObtenerListaLetrasSistema() As ClassDatoLetra[]
+  
+  Dim ruta As String
+  Dim comando As String
+  Dim salida As String
+  Dim letra As ClassDatoLetra
+  Dim listaLetras As New ClassDatoLetra[]
+  Dim lineas As String[]
+  Dim a As Integer
+  
+  Dim nombre As String
+  
+  comando = "fc-list -v"
+  Shell comando To salida
+  
+  'analizo la salida para generar lista de tipos de letras
+  lineas = Split(salida, "\n")
+  For a = 0 To lineas.max
+    If InStr(lineas[a], "family: ") <> 0 Then 
+      letra = New ClassDatoLetra
+      nombre = Between(lineas[a], "family: ", "(s)")
+      'quito comillas
+      nombre = Replace$(nombre, "\"", "")
+      letra.nombre = nombre
+    Endif
+    
+    If InStr(lineas[a], "file:") <> 0 And InStr(lineas[a], ".pdb") = 0 Then 
+      ruta = Between(lineas[a], "file: ", "(s)")
+      'quito comillas
+      ruta = Replace$(ruta, "\"", "")
+      letra.ruta = ruta
+      listaLetras.add(letra)
+      
+    Endif
+  Next
+  
+  Return listaLetras
+  
+End
+
+Public Function ObtenerListaLetrasSVG(archivo As String) As String[]
+  
+  Dim salida As String
+  
+  Dim lineas As New String[]
+  Dim listaletras As New String[]
+  Dim nombre As String
+  Dim a As Integer
+  
+  Print "Obteniendo lista de letras SVG"
+  Print archivo
+  salida = File.Load(archivo)
+  lineas = Split(salida, "\n")
+  
+  For a = 0 To lineas.Max
+    If InStr(lineas[a], ";font-family:") <> 0 Then 
+      nombre = Between(lineas[a], ";font-family:", ";")
+      If nombre <> "" And listaletras.Find(nombre) = -1 Then 
+        If InStr(Upper$(nombre), Upper$("Sans")) = 0 And InStr(Upper$(nombre), Upper$("Ubuntu")) = 0 Then  
+          listaLetras.add(nombre)
+        Endif
+      Endif
+    Endif
+  Next
+  
+  Return listaLetras
+  
+End

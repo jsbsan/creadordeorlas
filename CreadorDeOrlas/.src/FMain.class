@@ -1,14 +1,63 @@
 ' Gambas class file
 
+Public listaTiposDeLetra As New ClassDatoLetra[] 'lista de letras que contiene el sistema
+
+Public GridViewRegistrosAlumnos As ClassSuperGridview
+Public Observador1 As Observer
+
+Public GridViewRegistrosProfesores As ClassSuperGridview
+Public Observador2 As Observer
+
 Public Sub _new()
   
 End
 
 Public Sub Form_Open()
   
-  Me.center
-  ModulePruebas.escribe()
-  FormPlantillaOrla.show
+  Dim pensando As New FormPensando 
+  
+  If ModuleUnicaVez.ejecutandoUnicaCopia("CreadorDeOrlas.gambas") <> True Then
+    pensando.Show()
+    Wait 0.5
+    LabelVersion.text = "Versión: Beta " & Application.Version
+    Me.center
+    ModuleUpdate.comprobar("CreadorDeOrlas", Application.Version, "http://creadordeorlas.blogspot.com.es/2013/03/version.html", "no mensaje")
+    
+    ModulePruebas.escribe()
+    comun.comprobarEntorno()
+    'inicio el programa: creo directorios y copio archivos...
+    ModulePrincipal.iniciarDirectorios()
+    
+    ModulePruebas.escribe()
+    Print "hola iniciandome..."
+    
+    'feditor.plantillaActual = User.home & "/Imágenes/Orlas/ORLAplantillasAntonio/ORLAejemplo01/orla.svg"
+    Try Mkdir User.home & "/temporal.orla"
+    Try Copy "Plantillas/orla1/adorno.png" To User.home & "/temporal.orla/adorno.png"
+    Try Copy "Plantillas/orla1/borde.png" To User.home & "/temporal.orla/borde.png"
+    Try Copy "Plantillas/orla1/cinta.svg" To User.home & "/temporal.orla/cinta.svg"
+    Try Copy "Plantillas/orla1/ESCUDO01" To User.home & "/temporal.orla/ESCUDO01"
+    Try Copy "Plantillas/orla1/ESCUDO02" To User.home & "/temporal.orla/ESCUDO02"
+    Try Copy "Plantillas/orla1/esquina.png" To User.home & "/temporal.orla/esquina.png"
+    Try Copy "Plantillas/orla1/Detalles_en_azul_y_negro_marco.svg" To User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
+    
+    'crear gridview y sus observadores....para  diplomas tematicos, registros alumnos
+    GridViewRegistrosAlumnos = New ClassSuperGridview(IconPanel1[3])
+    Observador1 = New Observer(GridViewRegistrosAlumnos) As "ObservadorGridViewRegistrosAlumnos"
+    
+    GridViewRegistrosProfesores = New ClassSuperGridview(IconPanel1[4])
+    Observador2 = New Observer(GridViewRegistrosProfesores) As "ObservadorGridViewRegistrosProfesores"
+    
+    ModuleIntermedio.IniciarGridViewRegistrosAlumnos(GridViewRegistrosAlumnos)
+    ModuleIntermedio.IniciarGridViewRegistrosProfesoresores(GridViewRegistrosProfesores)
+    
+    pensando.parar = True
+    pensando.Delete()
+    
+  Else
+    'como ya hay una instancia de esta aplicacion abierta, salgo
+    Me.Close()
+  Endif
   
 End
 
