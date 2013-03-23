@@ -32,10 +32,71 @@ Public Sub copiarPlantillasInternas()
 End
 
 Public Sub borradoDatosAnteriores(rutas As String[])
-
+  
   Dim a As Integer
+  
   For a = 0 To rutas.count - 1 
     ModuleUtilidadesDisco.vaciarDirectorio(rutas[a])
   Next
+  
+End
+
+Public Sub IniciarGridViewRegistrosProfesoresores(grid As ClassSuperGridview)
+  
+  With grid 
+    .header = 3 
+    .rows.count = 1000 
+    .columns.count = 5
+    .columns[0].title = "Foto "
+    .Columns[1].title = "Nombre" 
+    .Columns[2].title = "Apellidos" 
+    .Columns[3].title = "Orden" 
+    .Columns[4].title = "Asignatura" 
+    .Columns[0].width = 50 
+    .Columns[1].width = 75 
+    .Columns[2].width = 125 
+    .Columns[3].width = 50 
+    .Columns[4].width = 75 
+    
+    .font.name = "Sans" 
+    .font.size = 9 
+    .mode = 1
+    .w = 485
+    .h = 500
+    .x = 10
+    .y = 40
+    .TOOLTIP = "Si haces doble click en una fila, la puedes editar"
+  End With
+  
+End
+
+Public Sub IniciarGridViewRegistrosAlumnos(grid As ClassSuperGridview)
+  
+  With grid 
+    .header = 3 
+    .rows.count = 1000 
+    .columns.count = 6
+    .columns[0].title = "Foto "
+    .Columns[1].title = "Nombre" 
+    .Columns[2].title = "Apellidos" 
+    .Columns[3].title = "Orden" 
+    .Columns[4].title = "Pueblo" 
+    .Columns[5].title = "Provincia" 
+    .Columns[0].width = 50 
+    .Columns[1].width = 75 
+    .Columns[2].width = 125 
+    .Columns[3].width = 50 
+    .Columns[4].width = 75 
+    .Columns[5].width = 75 
+    
+    .font.name = "Sans" 
+    .font.size = 9 
+    .mode = 1
+    .w = 510
+    .h = 500
+    .x = 10
+    .y = 40
+    .TOOLTIP = "Si haces doble click en una fila, la puedes editar"
+  End With
   
 End

@@ -1,14 +1,16 @@
 # Gambas Project File 3.0
 # Compiled with Gambas 3.4.0
 Title=CreadorDeOrlas
-Startup=ModulePrincipal
+Startup=FMain
 Icon=orlaicono.png
-Version=0.0.3
+Version=0.0.4
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
 Component=gb.desktop
 Component=gb.form.dialog
+Component=gb.net
+Component=gb.net.curl
 Component=gb.qt4.ext
 Description="Solo editor\nAlgo de codigo mas..."
 TabSize=2
