@@ -237,10 +237,12 @@
       Font = Font["Bitstream Charter,-1"]
       Text = ("Tipos de letra")
       { LabelTipoProfesor Label
-        MoveScaled(31,13,23,3)
+        MoveScaled(23,12,23,3)
+        Text = ("TipoProfesor")
       }
       { LabelTipoAlumno Label
         MoveScaled(23,5,19,3)
+        Text = ("TipoAlumno")
       }
       { Label34 Label
         MoveScaled(4,4,18,5)
@@ -315,7 +317,7 @@
         Border = Border.Plain
       }
       { PictureBoxEscudo PictureBox
-        MoveScaled(21,5,16,13)
+        MoveScaled(20,5,16,13)
         Tag = "ESCUDO"
         Picture = Picture["icono_galeria2.jpg"]
         Stretch = True
@@ -469,24 +471,24 @@
       Value = CheckBox.True
     }
     { Frame6 Frame
-      MoveScaled(41,49,16,17)
+      MoveScaled(40,49,17,17)
       Font = Font["Bitstream Charter,-1"]
       Text = ("Espacio entre fotos")
       { Label6 Label
-        MoveScaled(-1.8571,5,10,4)
+        MoveScaled(0,5,10,4)
         Text = ("Horizontal:")
         Alignment = Align.Right
       }
       { ValueBoxVertical ValueBox
-        MoveScaled(9,10,5,3)
+        MoveScaled(11,10,5,3)
         Text = ("ValueBox1")
       }
       { ValueBoxHorizontal ValueBox
-        MoveScaled(9.1429,5,5,3)
+        MoveScaled(11,5,5,3)
         Text = ("ValueBox1")
       }
       { Label19 Label
-        MoveScaled(-1,10,10,3)
+        MoveScaled(0,10,10,3)
         Text = ("Vertical:")
         Alignment = Align.Right
       }
