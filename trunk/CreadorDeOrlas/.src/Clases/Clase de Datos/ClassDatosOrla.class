@@ -1,21 +1,21 @@
 ' Gambas class file
 
-Property Plantilla As String 
+Property Plantilla As String ''tipo de plantilla de orla a usar
 Private hPlantilla As String
 
-Property escudo01 As String 
+Property escudo01 As String  ''fondo de la orla
 Private hescudo01 As String 
 
-Property escudo02 As String 
+Property escudo02 As String ''escudo de la orla
 Private hescudo02 As String 
 
-Property escudo03 As String 
+Property escudo03 As String ''logo de la orla
 Private hescudo03 As String 
 
-Property escudo04 As String 
+Property escudo04 As String ''imagen opcional
 Private hescudo04 As String 
 
-Property colegio As String 
+Property colegio As String ''colegio/instituto universidad
 Private hcolegio As String 
 
 Property clase As String '' 2 de Eso
@@ -24,13 +24,16 @@ Private hclase As String
 Property curso As String ''20-12-2013
 Private hcurso As String 
 
-Property textoopcional01 As String 
+Property textoopcional01 As String ''texto opcional
 Private htextoopcional01 As String 
 
-Property CoordZonaFotosAlumnos As ClassPos 
+Property textoopcional02 As String 
+Private htextoopcional02 As String 
+
+Property CoordZonaFotosAlumnos As ClassPos  '' se extrae de la plantilla
 Private hCoordZonaFotosAlumnos As New ClassPos 
 
-Property CoordZonaFotosProfesores As ClassPos 
+Property CoordZonaFotosProfesores As ClassPos ''se extrae de la plantilla
 Private hCoordZonaFotosProfesores As New ClassPos 
 
 Property SistemaColocacionFotos As Integer '' 1= Automática, 2=Personalizada
@@ -60,8 +63,6 @@ Private hTamanoLetraProfesor As Integer
 Property OrdenAlfabetico As Boolean '' si es true, se ordenan los datos alfabeticamente, si es false se ordenan segun la propiedad Orden
 Private hOrdenAlfabetico As Boolean 
 
-Property textoopcional02 As String 
-Private htextoopcional02 As String 
 Property EscalaFotosAlumnos As Integer 
 Private hEscalaFotosAlumnos As Integer 
 Property EscalaFotosProfesores As Integer 
@@ -140,8 +141,9 @@ Public Sub Text() As String
 End
 
 Public Sub lecturaDatos(cadenas As String[]) As Boolean
-
+  
   Dim a As Integer        
+  
   hPlantilla = cadenas[a]
   a += 1                         
   hescudo01 = cadenas[a]

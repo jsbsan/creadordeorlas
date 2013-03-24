@@ -1,0 +1,587 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-11-01 04:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .project:1
+msgid "CreadorDeOrlas"
+msgstr ""
+
+#: .project:2
+msgid ""
+"Solo editor\n"
+"Algo de codigo mas..."
+msgstr ""
+
+#: ClassSuperGridview.class:46
+msgid "Copiado contenido al portapapeles"
+msgstr ""
+
+#: FMain.form:120
+msgid "Creador de Orlas"
+msgstr ""
+
+#: FMain.form:138
+msgid "Autor: Julio Sánchez Berro"
+msgstr ""
+
+#: FMain.form:146
+msgid "http://www.jsbsan.blogspot.com"
+msgstr ""
+
+#: FMain.form:152
+msgid ""
+"<h3>Licencia: GPL, Softwarelibre</h3><br>\n"
+"\n"
+"Realizado en Gambas3.3.4 <br>\n"
+"\n"
+"Para usar este programa, instala:<br>\n"
+"zip <br>\n"
+"inkscape (para editar y crear nuevas plantillas)<br>\n"
+"imagemagick <br>\n"
+"<br>\n"
+"Para empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\"."
+msgstr ""
+
+#: FMain.form:163
+msgid "Crea tus propias plantillas con: "
+msgstr ""
+
+#: FMain.form:173
+msgid "Creado especialmente para:"
+msgstr ""
+
+#: FMain.form:186
+msgid "inkscape"
+msgstr ""
+
+#: FMain.form:194
+msgid "minino.galpon.org"
+msgstr ""
+
+#: FMain.form:200
+msgid "Label25"
+msgstr ""
+
+#: FMain.form:204
+msgid "Nueva"
+msgstr ""
+
+#: FMain.form:213 FormAlumno.form:33 FormProfesor.form:36
+msgid "Nombre:"
+msgstr ""
+
+#: FMain.form:222
+msgid "Crear"
+msgstr ""
+
+#: FMain.form:229
+msgid ".Orla"
+msgstr ""
+
+#: FMain.form:232
+msgid "Abrir "
+msgstr ""
+
+#: FMain.form:237
+msgid "<h2>Espere por favor, estoy leyendo los datos</h2>"
+msgstr ""
+
+#: FMain.form:241
+msgid "Datos Alumnos"
+msgstr ""
+
+#: FMain.form:249
+msgid "Añadir"
+msgstr ""
+
+#: FMain.form:256
+msgid "Editar"
+msgstr ""
+
+#: FMain.form:263
+msgid "Borrar"
+msgstr ""
+
+#: FMain.form:270
+msgid "Pegar"
+msgstr ""
+
+#: FMain.form:277
+msgid "Copiar"
+msgstr ""
+
+#: FMain.form:290
+msgid "Datos Profesores"
+msgstr ""
+
+#: FMain.form:338
+msgid "Datos Orla"
+msgstr ""
+
+#: FMain.form:344
+msgid "Escala Fotos"
+msgstr ""
+
+#: FMain.form:349
+msgid "Profesores:"
+msgstr ""
+
+#: FMain.form:356
+msgid "Alumnos:"
+msgstr ""
+
+#: FMain.form:362 FormAlumno.form:89 FormProfesor.form:24
+msgid "ValueBox1"
+msgstr ""
+
+#: FMain.form:375
+msgid "Editor Gráfico Orla"
+msgstr ""
+
+#: FMain.form:382
+msgid ""
+"Cuando termine de introducir los datos de la Orla, de Alumnos y Profesores, "
+"pulse en el botón de \"Editar Orla\", para ver poder ver como queda el "
+"diseño de la misma. Además podrá modificar la disposición de las fotografías "
+"para personalizar su orla."
+msgstr ""
+
+#: FMain.form:388
+msgid "Tipos de letra"
+msgstr ""
+
+#: FMain.form:401
+msgid "Tipo letra Alumnos:"
+msgstr ""
+
+#: FMain.form:408
+msgid "Tipo letra Profesor:"
+msgstr ""
+
+#: FMain.form:414
+msgid "ToolButton4"
+msgstr ""
+
+#: FMain.form:430
+msgid "Organización Inicial de Fotos"
+msgstr ""
+
+#: FMain.form:434
+msgid "Calcular automaticamente las filas"
+msgstr ""
+
+#: FMain.form:448
+msgid "Número de filas:"
+msgstr ""
+
+#: FMain.form:454
+msgid "Orden Alfabetico"
+msgstr ""
+
+#: FMain.form:460
+msgid "Orden Indicado"
+msgstr ""
+
+#: FMain.form:467
+msgid "Imagenes"
+msgstr ""
+
+#: FMain.form:471
+msgid "Fondo"
+msgstr ""
+
+#: FMain.form:493
+msgid "Escudo"
+msgstr ""
+
+#: FMain.form:507
+msgid "Logo"
+msgstr ""
+
+#: FMain.form:521
+msgid "Ima. Opc."
+msgstr ""
+
+#: FMain.form:529
+msgid "ToolButton1"
+msgstr ""
+
+#: FMain.form:565
+msgid "Textos"
+msgstr ""
+
+#: FMain.form:575
+msgid "Curso:"
+msgstr ""
+
+#: FMain.form:582
+msgid "Clase:"
+msgstr ""
+
+#: FMain.form:589
+msgid "Colegio:"
+msgstr ""
+
+#: FMain.form:606
+msgid "Plantilla a usar:"
+msgstr ""
+
+#: FMain.form:614
+msgid "ComboBox1"
+msgstr ""
+
+#: FMain.form:620
+msgid "Texto Opcional(1):"
+msgstr ""
+
+#: FMain.form:632
+msgid "Texto Opcional(2):"
+msgstr ""
+
+#: FMain.form:645
+msgid "Muestra Pueblo"
+msgstr ""
+
+#: FMain.form:652
+msgid "Muestra Provincia"
+msgstr ""
+
+#: FMain.form:659
+msgid "Muestra Asignatura"
+msgstr ""
+
+#: FMain.form:666
+msgid "Espacio entre fotos"
+msgstr ""
+
+#: FMain.form:670
+msgid "Horizontal:"
+msgstr ""
+
+#: FMain.form:686
+msgid "Vertical:"
+msgstr ""
+
+#: FMain.form:691
+msgid "Guardar"
+msgstr ""
+
+#: FMain.form:694
+msgid "Guardar como...."
+msgstr ""
+
+#: FMain.form:697
+msgid "Gestor de Plantillas"
+msgstr ""
+
+#: FMain.form:703
+msgid "Orlas Tipo"
+msgstr ""
+
+#: FMain.form:718
+msgid "Editar Orla"
+msgstr ""
+
+#: FMain.form:725
+msgid "Borrar Orla"
+msgstr ""
+
+#: FMain.form:732
+msgid "Definir Orla desde Cero"
+msgstr ""
+
+#: FMain.form:739
+msgid "Exportar Orla"
+msgstr ""
+
+#: FMain.form:746
+msgid "Importar Orla"
+msgstr ""
+
+#: FMain.form:754
+msgid ""
+"Nota:<br>\n"
+"Edite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño "
+"de Orla."
+msgstr ""
+
+#: FMain.form:757 FormPlantillaOrla.form:81
+msgid "Previsualizar"
+msgstr ""
+
+#: FMain.form:766
+msgid "Ver Imagen"
+msgstr ""
+
+#: FMain.form:774
+msgid "Previsualización"
+msgstr ""
+
+#: FMain.form:779
+msgid "para ver con mejor definición pulse el botón \"Ver Imagen\""
+msgstr ""
+
+#: FMain.form:782
+msgid "Crear Pdf para imprimir"
+msgstr ""
+
+#: FMain.form:787
+msgid "Generar Orla en PDF"
+msgstr ""
+
+#: FMain.form:804 FormError.form:24
+msgid "Salir"
+msgstr ""
+
+#: FMain.form:807
+msgid "Ayuda"
+msgstr ""
+
+#: FMain.form:813
+msgid ""
+"<h3>Especificaciones para los formatos de Orla:</h3><br>\n"
+"<br>\n"
+"El archivo .svg, contiene las imagenes de los marcos y el fondo ya "
+"incluidas .<br>\n"
+"      - mediante enlaces a imagenes externas (en el mismo directorio donde "
+"este la plantilla .svg)<br>\n"
+"      - o embebidas en ellas.<br>\n"
+"<br>\n"
+"<br>\n"
+"\n"
+"<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n"
+"\tTexto a sustituir y que se rellenará con datos<br>\n"
+"\t       COLEGIO .......................... indica el colegio donde estan "
+"los niños<br>\n"
+"\t       CURSO............................... texto: 1º de ESO<br>\n"
+"\t       PROMOCIÓN ..................... texto: 2012-2013<br>\n"
+"\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar "
+"algo<br>\n"
+"                          TEXTOOPCIONAL02................... texto opcional, "
+"por si quiere indicar algo\n"
+"\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n"
+"<br>\n"
+"\tTexto para indicar posicion del grupo de imagenes de alumnos y "
+"profesores<br>\n"
+"\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las "
+"coordenadas donde esta puesto en la plantilla              <br>\n"
+"                ZonaFotosProfesores ............... este texto solo sirve "
+"para leer las coordenadas donde esta puesto en la plantilla<br>\n"
+"<br>\n"
+"<br>\n"
+"<b>Imagenes:</b><br>\n"
+"         ESCUDO01......................  escudo del colegio (si no existe se "
+"pone una imagen transparente)<br>\n"
+"\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no "
+"existe se pone una imagen transparente)<br>\n"
+"         ESCUDO03......................  imagen opcional (si no existe se "
+"pone una imagen transparente)<br>\n"
+"         ESCUDO04......................  imagen opcional (si no existe se "
+"pone una imagen transparente)<br>"
+msgstr ""
+
+#: FMain.class:215
+msgid "Elija el archivo gráfico"
+msgstr ""
+
+#: FMain.class:216
+msgid "Ficheros de Imágenes"
+msgstr ""
+
+#: FMain.class:235
+msgid "No se ha podido descargarse el archivo"
+msgstr ""
+
+#: FMainEditor.form:28
+msgid "Label2"
+msgstr ""
+
+#: FMainEditor.form:36
+msgid "Label1"
+msgstr ""
+
+#: FMainEditor.form:43
+msgid "Rejilla"
+msgstr ""
+
+#: FormAlumno.form:42
+msgid "<h3>Alumnos</h3>"
+msgstr ""
+
+#: FormAlumno.form:50 FormProfesor.form:53
+msgid "Foto WebCam"
+msgstr ""
+
+#: FormAlumno.form:61 FormProfesor.form:64
+msgid "Apellidos:"
+msgstr ""
+
+#: FormAlumno.form:70
+msgid "Pueblo:"
+msgstr ""
+
+#: FormAlumno.form:75
+msgid "Provincia:"
+msgstr ""
+
+#: FormAlumno.form:84 FormProfesor.form:78
+msgid "Orden:"
+msgstr ""
+
+#: FormAlumno.form:94 FormElegirFichero.form:22 FormPlantillaOrla.form:87
+#: FormProfesor.form:83
+msgid "Aceptar"
+msgstr ""
+
+#: FormAlumno.form:101 FormElegirFichero.form:30 FormPlantillaOrla.form:94
+#: FormProfesor.form:90
+msgid "Cancelar"
+msgstr ""
+
+#: FormAlumno.form:108 FormProfesor.form:97
+msgid "(opcional)"
+msgstr ""
+
+#: FormElegirFichero.form:43
+msgid "Pegar desde Portapapeles"
+msgstr ""
+
+#: FormElegirFichero.form:44
+msgid "Pegar (Url)"
+msgstr ""
+
+#: FormError.form:13
+msgid "Mensaje de Error:"
+msgstr ""
+
+#: FormError.form:19
+msgid "Copiar Al portapapeles"
+msgstr ""
+
+#: FormPensando.form:21
+msgid "Pensando..."
+msgstr ""
+
+#: FormPensando.class:7
+msgid "Espere por favor..."
+msgstr ""
+
+#: FormPlantillaOrla.form:27
+msgid "Escudo 4"
+msgstr ""
+
+#: FormPlantillaOrla.form:44
+msgid "Escudo 2"
+msgstr ""
+
+#: FormPlantillaOrla.form:51
+msgid "Escudo 1"
+msgstr ""
+
+#: FormPlantillaOrla.form:68
+msgid "Escudo 3"
+msgstr ""
+
+#: FormPlantillaOrla.form:101
+msgid "Nombre de plantilla:"
+msgstr ""
+
+#: FormPlantillaOrla.form:106
+msgid "TextBox1"
+msgstr ""
+
+#: FormPlantillaOrla.form:111
+msgid "Editar .svg"
+msgstr ""
+
+#: FormProfesor.form:45
+msgid "<h3>Profesores</h3>"
+msgstr ""
+
+#: FormProfesor.form:69
+msgid "Asignatura:"
+msgstr ""
+
+#: ModuleUnicaVez.module:24
+msgid "Ya se esta ejecutando este programa"
+msgstr ""
+
+#: ModuleUpdate.module:20
+msgid "No ha sido posible conectarse al servidor"
+msgstr ""
+
+#: ModuleUpdate.module:20
+msgid "No puedo comprobar si hay nueva versión"
+msgstr ""
+
+#: ModuleUpdate.module:33
+msgid "El archivo de versión no es para este programa"
+msgstr ""
+
+#: ModuleUpdate.module:36
+msgid "Existe una nueva versión"
+msgstr ""
+
+#: ModuleUpdate.module:36
+msgid "Programa:"
+msgstr ""
+
+#: ModuleUpdate.module:36
+msgid "Versión encontrada:"
+msgstr ""
+
+#: ModuleUpdate.module:36
+msgid "Mejoras:"
+msgstr ""
+
+#: ModuleUpdate.module:36
+msgid "Dirección Url de descarga:"
+msgstr ""
+
+#: ModuleUpdate.module:37
+msgid "Ir a la página de descarga"
+msgstr ""
+
+#: ModuleUpdate.module:37
+msgid "No actualización"
+msgstr ""
+
+#: ModuleUpdate.module:45
+msgid "La versión actual:"
+msgstr ""
+
+#: ModuleUpdate.module:45
+msgid "es igual o superior que la que hay en el servidor"
+msgstr ""
+
+#: ModuleUpdate.module:45
+msgid "No necesita actualizarla"
+msgstr ""
+
+#: comun.module:9
+msgid "zip"
+msgstr ""
+
+#: comun.module:14
+msgid "pdftk"
+msgstr ""
+
+#: comun.module:19
+msgid "imagemagick"
+msgstr ""
+
+#: comun.module:24
+msgid "Falta los siguientes programas por instarlar:"
+msgstr ""
+
+#: comun.module:24
+msgid "Instalelos para poder ejecutar el programa correctamente"
+msgstr ""

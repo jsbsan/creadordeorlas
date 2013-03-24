@@ -28,6 +28,9 @@ Geometry=[-7,-8,210,210]
 [DebugWindow/FormPensando]
 Geometry=[-10,-8,210,524]
 
+[DebugWindow/Last]
+Geometry=[-7,-8,210,210]
+
 [DebugWindow/Me]
 Geometry=[-7,-8,210,661]
 
@@ -83,12 +86,13 @@ File[30]="EsquemasyNotas/Programa/SvgTextoImagen:25.21"
 File[31]="EsquemasyNotas/imageMagick/Convertir A3 a A4:1.77"
 File[32]="EsquemasyNotas/imageMagick/Eliminar color en esquina:0.0"
 File[33]="EsquemasyNotas/Letras:3.59"
-File[34]="EsquemasyNotas/Programa/Especificaciones Plantilla Orlas.txt:14.86"
+Active=34
+File[34]="EsquemasyNotas/Programa/Especificaciones Plantilla Orlas.txt:12.1"
 File[35]=".src/Clases/Clase de Datos/ClassPos.class:11.0"
 File[36]=".src/Clases/Clase de Datos/ClassPersona.class:47.3"
 File[37]=".src/Clases/Clase de Datos/ClassAlumno.class:2.0"
 File[38]=".src/Clases/Clase de Datos/ClassProfesor.class:14.0"
-File[39]=".src/Clases/Clase de Datos/ClassDatosOrla.class:207.0"
+File[39]=".src/Clases/Clase de Datos/ClassDatosOrla.class:29.35"
 File[40]=".src/ModulePruebas.module:23.32"
 File[41]=".src/Clases/Clase de Datos/Alumnos/ClassListaAlumnos.class:1.0"
 File[42]=".src/Clases/Clase de Datos/Profesores/ClassListaProfesores.class:1.0"
@@ -105,7 +109,6 @@ File[52]="Plantillas/orla1/cinta.svg:0.0"
 File[53]="Plantillas/orla1/Detalles_en_azul_y_negro_marco.svg:0.0"
 File[54]=".src/Clases/Clase de Datos/ClassGestion.class:1.0"
 File[55]=".src/Modulos/ModulePrincipal.module:6.0"
-Active=56
 File[56]=".src/Modulos/ModuleIntermedio.module:94.12"
 File[57]=".src/Modulos/ModuleHacerTransparente.module:7.3"
 File[58]="magicwand:0.0"
@@ -118,27 +121,26 @@ File[64]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:29.33"
 File[65]=".src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module:10.0"
 File[66]=".src/Formularios Comunes/FormError.form"
 File[67]="icoLoading.gif"
-File[68]=".src/Formularios Comunes/FormElegirFichero.form"
-File[69]=".src/Formularios Comunes/FormPensando.form"
-File[70]=".src/Formularios Comunes/FormElegirFichero.class:12.2"
-File[71]=".src/Clases/Clase de Datos/ClassDato.class:0.19"
-File[72]=".src/Clases/Editor/FMainEditor.form"
-File[73]=".src/Clases/Editor/ClassMejorPictureBox.class:0.19"
-File[74]="Editor/Alu.png"
-File[75]="Editor/AluDes.png"
-File[76]="Editor/cuadriculaA3.png"
-File[77]="Editor/enblancoA3.png"
-File[78]="Editor/Pro.png"
-File[79]="Editor/ProDes.png"
-File[80]="Editor/temporalFondo.png"
-File[81]=".src/Clases/Editor/FMainEditor.class:76.21"
-File[82]=".src/Clases/DeTrabajo/ClassSuperGridview.class:0.19"
-File[83]=".src/Formularios Comunes/FormPensando.class:3.0"
-File[84]=".src/Modulos/ModuleUnicaVez.module:0.20"
-File[85]=".src/Modulos/ModuleUpdate.module:2.20"
-File[86]=".src/Modulos/comun.module:87.29"
-File[87]=".src/Clases/ClassDatoLetra.class:0.19"
-Count=87
+File[68]=".src/Formularios Comunes/FormPensando.form"
+File[69]=".src/Clases/Clase de Datos/ClassDato.class:0.19"
+File[70]=".src/Clases/Editor/FMainEditor.form"
+File[71]=".src/Clases/Editor/ClassMejorPictureBox.class:0.19"
+File[72]="Editor/Alu.png"
+File[73]="Editor/AluDes.png"
+File[74]="Editor/cuadriculaA3.png"
+File[75]="Editor/enblancoA3.png"
+File[76]="Editor/Pro.png"
+File[77]="Editor/ProDes.png"
+File[78]="Editor/temporalFondo.png"
+File[79]=".src/Clases/Editor/FMainEditor.class:225.2"
+File[80]=".src/Clases/DeTrabajo/ClassSuperGridview.class:0.19"
+File[81]=".src/Formularios Comunes/FormPensando.class:3.0"
+File[82]=".src/Modulos/ModuleUpdate.module:2.20"
+File[83]=".src/Modulos/comun.module:87.29"
+File[84]=".src/Clases/ClassDatoLetra.class:0.19"
+File[85]=".src/Formularios Comunes/FormElegirFichero.form"
+File[86]=".src/Formularios Comunes/FormElegirFichero.class:24.36"
+Count=86
 
 [Watches]
 Count=0

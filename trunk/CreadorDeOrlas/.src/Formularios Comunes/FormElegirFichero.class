@@ -18,7 +18,7 @@ Public Sub Form_Open()
   FileChooser1.Filter = Filtro
   Me.Caption = titulo
   FileChooser1.ReadOnly = True
-  Print FileChooser1.Dir
+  ' Print FileChooser1.Dir
   
 End
 

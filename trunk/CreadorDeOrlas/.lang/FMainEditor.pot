@@ -14,11 +14,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FMainEditor.form:27
+#: FMainEditor.form:28
 msgid "Label2"
 msgstr ""
 
-#: FMainEditor.form:35
+#: FMainEditor.form:36
 msgid "Label1"
+msgstr ""
+
+#: FMainEditor.form:43
+msgid "Rejilla"
 msgstr ""
 

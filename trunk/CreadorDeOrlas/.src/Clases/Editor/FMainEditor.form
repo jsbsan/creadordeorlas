@@ -26,4 +26,9 @@
       Alignment = Align.Center
     }
   }
+  { CheckBoxRejilla CheckBox
+    MoveScaled(5,3,13,4)
+    Text = ("Rejilla")
+    Value = CheckBox.True
+  }
 }
