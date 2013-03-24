@@ -8,14 +8,10 @@ Public Observador1 As Observer
 Public GridViewRegistrosProfesores As ClassSuperGridview
 Public Observador2 As Observer
 
-Public Sub _new()
-  
-End
-
 Public Sub Form_Open()
   
   Dim pensando As New FormPensando 
-  
+  'comprobar si ya hay una instancia del programa ejecutandose...
   If ModuleUnicaVez.ejecutandoUnicaCopia("CreadorDeOrlas.gambas") <> True Then
     pensando.Show()
     Wait 0.5
@@ -146,5 +142,144 @@ End
 Public Sub IconPanel1_Click()
   
   If IconPanel1.Index = 9 Then Me.Close
+  
+End
+
+Public Sub Label19_MouseDown()
+  
+End
+
+Public Sub botontransparente_Click()
+  
+  Dim numero As Integer
+  
+  numero = Val(Last.tag)
+  
+  Select numero
+    Case 1
+      '   reg.ImagenFondo = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo)
+      '   PictureBoxFondo.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo]
+      '   PictureBoxFondo.tag = reg.ImagenFondo 
+    Case 2
+      '   reg.ImagenMarco = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco)
+      '   PictureBoxMarco.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco]
+      '   PictureBoxMarco.tag = reg.ImagenMarco
+    Case 3
+      '   reg.ImagenLogo = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo)
+      '   PictureBoxLogo.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo]
+      '   PictureBoxlogo.tag = reg.ImagenLogo
+    Case 4
+      '   reg.Foto04 = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.Foto04)
+      '   PictureBoxFoto04.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04]
+      '   PictureBoxfoto04.tag = reg.Foto04
+    Case 5
+      '   reg.Foto05 = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.Foto05)
+      '   PictureBoxFoto05.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05]
+      '  PictureBoxfoto05.tag = reg.Foto05
+  End Select
+  
+End
+
+Public Sub PictureBoxFondo_MouseDown()
+  
+  PictureBoxFondo.tag = asignaImagen(PictureBoxFondo)
+  
+End
+
+Public Sub PictureBoxEscudo_MouseDown()
+  
+  PictureBoxEscudo.Tag = asignaImagen(PictureBoxEscudo)
+  
+End
+
+Public Sub PictureBoxLogo_MouseDown()
+  
+  PictureBoxLogo.Tag = asignaImagen(PictureBoxLogo)
+  
+End
+
+Public Sub PictureBoxLogo2_MouseDown()
+  
+  PictureBoxLogo2.Tag = asignaImagen(PictureBoxLogo2)
+  
+End
+
+'------------------------------- Asignar Imagen ---------------------
+Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
+  
+  Dim dialogofile As New FormElegirFichero
+  Dim dat As New ClassDato
+  
+  dialogofile.valor = dat
+  
+  dialogofile.Titulo = ("Elija el archivo gráfico")
+  dialogofile.Filtro = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
+  dialogofile.ShowModal()
+  
+  If dat.dato = "-1" Then Return
+  
+  Return asignaImagen2Paso(dat.dato, PictureBoxElegido)
+  
+End
+
+Private Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebox) As String
+  
+  Dim nombrecopia As String
+  Dim extension As String
+  Dim comparacion As String 'añadido para comprobar si existe un fichero con el mismo nombre y es igual
+  Dim copiar As String
+  Dim comando As String
+  Dim nombresimple As String
+  
+  If Not Exist(ruta) Then
+    Message.Info(("No se ha podido descargarse el archivo")) 
+    Return 
+  Endif
+  
+  PictureBoxElegido.Picture = Picture["importar.png"]
+  Wait 0.1
+  PictureBoxElegido.Picture = Picture[ruta]
+  PictureBoxElegido.tag = ruta
+  copiar = "si"
+  
+  nombresimple = ModuleUtilidadesDisco.VerificarNombreEtiqueta(Replace(ModuleUtilidadesDisco.extraedesdebarra(PictureBoxElegido.tag), " ", "_"), ["FOTO", "PLANTILLA", "CAMPO"], ["Imagen", "PLA_TILLA", "CA_PO"])
+  ''TODO: MODIFICAR RUTA...
+  nombrecopia = ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombresimple
+  
+  While (Exist(nombrecopia))
+    'si existe fichero con el mismo nombre, 1º comprobar si es igual...
+    comando = "cmp " & nombrecopia & " " & PictureBoxElegido.tag
+    Shell comando To comparacion
+    If comparacion = "" Then 
+      'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
+      'no hago la copia
+      copiar = "no"
+      
+      Break
+    Endif
+    
+    'para que no machaque nombres de fichros...
+    extension = ModuleUtilidadesDisco.extraeExtension(nombrecopia)
+    If extension <> "" Then 
+      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension) - 1) & "c" & "." & extension
+      copiar = "si"
+    Else
+      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c" 
+      copiar = "si"
+    Endif
+    
+  Wend
+  
+  If copiar = "si" Then 
+    
+    Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
+    PictureBoxElegido.Picture = Picture["importar.png"]
+    Wait 0.1
+    PictureBoxElegido.Picture = Picture[nombrecopia]
+    PictureBoxElegido.tag = nombrecopia
+    
+  Endif
+  
+  Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)
   
 End
