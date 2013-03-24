@@ -47,11 +47,17 @@ Public Sub Form_Open()
     ModuleIntermedio.IniciarGridViewRegistrosAlumnos(GridViewRegistrosAlumnos)
     ModuleIntermedio.IniciarGridViewRegistrosProfesoresores(GridViewRegistrosProfesores)
     
+    'TODO: abrir un ejemplo inicial de orla
+    ' 
+    ' 
     pensando.parar = True
     pensando.Delete()
     
   Else
     'como ya hay una instancia de esta aplicacion abierta, salgo
+    ModuleGestionAlumnos.guardado = True
+    ModuleGestionProfesores.guardado = True
+    ModuleGestionOrla.guardado = True
     Me.Close()
   Endif
   
@@ -139,12 +145,6 @@ Public Sub ToolButtonCrear_Click()
   
 End
 
-Public Sub IconPanel1_Click()
-  
-  If IconPanel1.Index = 9 Then Me.Close
-  
-End
-
 Public Sub Label19_MouseDown()
   
 End
@@ -154,7 +154,7 @@ Public Sub botontransparente_Click()
   Dim numero As Integer
   
   numero = Val(Last.tag)
-  
+  ''TODO: Boton transparente definir...
   Select numero
     Case 1
       '   reg.ImagenFondo = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo)
@@ -281,5 +281,120 @@ Private Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Pictureb
   Endif
   
   Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)
+  
+End
+
+'--------------------------------------------------------------------------------------------------
+''TODO: EDITAR AL HACER CLICK EN LOS GRIDVIEWS
+'--------------------------------------------------------------------------------------------------
+
+Public Sub ObservadorGridViewRegistrosAlumnos_DblClick()
+  
+  ToolButtonEditar_Click()
+  
+End
+
+Public Sub ToolButtonEditar_Click()
+  
+  'TODO: editar alumnos
+  
+End
+
+'------------------------------------------------------
+'Boton Salir
+'-------------------------------------------------------
+Public Sub Form_Close()
+  
+  If ModuleGestionAlumnos.Guardado = False Or ModuleGestionProfesores.guardado = False Or ModuleGestionOrla.guardado = False Then 
+    If Message.Warning(("¿Seguro que desea cerrar?") & "\n" & ("Todos cambios no guardados se perderan"),
+        ("Cerrar"), ("Cancelar")) = 1 Then
+      Me.Close
+    Else
+      Stop Event
+      
+    Endif
+  Endif
+  
+End
+
+'--------------------------------------------------------------------------------------------------
+''TODO:  IconPanel1_Click()
+'--------------------------------------------------------------------------------------------------
+Public Sub IconPanel1_Click()
+  
+  Dim resultado As Boolean
+  
+  Print "Opcion elegida: ", IconPanel1.Index 
+  
+  If IconPanel1.Index = 11 Then Me.Close
+  
+  If IconPanel1.Index = 5 Then 
+    TextBoxColegio.text = ModuleGestionOrla.orla.colegio
+    TextBox2Clase.text = ModuleGestionOrla.orla.clase
+    TextBoxCurso.text = ModuleGestionOrla.orla.curso
+    TextBoxOpcional.text = ModuleGestionOrla.orla.textoopcional01
+    ComboBoxPlantillaUsar.text = ModuleGestionOrla.orla.Plantilla
+    TextBoxOpcional2.text = ModuleGestionOrla.orla.textoopcional02
+    
+    If ModuleGestionOrla.orla.escudo01 <> "" Then PictureBoxFondo.Picture = Picture[ModuleGestionOrla.orla.escudo01]
+    If ModuleGestionOrla.orla.escudo02 <> "" Then PictureBoxEscudo.Picture = Picture[ModuleGestionOrla.orla.escudo02]
+    If ModuleGestionOrla.orla.escudo03 <> "" Then PictureBoxLogo.Picture = Picture[ModuleGestionOrla.orla.escudo03]
+    If ModuleGestionOrla.orla.escudo04 <> "" Then PictureBoxLogo2.Picture = Picture[ModuleGestionOrla.orla.escudo04]
+    
+    SpinBoxFilas.value = ModuleGestionOrla.orla.NumeroFilasAlumnos
+    
+    If ModuleGestionOrla.orla.OrdenAlfabetico = True Then 
+      RadioButtonAlfa.value = True
+      RadioButtonIndicado.value = False
+    Else
+      RadioButtonAlfa.value = False
+      RadioButtonIndicado.value = True
+    Endif 
+    ValueBoxHorizontal.value = ModuleGestionOrla.orla.EspacioEntreFotosHorizontal
+    ValueBoxVertical.value = ModuleGestionOrla.orla.EspacioEntreFotosVertical
+    ValueBoxEscalaProfesores.value = ModuleGestionOrla.orla.EscalaFotosProfesores
+    ValueBoxEscalaAlumnos.value = ModuleGestionOrla.orla.EscalaFotosAlumnos
+    
+    'TODO: Aqui ver tipo de letra que se le asigna
+    'LabelTipoProfesor.Font = ModuleGestionOrla.orla.LetraProfesor
+    ' LabelTipoAlumno.font = ModuleGestionOrla.orla.LetraProfesor  
+    
+  Endif
+  
+End
+
+Public Sub TextBoxColegio_LostFocus()
+  
+  ModuleGestionOrla.orla.colegio = TextBoxColegio.text 
+  
+End
+
+Public Sub TextBox2Clase_LostFocus()
+  
+  ModuleGestionOrla.orla.clase = TextBox2Clase.text 
+  
+End
+
+Public Sub TextBoxCurso_LostFocus()
+  
+  ModuleGestionOrla.orla.curso = TextBoxCurso.text
+  
+End
+
+Public Sub TextBoxOpcional_LostFocus()
+  
+  ModuleGestionOrla.orla.textoopcional01 = TextBoxOpcional.text
+  
+End
+
+Public Sub TextBoxOpcional2_LostFocus()
+
+  ModuleGestionOrla.orla.textoopcional02 = TextBoxOpcional2.text 
+
+End
+
+Public Sub ComboBoxPlantillaUsar_LostFocus()
+  
+  ModuleGestionOrla.orla.Plantilla = ComboBoxPlantillaUsar.text
   
 End
