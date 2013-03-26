@@ -471,3 +471,54 @@ Public Sub ToolButtonAnnadir2_Click()
   regtemp = Null
   
 End
+
+Public Sub ToolButtonEditar2_Click()
+  
+  Dim fregistro As New FormProfesor
+  Dim regtemp As New ClassProfesor
+  
+  If GridViewRegistrosProfesores.indice.Count > GridViewRegistrosProfesores.row And GridViewRegistrosProfesores.row > -1 Then 
+    fregistro.modo = GridViewRegistrosProfesores.indice[GridViewRegistrosProfesores.row]
+    fregistro.reg.Foto = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 0].text
+    fregistro.reg.Nombre = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 1].text
+    fregistro.reg.Apellidos = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 2].text
+    fregistro.reg.Orden = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 3].text
+    fregistro.reg.Asignatura = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 4].text
+    fregistro.ShowModal()
+    ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+  Else
+    Message.Info(("No se puede editar un registro vacío"))
+    
+  Endif
+  
+End
+
+Public Sub ToolButtonBorrar2_Click()
+  
+  Dim res As Integer
+  
+  If GridViewRegistrosProfesores.indice.count > GridViewRegistrosProfesores.row Then 
+    res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
+    If res = 1 Then 
+      'refrescar el gridviews
+      ModuleGestionProfesores.BorrarRegistro(GridViewRegistrosProfesores.indice[GridViewRegistrosProfesores.row])
+      ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+    Endif
+  Endif
+  
+End
+
+Public Sub ToolButtonBorrar_Click()
+  
+  Dim res As Integer
+  
+  If GridViewRegistrosAlumnos.indice.count > GridViewRegistrosAlumnos.row Then 
+    res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
+    If res = 1 Then 
+      'refrescar el gridviews
+      ModuleGestionAlumnos.BorrarRegistro(GridViewRegistrosAlumnos.indice[GridViewRegistrosAlumnos.row])
+      ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+    Endif
+  Endif
+  
+End

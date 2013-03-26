@@ -14,47 +14,47 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FormProfesor.form:25
+#: FormProfesor.form:26
 msgid "ValueBox1"
 msgstr ""
 
-#: FormProfesor.form:37
+#: FormProfesor.form:38
 msgid "Nombre:"
 msgstr ""
 
-#: FormProfesor.form:46
+#: FormProfesor.form:47
 msgid "<h3>Profesores</h3>"
 msgstr ""
 
-#: FormProfesor.form:54
+#: FormProfesor.form:55
 msgid "Foto WebCam"
 msgstr ""
 
-#: FormProfesor.form:65
+#: FormProfesor.form:66
 msgid "Apellidos:"
 msgstr ""
 
-#: FormProfesor.form:70
+#: FormProfesor.form:71
 msgid "Asignatura:"
 msgstr ""
 
-#: FormProfesor.form:79
+#: FormProfesor.form:80
 msgid "Orden:"
 msgstr ""
 
-#: FormProfesor.form:84
+#: FormProfesor.form:85
 msgid "Aceptar"
 msgstr ""
 
-#: FormProfesor.form:91
+#: FormProfesor.form:92
 msgid "Cancelar"
 msgstr ""
 
-#: FormProfesor.form:98
+#: FormProfesor.form:99
 msgid "(opcional)"
 msgstr ""
 
-#: FormProfesor.form:103
+#: FormProfesor.form:104
 msgid "+1"
 msgstr ""
 
