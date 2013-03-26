@@ -24,6 +24,7 @@ Public Sub iniciarDirectorios()
   
   ModuleGestionAlumnos.guardado = True
   ModuleGestionProfesores.guardado = True
+  ModuleGestionOrla.guardado = True
   
   ModuleGestionAlumnos.lista.Registros.Clear()
   ModuleGestionProfesores.lista.Registros.Clear()

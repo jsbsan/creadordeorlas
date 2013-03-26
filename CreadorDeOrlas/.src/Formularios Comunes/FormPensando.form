@@ -3,6 +3,7 @@
 { Form Form
   MoveScaled(0,0,28,5)
   Background = &HFFFFFF&
+  Icon = Picture["icon:/22/info"]
   Border = False
   { Timer1 #Timer
     #MoveScaled(1,1)

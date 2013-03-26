@@ -1,9 +1,9 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.4.0
+# Compiled with Gambas 3.4.1
 Title=CreadorDeOrlas
 Startup=FMain
 Icon=orlaicono.png
-Version=0.0.5
+Version=0.0.6
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
