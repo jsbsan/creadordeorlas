@@ -6,13 +6,19 @@ Public reg As New ClassProfesor
 
 Public Sub Form_Open()
   
+  If modo > -1 Then 
+    PictureBoxFoto.tag = reg.Foto
+    'TODO: indicar ruta donde se guarde  las fotos
+    '  PictureBoxFoto.Picture= Picture[
+  Endif
+  
   TextBoxApellidos.text = reg.Apellidos
   TextBoxAsignatura.text = reg.Asignatura
   TextBoxNombre.text = reg.Nombre
   If reg.Orden = 0 Then 
     ValueBoxOrden.value = 1
   Else
-    ValueBoxOrden.Value = Val(reg.Orden)
+    ValueBoxOrden.Value = reg.Orden
   Endif
   Me.center
   

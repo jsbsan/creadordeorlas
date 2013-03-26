@@ -3,6 +3,7 @@
 { Form Form
   MoveScaled(0,0,115,83)
   Icon = Picture["orlaicono.png"]
+  Resizable = False
   { IconPanel1 IconPanel
     MoveScaled(0,0,114,83)
     Count = 13

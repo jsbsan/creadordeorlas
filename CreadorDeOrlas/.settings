@@ -67,7 +67,7 @@ LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\n
 
 [OpenFile]
 File[1]=".src/FMain.form"
-File[2]=".src/FMain.class:305.82"
+File[2]=".src/FMain.class:519.101"
 File[3]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[4]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[5]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -117,14 +117,14 @@ File[48]=".src/Modulos/ModuleHacerTransparente.module:14.3"
 File[49]="magicwand:0.0"
 File[50]=".src/Modulos/ModuleImprimir.module:18.25"
 File[51]=".src/FormAlumno.form"
-File[52]=".src/FormAlumno.class:26.2"
+File[52]=".src/FormAlumno.class:13.7"
+Active=53
 File[53]=".src/FormProfesor.form"
-File[54]=".src/FormProfesor.class:11.0"
+File[54]=".src/FormProfesor.class:20.35"
 File[55]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:40.26"
 File[56]=".src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module:10.0"
 File[57]=".src/Formularios Comunes/FormError.form"
 File[58]="icoLoading.gif"
-Active=59
 File[59]=".src/Formularios Comunes/FormPensando.form"
 File[60]=".src/Clases/Clase de Datos/ClassDato.class:0.19"
 File[61]=".src/Clases/Editor/FMainEditor.form"
