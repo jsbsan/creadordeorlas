@@ -14,47 +14,59 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FormAlumno.form:33
+#: FormAlumno.form:36
 msgid "Nombre:"
 msgstr ""
 
-#: FormAlumno.form:42
+#: FormAlumno.form:45
 msgid "<h3>Alumnos</h3>"
 msgstr ""
 
-#: FormAlumno.form:50
+#: FormAlumno.form:53
 msgid "Foto WebCam"
 msgstr ""
 
-#: FormAlumno.form:61
+#: FormAlumno.form:64
 msgid "Apellidos:"
 msgstr ""
 
-#: FormAlumno.form:70
+#: FormAlumno.form:73
 msgid "Pueblo:"
 msgstr ""
 
-#: FormAlumno.form:75
+#: FormAlumno.form:78
 msgid "Provincia:"
 msgstr ""
 
-#: FormAlumno.form:84
+#: FormAlumno.form:87
 msgid "Orden:"
 msgstr ""
 
-#: FormAlumno.form:89
+#: FormAlumno.form:92
 msgid "ValueBox1"
 msgstr ""
 
-#: FormAlumno.form:94
+#: FormAlumno.form:97
 msgid "Aceptar"
 msgstr ""
 
-#: FormAlumno.form:101
+#: FormAlumno.form:104
 msgid "Cancelar"
 msgstr ""
 
-#: FormAlumno.form:108
+#: FormAlumno.form:111
 msgid "(opcional)"
+msgstr ""
+
+#: FormAlumno.form:118
+msgid "="
+msgstr ""
+
+#: FormAlumno.form:130
+msgid "+1"
+msgstr ""
+
+#: FormAlumno.class:34
+msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 

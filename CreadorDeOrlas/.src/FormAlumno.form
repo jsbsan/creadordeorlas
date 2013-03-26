@@ -70,7 +70,23 @@
     Border = True
   }
   { Label6 Label
-    MoveScaled(42,32,12,4)
+    MoveScaled(45,32,12,4)
     Text = ("(opcional)")
+  }
+  { Button1 Button ButtonIgualNombre
+    Name = "Button1"
+    MoveScaled(52,20,4,4)
+    Tag = "pueblo"
+    Text = ("=")
+  }
+  { Button2 Button ButtonIgualNombre
+    Name = "Button2"
+    MoveScaled(52,26,4,4)
+    Tag = "provincia"
+    Text = ("=")
+  }
+  { ButtonMasUno Button
+    MoveScaled(37,32,5,4)
+    Text = ("+1")
   }
 }

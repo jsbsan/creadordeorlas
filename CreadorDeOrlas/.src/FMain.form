@@ -4,7 +4,7 @@
   MoveScaled(0,0,115,83)
   Icon = Picture["orlaicono.png"]
   { IconPanel1 IconPanel
-    MoveScaled(1,0,114,83)
+    MoveScaled(0,0,114,83)
     Count = 13
     Border = True
     Index = 0
@@ -200,19 +200,19 @@
       Font = Font["Bitstream Charter,Bold,-1"]
       Text = ("Escala Fotos")
       { Label25 Label
-        MoveScaled(0,3,14,4)
+        MoveScaled(0,5,14,3)
         Font = Font["Bitstream Charter,-1"]
         Text = ("Profesores:")
         Alignment = Align.Right
       }
       { Label26 Label
-        MoveScaled(1,11,12,4)
+        MoveScaled(1,12,12,3)
         Font = Font["Bitstream Charter,-1"]
         Text = ("Alumnos:")
         Alignment = Align.Right
       }
       { ValueBoxEscalaProfesores ValueBox
-        MoveScaled(15,3,5,4)
+        MoveScaled(15,4,5,4)
         Text = ("ValueBox1")
         Value = "1"
       }
@@ -267,37 +267,6 @@
         Text = ("ToolButton4")
         Picture = Picture["icon:/22/font"]
         Border = True
-      }
-    }
-    { Frame3 Frame
-      MoveScaled(1,40,80,8)
-      Font = Font["Bitstream Charter,-1"]
-      Text = ("Organización Inicial de Fotos")
-      { ToolButtonAutomatica ToolButton
-        MoveScaled(23,3,6,4)
-        ToolTip = ("Calcular automaticamente las filas")
-        Picture = Picture["icon:/22/exec"]
-        Border = True
-      }
-      { SpinBoxFilas SpinBox
-        MoveScaled(16,3,6,4)
-        Font = Font["-1"]
-        MinValue = 1
-      }
-      { Label27 Label
-        MoveScaled(1,3,14,4)
-        Font = Font["Bitstream Charter,-1"]
-        Text = ("Número de filas:")
-        Alignment = Align.Right
-      }
-      { RadioButtonAlfa RadioButton
-        MoveScaled(36,4,21,3)
-        Text = ("Orden Alfabetico")
-        Value = True
-      }
-      { RadioButtonIndicado RadioButton
-        MoveScaled(60,4,19,3)
-        Text = ("Orden Indicado")
       }
     }
     { Frame4 Frame
@@ -362,7 +331,7 @@
       }
       { ToolButton4 ToolButton botontransparente
         Name = "ToolButton4"
-        MoveScaled(32,1,5,4)
+        MoveScaled(31,1,5,4)
         Tag = "2"
         Text = ("ToolButton1")
         Picture = Picture["icono_transparente.png"]
@@ -420,7 +389,7 @@
         Font = Font["-1"]
       }
       { Label29 Label
-        MoveScaled(42,10,13,3)
+        MoveScaled(43,10,13,3)
         Font = Font["Bitstream Charter,-1"]
         Text = ("Plantilla a usar:")
         Alignment = Align.Right
@@ -475,12 +444,12 @@
       Font = Font["Bitstream Charter,-1"]
       Text = ("Espacio entre fotos")
       { Label6 Label
-        MoveScaled(0,5,10,4)
+        MoveScaled(0,5,10,3)
         Text = ("Horizontal:")
         Alignment = Align.Right
       }
       { ValueBoxVertical ValueBox
-        MoveScaled(11,10,5,3)
+        MoveScaled(11,12,5,3)
         Text = ("ValueBox1")
       }
       { ValueBoxHorizontal ValueBox
@@ -488,9 +457,58 @@
         Text = ("ValueBox1")
       }
       { Label19 Label
-        MoveScaled(0,10,10,3)
+        MoveScaled(0,12,10,3)
         Text = ("Vertical:")
         Alignment = Align.Right
+      }
+    }
+    { Frame3 Frame
+      MoveScaled(0,41,79,8)
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("Organización Inicial de Fotos")
+      { ToolButtonAutomatica ToolButton
+        MoveScaled(23,3,6,4)
+        ToolTip = ("Calcular automaticamente las filas")
+        Picture = Picture["icon:/22/exec"]
+        Border = True
+      }
+      { SpinBoxFilas SpinBox
+        MoveScaled(16,3,6,4)
+        Font = Font["-1"]
+        MinValue = 1
+      }
+      { Label27 Label
+        MoveScaled(1,3,14,4)
+        Font = Font["Bitstream Charter,-1"]
+        Text = ("Número de filas:")
+        Alignment = Align.Right
+      }
+      { RadioButtonAlfa RadioButton
+        MoveScaled(36,3,18,2)
+        Text = ("Orden Alfabetico")
+        Value = True
+      }
+      { RadioButtonIndicado RadioButton
+        MoveScaled(36,6,19,2)
+        Text = ("Orden Indicado")
+      }
+      { CheckBoxMostrarProfesores CheckBox
+        MoveScaled(33,0,19,3)
+        Text = ("Mostrar Profesores")
+        Value = CheckBox.True
+      }
+      { Frame7 Frame
+        MoveScaled(56,0,23,8)
+        Text = ("Alumnos")
+        { RadioButton1 RadioButton
+          MoveScaled(1,3,24,2)
+          Text = ("Orden Alfabético")
+          Value = True
+        }
+        { RadioButton2 RadioButton
+          MoveScaled(1,5,24,4)
+          Text = ("Orden Indicado")
+        }
       }
     }
     Index = 6
