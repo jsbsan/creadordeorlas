@@ -107,6 +107,21 @@ Public Sub CopiarFicheros(Directorioorigen As String, Directoriodestino As Strin
   
 End
 
+Public Sub CopiarFicherosInterna(Directorioorigen As String, Directoriodestino As String, patron As String) As Boolean
+  
+  Dim file As String
+  
+  If Exist(Directorioorigen) Then 
+    For Each File In Dir(Directorioorigen, patron)
+      Print file
+      If file <> ".svn" Then Try Copy Directorioorigen & "/" & file To Directoriodestino & "/" & file 
+    Next
+  Endif
+  
+  Return True 'todo ha ido bien
+  
+End
+
 Public Function VerificarNombreEtiqueta(nombre As String, palabrasClave As String[], palabrasSustituir As String[]) As String
   
   Dim a As Integer

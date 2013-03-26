@@ -63,7 +63,11 @@
     Border = True
   }
   { Label6 Label
-    MoveScaled(39,29,12,4)
+    MoveScaled(44,29,11,4)
     Text = ("(opcional)")
+  }
+  { ButtonMasUno Button
+    MoveScaled(39,29,4,4)
+    Text = ("+1")
   }
 }

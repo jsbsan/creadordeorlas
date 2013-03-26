@@ -23,10 +23,9 @@ Public Sub copiarPlantillasInternas()
   Dim a As Integer
   
   For a = 1 To 2 'orlas que tengo en plantillas
-    If Not Exist(ModulePrincipal.RutaPrograma & "plantillasOrla/orla" & Str$(a)) Then 
-      Mkdir ModulePrincipal.RutaPrograma & "plantillasOrla/orla" & Str$(a)
-      ModuleUtilidadesDisco.CopiarFicheros("Plantillas/orla" & Str$(a), ModulePrincipal.RutaPrograma & "plantillasOrla/orla" & Str$(a), "*.*")
-    Endif
+    Try Mkdir ModulePrincipal.RutaPrograma & "plantillasOrla/orla" & Str$(a)
+    ModuleUtilidadesDisco.CopiarFicherosInterna("Plantillas/orla" & Str$(a), ModulePrincipal.RutaPrograma & "plantillasOrla/orla" & Str$(a), "*.*")
+    
   Next
   
 End
@@ -98,5 +97,69 @@ Public Sub IniciarGridViewRegistrosAlumnos(grid As ClassSuperGridview)
     .y = 40
     .TOOLTIP = "Si haces doble click en una fila, la puedes editar"
   End With
+  
+End
+
+Public Sub rellenarGridviewsAlumnos(rejilla As ClassSuperGridview, Lista As ClassListaAlumnos)
+  
+  Dim regtmp As ClassAlumno
+  Dim contadorPosicionFilaGrid As Integer
+  
+  'limpiar la rejilla de datos
+  rejilla.indice.Clear()
+  contadorPosicionFilaGrid = 0
+  rejilla.rows.count = Lista.registros.count + 1
+  
+  For Each regtmp In Lista.registros
+    'TODO: Añadir pequeña miniatura de imagen. Alumno
+    rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
+    rejilla[contadorPosicionFilaGrid, 1].text = regtmp.nombre
+    rejilla[contadorPosicionFilaGrid, 2].text = regtmp.Apellidos
+    rejilla[contadorPosicionFilaGrid, 3].text = Str$(regtmp.orden)
+    rejilla[contadorPosicionFilaGrid, 4].text = regtmp.Pueblo
+    rejilla[contadorPosicionFilaGrid, 5].text = regtmp.Provincia
+    rejilla.indice.add(regtmp.id)
+    contadorPosicionFilaGrid += 1
+  Next
+  
+  rejilla[contadorPosicionFilaGrid, 0].text = ""
+  rejilla[contadorPosicionFilaGrid, 1].text = ""
+  rejilla[contadorPosicionFilaGrid, 2].text = "" 
+  rejilla[contadorPosicionFilaGrid, 3].text = ""
+  rejilla[contadorPosicionFilaGrid, 4].text = ""
+  rejilla[contadorPosicionFilaGrid, 5].text = ""
+  
+  rejilla.Refresh()
+  
+End
+
+Public Sub rellenarGridviewsProfesores(rejilla As ClassSuperGridview, Lista As ClassListaProfesores)
+  
+  Dim regtmp As ClassProfesor
+  Dim contadorPosicionFilaGrid As Integer
+  
+  'limpiar la rejilla de datos
+  rejilla.indice.Clear()
+  contadorPosicionFilaGrid = 0
+  rejilla.rows.count = Lista.registros.count + 1
+  
+  For Each regtmp In Lista.registros
+    'TODO: Añadir pequeña miniatura de imagen. Profesor
+    rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
+    rejilla[contadorPosicionFilaGrid, 1].text = regtmp.nombre
+    rejilla[contadorPosicionFilaGrid, 2].text = regtmp.Apellidos
+    rejilla[contadorPosicionFilaGrid, 3].text = Str$(regtmp.orden)
+    rejilla[contadorPosicionFilaGrid, 4].text = regtmp.Asignatura
+    rejilla.indice.add(regtmp.id)
+    contadorPosicionFilaGrid += 1
+  Next
+  
+  rejilla[contadorPosicionFilaGrid, 0].text = ""
+  rejilla[contadorPosicionFilaGrid, 1].text = ""
+  rejilla[contadorPosicionFilaGrid, 2].text = "" 
+  rejilla[contadorPosicionFilaGrid, 3].text = ""
+  rejilla[contadorPosicionFilaGrid, 4].text = ""
+  
+  rejilla.Refresh()
   
 End

@@ -1,7 +1,54 @@
 ' Gambas class file
 
+Public modo As Integer  'modo añadir=-1, editar=nº de id
+Public anadir As Integer = -1
+Public reg As New ClassProfesor
+
 Public Sub Form_Open()
   
+  TextBoxApellidos.text = reg.Apellidos
+  TextBoxAsignatura.text = reg.Asignatura
+  TextBoxNombre.text = reg.Nombre
+  If reg.Orden = 0 Then 
+    ValueBoxOrden.value = 1
+  Else
+    ValueBoxOrden.Value = Val(reg.Orden)
+  Endif
   Me.center
+  
+End
+
+Public Sub ToolButtonAceptar_Click()
+  
+  reg.Foto = Replace(PictureBoxFoto.tag, " ", "_")
+  reg.Nombre = TextBoxNombre.Text
+  reg.Apellidos = TextBoxApellidos.Text
+  
+  reg.Asignatura = TextBoxAsignatura.text
+  reg.Orden = ValueBoxOrden.value 
+  
+  If modo = anadir Then 
+    'si estoy añadiendo paso a añadir datos
+    ModuleGestionProfesores.anadirRegistro(reg)
+    FMain.GridViewRegistrosProfesores.rows.count += 1
+    ModuleGestionProfesores.guardado = False
+  Else
+    ModuleGestionProfesores.EditarRegistros(reg, modo)
+    ModuleGestionProfesores.guardado = False
+  Endif
+  
+  Me.Close
+  
+End
+
+Public Sub ButtonMasUno_Click()
+  
+  If ModuleGestionProfesores.Lista.Registros.max = -1 Then 
+    
+    Return
+  Endif
+  If modo = 0 Then Return
+  reg.Orden = ModuleGestionProfesores.Lista.Registros[ModuleGestionProfesores.Lista.Registros.max].Orden + 1
+  ValueBoxOrden.Value = reg.Orden
   
 End

@@ -28,14 +28,6 @@ Public Sub Form_Open()
     Print "hola iniciandome..."
     
     'feditor.plantillaActual = User.home & "/Imágenes/Orlas/ORLAplantillasAntonio/ORLAejemplo01/orla.svg"
-    Try Mkdir User.home & "/temporal.orla"
-    Try Copy "Plantillas/orla1/adorno.png" To User.home & "/temporal.orla/adorno.png"
-    Try Copy "Plantillas/orla1/borde.png" To User.home & "/temporal.orla/borde.png"
-    Try Copy "Plantillas/orla1/cinta.svg" To User.home & "/temporal.orla/cinta.svg"
-    Try Copy "Plantillas/orla1/ESCUDO01" To User.home & "/temporal.orla/ESCUDO01"
-    Try Copy "Plantillas/orla1/ESCUDO02" To User.home & "/temporal.orla/ESCUDO02"
-    Try Copy "Plantillas/orla1/esquina.png" To User.home & "/temporal.orla/esquina.png"
-    Try Copy "Plantillas/orla1/Detalles_en_azul_y_negro_marco.svg" To User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
     
     'crear gridview y sus observadores....para  diplomas tematicos, registros alumnos
     GridViewRegistrosAlumnos = New ClassSuperGridview(IconPanel1[3])
@@ -328,37 +320,22 @@ Public Sub IconPanel1_Click()
   
   If IconPanel1.Index = 11 Then Me.Close
   
+  'ver datos de alumnos...
+  If IconPanel1.Index = 3 Then 
+    ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+    Return 
+  Endif
+  
+  'ver datos de profesores...
+  If IconPanel1.Index = 4 Then 
+    ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+    Return 
+  Endif
+  
+  'Ver datos de orlas
   If IconPanel1.Index = 5 Then 
-    TextBoxColegio.text = ModuleGestionOrla.orla.colegio
-    TextBox2Clase.text = ModuleGestionOrla.orla.clase
-    TextBoxCurso.text = ModuleGestionOrla.orla.curso
-    TextBoxOpcional.text = ModuleGestionOrla.orla.textoopcional01
-    ComboBoxPlantillaUsar.text = ModuleGestionOrla.orla.Plantilla
-    TextBoxOpcional2.text = ModuleGestionOrla.orla.textoopcional02
-    
-    If ModuleGestionOrla.orla.escudo01 <> "" Then PictureBoxFondo.Picture = Picture[ModuleGestionOrla.orla.escudo01]
-    If ModuleGestionOrla.orla.escudo02 <> "" Then PictureBoxEscudo.Picture = Picture[ModuleGestionOrla.orla.escudo02]
-    If ModuleGestionOrla.orla.escudo03 <> "" Then PictureBoxLogo.Picture = Picture[ModuleGestionOrla.orla.escudo03]
-    If ModuleGestionOrla.orla.escudo04 <> "" Then PictureBoxLogo2.Picture = Picture[ModuleGestionOrla.orla.escudo04]
-    
-    SpinBoxFilas.value = ModuleGestionOrla.orla.NumeroFilasAlumnos
-    
-    If ModuleGestionOrla.orla.OrdenAlfabetico = True Then 
-      RadioButtonAlfa.value = True
-      RadioButtonIndicado.value = False
-    Else
-      RadioButtonAlfa.value = False
-      RadioButtonIndicado.value = True
-    Endif 
-    ValueBoxHorizontal.value = ModuleGestionOrla.orla.EspacioEntreFotosHorizontal
-    ValueBoxVertical.value = ModuleGestionOrla.orla.EspacioEntreFotosVertical
-    ValueBoxEscalaProfesores.value = ModuleGestionOrla.orla.EscalaFotosProfesores
-    ValueBoxEscalaAlumnos.value = ModuleGestionOrla.orla.EscalaFotosAlumnos
-    
-    'TODO: Aqui ver tipo de letra que se le asigna
-    'LabelTipoProfesor.Font = ModuleGestionOrla.orla.LetraProfesor
-    ' LabelTipoAlumno.font = ModuleGestionOrla.orla.LetraProfesor  
-    
+    rellenarDatosOrlas()
+    Return
   Endif
   
 End
@@ -388,13 +365,82 @@ Public Sub TextBoxOpcional_LostFocus()
 End
 
 Public Sub TextBoxOpcional2_LostFocus()
-
+  
   ModuleGestionOrla.orla.textoopcional02 = TextBoxOpcional2.text 
-
+  
 End
 
 Public Sub ComboBoxPlantillaUsar_LostFocus()
   
   ModuleGestionOrla.orla.Plantilla = ComboBoxPlantillaUsar.text
+  
+End
+
+Public Sub ToolButtonAnnadir_Click()
+  
+  Dim fregistro As New FormAlumno
+  Dim regtemp As New ClassAlumno
+  
+  fregistro.modo = fregistro.anadir
+  
+  fregistro.reg = regtemp
+  
+  fregistro.ShowModal()
+  ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+  
+  regtemp = Null
+  
+End
+'----------------------------------------------------------------------------
+' Rellenar datos de Orlas
+'----------------------------------------------------------------------------
+
+Public Sub rellenarDatosOrlas()
+  
+  TextBoxColegio.text = ModuleGestionOrla.orla.colegio
+  TextBox2Clase.text = ModuleGestionOrla.orla.clase
+  TextBoxCurso.text = ModuleGestionOrla.orla.curso
+  TextBoxOpcional.text = ModuleGestionOrla.orla.textoopcional01
+  ComboBoxPlantillaUsar.text = ModuleGestionOrla.orla.Plantilla
+  TextBoxOpcional2.text = ModuleGestionOrla.orla.textoopcional02
+  
+  If ModuleGestionOrla.orla.escudo01 <> "" Then PictureBoxFondo.Picture = Picture[ModuleGestionOrla.orla.escudo01]
+  If ModuleGestionOrla.orla.escudo02 <> "" Then PictureBoxEscudo.Picture = Picture[ModuleGestionOrla.orla.escudo02]
+  If ModuleGestionOrla.orla.escudo03 <> "" Then PictureBoxLogo.Picture = Picture[ModuleGestionOrla.orla.escudo03]
+  If ModuleGestionOrla.orla.escudo04 <> "" Then PictureBoxLogo2.Picture = Picture[ModuleGestionOrla.orla.escudo04]
+  
+  SpinBoxFilas.value = ModuleGestionOrla.orla.NumeroFilasAlumnos
+  
+  If ModuleGestionOrla.orla.OrdenAlfabetico = True Then 
+    RadioButtonAlfa.value = True
+    RadioButtonIndicado.value = False
+  Else
+    RadioButtonAlfa.value = False
+    RadioButtonIndicado.value = True
+  Endif 
+  ValueBoxHorizontal.value = ModuleGestionOrla.orla.EspacioEntreFotosHorizontal
+  ValueBoxVertical.value = ModuleGestionOrla.orla.EspacioEntreFotosVertical
+  ValueBoxEscalaProfesores.value = ModuleGestionOrla.orla.EscalaFotosProfesores
+  ValueBoxEscalaAlumnos.value = ModuleGestionOrla.orla.EscalaFotosAlumnos
+  
+  'TODO: Aqui ver tipo de letra que se le asigna
+  'LabelTipoProfesor.Font = ModuleGestionOrla.orla.LetraProfesor
+  ' LabelTipoAlumno.font = ModuleGestionOrla.orla.LetraProfesor  
+  
+End
+
+Public Sub ToolButtonAnnadir2_Click()
+  
+  Dim fregistro As New FormProfesor
+  Dim regtemp As New ClassProfesor
+  
+  fregistro.modo = fregistro.anadir
+  
+  fregistro.reg = regtemp
+  
+  fregistro.ShowModal()
+  ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+  
+  regtemp = Null
   
 End
