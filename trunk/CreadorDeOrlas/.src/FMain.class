@@ -19,12 +19,12 @@ Public Sub Form_Open()
     Me.center
     ModuleUpdate.comprobar("CreadorDeOrlas", Application.Version, "http://creadordeorlas.blogspot.com.es/2013/03/version.html", "no mensaje")
     
-    ModulePruebas.escribe()
+    ' ModulePruebas.escribe()
     comun.comprobarEntorno()
     'inicio el programa: creo directorios y copio archivos...
     ModulePrincipal.iniciarDirectorios()
     
-    ModulePruebas.escribe()
+    '  ModulePruebas.escribe()
     Print "hola iniciandome..."
     
     'feditor.plantillaActual = User.home & "/Imágenes/Orlas/ORLAplantillasAntonio/ORLAejemplo01/orla.svg"
@@ -58,7 +58,18 @@ End
 Public Sub ButtonEditorOrla_Click()
   'Reemplaza la plantilla con los datos que ha introducido (colegio, curso,etc )
   
+  Dim plantillaActual As String
   Dim feditor As New FMainEditor
+  'TODO: Sustituir por  plantilla de la orla actual
+  plantillaActual = User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
+  
+  ModuleGestionOrla.orla.CoordZonaFotosProfesores = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosProfesores")
+  Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.x
+  Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.y
+  
+  ModuleGestionOrla.orla.CoordZonaFotosAlumnos = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosAlumnos")
+  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.x
+  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.y
   
   FormPensando.show()
   Wait 0.5
@@ -289,6 +300,22 @@ End
 Public Sub ToolButtonEditar_Click()
   
   'TODO: editar alumnos
+  Dim fregistro As New FormAlumno
+  
+  If GridViewRegistrosAlumnos.indice.Count > GridViewRegistrosAlumnos.row And GridViewRegistrosAlumnos.row > -1 Then 
+    fregistro.modo = GridViewRegistrosAlumnos.indice[GridViewRegistrosAlumnos.row]
+    fregistro.reg.Foto = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 0].text
+    fregistro.reg.Nombre = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 1].text
+    fregistro.reg.Apellidos = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 2].text
+    fregistro.reg.Orden = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 3].text
+    fregistro.reg.Pueblo = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 4].text
+    fregistro.reg.Provincia = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 5].text
+    
+    fregistro.ShowModal()
+    ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+  Else
+    Message.Info(("No se puede editar un registro vacío"))
+  Endif
   
 End
 

@@ -3,8 +3,7 @@ FormEditorGrafico=[9]
 FMain=[288]
 
 [Breakpoints]
-Breakpoint[1]="ModuleUtilidadesDisco.98"
-Count=1
+Count=0
 
 [DebugWindow]
 Count=0
@@ -39,6 +38,12 @@ Geometry=[-7,-8,210,210]
 [DebugWindow/Me]
 Geometry=[-7,-8,210,661]
 
+[DebugWindow/ModuleGestionAlumnos]
+Geometry=[-3,483,448,241]
+
+[DebugWindow/ModuleGestionOrla]
+Geometry=[151,491,210,210]
+
 [DebugWindow/ModulePrincipal]
 Geometry=[1534,801,964,210]
 
@@ -62,7 +67,7 @@ LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\n
 
 [OpenFile]
 File[1]=".src/FMain.form"
-File[2]=".src/FMain.class:30.4"
+File[2]=".src/FMain.class:305.82"
 File[3]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[4]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[5]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -99,26 +104,27 @@ File[35]=".src/Clases/Clase de Datos/ClassPos.class:11.0"
 File[36]=".src/Clases/Clase de Datos/ClassPersona.class:47.3"
 File[37]=".src/Clases/Clase de Datos/ClassAlumno.class:2.0"
 File[38]=".src/Clases/Clase de Datos/ClassProfesor.class:14.0"
-File[39]=".src/Clases/Clase de Datos/Datos Orla/ClassDatosOrla.class:29.35"
+File[39]=".src/Clases/Clase de Datos/Datos Orla/ClassDatosOrla.class:331.3"
 File[40]=".src/ModulePruebas.module:23.32"
 File[41]=".src/Clases/Clase de Datos/Alumnos/ClassListaAlumnos.class:1.0"
 File[42]=".src/Clases/Clase de Datos/Profesores/ClassListaProfesores.class:1.0"
 File[43]="camara_icono.png"
 File[44]="icono_fotos_personas.png"
 File[45]=".src/Clases/Clase de Datos/ClassGestion.class:0.19"
-File[46]=".src/Modulos/ModulePrincipal.module:2.20"
-File[47]=".src/Modulos/ModuleIntermedio.module:24.47"
+File[46]=".src/Modulos/ModulePrincipal.module:24.3"
+File[47]=".src/Modulos/ModuleIntermedio.module:82.36"
 File[48]=".src/Modulos/ModuleHacerTransparente.module:14.3"
 File[49]="magicwand:0.0"
 File[50]=".src/Modulos/ModuleImprimir.module:18.25"
 File[51]=".src/FormAlumno.form"
-File[52]=".src/FormAlumno.class:16.7"
+File[52]=".src/FormAlumno.class:26.2"
 File[53]=".src/FormProfesor.form"
 File[54]=".src/FormProfesor.class:11.0"
-File[55]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:40.25"
+File[55]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:40.26"
 File[56]=".src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module:10.0"
 File[57]=".src/Formularios Comunes/FormError.form"
 File[58]="icoLoading.gif"
+Active=59
 File[59]=".src/Formularios Comunes/FormPensando.form"
 File[60]=".src/Clases/Clase de Datos/ClassDato.class:0.19"
 File[61]=".src/Clases/Editor/FMainEditor.form"
@@ -139,10 +145,11 @@ File[75]=".src/Clases/ClassDatoLetra.class:0.19"
 File[76]=".src/Formularios Comunes/FormElegirFichero.form"
 File[77]=".src/Formularios Comunes/FormElegirFichero.class:24.36"
 File[78]=".src/Clases/Clase de Datos/Datos Orla/ModuleGestionOrla.module:64.2"
-File[79]="Plantillas/orla1/Barcos_de_colores.svg:0.0"
-Active=80
-File[80]="Plantillas/orla2/Naranja_Floral.svg:0.0"
-Count=80
+File[79]="Plantillas/orla1/Barcos_de_colores.svg:6198.29"
+File[80]="Plantillas/orla2/Naranja_Floral.svg:809.42"
+File[81]=".src/Modulos/ModuleExtraerDatosOrla.module:20.25"
+File[82]=".src/Modulos/ModuleMensajeError.module:0.20"
+Count=82
 
 [Watches]
 Count=0

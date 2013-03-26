@@ -6,6 +6,13 @@ Public reg As New ClassAlumno
 
 Public Sub Form_Open()
   
+  If modo > -1 Then 
+    PictureBoxFoto.tag = reg.Foto
+    'TODO: indicar ruta donde se guarde  las fotos
+    '  PictureBoxFoto.Picture= Picture[
+    
+  Endif
+  
   TextBoxNombre.text = reg.Nombre
   TextBoxApellidos.text = reg.Apellidos
   TextBoxProvincia.text = reg.Provincia
@@ -15,6 +22,9 @@ Public Sub Form_Open()
   Else
     ValueBoxOrden.value = reg.Orden
   Endif
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 

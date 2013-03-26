@@ -408,31 +408,35 @@ msgid ""
 "pone una imagen transparente)<br>"
 msgstr ""
 
-#: FMain.class:207
+#: FMain.class:218
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:208
+#: FMain.class:219
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:227
+#: FMain.class:238
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:302
+#: FMain.class:317
+msgid "No se puede editar un registro vacío"
+msgstr ""
+
+#: FMain.class:329
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:302
+#: FMain.class:329
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:302
+#: FMain.class:329
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:302 FormAlumno.form:104 FormElegirFichero.form:30
+#: FMain.class:329 FormAlumno.form:104 FormElegirFichero.form:30
 #: FormPlantillaOrla.form:94 FormProfesor.form:91
 msgid "Cancelar"
 msgstr ""
@@ -490,7 +494,7 @@ msgstr ""
 msgid "+1"
 msgstr ""
 
-#: FormAlumno.class:34
+#: FormAlumno.class:44
 msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
@@ -511,7 +515,7 @@ msgstr ""
 msgid "Copiar Al portapapeles"
 msgstr ""
 
-#: FormPensando.form:21
+#: FormPensando.form:22
 msgid "Pensando..."
 msgstr ""
 
