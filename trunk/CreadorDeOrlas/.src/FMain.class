@@ -63,6 +63,14 @@ Public Sub ButtonEditorOrla_Click()
   'TODO: Sustituir por  plantilla de la orla actual
   plantillaActual = User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
   
+  'calculo:
+  '1º) H= nº de filas * altoFoto + (nº de filas -1)* espacioVertical
+  '2º) W= Maxima valor de la columna 3+4+4=5 -> 3+4+4 -> maximo es 4 -> H= nº de FotosPorColumna x AnchoDeFoto + (nº de fotosPorColumna-1) *espacioHorizontal
+  '3º) Pcx=W/2
+  '4º) Pcy=H/2
+  'Se extrae CentroX y CentroY donde van las Fotos en la Orla
+  'extraigo coordenada de la orla donde van los Alumnos y Profesores
+  'CentroX y CentroY
   ModuleGestionOrla.orla.CoordZonaFotosProfesores = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosProfesores")
   Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.x
   Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.y
@@ -70,6 +78,13 @@ Public Sub ButtonEditorOrla_Click()
   ModuleGestionOrla.orla.CoordZonaFotosAlumnos = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosAlumnos")
   Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.x
   Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.y
+  
+  ''Se repite para todas las fotos.....
+  '     5º) xdato=X-pcx
+  '     6º) ydato=Y-pcy
+  '     Traslado:
+  '     7º) xTras=Xdato+CentroX
+  '     8º) yTras=Ydato+CentroY
   
   FormPensando.show()
   Wait 0.5
@@ -528,14 +543,15 @@ Public Sub ToolButtonAutomatica_Click()
   
   Dim a As Integer
   'calcular el numero de filas necesarias para el numero de alumnos
-  SpinBoxFilas.Value = Int((ModuleGestionAlumnos.lista.Registros.Count) ^ (1 / 2))
+  SpinBoxFilas.Value = Int((ModuleGestionAlumnos.lista.Registros.Count) ^ (1 / 2.5))
   
   LabelEsquema.text = ModuleSistemaOrdenacion.Esquema(ModuleGestionAlumnos.lista.Registros.Count, SpinBoxFilas.Value)
   
-  For a = 1 To 70
-    SpinBoxFilas.Value = Int((a) ^ (1 / 2))
-    
-    Print a, ModuleSistemaOrdenacion.Esquema(a, SpinBoxFilas.Value)
-  Next
+  'prueba
+  'For a = 1 To 110
+  '  SpinBoxFilas.Value = Int((a) ^ (1 / 2.5))
+  
+  '  Print a, ModuleSistemaOrdenacion.Esquema(a, SpinBoxFilas.Value)
+  'Next
   
 End

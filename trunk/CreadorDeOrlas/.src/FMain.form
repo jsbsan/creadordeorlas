@@ -201,30 +201,38 @@
       Font = Font["Bitstream Charter,Bold,-1"]
       Text = ("Escala Fotos")
       { Label25 Label
-        MoveScaled(0,5,14,3)
+        MoveScaled(-2,4,14,4)
         Font = Font["Bitstream Charter,-1"]
         Text = ("Profesores:")
         Alignment = Align.Right
       }
       { Label26 Label
-        MoveScaled(1,12,12,3)
+        MoveScaled(0,11,12,4)
         Font = Font["Bitstream Charter,-1"]
         Text = ("Alumnos:")
         Alignment = Align.Right
       }
       { ValueBoxEscalaProfesores ValueBox
-        MoveScaled(15,4,5,4)
+        MoveScaled(13,4,5,4)
         Text = ("ValueBox1")
-        Value = "1"
+        Value = "100"
       }
       { ValueBoxEscalaAlumnos ValueBox
-        MoveScaled(15,11,5,4)
+        MoveScaled(13,11,5,4)
         Text = ("ValueBox1")
-        Value = "1"
+        Value = "100"
+      }
+      { Label22 Label
+        MoveScaled(18,4,3,4)
+        Text = ("%")
+      }
+      { Label23 Label
+        MoveScaled(18,11,4,4)
+        Text = ("%")
       }
     }
     { ButtonEditorOrla Button
-      MoveScaled(30,67,28,5)
+      MoveScaled(29,67,28,5)
       Text = ("Editor Gráfico Orla")
       Picture = Picture["icon:/22/grid"]
     }
@@ -475,6 +483,7 @@
       }
       { SpinBoxFilas SpinBox
         MoveScaled(15,2,5,3)
+        Enabled = False
         Font = Font["Bitstream Charter,-1"]
         MinValue = 1
       }

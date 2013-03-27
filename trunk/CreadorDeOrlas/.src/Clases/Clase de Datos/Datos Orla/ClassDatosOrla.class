@@ -92,8 +92,15 @@ Public Sub vacio()
   hTamanoLetraAlumno = 10
   hTamanoLetraProfesor = 10
   hOrdenAlfabetico = True
-  hEscalaFotosProfesores = 1
-  hEscalaFotosAlumnos = 1
+  hEscalaFotosProfesores = 100
+  hEscalaFotosAlumnos = 100
+  
+End
+
+Public Sub _new()
+  
+  hEscalaFotosProfesores = 100
+  hEscalaFotosAlumnos = 100
   
 End
 
