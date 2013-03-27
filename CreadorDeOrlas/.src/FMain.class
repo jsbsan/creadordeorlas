@@ -362,6 +362,7 @@ Public Sub IconPanel1_Click()
   'Ver datos de orlas
   If IconPanel1.Index = 5 Then 
     rellenarDatosOrlas()
+    ToolButtonAutomatica_Click()
     Return
   Endif
   
@@ -520,5 +521,21 @@ Public Sub ToolButtonBorrar_Click()
       ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
     Endif
   Endif
+  
+End
+
+Public Sub ToolButtonAutomatica_Click()
+  
+  Dim a As Integer
+  'calcular el numero de filas necesarias para el numero de alumnos
+  SpinBoxFilas.Value = Int((ModuleGestionAlumnos.lista.Registros.Count) ^ (1 / 2))
+  
+  LabelEsquema.text = ModuleSistemaOrdenacion.Esquema(ModuleGestionAlumnos.lista.Registros.Count, SpinBoxFilas.Value)
+  
+  For a = 1 To 70
+    SpinBoxFilas.Value = Int((a) ^ (1 / 2))
+    
+    Print a, ModuleSistemaOrdenacion.Esquema(a, SpinBoxFilas.Value)
+  Next
   
 End

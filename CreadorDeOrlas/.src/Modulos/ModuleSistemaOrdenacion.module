@@ -1,0 +1,121 @@
+' Gambas module file
+
+Public Sub esquema(numero As Integer, filas As Integer) As String
+  
+  Dim A As Integer
+  
+  A = Int(numero / filas)
+  
+  Select Case filas
+    Case 1
+      Return Str$(A)
+    Case 2  
+      If (a * filas) = numero Then 
+        Return Str$(A) & "+" & Str$(A)
+      Endif
+      If (a * filas) + 1 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1)
+      Endif
+    Case 3
+      If (a * filas) = numero Then 
+        Return Str$(A) & "+" & Str$(A) & "+" & Str$(A)
+      Endif
+      If (a * filas) + 1 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A)
+      Endif
+      
+      If (a * filas) + 2 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A + 1)
+      Endif
+    Case 4
+      If (a * filas) = numero Then 
+        Return Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A)
+      Endif
+      If (a * filas) + 1 = numero Then 
+        Return Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A + 1)  
+      Endif
+      
+      If (a * filas) + 2 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1)  
+      Endif
+      
+      If (a * filas) + 3 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1)  
+      Endif
+      
+    Case 5
+      
+      If (a * filas) = numero Then 
+        Return Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A)  
+      Endif
+      If (a * filas) + 1 = numero Then 
+        Return Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A + 1)  
+      Endif
+      
+      If (a * filas) + 2 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A)  
+      Endif
+      
+      If (a * filas) + 3 = numero Then 
+        Return Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1)  
+      Endif
+      If (a * filas) + 4 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1)  
+      Endif
+      
+    Case 6
+      
+      If (a * filas) = numero Then 
+        Return Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A)  
+      Endif
+      If (a * filas) + 1 = numero Then 
+        Return Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A + 1)  
+      Endif
+      
+      If (a * filas) + 2 = numero Then 
+        Return Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A + 1)  
+      Endif
+      
+      If (a * filas) + 3 = numero Then 
+        Return Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A)  
+      Endif
+      If (a * filas) + 4 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A)  
+      Endif
+      
+      If (a * filas) + 5 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1)  
+      Endif
+      
+    Case 7
+      If (a * filas) = numero Then 
+        Return Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A)  
+      Endif
+      If (a * filas) + 1 = numero Then 
+        Return Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A + 1)  
+      Endif
+      
+      If (a * filas) + 2 = numero Then 
+        Return Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A + 1)  
+      Endif
+      
+      If (a * filas) + 3 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A)  
+      Endif
+      If (a * filas) + 4 = numero Then 
+        Return Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A) & "+" & Str$(A + 1)  
+      Endif
+      
+      If (a * filas) + 5 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A)  
+      Endif
+      
+      If (a * filas) + 6 = numero Then 
+        Return Str$(A) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1) & "+" & Str$(A + 1)  
+      Endif
+      
+  End Select
+  
+  Return "demasiadas fotos :("
+  
+End
