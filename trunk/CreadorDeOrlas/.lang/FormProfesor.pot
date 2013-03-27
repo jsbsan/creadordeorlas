@@ -55,6 +55,6 @@ msgid "(opcional)"
 msgstr ""
 
 #: FormProfesor.form:104
-msgid "+1"
+msgid "+"
 msgstr ""
 

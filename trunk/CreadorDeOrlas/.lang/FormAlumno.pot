@@ -63,7 +63,7 @@ msgid "="
 msgstr ""
 
 #: FormAlumno.form:130
-msgid "+1"
+msgid "+"
 msgstr ""
 
 #: FormAlumno.class:44

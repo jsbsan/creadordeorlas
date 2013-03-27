@@ -87,6 +87,6 @@
   }
   { ButtonMasUno Button
     MoveScaled(37,32,5,4)
-    Text = ("+1")
+    Text = ("+")
   }
 }

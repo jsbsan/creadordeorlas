@@ -67,7 +67,7 @@ LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\n
 
 [OpenFile]
 File[1]=".src/FMain.form"
-File[2]=".src/FMain.class:519.101"
+File[2]=".src/FMain.class:537.67"
 File[3]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[4]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[5]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -94,7 +94,7 @@ File[25]="dibujos/Editor/barra420.png"
 File[26]="dibujos/Editor/barra297.png"
 File[27]="dibujos/Editor/barra210.png"
 File[28]="EsquemasyNotas/Programa/EstruturaDeDatos:23.9"
-File[29]="EsquemasyNotas/Programa/Organizar en filas y Columnas:0.0"
+File[29]="EsquemasyNotas/Programa/Organizar en filas y Columnas:51.106"
 File[30]="EsquemasyNotas/Programa/SvgTextoImagen:25.21"
 File[31]="EsquemasyNotas/imageMagick/Convertir A3 a A4:1.77"
 File[32]="EsquemasyNotas/imageMagick/Eliminar color en esquina:0.0"
@@ -118,7 +118,6 @@ File[49]="magicwand:0.0"
 File[50]=".src/Modulos/ModuleImprimir.module:18.25"
 File[51]=".src/FormAlumno.form"
 File[52]=".src/FormAlumno.class:13.7"
-Active=53
 File[53]=".src/FormProfesor.form"
 File[54]=".src/FormProfesor.class:20.35"
 File[55]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:40.26"
@@ -149,7 +148,10 @@ File[79]="Plantillas/orla1/Barcos_de_colores.svg:6198.29"
 File[80]="Plantillas/orla2/Naranja_Floral.svg:809.42"
 File[81]=".src/Modulos/ModuleExtraerDatosOrla.module:20.25"
 File[82]=".src/Modulos/ModuleMensajeError.module:0.20"
-Count=82
+Active=83
+File[83]=".src/Modulos/ModuleSistemaOrdenacion.module:109.140"
+File[84]=".src/Modulos/ModuleUnicaVez.module:0.20"
+Count=84
 
 [Watches]
 Count=0
