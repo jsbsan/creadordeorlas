@@ -178,8 +178,8 @@ Public Sub capturaDown(mouseScreenx As Integer, mouseScreeny As Integer)
   
   'busco si algun array 
   For Each objtemp In arrayBox
-    Print "       Objeto:", objtemp.screenX, objtemp.screenY
-    Print "       scrollX:", ScrollView1.Scrollx
+    ' Print "       Objeto:", objtemp.screenX, objtemp.screenY
+    '  Print "       scrollX:", ScrollView1.Scrollx
     If (MousescreenX + 50) >= objtemp.screenX And objtemp.screenX >= (MousescreenX - 20) Then 
       If (MousescreenY - 20) <= objtemp.ScreenY And (MousescreenY + 50) >= objtemp.screenY Then 
         objetoCapturado = objtemp
