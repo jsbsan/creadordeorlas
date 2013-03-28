@@ -31,3 +31,13 @@ Private Sub extraeXY(texto As String) As ClassPos
   Return posicion
   
 End
+
+'----------------------------------------------------------
+' Calculo de filas...
+'----------------------------------------------------------
+
+Public Function calculoDeFilas(numero As Integer) As Integer
+  
+  Return Int((numero) ^ (1 / 2.5))
+  
+End

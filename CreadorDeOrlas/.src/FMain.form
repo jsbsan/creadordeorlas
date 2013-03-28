@@ -476,29 +476,29 @@
       Font = Font["Bitstream Charter,-1"]
       Text = ("Organización Inicial de Fotos")
       { ToolButtonAutomatica ToolButton
-        MoveScaled(21,2,4,3)
+        MoveScaled(20,3,4,3)
         ToolTip = ("Calcular automaticamente las filas")
         Picture = Picture["icon:/16/exec"]
         Border = True
       }
       { SpinBoxFilas SpinBox
-        MoveScaled(15,2,5,3)
+        MoveScaled(15,3,5,3)
         Enabled = False
         Font = Font["Bitstream Charter,-1"]
         MinValue = 1
       }
       { Label27 Label
-        MoveScaled(1,2,14,3)
+        MoveScaled(1,3,14,3)
         Font = Font["Bitstream Charter,-1"]
         Text = ("Número de filas:")
         Alignment = Align.Right
       }
-      { RadioButtonAlfa RadioButton
+      { RadioButtonProfesorAlfabetico RadioButton
         MoveScaled(36,3,18,2)
         Text = ("Orden Alfabetico")
         Value = True
       }
-      { RadioButtonIndicado RadioButton
+      { RadioButtonProfesorIndicado RadioButton
         MoveScaled(36,6,19,2)
         Text = ("Orden Indicado")
       }
@@ -510,22 +510,22 @@
       { Frame7 Frame
         MoveScaled(56,0,23,8)
         Text = ("Alumnos")
-        { RadioButton1 RadioButton
+        { RadioButtonAlumnoAlfabetico RadioButton
           MoveScaled(1,3,24,2)
           Text = ("Orden Alfabético")
           Value = True
         }
-        { RadioButton2 RadioButton
+        { RadioButtonAlumnoIndicado RadioButton
           MoveScaled(1,5,24,4)
           Text = ("Orden Indicado")
         }
       }
       { Label4 Label
-        MoveScaled(3,6,10,3)
+        MoveScaled(3,6,8,3)
         Text = ("Esquema:")
       }
       { LabelEsquema Label
-        MoveScaled(14,6,17,3)
+        MoveScaled(11,6,17,3)
         Text = ("Label22")
       }
     }

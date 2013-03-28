@@ -6,6 +6,8 @@ Public reg As New ClassAlumno
 
 Public Sub Form_Open()
   
+  Dim a As Integer 
+  
   If modo > -1 Then 
     PictureBoxFoto.tag = reg.Foto
     'TODO: indicar ruta donde se guarde  las fotos
@@ -17,10 +19,17 @@ Public Sub Form_Open()
   TextBoxApellidos.text = reg.Apellidos
   TextBoxProvincia.text = reg.Provincia
   TextBoxPueblo.text = reg.Pueblo
+  
   If reg.Orden = 0 Then 
     ValueBoxOrden.value = 1
   Else
     ValueBoxOrden.value = reg.Orden
+  Endif
+  If modo = -1 Then 
+    For a = 0 To ModuleGestionAlumnos.Lista.registros.Max
+      ValueBoxOrden.value = Max(ValueBoxOrden.value + 1, ModuleGestionAlumnos.Lista.registros[a].Orden)
+    Next
+    
   Endif
   
 Catch
