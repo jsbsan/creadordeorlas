@@ -5,7 +5,8 @@ Public anadir As Integer = -1
 Public reg As New ClassProfesor
 
 Public Sub Form_Open()
-  
+
+  Dim a As Integer
   If modo > -1 Then 
     PictureBoxFoto.tag = reg.Foto
     'TODO: indicar ruta donde se guarde  las fotos
@@ -20,6 +21,14 @@ Public Sub Form_Open()
   Else
     ValueBoxOrden.Value = reg.Orden
   Endif
+  
+  If modo = -1 Then 
+    For a = 0 To ModuleGestionProfesores.Lista.registros.Max
+      ValueBoxOrden.value = Max(ValueBoxOrden.value + 1, ModuleGestionProfesores.Lista.registros[a].Orden)
+    Next
+    
+  Endif
+  
   Me.center
   
 End

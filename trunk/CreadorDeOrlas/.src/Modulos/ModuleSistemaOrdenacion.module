@@ -4,7 +4,10 @@ Public Sub esquema(numero As Integer, filas As Integer) As String
   
   Dim A As Integer
   
-  A = Int(numero / filas)
+  Try A = Int(numero / filas)
+  If Error Then 
+    Message.Warning("Se nececitan algun registro de alumno para crear esquema")
+  Endif
   
   Select Case filas
     Case 1

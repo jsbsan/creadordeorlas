@@ -60,8 +60,11 @@ Private hLetraProfesor As String
 Property TamanoLetraProfesor As Integer 
 Private hTamanoLetraProfesor As Integer 
 
-Property OrdenAlfabetico As Boolean '' si es true, se ordenan los datos alfabeticamente, si es false se ordenan segun la propiedad Orden
-Private hOrdenAlfabetico As Boolean 
+Property OrdenAlfabeticoAlumnos As Boolean '' si es true, se ordenan los datos alfabeticamente, si es false se ordenan segun la propiedad Orden
+Private hOrdenAlfabeticoAlumnos As Boolean 
+
+Property OrdenAlfabeticoProfesores As Boolean '' si es true, se ordenan los datos alfabeticamente, si es false se ordenan segun la propiedad Orden
+Private hOrdenAlfabeticoProfesores As Boolean
 
 Property EscalaFotosAlumnos As Integer 
 Private hEscalaFotosAlumnos As Integer 
@@ -91,7 +94,9 @@ Public Sub vacio()
   
   hTamanoLetraAlumno = 10
   hTamanoLetraProfesor = 10
-  hOrdenAlfabetico = True
+  
+  hOrdenAlfabeticoAlumnos = True
+  hOrdenAlfabeticoProfesores = True
   hEscalaFotosProfesores = 100
   hEscalaFotosAlumnos = 100
   
@@ -138,8 +143,8 @@ Public Sub Text() As String
   cadena &= hTamanoLetraAlumno & "\n"  
   cadena &= hTamanoLetraProfesor & "\n"
   
-  cadena &= hOrdenAlfabetico & "\n"
-  cadena &= hOrdenAlfabetico & "\n"
+  cadena &= hOrdenAlfabeticoAlumnos & "\n"
+  cadena &= hOrdenAlfabeticoProfesores & "\n"
   
   cadena &= hEscalaFotosAlumnos & "\n"
   cadena &= hEscalaFotosProfesores & "\n"
@@ -201,9 +206,9 @@ Public Sub lecturaDatos(cadenas As String[]) As Boolean
   hTamanoLetraProfesor = cadenas[a]
   a += 1              
   
-  hOrdenAlfabetico = cadenas[a]
+  hOrdenAlfabeticoAlumnos = cadenas[a]
   a += 1                  
-  hOrdenAlfabetico = cadenas[a]
+  hOrdenAlfabeticoProfesores = cadenas[a]
   a += 1                  
   
   hEscalaFotosAlumnos = cadenas[a]
@@ -275,18 +280,6 @@ End
 Private Sub EspacioEntreFotosVertical_write(Valor As Integer)
   
   hEspacioEntreFotosVertical = Valor 
-  
-End
-
-Private Function OrdenAlfabetico_read() As Boolean 
-  
-  Return hOrdenAlfabetico 
-  
-End  
-
-Private Sub OrdenAlfabetico_write(Valor As Boolean)
-  
-  hOrdenAlfabetico = Valor 
   
 End
 
@@ -491,5 +484,29 @@ End
 Private Sub EscalaFotosAlumnos_write(Valor As Integer)
   
   hEscalaFotosAlumnos = Valor 
+  
+End
+
+Private Function OrdenAlfabeticoAlumnos_Read() As Boolean
+  
+  Return hOrdenAlfabeticoAlumnos
+  
+End
+
+Private Sub OrdenAlfabeticoAlumnos_Write(Value As Boolean)
+  
+  hOrdenAlfabeticoAlumnos = value
+  
+End
+
+Private Function OrdenAlfabeticoProfesores_Read() As Boolean
+  
+  Return hOrdenAlfabeticoProfesores
+  
+End
+
+Private Sub OrdenAlfabeticoProfesores_Write(Value As Boolean)
+  
+  hOrdenAlfabeticoProfesores = value
   
 End
