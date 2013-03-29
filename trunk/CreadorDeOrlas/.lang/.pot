@@ -138,7 +138,7 @@ msgstr ""
 msgid "Alumnos:"
 msgstr ""
 
-#: FMain.form:371 FormAlumno.form:92 FormProfesor.form:26
+#: FMain.form:371 FMainEditor.form:69 FormAlumno.form:92 FormProfesor.form:26
 msgid "ValueBox1"
 msgstr ""
 
@@ -250,15 +250,15 @@ msgstr ""
 msgid "Muestra Asignatura"
 msgstr ""
 
-#: FMain.form:650
+#: FMain.form:650 FMainEditor.form:59
 msgid "Espacio entre fotos"
 msgstr ""
 
-#: FMain.form:654
+#: FMain.form:654 FMainEditor.form:63
 msgid "Horizontal:"
 msgstr ""
 
-#: FMain.form:670
+#: FMain.form:670 FMainEditor.form:79
 msgid "Vertical:"
 msgstr ""
 
@@ -420,57 +420,65 @@ msgid ""
 "pone una imagen transparente)<br>"
 msgstr ""
 
-#: FMain.class:265
+#: FMain.class:216
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:266
+#: FMain.class:217
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:285
+#: FMain.class:236
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:364
+#: FMain.class:315
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:376
+#: FMain.class:327
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:376
+#: FMain.class:327
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:376
+#: FMain.class:327
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:376 FormAlumno.form:104 FormElegirFichero.form:30
+#: FMain.class:327 FormAlumno.form:104 FormElegirFichero.form:30
 #: FormPlantillaOrla.form:94 FormProfesor.form:92
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:559
+#: FMain.class:510
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:559
+#: FMain.class:510
 msgid "Si"
 msgstr ""
 
-#: FMainEditor.form:28
+#: FMainEditor.form:37
 msgid "Label2"
 msgstr ""
 
-#: FMainEditor.form:36
+#: FMainEditor.form:45
 msgid "Label1"
 msgstr ""
 
-#: FMainEditor.form:43
+#: FMainEditor.form:52
 msgid "Rejilla"
+msgstr ""
+
+#: FMainEditor.form:86
+msgid "Definir esquema:"
+msgstr ""
+
+#: FMainEditor.form:91
+msgid "Reorganizar"
 msgstr ""
 
 #: FormAlumno.form:45
@@ -577,6 +585,30 @@ msgstr ""
 
 #: FormProfesor.form:71
 msgid "Asignatura:"
+msgstr ""
+
+#: ModuleDistribucionFotos.module:135
+msgid "Error en Esquema Definido:"
+msgstr ""
+
+#: ModuleDistribucionFotos.module:135
+msgid "Falta poner el signo igual (=)"
+msgstr ""
+
+#: ModuleDistribucionFotos.module:143
+msgid "El numero total no es igual al numero de alumnos("
+msgstr ""
+
+#: ModuleDistribucionFotos.module:153
+msgid "Una columna se ha definido con 0 alumnos"
+msgstr ""
+
+#: ModuleDistribucionFotos.module:164
+msgid "Error en el Esquema Definido:"
+msgstr ""
+
+#: ModuleDistribucionFotos.module:164
+msgid "La suma de los numeros no coincide con el total"
 msgstr ""
 
 #: ModuleUnicaVez.module:24

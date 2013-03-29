@@ -56,75 +56,23 @@ Public Sub Form_Open()
 End
 
 Public Sub ButtonEditorOrla_Click()
+  
+  Dim feditor As New FMainEditor
   'Reemplaza la plantilla con los datos que ha introducido (colegio, curso,etc )
   
-  Dim a As Integer
-  Dim maximo, nfilas, h, w, pcx, pcy, anchoFoto, altoFoto, espacioVertical, espacioHorizontal As Integer
-  Dim plantillaActual, distribucion As String
-  Dim feditor As New FMainEditor
-  Dim numerosColumna As New String[]
-  'TODO: Sustituir por  plantilla de la orla actual
+  ModuleDistribucionFotos.hacer(ValueBoxHorizontal.value, ValueBoxVertical.Value)
   
-  plantillaActual = User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
-  'Numero de filas:
+  'asigno nueva posicion de traslado
+  feditor.esquema = LabelEsquema.Text
+  feditor.espacioancho = ValueBoxHorizontal.Value
+  feditor.espaciolargo = ValueBoxVertical.Value
   
-  nfilas = ModuleExtraerDatosOrla.calculoDeFilas(ModuleGestionAlumnos.lista.Registros.Count) 
-  If nfilas = 0 Then 
-    Return
-  Endif
-  distribucion = ModuleSistemaOrdenacion.Esquema(ModuleGestionAlumnos.lista.Registros.Count, nfilas)
-  
-  anchofoto = 200
-  altofoto = 350
-  
-  espacioHorizontal = ValueBoxHorizontal.Value
-  espacioVertical = ValueBoxVertical.Value
-  
-  'calculo:
-  '1º) H= nº de filas * altoFoto + (nº de filas -1)* espacioVertical
-  H = nfilas * altofoto + (nfilas - 1) * espacioVertical
-  '2º) W= Maxima valor de la columna 3+4+4=5 -> 3+4+4 -> maximo es 4 -> H= nº de FotosPorColumna x AnchoDeFoto + (nº de fotosPorColumna-1) *espacioHorizontal
-  
-  distribucion = Mid(distribucion, 1, InStr(distribucion, "=") - 1)
-  numerosColumna = Split(distribucion, "+")
-  
-  For a = 0 To numerosColumna.Max
-    maximo = Max(maximo, Val(numerosColumna[a]))
-  Next
-  
-  H = maximo * anchoFoto + (maximo - 1) * espacioHorizontal
-  '3º) Pcx=W/2
-  pcx = w / 2
-  '4º) Pcy=H/2
-  pcy = h / 2
-  'Se extrae CentroX y CentroY donde van las Fotos en la Orla
-  'extraigo coordenada de la orla donde van los Alumnos y Profesores
-  'CentroX y CentroY
-  ModuleGestionOrla.orla.CoordZonaFotosProfesores = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosProfesores")
-  Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.x
-  Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.y
-  
-  ModuleGestionOrla.orla.CoordZonaFotosAlumnos = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosAlumnos")
-  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.x
-  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.y
-  
-  'ordenar fotos Alfabeticamente o Indicado
-  'TODO: 0 0rdenacion y colocacion de fotos
-  'asignar coordenadas a cada foto
-  '
-  'transladar fotos a las coordenadas de la orla...
-  ' For a = 0 To 
-  ''Se repite para todas las fotos.....
-  '     5º) xdato=X-pcx
-  '     6º) ydato=Y-pcy
-  '     Traslado:
-  '     7º) xTras=Xdato+CentroX
-  '     8º) yTras=Ydato+CentroY
-  
+  feditor.listaAlumnos = ModuleGestionAlumnos.lista
   FormPensando.show()
   Wait 0.5
+  
   feditor.plantillaActual = User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
-  feditor.Show()
+  feditor.ShowDialog()
   
 End
 
