@@ -232,7 +232,7 @@
       }
     }
     { ButtonEditorOrla Button
-      MoveScaled(29,67,28,5)
+      MoveScaled(30,67,28,5)
       Text = ("Editor Gráfico Orla")
       Picture = Picture["icon:/22/grid"]
     }

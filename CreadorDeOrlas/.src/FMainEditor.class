@@ -1,5 +1,7 @@
 ' Gambas class file
 
+Public listaAlumnos As New ClassListaAlumnos
+
 Public plantillaActual As String 'plantilla actual a la que tendriamos que cargar
 Public arrayBox As New ClassMejorPictureBox[]
 Public objetoCapturado As ClassMejorPictureBox
@@ -12,6 +14,10 @@ Public imagenProDes As Picture = Picture["Editor/ProDes.png"]
 Public escalafoto As Integer = 4
 Public coeficienteEscala As Float = 0.65
 Public imagenfondo As Picture
+Public esquema As String
+
+Public espacioancho As Integer
+Public espaciolargo As Integer
 
 Public Sub _new()
   
@@ -20,6 +26,9 @@ End
 Public Sub Form_Open()
   
   '  Me.Maximized = True
+  TextBoxEsquema.text = esquema
+  ValueBoxHorizontal.Value = espacioancho
+  ValueBoxVertical.Value = espaciolargo
   
   LabelTextoPersona.Visible = False
   'uno las dos imagenes del fondo y de la rejilla-reglas
@@ -61,19 +70,6 @@ Public Sub obs_MouseMove()
   
   '  Print "Evento en Obs...mousemove"
   capturaMoviendo(Mouse.screenx, Mouse.screeny)
-  'If Not IsNull(objetoCapturado) Then
-  
-  '    objetoCapturado.x += Mouse.X / escalafoto
-  '   objetoCapturado.y += Mouse.y / escalafoto
-  '   LabelTextoPersona.x = objetoCapturado.x
-  '   LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
-  '   LabelTextoPersona.Visible = True
-  
-  '  LabelCoordenada.x = objetoCapturado.x
-  '  LabelCoordenada.y = objetoCapturado.y - 20
-  '  LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
-  '  LabelCoordenada.Visible = True
-  ' Endif
   
 End
 
@@ -185,16 +181,25 @@ Public Sub capturaDown(mouseScreenx As Integer, mouseScreeny As Integer)
         objetoCapturado = objtemp
         If objetoCapturado.tipo = "Alumno" Then 
           objetoCapturado.Picture = imagenAlumnoDes
+          LabelTextoPersona.x = objetoCapturado.x
+          LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
           LabelTextoPersona.text = objetoCapturado.Texto
+          LabelTextoPersona.Visible = True
+          
           LabelCoordenada.x = objetoCapturado.x
           LabelCoordenada.y = objetoCapturado.y - 20
           LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
           LabelCoordenada.Visible = True
+          
           Break
         Else
           If objetoCapturado.tipo = "Profesor" Then 
             objetoCapturado.Picture = imagenProDes
+            LabelTextoPersona.x = objetoCapturado.x
+            LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
             LabelTextoPersona.text = objetoCapturado.Texto
+            LabelTextoPersona.Visible = True
+            
             LabelCoordenada.x = objetoCapturado.x
             LabelCoordenada.y = objetoCapturado.y - 20
             LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
@@ -256,21 +261,36 @@ End
 
 Public Sub dibujoObjetos()
   
+  Dim a As Integer
   Dim temporalpicture As ClassMejorPictureBox
   
-  temporalpicture = New ClassMejorPictureBox(ScrollView1)
-  temporalpicture.Picture = imagenAlumno
-  temporalpicture.w = imagenAlumno.w / escalafoto
-  temporalpicture.h = imagenAlumno.h / escalafoto
-  temporalpicture.Stretch = True
-  Object.Attach(temporalpicture, Me, "Obs")
-  temporalpicture.x = 420
-  temporalpicture.y = 40
-  temporalpicture.tipo = "Alumno"
-  temporalpicture.indice = 0
-  temporalpicture.texto = "Julio\nSanchez Berro\nDos Hermanas"
-  arrayBox.Add(temporalpicture)
+  arrayBox.Clear()
+  '------------------------
+  'Para los alumnos
+  '------------------------
+  For a = 0 To listaAlumnos.Registros.Max
+    
+    temporalpicture = New ClassMejorPictureBox(ScrollView1)
+    temporalpicture.Picture = imagenAlumno
+    temporalpicture.w = imagenAlumno.w / escalafoto
+    temporalpicture.h = imagenAlumno.h / escalafoto
+    temporalpicture.Stretch = True
+    Object.Attach(temporalpicture, Me, "Obs")
+    temporalpicture.x = listaAlumnos.Registros[a].posicion.x / escalafoto 
+    temporalpicture.y = listaAlumnos.Registros[a].posicion.y / escalafoto 
+    '  Print "Foto Editor: "; A, temporalpicture.x, temporalpicture.y
+    
+    temporalpicture.tipo = "Alumno"
+    temporalpicture.indice = a
+    temporalpicture.texto = listaAlumnos.Registros[a].Nombre & "\n" & listaAlumnos.Registros[a].Apellidos
+    arrayBox.Add(temporalpicture)
+    
+  Next 
   
+  '------------------------
+  'para los profesores
+  '------------------------
+  '
   temporalpicture = New ClassMejorPictureBox(ScrollView1)
   temporalpicture.Picture = imagenPro
   temporalpicture.w = imagenPro.w / escalafoto
@@ -284,17 +304,42 @@ Public Sub dibujoObjetos()
   Object.Attach(temporalpicture, Me, "Obs")
   arrayBox.Add(temporalpicture)
   
-  temporalpicture = New ClassMejorPictureBox(ScrollView1)
-  temporalpicture.Picture = imagenAlumno
-  temporalpicture.w = imagenAlumno.w / escalafoto
-  temporalpicture.h = imagenAlumno.h / escalafoto
-  temporalpicture.Stretch = True
-  Object.Attach(temporalpicture, Me, "Obs")
-  temporalpicture.x = 420
-  temporalpicture.y = 300
-  temporalpicture.tipo = "Alumno"
-  temporalpicture.indice = 0
-  temporalpicture.texto = "Eva\nMuñoz Poto\nDos Hermanas"
-  arrayBox.Add(temporalpicture)
+  ' temporalpicture = New ClassMejorPictureBox(ScrollView1)
+  ' temporalpicture.Picture = imagenAlumno
+  ' temporalpicture.w = imagenAlumno.w / escalafoto
+  ' temporalpicture.h = imagenAlumno.h / escalafoto
+  ' temporalpicture.Stretch = True
+  ' Object.Attach(temporalpicture, Me, "Obs")
+  ' temporalpicture.x = 420
+  ' temporalpicture.y = 300
+  ' temporalpicture.tipo = "Alumno"
+  ' temporalpicture.indice = 0
+  ' temporalpicture.texto = "Eva\nMuñoz Poto\nDos Hermanas"
+  ' arrayBox.Add(temporalpicture)
   
+End
+
+Public Sub ButtonReorganizar_Click()
+  
+  Dim objeto As Object
+  
+  If TextBoxEsquema.text <> "" Then 
+    If ModuleDistribucionFotos.comprobarEsquema(TextBoxEsquema.text) Then 
+      ModuleDistribucionFotos.hacer(ValueBoxHorizontal.Value, ValueBoxVertical.value, TextBoxEsquema.text)
+      
+      'revisar los objetos que sean classmejorpiturebox
+      For Each objeto In ScrollView1.Children
+        Print Object.Type(objeto)
+        If Object.Type(objeto) = "ClassMejorPictureBox" Then 
+          objeto.Delete() ' = Null
+          
+        Endif
+      Next
+      '
+      
+      '  dibujafondo(CheckBoxRejilla.Value)
+      dibujoObjetos()
+    Endif
+  Endif
+
 End
