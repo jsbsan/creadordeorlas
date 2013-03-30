@@ -366,31 +366,31 @@ msgstr ""
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:315
+#: FMain.class:316
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:327
+#: FMain.class:328
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:327
+#: FMain.class:328
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:327
+#: FMain.class:328
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:327
+#: FMain.class:328
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:510
+#: FMain.class:512
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:510
+#: FMain.class:512
 msgid "Si"
 msgstr ""
 

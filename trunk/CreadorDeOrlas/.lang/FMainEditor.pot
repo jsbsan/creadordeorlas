@@ -14,39 +14,51 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FMainEditor.form:37
+#: FMainEditor.form:41
 msgid "Label2"
 msgstr ""
 
-#: FMainEditor.form:45
+#: FMainEditor.form:49
 msgid "Label1"
 msgstr ""
 
-#: FMainEditor.form:52
+#: FMainEditor.form:56
 msgid "Rejilla"
 msgstr ""
 
-#: FMainEditor.form:59
+#: FMainEditor.form:63
 msgid "Espacio entre fotos"
 msgstr ""
 
-#: FMainEditor.form:63
+#: FMainEditor.form:67
 msgid "Horizontal:"
 msgstr ""
 
-#: FMainEditor.form:69
+#: FMainEditor.form:73
 msgid "ValueBox1"
 msgstr ""
 
-#: FMainEditor.form:79
+#: FMainEditor.form:83
 msgid "Vertical:"
 msgstr ""
 
-#: FMainEditor.form:86
+#: FMainEditor.form:90
 msgid "Definir esquema:"
 msgstr ""
 
-#: FMainEditor.form:91
+#: FMainEditor.form:95
 msgid "Reorganizar"
+msgstr ""
+
+#: FMainEditor.form:104
+msgid "Mostrar Fotos"
+msgstr ""
+
+#: FMainEditor.form:109
+msgid "Elipse"
+msgstr ""
+
+#: FMainEditor.form:114
+msgid "Marco"
 msgstr ""
 

@@ -271,9 +271,17 @@ Public Sub dibujoObjetos()
   For a = 0 To listaAlumnos.Registros.Max
     
     temporalpicture = New ClassMejorPictureBox(ScrollView1)
-    temporalpicture.Picture = imagenAlumno
-    temporalpicture.w = imagenAlumno.w / escalafoto
-    temporalpicture.h = imagenAlumno.h / escalafoto
+    
+    If CheckBoxMostraFotos.value = True Then 
+      temporalpicture.Picture = Picture[listaAlumnos.Registros[a].FotoRellena]
+      temporalpicture.w = Picture[listaAlumnos.Registros[a].FotoRellena].w / escalafoto
+      temporalpicture.h = Picture[listaAlumnos.Registros[a].FotoRellena].h / escalafoto
+    Else
+      temporalpicture.Picture = imagenAlumno
+      temporalpicture.w = imagenAlumno.w / escalafoto
+      temporalpicture.h = imagenAlumno.h / escalafoto
+    Endif
+    
     temporalpicture.Stretch = True
     Object.Attach(temporalpicture, Me, "Obs")
     temporalpicture.x = listaAlumnos.Registros[a].posicion.x / escalafoto 
@@ -304,19 +312,6 @@ Public Sub dibujoObjetos()
   Object.Attach(temporalpicture, Me, "Obs")
   arrayBox.Add(temporalpicture)
   
-  ' temporalpicture = New ClassMejorPictureBox(ScrollView1)
-  ' temporalpicture.Picture = imagenAlumno
-  ' temporalpicture.w = imagenAlumno.w / escalafoto
-  ' temporalpicture.h = imagenAlumno.h / escalafoto
-  ' temporalpicture.Stretch = True
-  ' Object.Attach(temporalpicture, Me, "Obs")
-  ' temporalpicture.x = 420
-  ' temporalpicture.y = 300
-  ' temporalpicture.tipo = "Alumno"
-  ' temporalpicture.indice = 0
-  ' temporalpicture.texto = "Eva\nMuñoz Poto\nDos Hermanas"
-  ' arrayBox.Add(temporalpicture)
-  
 End
 
 Public Sub ButtonReorganizar_Click()
@@ -336,10 +331,15 @@ Public Sub ButtonReorganizar_Click()
         Endif
       Next
       '
+      If CheckBoxMostraFotos.value = True Then 
+        'NOTE: generar fotos de cada alumno..
+        ModuleGenerarFotos.crearAlumnos(ModuleGestionAlumnos.lista.Registros, RadioButtonMarco.value, ColorButton1.Value)
+        
+      Endif
       
       '  dibujafondo(CheckBoxRejilla.Value)
       dibujoObjetos()
     Endif
   Endif
-
+  
 End

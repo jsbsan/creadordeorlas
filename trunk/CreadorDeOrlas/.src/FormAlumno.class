@@ -8,11 +8,22 @@ Public Sub Form_Open()
   
   Dim a As Integer 
   
-  If modo > -1 Then 
-    PictureBoxFoto.tag = reg.Foto
-    'TODO: indicar ruta donde se guarde  las fotos
-    '  PictureBoxFoto.Picture= Picture[
-    
+  If modo > -1 Then   
+    If reg.foto <> "" And Exist(modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/" & reg.foto) Then 
+      PictureBoxFoto.Tag = Replace$(reg.foto, " ", "_")
+      PictureBoxFoto.Picture = Picture[modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/" & reg.foto]
+    Else
+      If Not Exist(modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/icono_fotos_personas.png") Then 
+        Copy "icono_fotos_personas.png" To modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/icono_fotos_personas.png"
+      Endif
+      PictureBoxFoto.Picture = Picture[modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/icono_fotos_personas.png "]
+      PictureBoxFoto.Tag = "icono_fotos_personas.png"
+      PictureBoxFoto.Refresh
+    Endif
+  Else
+    Try Copy "icono_fotos_personas.png" To modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/icono_fotos_personas.png"
+    PictureBoxFoto.Picture = Picture[modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/icono_fotos_personas.png"]
+    PictureBoxFoto.tag = "icono_fotos_personas.png"
   Endif
   
   TextBoxNombre.text = reg.Nombre
@@ -117,5 +128,28 @@ Public Sub ButtonMasUno_Click()
   If modo = 0 Then Return
   reg.Orden = ModuleGestionAlumnos.Lista.Registros[ModuleGestionAlumnos.Lista.Registros.max].Orden + 1
   ValueBoxOrden.Value = reg.Orden
+  
+End
+
+Public Sub ToolButton1_Click()
+  
+  Dim comando As String = ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas"
+  Dim nombrefinal As String
+  
+  Exec [comando] Wait
+  '  User.home & "/webcam_carnet.png"
+  nombrefinal = modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/" & Replace(Replace(Replace("webcam_carnet" & Str$(Now()) & ".png", " ", "_"), "/", "-"), ":", "-")
+  
+  Exec ["mv", User.home & "/webcam_carnet.png", nombrefinal] Wait
+  
+  reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal)
+  PictureBoxFoto.tag = reg.foto
+  PictureBoxFoto.picture = Picture[nombrefinal]
+  
+End
+
+Public Sub ToolButtonCancelar_Click()
+  
+  Me.Close
   
 End

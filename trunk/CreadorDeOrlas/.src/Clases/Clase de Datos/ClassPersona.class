@@ -1,5 +1,9 @@
 ' Gambas class file
 
+Property FotoRellena As String
+
+Private hfotorellena As String
+
 Property Foto As String ''nombre del fichero que continee la foto
 Private hFoto As String 
 Property Nombre As String ''Nombre del señor
@@ -144,5 +148,17 @@ End
 Private Sub Orden_write(Valor As Integer)
   
   hOrden = Valor 
+  
+End
+
+Private Function FotoRellena_Read() As String
+  
+  Return hfotorellena
+  
+End
+
+Private Sub FotoRellena_Write(Value As String)
+  
+  hfotorellena = Value
   
 End

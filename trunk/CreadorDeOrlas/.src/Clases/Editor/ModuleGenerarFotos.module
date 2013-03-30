@@ -1,0 +1,105 @@
+' Gambas module file
+
+' 
+Private rutatrabajo As String = "/tmp/pruebasFotito/"
+
+Public Sub crearAlumnos(registros As ClassAlumno[], marco As Boolean, colormarco As Integer)
+  
+  Dim imagendestino, imagenorigen, texto, comando As String
+  Dim a As Integer
+  
+  If Not Exist(rutatrabajo) Then
+    Mkdir rutatrabajo
+  Endif
+  
+  If Not Exist(rutatrabajo & "150x120.png") Then 
+    Copy "Editor/150x120.png" To rutatrabajo & "150x120.png"
+  Endif
+  
+  'proceso a repetir por cada registro
+  For a = 0 To registros.Max
+    'copio la imagen al directorio temporal
+    
+    If registros[a].Foto <> "" Then 
+      imagenorigen = User.Home & "/CreadorOrlas/temporales/FotosAlumnos/" & registros[a].Foto 
+    Else
+      If Not Exist(rutatrabajo & "Alu.png") Then 
+        Copy "Editor/Alu.png" To rutatrabajo & "Alu.png"
+      Endif
+      
+      imagenorigen = rutatrabajo & "Alu.png"
+    Endif
+    imagendestino = rutatrabajo & "fotito.png"
+    
+    '¿es un marco o una elipse?
+    
+    If marco = False Then 
+      CrearElipse(imagenorigen, imagendestino)
+    Else
+      CrearMarco(imagenorigen, imagendestino, colormarco)
+      
+    Endif  
+    
+    'hacer texto 1
+    textoAimagen(registros[a].Nombre, rutatrabajo & "paso1.png")
+    'hacer texto 2
+    textoAimagen(registros[a].Apellidos, rutatrabajo & "paso2.png")
+    
+    '------------------------------------
+    'Si es un alumno....
+    '------------------------------------
+    'hacer texto 3
+    'comproprobar si se desea escribir el pueblo y la provincia...
+    texto = registros[a].Pueblo
+    texto &= "-" & registros[a].Provincia
+    '
+    textoAimagen(texto, rutatrabajo & "paso3.png")
+    'monto imagen 150x100 con fotito.png
+    
+    comando = "composite -gravity North " & rutatrabajo & "fotito.png" & " " & rutatrabajo & "150x120.png " & rutatrabajo & "north.png"
+    
+    Shell comando Wait
+    'montar las 4 imagenes
+    comando = "montage " & rutatrabajo & "north.png " & rutatrabajo & "paso1.png " & rutatrabajo & "paso2.png " & rutatrabajo & "paso3.png -tile 1x4 -geometry +0+0 " & rutatrabajo & "vertical.png"
+    Shell comando Wait
+    
+    If Exist(rutatrabajo & "vertical.png") Then 
+      Try Kill User.Home & "/CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
+      Copy rutatrabajo & "vertical.png" To User.Home & "/CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
+      
+      registros[a].FotoRellena = User.Home & "/CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
+    Else
+      Message.Warning(("No ha sido posible crear la foto con los datos"))
+    Endif
+    
+  Next
+  
+End
+
+Public Sub textoAimagen(texto As String, ruta As String)
+  
+  Dim comando As String
+  
+  comando = "convert -size 150x14 -font Bookman-DemiItalic -pointsize 12 -gravity center caption:'" & texto & "' " & ruta
+  Shell comando Wait
+  
+End
+
+Public Sub CrearElipse(origen As String, destino As String)
+  
+  Dim comando As String
+  
+  comando = "convert " & origen & " -background None -vignette 9x5 " & destino
+  Shell comando Wait
+  
+End
+
+Public Sub CrearMarco(origen As String, destino As String, colormarco As String)
+  
+  Dim comando As String 
+  
+  comando = "convert " & origen & " -mattecolor '#" & Hex$(colormarco) & "'  -frame 10x10+5+5  " & destino
+  
+  Shell comando Wait
+  
+End

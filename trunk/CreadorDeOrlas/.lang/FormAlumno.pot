@@ -66,7 +66,7 @@ msgstr ""
 msgid "+"
 msgstr ""
 
-#: FormAlumno.class:53
+#: FormAlumno.class:64
 msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 

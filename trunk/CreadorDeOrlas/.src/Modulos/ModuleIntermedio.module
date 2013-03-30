@@ -12,8 +12,11 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   copiarPlantillasInternas()
   
   ModuleHacerTransparente.copiarScriptTransparente(ModulePrincipal.RutaPrograma)
-  'borrar datos anteriores
   
+  Try Copy "FotoCarnetMyWebCam.gambas" To ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas"
+  Chmod ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
+  
+  'borrar datos anteriores
   borradoDatosAnteriores(rutaSprograma.Extract(1, rutaSprograma.max))
   
 End
@@ -112,7 +115,20 @@ Public Sub rellenarGridviewsAlumnos(rejilla As ClassSuperGridview, Lista As Clas
   
   For Each regtmp In Lista.registros
     'TODO: Añadir pequeña miniatura de imagen. Alumno
-    rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
+    ' rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
+    'aqui escribo icono
+    
+    If regtmp.foto <> "" Then 
+      If Not Exist(modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & regtmp.foto) Then 
+        rejilla[contadorPosicionFilaGrid, 0].picture = reduce(modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/" & regtmp.foto, modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & regtmp.foto)
+        
+      Else
+        
+        rejilla[contadorPosicionFilaGrid, 0].Picture = Picture[modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & regtmp.foto]
+      Endif
+      rejilla.rows[contadorPosicionFilaGrid].height = 35
+      
+    Endif
     rejilla[contadorPosicionFilaGrid, 1].text = regtmp.nombre
     rejilla[contadorPosicionFilaGrid, 2].text = regtmp.Apellidos
     rejilla[contadorPosicionFilaGrid, 3].text = Str$(regtmp.orden)
@@ -145,7 +161,19 @@ Public Sub rellenarGridviewsProfesores(rejilla As ClassSuperGridview, Lista As C
   
   For Each regtmp In Lista.registros
     'TODO: Añadir pequeña miniatura de imagen. Profesor
-    rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
+    '    rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
+    If regtmp.foto <> "" Then 
+      If Not Exist(modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & regtmp.foto) Then 
+        rejilla[contadorPosicionFilaGrid, 0].picture = reduce(modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & regtmp.foto, modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & regtmp.foto)
+        
+      Else
+        
+        rejilla[contadorPosicionFilaGrid, 0].Picture = Picture[modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & regtmp.foto]
+      Endif
+      rejilla.rows[contadorPosicionFilaGrid].height = 35
+      
+    Endif
+    
     rejilla[contadorPosicionFilaGrid, 1].text = regtmp.nombre
     rejilla[contadorPosicionFilaGrid, 2].text = regtmp.Apellidos
     rejilla[contadorPosicionFilaGrid, 3].text = Str$(regtmp.orden)
@@ -161,5 +189,37 @@ Public Sub rellenarGridviewsProfesores(rejilla As ClassSuperGridview, Lista As C
   rejilla[contadorPosicionFilaGrid, 4].text = ""
   
   rejilla.Refresh()
+  
+End
+
+Public Sub extraedesdebarra(ruta As String) As String
+  
+  Dim a As Integer
+  Dim letra As String
+  Dim cadena As String
+  
+  For a = Len(ruta) To 1 Step -1
+    letra = Mid$(ruta, a, 1)
+    If letra = "/" Then 
+      Return cadena
+    Else
+      cadena = letra & cadena
+    Endif
+    
+  Next
+  
+End
+
+Private Function reduce(ruta As String, rutafin As String) As Picture
+  
+  Dim dibujo As New Picture
+  Dim comando As String 
+  'crea una minuatura de la imagen dada y la pasa al Fotos...Mini
+  comando = "convert " & ruta & " -resize 30x40  " & rutafin
+  Shell comando Wait
+  
+  dibujo = Picture[rutafin]
+  
+  Return dibujo
   
 End
