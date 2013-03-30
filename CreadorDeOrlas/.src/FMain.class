@@ -302,7 +302,8 @@ Public Sub ToolButtonEditar_Click()
   
   If GridViewRegistrosAlumnos.indice.Count > GridViewRegistrosAlumnos.row And GridViewRegistrosAlumnos.row > -1 Then 
     fregistro.modo = GridViewRegistrosAlumnos.indice[GridViewRegistrosAlumnos.row]
-    fregistro.reg.Foto = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 0].text
+    fregistro.reg.Foto = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Foto
+    
     fregistro.reg.Nombre = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 1].text
     fregistro.reg.Apellidos = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 2].text
     fregistro.reg.Orden = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 3].text
@@ -488,7 +489,8 @@ Public Sub ToolButtonEditar2_Click()
   
   If GridViewRegistrosProfesores.indice.Count > GridViewRegistrosProfesores.row And GridViewRegistrosProfesores.row > -1 Then 
     fregistro.modo = GridViewRegistrosProfesores.indice[GridViewRegistrosProfesores.row]
-    fregistro.reg.Foto = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 0].text
+    fregistro.reg.Foto = ModuleGestionProfesores.lista.Registros[fregistro.modo].Foto
+    
     fregistro.reg.Nombre = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 1].text
     fregistro.reg.Apellidos = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 2].text
     fregistro.reg.Orden = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 3].text

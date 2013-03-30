@@ -138,7 +138,7 @@ msgstr ""
 msgid "Alumnos:"
 msgstr ""
 
-#: FMain.form:371 FMainEditor.form:69 FormAlumno.form:92 FormProfesor.form:26
+#: FMain.form:371 FMainEditor.form:73 FormAlumno.form:92 FormProfesor.form:26
 msgid "ValueBox1"
 msgstr ""
 
@@ -250,15 +250,15 @@ msgstr ""
 msgid "Muestra Asignatura"
 msgstr ""
 
-#: FMain.form:650 FMainEditor.form:59
+#: FMain.form:650 FMainEditor.form:63
 msgid "Espacio entre fotos"
 msgstr ""
 
-#: FMain.form:654 FMainEditor.form:63
+#: FMain.form:654 FMainEditor.form:67
 msgid "Horizontal:"
 msgstr ""
 
-#: FMain.form:670 FMainEditor.form:79
+#: FMain.form:670 FMainEditor.form:83
 msgid "Vertical:"
 msgstr ""
 
@@ -432,53 +432,65 @@ msgstr ""
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:315
+#: FMain.class:316
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:327
+#: FMain.class:328
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:327
+#: FMain.class:328
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:327
+#: FMain.class:328
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:327 FormAlumno.form:104 FormElegirFichero.form:30
+#: FMain.class:328 FormAlumno.form:104 FormElegirFichero.form:30
 #: FormPlantillaOrla.form:94 FormProfesor.form:92
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:510
+#: FMain.class:512
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:510
+#: FMain.class:512
 msgid "Si"
 msgstr ""
 
-#: FMainEditor.form:37
+#: FMainEditor.form:41
 msgid "Label2"
 msgstr ""
 
-#: FMainEditor.form:45
+#: FMainEditor.form:49
 msgid "Label1"
 msgstr ""
 
-#: FMainEditor.form:52
+#: FMainEditor.form:56
 msgid "Rejilla"
 msgstr ""
 
-#: FMainEditor.form:86
+#: FMainEditor.form:90
 msgid "Definir esquema:"
 msgstr ""
 
-#: FMainEditor.form:91
+#: FMainEditor.form:95
 msgid "Reorganizar"
+msgstr ""
+
+#: FMainEditor.form:104
+msgid "Mostrar Fotos"
+msgstr ""
+
+#: FMainEditor.form:109
+msgid "Elipse"
+msgstr ""
+
+#: FMainEditor.form:114
+msgid "Marco"
 msgstr ""
 
 #: FormAlumno.form:45
@@ -522,7 +534,7 @@ msgstr ""
 msgid "+"
 msgstr ""
 
-#: FormAlumno.class:53
+#: FormAlumno.class:64
 msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
@@ -609,6 +621,10 @@ msgstr ""
 
 #: ModuleDistribucionFotos.module:164
 msgid "La suma de los numeros no coincide con el total"
+msgstr ""
+
+#: ModuleGenerarFotos.module:72
+msgid "No ha sido posible crear la foto con los datos"
 msgstr ""
 
 #: ModuleUnicaVez.module:24

@@ -56,14 +56,32 @@
     }
   }
   { Label1 Label
-    MoveScaled(1,29,19,3)
+    MoveScaled(1,27,19,3)
     Text = ("Definir esquema:")
   }
   { ButtonReorganizar Button
-    MoveScaled(2,49,21,4)
+    MoveScaled(2,61,21,4)
     Text = ("Reorganizar")
   }
   { TextBoxEsquema TextBox
-    MoveScaled(3,32,21,4)
+    MoveScaled(3,30,21,4)
+  }
+  { CheckBoxMostraFotos CheckBox
+    MoveScaled(1,40,20,4)
+    Text = ("Mostrar Fotos")
+  }
+  { RadioButtonElipse RadioButton
+    MoveScaled(5,45,14,3)
+    Text = ("Elipse")
+  }
+  { RadioButtonMarco RadioButton
+    MoveScaled(5,49,12,4)
+    Text = ("Marco")
+    Value = True
+  }
+  { ColorButton1 ColorButton
+    MoveScaled(17,48,7,4)
+    Background = &H1FFF57&
+    Value = &H1FFF1F&
   }
 }

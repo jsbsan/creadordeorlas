@@ -3,7 +3,7 @@
 { Form Form
   MoveScaled(0,0,57,51)
   { PictureBoxFoto PictureBox
-    MoveScaled(3,10,12,17)
+    MoveScaled(2,10,12.1429,17)
     Picture = Picture["icono_fotos_personas.png"]
     Stretch = True
     Border = Border.Plain

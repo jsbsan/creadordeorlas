@@ -8,7 +8,7 @@
     Text = ("ValueBox1")
   }
   { PictureBoxFoto PictureBox
-    MoveScaled(4,10,12,17)
+    MoveScaled(3,10,12.1429,17)
     Picture = Picture["icono_fotos_personas.png"]
     Stretch = True
     Border = Border.Plain
