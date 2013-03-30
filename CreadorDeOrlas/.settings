@@ -17,6 +17,9 @@ Geometry=[1312,72,210,573]
 [DebugWindow/ArrayFotosRectangulos[0].pto1]
 Geometry=[1319,78,210,573]
 
+[DebugWindow/ComboBoxPlantillaUsar]
+Geometry=[10,0,233,210]
+
 [DebugWindow/Dialog]
 Geometry=[-10,-8,295,584]
 
@@ -72,7 +75,7 @@ Geometry=[21,18,372,234]
 Geometry=[151,491,210,210]
 
 [DebugWindow/ModuleGestionOrla.orla]
-Geometry=[633,-8,634,748]
+Geometry=[809,577,634,317]
 
 [DebugWindow/ModuleGestionOrla.orla.CoordZonaFotosAlumnos]
 Geometry=[-7,-8,210,210]
@@ -118,7 +121,7 @@ LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\n
 
 [OpenFile]
 File[1]=".src/FMain.form"
-File[2]=".src/FMain.class:304.82"
+File[2]=".src/FMain.class:62.10"
 File[3]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[4]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[5]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -155,22 +158,22 @@ File[35]=".src/Clases/Clase de Datos/ClassPos.class:11.0"
 File[36]=".src/Clases/Clase de Datos/ClassPersona.class:160.2"
 File[37]=".src/Clases/Clase de Datos/ClassAlumno.class:10.2"
 File[38]=".src/Clases/Clase de Datos/ClassProfesor.class:14.0"
-File[39]=".src/Clases/Clase de Datos/Datos Orla/ClassDatosOrla.class:284.0"
+File[39]=".src/Clases/Clase de Datos/Datos Orla/ClassDatosOrla.class:439.0"
 File[40]=".src/ModulePruebas.module:11.2"
 File[41]=".src/Clases/Clase de Datos/Alumnos/ClassListaAlumnos.class:1.0"
 File[42]=".src/Clases/Clase de Datos/Profesores/ClassListaProfesores.class:1.0"
 File[43]="camara_icono.png"
 File[44]="icono_fotos_personas.png"
 File[45]=".src/Clases/Clase de Datos/ClassGestion.class:0.19"
-File[46]=".src/Modulos/ModulePrincipal.module:2.20"
+File[46]=".src/Modulos/ModulePrincipal.module:21.2"
 File[47]=".src/Modulos/ModuleIntermedio.module:176.61"
-File[48]=".src/Modulos/ModuleHacerTransparente.module:14.3"
+File[48]=".src/Modulos/ModuleHacerTransparente.module:17.8"
 File[49]="magicwand:0.0"
 File[50]=".src/Modulos/ModuleImprimir.module:18.25"
 File[51]=".src/FormAlumno.form"
-File[52]=".src/FormAlumno.class:26.7"
+File[52]=".src/FormAlumno.class:160.2"
 File[53]=".src/FormProfesor.form"
-File[54]=".src/FormProfesor.class:27.0"
+File[54]=".src/FormProfesor.class:102.0"
 File[55]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:40.26"
 File[56]=".src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module:10.0"
 File[57]=".src/Formularios Comunes/FormError.form"
@@ -178,7 +181,6 @@ File[58]="icoLoading.gif"
 File[59]=".src/Formularios Comunes/FormPensando.form"
 File[60]=".src/Clases/Clase de Datos/ClassDato.class:0.19"
 File[61]=".src/Clases/Editor/ClassMejorPictureBox.class:0.19"
-Active=62
 File[62]="Editor/Alu.png"
 File[63]="Editor/AluDes.png"
 File[64]="Editor/cuadriculaA3.png"
@@ -186,7 +188,7 @@ File[65]="Editor/enblancoA3.png"
 File[66]="Editor/Pro.png"
 File[67]="Editor/ProDes.png"
 File[68]="Editor/temporalFondo.png"
-File[69]=".src/FMainEditor.class:135.31"
+File[69]=".src/FMainEditor.class:231.161"
 File[70]=".src/Clases/DeTrabajo/ClassSuperGridview.class:0.19"
 File[71]=".src/Formularios Comunes/FormPensando.class:3.0"
 File[72]=".src/Modulos/ModuleUpdate.module:2.20"
@@ -197,16 +199,18 @@ File[76]=".src/Formularios Comunes/FormElegirFichero.class:24.36"
 File[77]=".src/Clases/Clase de Datos/Datos Orla/ModuleGestionOrla.module:64.2"
 File[78]="Plantillas/orla1/Barcos_de_colores.svg:6198.29"
 File[79]="Plantillas/orla2/Naranja_Floral.svg:809.42"
-File[80]=".src/Modulos/ModuleExtraerDatosOrla.module:38.60"
+File[80]=".src/Modulos/ModuleExtraerDatosOrla.module:10.38"
 File[81]=".src/Modulos/ModuleMensajeError.module:0.20"
 File[82]=".src/Modulos/ModuleSistemaOrdenacion.module:8.79"
 File[83]=".src/Modulos/ModuleUnicaVez.module:0.20"
-File[84]=".src/Modulos/ModuleDistribucionFotos.module:151.35"
+Active=84
+File[84]=".src/Modulos/ModuleDistribucionFotos.module:179.8"
 File[85]=".src/FMainEditor.form"
 File[86]=".src/Clases/Editor/ModuleGenerarFotos.module:66.102"
 File[87]="Editor/150x120.png"
 File[88]="icono_fotos_personas1.png"
-Count=88
+File[89]=".src/Modulos/ModuleAsignarYSoltarImagenes.module:16.61"
+Count=89
 
 [Watches]
 Count=0

@@ -60,13 +60,13 @@ Public Sub ButtonEditorOrla_Click()
   Dim feditor As New FMainEditor
   'Reemplaza la plantilla con los datos que ha introducido (colegio, curso,etc )
   
-  ModuleDistribucionFotos.hacer(ValueBoxHorizontal.value, ValueBoxVertical.Value)
+  ModuleDistribucionFotos.hacer(ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
   
   'asigno nueva posicion de traslado
   feditor.esquema = LabelEsquema.Text
   feditor.espacioancho = ValueBoxHorizontal.Value
   feditor.espaciolargo = ValueBoxVertical.Value
-  
+  feditor.listaProfesores = ModuleGestionProfesores.lista
   feditor.listaAlumnos = ModuleGestionAlumnos.lista
   FormPensando.show()
   Wait 0.5
@@ -153,55 +153,58 @@ End
 Public Sub botontransparente_Click()
   
   Dim numero As Integer
+  Dim ruta As String = modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/"
   
   numero = Val(Last.tag)
   ''TODO: Boton transparente definir...
   Select numero
     Case 1
-      '   reg.ImagenFondo = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo)
-      '   PictureBoxFondo.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo]
-      '   PictureBoxFondo.tag = reg.ImagenFondo 
+      ModuleGestionOrla.orla.escudo01 = ModuleHacerTransparente.convertirTransparente(ruta & ModuleGestionOrla.orla.escudo01, modulePrincipal.RutaPrograma)
+      PictureBoxFondo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo01]
+      PictureBoxFondo.tag = ModuleGestionOrla.orla.escudo01
     Case 2
-      '   reg.ImagenMarco = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco)
-      '   PictureBoxMarco.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco]
-      '   PictureBoxMarco.tag = reg.ImagenMarco
+      ModuleGestionOrla.orla.escudo02 = ModuleHacerTransparente.convertirTransparente(ruta & ModuleGestionOrla.orla.escudo02, modulePrincipal.RutaPrograma)
+      PictureBoxEscudo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo02]
+      PictureBoxEscudo.tag = ModuleGestionOrla.orla.escudo02
     Case 3
-      '   reg.ImagenLogo = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo)
-      '   PictureBoxLogo.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo]
-      '   PictureBoxlogo.tag = reg.ImagenLogo
+      ModuleGestionOrla.orla.escudo03 = ModuleHacerTransparente.convertirTransparente(ruta & ModuleGestionOrla.orla.escudo03, modulePrincipal.RutaPrograma)
+      PictureBoxLogo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo03]
+      PictureBoxLogo.tag = ModuleGestionOrla.orla.escudo03
     Case 4
-      '   reg.Foto04 = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.Foto04)
-      '   PictureBoxFoto04.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04]
-      '   PictureBoxfoto04.tag = reg.Foto04
+      ModuleGestionOrla.orla.escudo04 = ModuleHacerTransparente.convertirTransparente(ruta & ModuleGestionOrla.orla.escudo04, modulePrincipal.RutaPrograma)
+      PictureBoxLogo2.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo04]
+      PictureBoxLogo2.tag = ModuleGestionOrla.orla.escudo04
     Case 5
-      '   reg.Foto05 = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.Foto05)
-      '   PictureBoxFoto05.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05]
-      '  PictureBoxfoto05.tag = reg.Foto05
+      
   End Select
   
 End
 
 Public Sub PictureBoxFondo_MouseDown()
   
-  PictureBoxFondo.tag = asignaImagen(PictureBoxFondo)
+  ModuleGestionOrla.orla.escudo01 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxFondo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+  PictureBoxFondo.tag = ModuleGestionOrla.orla.escudo01
   
 End
 
 Public Sub PictureBoxEscudo_MouseDown()
   
-  PictureBoxEscudo.Tag = asignaImagen(PictureBoxEscudo)
+  ModuleGestionOrla.orla.escudo02 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEscudo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+  PictureBoxEscudo.Tag = ModuleGestionOrla.orla.escudo02 
   
 End
 
 Public Sub PictureBoxLogo_MouseDown()
   
-  PictureBoxLogo.Tag = asignaImagen(PictureBoxLogo)
+  ModuleGestionOrla.orla.escudo03 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxLogo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+  PictureBoxLogo.Tag = ModuleGestionOrla.orla.escudo03
   
 End
 
 Public Sub PictureBoxLogo2_MouseDown()
   
-  PictureBoxLogo2.Tag = asignaImagen(PictureBoxLogo2)
+  ModuleGestionOrla.orla.escudo04 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxLogo2, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+  PictureBoxLogo2.Tag = ModuleGestionOrla.orla.escudo04
   
 End
 
@@ -424,17 +427,25 @@ End
 
 Public Sub rellenarDatosOrlas()
   
+  Dim ruta As String = modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/"
+  
   TextBoxColegio.text = ModuleGestionOrla.orla.colegio
   TextBox2Clase.text = ModuleGestionOrla.orla.clase
   TextBoxCurso.text = ModuleGestionOrla.orla.curso
   TextBoxOpcional.text = ModuleGestionOrla.orla.textoopcional01
-  ComboBoxPlantillaUsar.text = ModuleGestionOrla.orla.Plantilla
+  If ModuleGestionOrla.orla.Plantilla <> "" Then 
+    ComboBoxPlantillaUsar.text = ModuleGestionOrla.orla.Plantilla
+  Else
+    ComboBoxPlantillaUsar.text = User.home & "/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
+    ModuleGestionOrla.orla.Plantilla = User.home & "/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
+  Endif
+  
   TextBoxOpcional2.text = ModuleGestionOrla.orla.textoopcional02
   
-  If ModuleGestionOrla.orla.escudo01 <> "" Then PictureBoxFondo.Picture = Picture[ModuleGestionOrla.orla.escudo01]
-  If ModuleGestionOrla.orla.escudo02 <> "" Then PictureBoxEscudo.Picture = Picture[ModuleGestionOrla.orla.escudo02]
-  If ModuleGestionOrla.orla.escudo03 <> "" Then PictureBoxLogo.Picture = Picture[ModuleGestionOrla.orla.escudo03]
-  If ModuleGestionOrla.orla.escudo04 <> "" Then PictureBoxLogo2.Picture = Picture[ModuleGestionOrla.orla.escudo04]
+  If ModuleGestionOrla.orla.escudo01 <> "" Then PictureBoxFondo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo01]
+  If ModuleGestionOrla.orla.escudo02 <> "" Then PictureBoxEscudo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo02]
+  If ModuleGestionOrla.orla.escudo03 <> "" Then PictureBoxLogo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo03]
+  If ModuleGestionOrla.orla.escudo04 <> "" Then PictureBoxLogo2.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo04]
   
   SpinBoxFilas.value = ModuleGestionOrla.orla.NumeroFilasAlumnos
   

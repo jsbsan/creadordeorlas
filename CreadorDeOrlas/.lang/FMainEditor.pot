@@ -18,47 +18,47 @@ msgstr ""
 msgid "Label2"
 msgstr ""
 
-#: FMainEditor.form:49
+#: FMainEditor.form:50
 msgid "Label1"
 msgstr ""
 
-#: FMainEditor.form:56
+#: FMainEditor.form:57
 msgid "Rejilla"
 msgstr ""
 
-#: FMainEditor.form:63
+#: FMainEditor.form:64
 msgid "Espacio entre fotos"
 msgstr ""
 
-#: FMainEditor.form:67
+#: FMainEditor.form:68
 msgid "Horizontal:"
 msgstr ""
 
-#: FMainEditor.form:73
+#: FMainEditor.form:74
 msgid "ValueBox1"
 msgstr ""
 
-#: FMainEditor.form:83
+#: FMainEditor.form:84
 msgid "Vertical:"
 msgstr ""
 
-#: FMainEditor.form:90
+#: FMainEditor.form:91
 msgid "Definir esquema:"
 msgstr ""
 
-#: FMainEditor.form:95
+#: FMainEditor.form:96
 msgid "Reorganizar"
 msgstr ""
 
-#: FMainEditor.form:104
+#: FMainEditor.form:105
 msgid "Mostrar Fotos"
 msgstr ""
 
-#: FMainEditor.form:109
+#: FMainEditor.form:110
 msgid "Elipse"
 msgstr ""
 
-#: FMainEditor.form:114
+#: FMainEditor.form:115
 msgid "Marco"
 msgstr ""
 

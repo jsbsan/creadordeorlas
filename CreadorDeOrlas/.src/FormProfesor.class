@@ -97,3 +97,10 @@ Public Sub ToolButton1_Click()
   PictureBoxFoto.picture = Picture[nombrefinal]
   
 End
+
+Public Sub PictureBoxFoto_MouseDown()
+  
+  reg.foto = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxFoto, modulePrincipal.RutaPrograma & "temporales/FotosProfesores/")
+  PictureBoxFoto.tag = reg.foto
+  
+End

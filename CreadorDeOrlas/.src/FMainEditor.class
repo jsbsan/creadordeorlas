@@ -1,6 +1,7 @@
 ' Gambas class file
 
 Public listaAlumnos As New ClassListaAlumnos
+Public listaProfesores As New ClassListaProfesores
 
 Public plantillaActual As String 'plantilla actual a la que tendriamos que cargar
 Public arrayBox As New ClassMejorPictureBox[]
@@ -226,7 +227,12 @@ Public Sub UnirImagenes(orladibujopng As String, Optional rejilla As Boolean) As
   Try Mkdir "/tmp" & "/pruebaCombinacion" 
   
   Try Copy "Editor/enblancoA3.png" To "/tmp" & "/pruebaCombinacion/enblancoA3.png"
-  Try Copy "Editor/temporalFondo.png" To "/tmp" & "/pruebaCombinacion/temporalFondo.png"
+  
+  'crear la representacion del fondo..
+  Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModuleGestionOrla.orla.Plantilla), "--export-png", "/tmp" & "/pruebaCombinacion/temporalFondo.png"] Wait
+  
+  'Try Copy "Editor/temporalFondo.png" To "/tmp" & "/pruebaCombinacion/temporalFondo.png"
+  
   Try Copy "Editor/cuadriculaA3.png" To "/tmp" & "/pruebaCombinacion/cuadriculaA3.png"
   
   Exec ["composite", "/tmp" & "/pruebaCombinacion/temporalFondo.png", "-geometry", "+40+35", "/tmp" & "/pruebaCombinacion/enblancoA3.png", "/tmp" & "/pruebaCombinacion/c0.png"] Wait
@@ -259,7 +265,7 @@ Public Sub dibujafondo(rejilla As Boolean)
   
 End
 
-Public Sub dibujoObjetos()
+Public Sub dibujoObjetos(Optional cadena As String)
   
   Dim a As Integer
   Dim temporalpicture As ClassMejorPictureBox
@@ -269,9 +275,7 @@ Public Sub dibujoObjetos()
   'Para los alumnos
   '------------------------
   For a = 0 To listaAlumnos.Registros.Max
-    
     temporalpicture = New ClassMejorPictureBox(ScrollView1)
-    
     If CheckBoxMostraFotos.value = True Then 
       temporalpicture.Picture = Picture[listaAlumnos.Registros[a].FotoRellena]
       temporalpicture.w = Picture[listaAlumnos.Registros[a].FotoRellena].w / escalafoto
@@ -294,23 +298,23 @@ Public Sub dibujoObjetos()
     arrayBox.Add(temporalpicture)
     
   Next 
-  
   '------------------------
   'para los profesores
   '------------------------
-  '
-  temporalpicture = New ClassMejorPictureBox(ScrollView1)
-  temporalpicture.Picture = imagenPro
-  temporalpicture.w = imagenPro.w / escalafoto
-  temporalpicture.h = imagenPro.h / escalafoto
-  temporalpicture.Stretch = True
-  temporalpicture.x = 510
-  temporalpicture.y = 40
-  temporalpicture.tipo = "Profesor"
-  temporalpicture.indice = 0
-  temporalpicture.texto = "Antonio\nSanchez\nAlcala"
-  Object.Attach(temporalpicture, Me, "Obs")
-  arrayBox.Add(temporalpicture)
+  For a = 0 To listaProfesores.Registros.Max
+    temporalpicture = New ClassMejorPictureBox(ScrollView1)
+    temporalpicture.Picture = imagenPro
+    temporalpicture.w = imagenPro.w / escalafoto
+    temporalpicture.h = imagenPro.h / escalafoto
+    temporalpicture.Stretch = True
+    temporalpicture.x = listaProfesores[a].posicion.x / escalafoto
+    temporalpicture.y = listaProfesores[a].posicion.y / escalafoto
+    temporalpicture.tipo = "Profesor"
+    temporalpicture.indice = 0
+    temporalpicture.texto = listaProfesores.Registros[a].Nombre & "\n" & listaProfesores.Registros[a].Apellidos & "\n" & listaProfesores.registros[a].Asignatura                                            
+    Object.Attach(temporalpicture, Me, "Obs")
+    arrayBox.Add(temporalpicture)
+  Next
   
 End
 
@@ -338,7 +342,7 @@ Public Sub ButtonReorganizar_Click()
       Endif
       
       '  dibujafondo(CheckBoxRejilla.Value)
-      dibujoObjetos()
+      dibujoObjetos("alumnos")
     Endif
   Endif
   
