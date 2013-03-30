@@ -1,6 +1,6 @@
 ' Gambas module file
 
-Public Sub hacer(espacioHorizontal As Integer, espacioVertical As Integer, Optional esquema As String)
+Public Sub hacer(espacioHorizontal As Integer, espacioVertical As Integer, plantilla As String, Optional esquema As String)
   
   'Reemplaza la plantilla con los datos que ha introducido (colegio, curso,etc )
   Dim FilaAncho As New Integer[]
@@ -16,7 +16,7 @@ Public Sub hacer(espacioHorizontal As Integer, espacioVertical As Integer, Optio
   
   'TODO: Sustituir por  plantilla de la orla actual
   
-  plantillaActual = User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
+  plantillaActual = plantilla 'User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
   'Numero de filas:
   
   nfilas = ModuleExtraerDatosOrla.calculoDeFilas(ModuleGestionAlumnos.lista.Registros.Count) 
@@ -164,5 +164,67 @@ Public Sub comprobarEsquema(esquema As String) As Boolean
     Message.Error(("Error en el Esquema Definido:") & "\n" & ("La suma de los numeros no coincide con el total"))
     Return False
   Endif
+  
+End
+
+''----------------- relleno la orla con datos iniciales --------------
+Public Function rellenarOrla(plantillaOrigen As String) As String
+  
+  Dim copia As String = User.home & "/CreadorOrlas/trabajotmp/plantilla.tmp"
+  Dim cadena As String
+  'copio la plantilla a temporal
+  If Exist(copia) Then 
+    Kill copia
+  Endif
+  
+  If Exist(User.home & "/CreadorOrlas/trabajotmp/transparente.png") Then
+  Else
+    Copy "transparente.png" To User.home & "/CreadorOrlas/trabajotmp/transparente.png"
+  Endif
+  
+  ' Print plantillaOrigen
+  '  Print copia
+  ' Print "/home/uno/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
+  
+  Copy plantillaOrigen To copia
+  'modifico datos...
+  'TODO: Rellenando datos de la orla
+  
+  cadena = File.Load(copia)
+  
+  cadena = Replace$(cadena, "ZONAFOTOSALUMNOS", "")
+  cadena = Replace$(cadena, "ZONAFOTOSPROFESORES", "")
+  cadena = Replace$(cadena, "COLEGIO", ModuleGestionOrla.orla.colegio)
+  cadena = Replace$(cadena, "CURSO", ModuleGestionOrla.orla.curso)
+  cadena = Replace$(cadena, "CLASE", ModuleGestionOrla.orla.clase)
+  cadena = Replace$(cadena, "TEXTOOPCIONAL01", ModuleGestionOrla.orla.textoopcional01)
+  cadena = Replace$(cadena, "TEXTOOPCIONAL02", ModuleGestionOrla.orla.textoopcional02)
+  
+  If ModuleGestionOrla.orla.escudo01 = "" Then 
+    cadena = Replace$(cadena, "ESCUDO01", "transparente.png")
+  Else
+    cadena = Replace$(cadena, "ESCUDO01", ModuleGestionOrla.orla.escudo01)
+  Endif
+  
+  If ModuleGestionOrla.orla.escudo02 = "" Then 
+    cadena = Replace$(cadena, "ESCUDO02", "transparente.png")
+  Else
+    cadena = Replace$(cadena, "ESCUDO02", ModuleGestionOrla.orla.escudo02)
+  Endif
+  
+  If ModuleGestionOrla.orla.escudo03 = "" Then 
+    cadena = Replace$(cadena, "ESCUDO03", "transparente.png")
+  Else
+    cadena = Replace$(cadena, "ESCUDO03", ModuleGestionOrla.orla.escudo03)
+  Endif
+  
+  If ModuleGestionOrla.orla.escudo04 = "" Then 
+    cadena = Replace$(cadena, "ESCUDO04", "transparente.png")
+  Else
+    cadena = Replace$(cadena, "ESCUDO04", ModuleGestionOrla.orla.escudo04)
+  Endif
+  
+  File.Save(copia, cadena)
+  Return copia
   
 End

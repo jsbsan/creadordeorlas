@@ -153,3 +153,10 @@ Public Sub ToolButtonCancelar_Click()
   Me.Close
   
 End
+
+Public Sub PictureBoxFoto_MouseDown()
+  
+  reg.foto = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxFoto, modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/")
+  PictureBoxFoto.tag = reg.foto
+  
+End

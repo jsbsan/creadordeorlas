@@ -232,7 +232,7 @@
       }
     }
     { ButtonEditorOrla Button
-      MoveScaled(30,67,28,5)
+      MoveScaled(29,67,28,5)
       Text = ("Editor Gráfico Orla")
       Picture = Picture["icon:/22/grid"]
     }
@@ -295,7 +295,7 @@
         Border = Border.Plain
       }
       { PictureBoxEscudo PictureBox
-        MoveScaled(20,5,16,13)
+        MoveScaled(21,5,16,13)
         Tag = "ESCUDO"
         Picture = Picture["icono_galeria2.jpg"]
         Stretch = True
@@ -370,6 +370,7 @@
       { TextBoxCurso TextBox
         MoveScaled(11,10,29,3)
         Font = Font["-1"]
+        ToolTip = ("por ejemplo: 2012-2013")
       }
       { Label30 Label
         MoveScaled(0,10,10,3)
@@ -396,6 +397,7 @@
       { TextBox2Clase TextBox
         MoveScaled(11,6,65,3)
         Font = Font["-1"]
+        ToolTip = ("por ejemplo 1º de ESO")
       }
       { Label29 Label
         MoveScaled(43,10,13,3)
@@ -404,10 +406,10 @@
         Alignment = Align.Right
       }
       { ComboBoxPlantillaUsar ComboBox
-        MoveScaled(56,10,21,3)
+        MoveScaled(56,10,21,2)
         Font = Font["-1"]
         ReadOnly = True
-        Text = ("ComboBox1")
+        Text = ("gsdfgs")
       }
       { Label20 Label
         MoveScaled(-2,14,17,3)
@@ -635,7 +637,7 @@
     { TextLabel5 TextLabel
       MoveScaled(1,2,77,76)
       Font = Font["-1"]
-      Text = ("<h3>Especificaciones para los formatos de Orla:</h3><br>\n<br>\nEl archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n      - o embebidas en ellas.<br>\n<br>\n<br>\n\n<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n\tTexto a sustituir y que se rellenará con datos<br>\n\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n\t       CURSO............................... texto: 1º de ESO<br>\n\t       PROMOCIÓN ..................... texto: 2012-2013<br>\n\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n<br>\n\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n<br>\n<br>\n<b>Imagenes:</b><br>\n         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>")
+      Text = ("<h3>Especificaciones para los formatos de Orla:</h3><br>\n<br>\nEl archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n      - o embebidas en ellas.<br>\n<br>\n<br>\n\n<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n\tTexto a sustituir y que se rellenará con datos<br>\n\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n\t       CLASE............................... texto: 1º de ESO<br>\n\t       CURSO ..................... texto: 2012-2013<br>\n\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n<br>\n\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n<br>\n<br>\n<b>Imagenes:</b><br>\n         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>")
     }
     Index = 0
   }
