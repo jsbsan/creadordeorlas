@@ -9,13 +9,15 @@ Public objetoCapturado As ClassMejorPictureBox
 
 Public imagenAlumno As Picture = Picture["Editor/Alu.png"]
 Public imagenAlumnoDes As Picture = Picture["Editor/AluDes.png"]
+Public imagenAlumnoMarco As New Picture
 
 Public imagenPro As Picture = Picture["Editor/Pro.png"]
 Public imagenProDes As Picture = Picture["Editor/ProDes.png"]
 Public escalafoto As Integer = 4
 Public coeficienteEscala As Float = 0.65
 Public imagenfondo As Picture
-Public esquema As String
+Public esquema As String 'para alumnos
+Public esquemaprofesor As String 'para profesor
 
 Public espacioancho As Integer
 Public espaciolargo As Integer
@@ -28,6 +30,7 @@ Public Sub Form_Open()
   
   '  Me.Maximized = True
   TextBoxEsquema.text = esquema
+  TextBoxEsquema2.text = esquemaprofesor
   ValueBoxHorizontal.Value = espacioancho
   ValueBoxVertical.Value = espaciolargo
   
@@ -134,12 +137,15 @@ Public Sub capturaUp()
   
   If Not IsNull(objetoCapturado) Then 
     If objetoCapturado.tipo = "Alumno" Then 
-      objetoCapturado.Picture = imagenAlumno
+      objetoCapturado.Picture = imagenAlumno      
+      listaAlumnos.Registros[objetoCapturado.indice].posicion.x = objetoCapturado.x * escalafoto
+      listaAlumnos.Registros[objetoCapturado.indice].posicion.y = objetoCapturado.y * escalafoto
       
     Else
       If objetoCapturado.tipo = "Profesor" Then 
         objetoCapturado.Picture = imagenPro
-        
+        listaProfesores.Registros[objetoCapturado.indice].posicion.x = objetoCapturado.x * escalafoto
+        listaProfesores.Registros[objetoCapturado.indice].posicion.y = objetoCapturado.y * escalafoto
       Endif
     Endif
     LabelCoordenada.x = objetoCapturado.x
@@ -148,6 +154,7 @@ Public Sub capturaUp()
     LabelTextoPersona.Visible = False
     LabelCoordenada.Visible = False
     objetoCapturado = Null
+    
   Endif
   
 End
@@ -264,6 +271,9 @@ Public Sub dibujafondo(rejilla As Boolean)
   PictureBoxFONDO.Picture = imagenfondo
   
 End
+'----------------------------------------------------------------------------
+'DIBUJAR OBJETOS
+'----------------------------------------------------------------------------
 
 Public Sub dibujoObjetos(Optional cadena As String)
   
@@ -277,9 +287,9 @@ Public Sub dibujoObjetos(Optional cadena As String)
   For a = 0 To listaAlumnos.Registros.Max
     temporalpicture = New ClassMejorPictureBox(ScrollView1)
     If CheckBoxMostraFotos.value = True Then 
-      temporalpicture.Picture = Picture[listaAlumnos.Registros[a].FotoRellena]
-      temporalpicture.w = Picture[listaAlumnos.Registros[a].FotoRellena].w / escalafoto
-      temporalpicture.h = Picture[listaAlumnos.Registros[a].FotoRellena].h / escalafoto
+      temporalpicture.Picture = imagenAlumnoMarco
+      temporalpicture.w = imagenAlumnoMarco.w / escalafoto
+      temporalpicture.h = imagenAlumnoMarco.h / escalafoto
     Else
       temporalpicture.Picture = imagenAlumno
       temporalpicture.w = imagenAlumno.w / escalafoto
@@ -306,11 +316,12 @@ Public Sub dibujoObjetos(Optional cadena As String)
     temporalpicture.Picture = imagenPro
     temporalpicture.w = imagenPro.w / escalafoto
     temporalpicture.h = imagenPro.h / escalafoto
+    
     temporalpicture.Stretch = True
-    temporalpicture.x = listaProfesores[a].posicion.x / escalafoto
-    temporalpicture.y = listaProfesores[a].posicion.y / escalafoto
+    temporalpicture.x = listaProfesores.Registros[a].posicion.x / escalafoto
+    temporalpicture.y = listaProfesores.Registros[a].posicion.y / escalafoto
     temporalpicture.tipo = "Profesor"
-    temporalpicture.indice = 0
+    temporalpicture.indice = a
     temporalpicture.texto = listaProfesores.Registros[a].Nombre & "\n" & listaProfesores.Registros[a].Apellidos & "\n" & listaProfesores.registros[a].Asignatura                                            
     Object.Attach(temporalpicture, Me, "Obs")
     arrayBox.Add(temporalpicture)
@@ -318,13 +329,16 @@ Public Sub dibujoObjetos(Optional cadena As String)
   
 End
 
-Public Sub ButtonReorganizar_Click()
+Public Sub ButtonReorganizarAlumnos_Click()
   
   Dim objeto As Object
   
   If TextBoxEsquema.text <> "" Then 
-    If ModuleDistribucionFotos.comprobarEsquema(TextBoxEsquema.text) Then 
-      ModuleDistribucionFotos.hacer(ValueBoxHorizontal.Value, ValueBoxVertical.value, TextBoxEsquema.text)
+    If ModuleDistribucionFotos.comprobarEsquema(TextBoxEsquema.text, listaAlumnos.Registros.Count) Then 
+      
+      ModuleDistribucionFotos.hacerGenerico("alumno", ModuleGestionAlumnos.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla, TextBoxEsquema.text)
+      
+      'ModuleDistribucionFotos.hacer(ValueBoxHorizontal.Value, ValueBoxVertical.value, ModuleGestionOrla.orla.Plantilla, TextBoxEsquema.text)
       
       'revisar los objetos que sean classmejorpiturebox
       For Each objeto In ScrollView1.Children
@@ -336,14 +350,60 @@ Public Sub ButtonReorganizar_Click()
       Next
       '
       If CheckBoxMostraFotos.value = True Then 
-        'NOTE: generar fotos de cada alumno..
-        ModuleGenerarFotos.crearAlumnos(ModuleGestionAlumnos.lista.Registros, RadioButtonMarco.value, ColorButton1.Value)
+        'modifico foto Alumno generica poniendole un marco...
         
+        imagenAlumnoMarco = New Picture
+        imagenAlumnoMarco = Picture[ModuleGenerarFotos.ponerMarco("Editor/Alu.png", RadioButtonMarco.value, ColorButton1.Value)]
       Endif
       
-      '  dibujafondo(CheckBoxRejilla.Value)
       dibujoObjetos("alumnos")
     Endif
+  Endif
+  
+End
+
+'-------------------------------------------------------------------
+'organizar profesores
+'-------------------------------------------------------------------
+Public Sub ButtonReorganizarProfesores_Click()
+  
+  Dim objeto As Object
+  
+  If TextBoxEsquema2.text <> "" Then 
+    If ModuleDistribucionFotos.comprobarEsquema(TextBoxEsquema2.text, listaProfesores.Registros.Count) Then 
+      
+      ModuleDistribucionFotos.hacerGenerico("profesores", ModuleGestionProfesores.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla, TextBoxEsquema2.text)
+      
+      'ModuleDistribucionFotos.hacer(ValueBoxHorizontal.Value, ValueBoxVertical.value, ModuleGestionOrla.orla.Plantilla, TextBoxEsquema.text)
+      
+      'revisar los objetos que sean classmejorpiturebox
+      For Each objeto In ScrollView1.Children
+        Print Object.Type(objeto)
+        If Object.Type(objeto) = "ClassMejorPictureBox" Then 
+          objeto.Delete() ' = Null
+          
+        Endif
+      Next
+      '
+      
+      dibujoObjetos("profesores")
+    Endif
+  Endif
+  
+End
+
+Public Sub TextBoxEsquema_KeyPress()
+  
+  If Key.Code = Key.enter Or Key.code = Key.Return Then 
+    ButtonReorganizarAlumnos_Click()
+  Endif
+  
+End
+
+Public Sub TextBoxEsquema2_KeyPress()
+
+  If Key.Code = Key.enter Or Key.code = Key.Return Then 
+    ButtonReorganizarProfesores_Click()
   Endif
   
 End

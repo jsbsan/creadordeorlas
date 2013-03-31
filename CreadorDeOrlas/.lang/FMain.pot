@@ -362,43 +362,43 @@ msgstr ""
 msgid "<h3>Especificaciones para los formatos de Orla:</h3><br>\n<br>\nEl archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n      - o embebidas en ellas.<br>\n<br>\n<br>\n\n<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n\tTexto a sustituir y que se rellenará con datos<br>\n\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n\t       CLASE............................... texto: 1º de ESO<br>\n\t       CURSO ..................... texto: 2012-2013<br>\n\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n<br>\n\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n<br>\n<br>\n<b>Imagenes:</b><br>\n         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>"
 msgstr ""
 
-#: FMain.class:219
+#: FMain.class:225
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:220
+#: FMain.class:226
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:239
+#: FMain.class:245
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:319
+#: FMain.class:325
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:331
+#: FMain.class:337
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:331
+#: FMain.class:337
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:331
+#: FMain.class:337
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:331
+#: FMain.class:337
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:523
+#: FMain.class:529
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:523
+#: FMain.class:529
 msgid "Si"
 msgstr ""
 

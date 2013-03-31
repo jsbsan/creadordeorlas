@@ -14,27 +14,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModuleDistribucionFotos.module:135
+#: ModuleDistribucionFotos.module:264
 msgid "Error en Esquema Definido:"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:135
+#: ModuleDistribucionFotos.module:264
 msgid "Falta poner el signo igual (=)"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:143
-msgid "El numero total no es igual al numero de alumnos("
+#: ModuleDistribucionFotos.module:272
+msgid "El numero total no es igual al numero de personas("
 msgstr ""
 
-#: ModuleDistribucionFotos.module:153
-msgid "Una columna se ha definido con 0 alumnos"
+#: ModuleDistribucionFotos.module:282
+msgid "Una columna se ha definido con 0 personas"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:164
+#: ModuleDistribucionFotos.module:293
 msgid "Error en el Esquema Definido:"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:164
+#: ModuleDistribucionFotos.module:293
 msgid "La suma de los numeros no coincide con el total"
 msgstr ""
 

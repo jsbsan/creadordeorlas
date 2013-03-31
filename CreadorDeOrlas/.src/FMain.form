@@ -612,7 +612,7 @@
     Index = 10
     Text = ("Crear Pdf para imprimir")
     Picture = Picture["icon:/22/pdf"]
-    { ToolButton3 ToolButton
+    { ToolButtonGenerarOrla ToolButton
       MoveScaled(26,16,29,11)
       Text = ("Generar Orla en PDF")
       Picture = Picture["icon:/48/pdf"]

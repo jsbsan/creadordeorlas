@@ -13,28 +13,28 @@
       Border = Border.Plain
     }
     { LabelTextoPersona Label
-      MoveScaled(18,34,11,7)
+      MoveScaled(31,24,11,7)
       Font = Font["Andale Mono,Italic,-2"]
       Background = &HFFFF5F&
-      Text = ("Label2")
+      Text = ("datos")
       Alignment = Align.Center
     }
     { LabelCoordenada Label
-      MoveScaled(33,28,9,3)
+      MoveScaled(18,24,9,3)
       Visible = False
       Font = Font["Courier 10 Pitch,-2"]
       Background = &HBFFFDF&
-      Text = ("Label1")
+      Text = ("coord")
       Alignment = Align.Center
     }
   }
   { CheckBoxRejilla CheckBox
-    MoveScaled(5,3,13,4)
+    MoveScaled(2,0,13,4)
     Text = ("Rejilla")
     Value = CheckBox.True
   }
   { Frame6 Frame
-    MoveScaled(3,10,17,17)
+    MoveScaled(4,34,17,17)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Espacio entre fotos")
     { Label6 Label
@@ -57,31 +57,49 @@
     }
   }
   { Label1 Label
-    MoveScaled(1,27,19,3)
-    Text = ("Definir esquema:")
+    MoveScaled(1,5,21,3)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Definir esquema Alumno:")
   }
-  { ButtonReorganizar Button
-    MoveScaled(2,56,21,4)
-    Text = ("Reorganizar")
+  { ButtonReorganizarAlumnos Button
+    MoveScaled(3,12,21,4)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Reorganizar Alumnos")
   }
   { TextBoxEsquema TextBox
-    MoveScaled(3,30,21,4)
+    MoveScaled(3,8,21,4)
+    Font = Font["Bitstream Charter,-1"]
   }
   { CheckBoxMostraFotos CheckBox
-    MoveScaled(1,40,20,4)
-    Text = ("Mostrar Fotos")
+    MoveScaled(0,56,20,4)
+    Enabled = False
+    Text = ("Mostrar Efectos")
   }
   { RadioButtonElipse RadioButton
-    MoveScaled(5,45,14,3)
+    MoveScaled(4,61,14,3)
     Text = ("Elipse")
   }
   { RadioButtonMarco RadioButton
-    MoveScaled(5,49,12,4)
+    MoveScaled(4,65,12,4)
     Text = ("Marco")
     Value = True
   }
   { ColorButton1 ColorButton
-    MoveScaled(17,48,7,4)
+    MoveScaled(16,64,7,4)
     Value = &H1FFF1F&
+  }
+  { Label2 Label
+    MoveScaled(1,21,22,3)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Definir esquema Profesores:")
+  }
+  { TextBoxEsquema2 TextBox
+    MoveScaled(3.1429,24.2857,21,4)
+    Font = Font["Bitstream Charter,-1"]
+  }
+  { ButtonReorganizarProfesores Button
+    MoveScaled(3,28,21,4)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Reorganizar Profesores")
   }
 }
