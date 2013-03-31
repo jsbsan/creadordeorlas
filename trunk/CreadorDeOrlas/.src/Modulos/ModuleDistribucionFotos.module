@@ -299,7 +299,7 @@ End
 ''----------------- relleno la orla con datos iniciales --------------
 Public Function rellenarOrla(plantillaOrigen As String) As String
   
-  Dim copia As String = User.home & "/CreadorOrlas/trabajotmp/plantilla.tmp"
+  Dim copia As String = User.home & "/CreadorOrlas/trabajotmp/plantillatmp.svg"
   Dim cadena As String
   'copio la plantilla a temporal
   If Exist(copia) Then 

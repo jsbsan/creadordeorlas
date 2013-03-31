@@ -1,9 +1,16 @@
 ' Gambas module file
 
+Private rutaUsar As String
+
 Public Sub realizar(rutadelprograma As String)
   
+  Dim fpensando As New FormPensando
   Dim comando As String
   Dim a As Integer
+  
+  fpensando.Show()
+  Wait 0.1
+  
   'coger la plantilla actual e introducir datos actuales (colegio, etc...)
   'insertar fotos y textos de los alumnos
   'crear imagen de fondo..
@@ -17,20 +24,121 @@ Public Sub realizar(rutadelprograma As String)
     Kill rutadelprograma & "resultante.png"
   Endif
   Copy "Editor/enblancoA3.png" To rutadelprograma & "resultante.png"
+  rutaUsar = rutadelprograma
+  If Exist(rutadelprograma & "cuadricula.png") Then 
+  Else
+    
+    Copy "Editor/cuadriculaA3.png" To rutadelprograma & "cuadricula.png"
+  Endif
   
+  Print "Añado Cuadricula: "; comando
+  comando = "composite " & rutadelprograma & "resultante.png" & " -geometry +0+0 " & rutadelprograma & "cuadricula.png" & " " & rutadelprograma & "resultante.png"
+  Shell comando Wait
+  
+  'Añado fotos de alumnos y profesores...
   For a = 0 To ModuleGestionAlumnos.lista.Registros.Max
     
-    comando = "composite " & ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos/" & ModuleGestionAlumnos.lista.Registros[a].Foto & " -geometry +" & Str$(Int(ModuleGestionAlumnos.lista.Registros[a].posicion.x / 2.74)) & "+" & Str$(Int(ModuleGestionAlumnos.lista.Registros[a].posicion.y / 2.74)) & " " & rutadelprograma & "resultante.png" & " " & rutadelprograma & "resultante.png"
-    Print comando
-    Shell comando Wait
+    anadofoto(ModuleGestionAlumnos.lista.Registros[a])
+    'comando = "convert " & ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos/" & ModuleGestionAlumnos.lista.Registros[a].Foto & " -resize 85x117  " & "/tmp/dibujotmp.png"
+    'Shell comando Wait
+    'comando = "composite /tmp/dibujotmp.png -geometry +" & Str$(Int(ModuleGestionAlumnos.lista.Registros[a].posicion.x / 2.74) + 40) & "+" & Str$(Int(ModuleGestionAlumnos.lista.Registros[a].posicion.y / 2.76) + 30) & " " & rutadelprograma & "resultante.png" & " " & rutadelprograma & "resultante.png"
+    ' Print comando
+    ' Shell comando Wait
     
+  Next
+  
+  For a = 0 To ModuleGestionProfesores.lista.Registros.Max
+    anadofoto(ModuleGestionProfesores.lista.Registros[a])
   Next
   
   Print "fin de insertar alumnos en fondo transparente A3"
   
-  comando = "composite " & rutadelprograma & "resultante.png" & " -geometry -30-30 " & rutadelprograma & "plantilla.tmp" & " " & rutadelprograma & "final.png" 
+  comando = "composite " & rutadelprograma & "resultante.png" & " -geometry -40-35 " & rutadelprograma & "plantillatmp.svg" & " " & rutadelprograma & "final.png" 
   Shell comando Wait
   
-  Print comando
+  'Print comando
   
+  ' Print Mid$(rutadelprograma & "final.png", 1, Len(rutadelprograma & "final.png") - 4) & ".pdf"
+  Exec ["convert", rutadelprograma & "final.png", Mid$(rutadelprograma & "final.png", 1, Len(rutadelprograma & "final.png") - 4) & ".pdf"] Wait
+  
+  fpensando.parar = True
+  fpensando.Delete
+  
+  Exec ["pcmanfm", rutadelprograma & "final.pdf"]
+  
+End
+
+Private Sub anadofoto(persona As ClassPersona)
+  
+  Dim comando As String
+  Dim directorio As String
+  
+  If Object.Type(persona) = "ClassAlumno" Then
+    directorio = "FotosAlumnos"
+  Else
+    directorio = "FotosProfesores"
+    
+  Endif
+  
+  comando = "convert " & ModulePrincipal.RutaPrograma & "temporales/" & directorio & "/" & persona.Foto & " -resize 85x117  " & "/tmp/dibujotmp.png"
+  Shell comando Wait
+  'añado texto a la imagen...
+  anadetexto(persona)
+  
+  'inserto fotos en la orla
+  comando = "composite /tmp/dibujotmp.png -geometry +" & Str$(Int(persona.posicion.x / 2.74) + 40) & "+" & Str$(Int(persona.posicion.y / 2.76) + 30) & " " & rutaUsar & "resultante.png" & " " & rutaUsar & "resultante.png"
+  ' Print comando
+  Shell comando Wait
+  
+End
+
+Private Sub anadetexto(persona As ClassPersona)
+  
+  Dim comando As String
+  Dim texto As String
+  
+  'hacer texto 1
+  ModuleGenerarFotos.textoAimagen(persona.Nombre, "/tmp/paso1.png")
+  'hacer texto 2
+  ModuleGenerarFotos.textoAimagen(persona.Apellidos, "/tmp/paso2.png")
+  
+  'hacer texto 3
+  'comproprobar si se desea escribir el pueblo y la provincia...
+  
+  'If Object.Type(persona) = "ClassAlumno" Then 
+  '------------------------------------
+  'Si es un alumno....
+  '------------------------------------
+  
+  ' texto = persona.Pueblo
+  ' texto &= "-" & persona.Provincia
+  '
+  ' ModuleGenerarFotos.textoAimagen(texto, "/tmp/paso3.png")
+  ' Else
+  '------------------------------------
+  'Si es un profesor
+  '------------------------------------
+  '  texto = persona.asignatura
+  ' ModuleGenerarFotos.textoAimagen(texto, "/tmp/paso3.png")
+  ' Endif
+  
+  'comando = "composite -gravity North " & "/tmp/dibujotmp.png" & " " & rutatrabajo & "150x120.png " & rutatrabajo & "north.png"
+  
+  'Shell comando Wait
+  'montar las 4 imagenes
+  ' comando = "montage /tmp/dibujotmp.png /tmp/paso1.png /tmp/paso2.png /tmp/paso3.png -tile 1x4 -geometry +0+0 /tmp/dibujotmp.png"
+  comando = "montage /tmp/dibujotmp.png /tmp/paso1.png /tmp/paso2.png -tile 1x4 -geometry +0+0 /tmp/dibujotmp.png"
+  comando = "convert -label '" & persona.Nombre & "\n" & persona.Apellidos & "' /tmp/dibujotmp.png /tmp/dibujotmp.png" 
+  Shell comando Wait
+  comando = "montage +label /tmp/dibujotmp.png /tmp/dibujotmp.png"
+  Shell comando Wait
+  'hacerlo trasparente...
+  ' comando = "convert -crop 85x175+20+12 /tmp/dibujotmp.png /tmp/dibujotmp.png"
+  ' Shell comando Wait
+  'para poner transparente la foto, pero hace que no se vea bien el texto...  
+  '  ModuleHacerTransparente.convertirTransparente("/tmp/dibujotmp.png", ModulePrincipal.RutaPrograma)
+  ''NOTE: Incluir texto a pie de foto
+  'atra pagina web a ver como lo hace
+  'https://ubuntulife.wordpress.com/2010/11/06/anadiendo-un-titulo-a-una-imagen-con-imagemagick/
+
 End
