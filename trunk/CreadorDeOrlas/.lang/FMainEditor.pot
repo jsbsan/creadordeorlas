@@ -14,51 +14,59 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FMainEditor.form:41
-msgid "Label2"
+#: FMainEditor.form:44
+msgid "datos"
 msgstr ""
 
-#: FMainEditor.form:50
-msgid "Label1"
+#: FMainEditor.form:53
+msgid "coord"
 msgstr ""
 
-#: FMainEditor.form:57
+#: FMainEditor.form:60
 msgid "Rejilla"
 msgstr ""
 
-#: FMainEditor.form:64
+#: FMainEditor.form:67
 msgid "Espacio entre fotos"
 msgstr ""
 
-#: FMainEditor.form:68
+#: FMainEditor.form:71
 msgid "Horizontal:"
 msgstr ""
 
-#: FMainEditor.form:74
+#: FMainEditor.form:77
 msgid "ValueBox1"
 msgstr ""
 
-#: FMainEditor.form:84
+#: FMainEditor.form:87
 msgid "Vertical:"
 msgstr ""
 
-#: FMainEditor.form:91
-msgid "Definir esquema:"
+#: FMainEditor.form:95
+msgid "Definir esquema Alumno:"
 msgstr ""
 
-#: FMainEditor.form:96
-msgid "Reorganizar"
+#: FMainEditor.form:101
+msgid "Reorganizar Alumnos"
 msgstr ""
 
-#: FMainEditor.form:105
-msgid "Mostrar Fotos"
+#: FMainEditor.form:112
+msgid "Mostrar Efectos"
 msgstr ""
 
-#: FMainEditor.form:110
+#: FMainEditor.form:117
 msgid "Elipse"
 msgstr ""
 
-#: FMainEditor.form:115
+#: FMainEditor.form:122
 msgid "Marco"
+msgstr ""
+
+#: FMainEditor.form:134
+msgid "Definir esquema Profesores:"
+msgstr ""
+
+#: FMainEditor.form:145
+msgid "Reorganizar Profesores"
 msgstr ""
 

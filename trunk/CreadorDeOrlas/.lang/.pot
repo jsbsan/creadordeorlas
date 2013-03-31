@@ -138,7 +138,7 @@ msgstr ""
 msgid "Alumnos:"
 msgstr ""
 
-#: FMain.form:371 FMainEditor.form:74 FormAlumno.form:92 FormProfesor.form:26
+#: FMain.form:371 FMainEditor.form:77 FormAlumno.form:92 FormProfesor.form:26
 msgid "ValueBox1"
 msgstr ""
 
@@ -258,15 +258,15 @@ msgstr ""
 msgid "Muestra Asignatura"
 msgstr ""
 
-#: FMain.form:652 FMainEditor.form:64
+#: FMain.form:652 FMainEditor.form:67
 msgid "Espacio entre fotos"
 msgstr ""
 
-#: FMain.form:656 FMainEditor.form:68
+#: FMain.form:656 FMainEditor.form:71
 msgid "Horizontal:"
 msgstr ""
 
-#: FMain.form:672 FMainEditor.form:84
+#: FMain.form:672 FMainEditor.form:87
 msgid "Vertical:"
 msgstr ""
 
@@ -428,77 +428,85 @@ msgid ""
 "pone una imagen transparente)<br>"
 msgstr ""
 
-#: FMain.class:219 ModuleAsignarYSoltarImagenes.module:11
+#: FMain.class:225 ModuleAsignarYSoltarImagenes.module:11
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:220 ModuleAsignarYSoltarImagenes.module:12
+#: FMain.class:226 ModuleAsignarYSoltarImagenes.module:12
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:239 ModuleAsignarYSoltarImagenes.module:31
+#: FMain.class:245 ModuleAsignarYSoltarImagenes.module:31
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:319
+#: FMain.class:325
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:331
+#: FMain.class:337
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:331
+#: FMain.class:337
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:331
+#: FMain.class:337
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:331 FormAlumno.form:104 FormElegirFichero.form:30
+#: FMain.class:337 FormAlumno.form:104 FormElegirFichero.form:30
 #: FormPlantillaOrla.form:94 FormProfesor.form:92
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:523
+#: FMain.class:529
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:523
+#: FMain.class:529
 msgid "Si"
 msgstr ""
 
-#: FMainEditor.form:41
-msgid "Label2"
+#: FMainEditor.form:44
+msgid "datos"
 msgstr ""
 
-#: FMainEditor.form:50
-msgid "Label1"
+#: FMainEditor.form:53
+msgid "coord"
 msgstr ""
 
-#: FMainEditor.form:57
+#: FMainEditor.form:60
 msgid "Rejilla"
 msgstr ""
 
-#: FMainEditor.form:91
-msgid "Definir esquema:"
+#: FMainEditor.form:95
+msgid "Definir esquema Alumno:"
 msgstr ""
 
-#: FMainEditor.form:96
-msgid "Reorganizar"
+#: FMainEditor.form:101
+msgid "Reorganizar Alumnos"
 msgstr ""
 
-#: FMainEditor.form:105
-msgid "Mostrar Fotos"
+#: FMainEditor.form:112
+msgid "Mostrar Efectos"
 msgstr ""
 
-#: FMainEditor.form:110
+#: FMainEditor.form:117
 msgid "Elipse"
 msgstr ""
 
-#: FMainEditor.form:115
+#: FMainEditor.form:122
 msgid "Marco"
+msgstr ""
+
+#: FMainEditor.form:134
+msgid "Definir esquema Profesores:"
+msgstr ""
+
+#: FMainEditor.form:145
+msgid "Reorganizar Profesores"
 msgstr ""
 
 #: FormAlumno.form:45
@@ -607,31 +615,31 @@ msgstr ""
 msgid "Asignatura:"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:135
+#: ModuleDistribucionFotos.module:264
 msgid "Error en Esquema Definido:"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:135
+#: ModuleDistribucionFotos.module:264
 msgid "Falta poner el signo igual (=)"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:143
-msgid "El numero total no es igual al numero de alumnos("
+#: ModuleDistribucionFotos.module:272
+msgid "El numero total no es igual al numero de personas("
 msgstr ""
 
-#: ModuleDistribucionFotos.module:153
-msgid "Una columna se ha definido con 0 alumnos"
+#: ModuleDistribucionFotos.module:282
+msgid "Una columna se ha definido con 0 personas"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:164
+#: ModuleDistribucionFotos.module:293
 msgid "Error en el Esquema Definido:"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:164
+#: ModuleDistribucionFotos.module:293
 msgid "La suma de los numeros no coincide con el total"
 msgstr ""
 
-#: ModuleGenerarFotos.module:72
+#: ModuleGenerarFotos.module:125
 msgid "No ha sido posible crear la foto con los datos"
 msgstr ""
 

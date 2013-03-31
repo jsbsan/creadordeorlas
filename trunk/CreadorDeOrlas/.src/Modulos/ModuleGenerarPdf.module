@@ -1,0 +1,36 @@
+' Gambas module file
+
+Public Sub realizar(rutadelprograma As String)
+  
+  Dim comando As String
+  Dim a As Integer
+  'coger la plantilla actual e introducir datos actuales (colegio, etc...)
+  'insertar fotos y textos de los alumnos
+  'crear imagen de fondo..
+  
+  'Crear imagen con fotos y textos de los profesores..
+  
+  'del archivo "enblancoA3.png", le voy añadiendo las imagenes segun sus coordenadas...
+  
+  'Comando seria: "composite imagenFoto.png -geometry 40x40+5+5 Fondo.png resultante.png "
+  If Exist(rutadelprograma & "resultante.png") Then 
+    Kill rutadelprograma & "resultante.png"
+  Endif
+  Copy "Editor/enblancoA3.png" To rutadelprograma & "resultante.png"
+  
+  For a = 0 To ModuleGestionAlumnos.lista.Registros.Max
+    
+    comando = "composite " & ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos/" & ModuleGestionAlumnos.lista.Registros[a].Foto & " -geometry +" & Str$(Int(ModuleGestionAlumnos.lista.Registros[a].posicion.x / 2.74)) & "+" & Str$(Int(ModuleGestionAlumnos.lista.Registros[a].posicion.y / 2.74)) & " " & rutadelprograma & "resultante.png" & " " & rutadelprograma & "resultante.png"
+    Print comando
+    Shell comando Wait
+    
+  Next
+  
+  Print "fin de insertar alumnos en fondo transparente A3"
+  
+  comando = "composite " & rutadelprograma & "resultante.png" & " -geometry -30-30 " & rutadelprograma & "plantilla.tmp" & " " & rutadelprograma & "final.png" 
+  Shell comando Wait
+  
+  Print comando
+  
+End

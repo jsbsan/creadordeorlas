@@ -57,13 +57,19 @@ End
 
 Public Sub ButtonEditorOrla_Click()
   
+  Dim esquemaprofesor As String = Str$(ModuleGestionProfesores.lista.Registros.Count) & "=" & Str$(ModuleGestionProfesores.lista.Registros.Count) 
   Dim feditor As New FMainEditor
   'Reemplaza la plantilla con los datos que ha introducido (colegio, curso,etc )
   
-  ModuleDistribucionFotos.hacer(ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
+  '  ModuleDistribucionFotos.hacer(ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
+  
+  ModuleDistribucionFotos.hacerGenerico("alumno", ModuleGestionAlumnos.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
+  
+  ModuleDistribucionFotos.hacerGenerico("profesor", ModuleGestionProfesores.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla, esquemaprofesor)
   
   'asigno nueva posicion de traslado
   feditor.esquema = LabelEsquema.Text
+  feditor.esquemaprofesor = esquemaprofesor
   feditor.espacioancho = ValueBoxHorizontal.Value
   feditor.espaciolargo = ValueBoxVertical.Value
   feditor.listaProfesores = ModuleGestionProfesores.lista
@@ -559,5 +565,11 @@ Public Sub ToolButtonAutomatica_Click()
   
   '  Print a, ModuleSistemaOrdenacion.Esquema(a, SpinBoxFilas.Value)
   'Next
+  
+End
+
+Public Sub ToolButtonGenerarOrla_Click()
+  
+  ModuleGenerarPdf.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/")
   
 End
