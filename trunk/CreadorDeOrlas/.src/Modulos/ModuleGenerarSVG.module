@@ -1,0 +1,231 @@
+' Gambas module file
+
+Public Sub realizar(RutaplantillaSvg As String)
+  
+  Dim Stream As File
+  Dim fpensando As New FormPensando
+  Dim comando, NombreArchivo, textoLinea As String
+  Dim a As Integer
+  
+  fpensando.Show()
+  Wait 0.1
+  
+  Try Copy "Editor/TextFoto" To "/tmp/TexFoto"
+  Try Copy "Editor/TextTEXTO" To "/tmp/TexTEXTO"
+  
+  'Saco la ultima linea del contenido de toda la plantilla
+  NombreArchivo = "/tmp/plantillaAbierta.svg"
+  comando = "head -n -1 " & RutaplantillaSvg & ">" & NombreArchivo
+  Shell comando Wait
+  
+  'añadir fotos de alumnos
+  TextoLinea = anadeCapa("FotosAlumnos", "fotoAlumnos")
+  TextoLinea &= anadeFotoAlumnos()
+  TextoLinea &= cierraCapa()
+  
+  'añadir fotos de profesores
+  TextoLinea &= anadeCapa("FotosProfesores", "fotoprofesores")
+  TextoLinea &= anadeFotoProfesores()
+  TextoLinea &= cierraCapa()
+  
+  'añadir TEXTOS  de alumnos
+  TextoLinea &= anadeCapa("TEXTOS ALUMNOS", "textoAlumnos")
+  
+  For a = 0 To ModuleGestionAlumnos.lista.Registros.Max
+    TextoLinea &= anadeTEXTOAlumno(ModuleGestionAlumnos.lista.Registros[A], a)
+  Next
+  
+  TextoLinea &= cierraCapa()
+  
+  'añadir TEXTOS  de profesores
+  TextoLinea &= anadeCapa("TEXTOS PROFESORES", "textoprofesores")
+  
+  For a = 0 To ModuleGestionProfesores.lista.Registros.Max
+    TextoLinea &= anadeTEXTOProfesor(ModuleGestionProfesores.lista.Registros[A], a)
+  Next
+  
+  TextoLinea &= cierraCapa()
+  
+  'cierra fichero:
+  textoLinea &= cierraFichero()
+  
+  'escribo
+  File.save("/tmp/contenidoextra", textoLinea)
+  Wait 0.1
+  Try Kill "/tmp/total.svg"
+  comando = "cat  /tmp/plantillaAbierta.svg /tmp/contenidoextra >/tmp/total.svg"
+  
+  Shell comando Wait
+  'crea el PNG
+  Exec ["inkscape", "/tmp/total.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait
+  
+  'visualizar orla...
+  Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait
+  
+  fpensando.parar = True
+  fpensando.Delete
+  
+End
+
+Private Sub anadeCapa(nombre As String, idcapa As String) As String
+  
+  Dim cadena As String
+  
+  cadena = "<g inkscape:label = \"" & nombre & "\" inkscape:groupmode = \"layer\"  id = \"" & idcapa & "\" transform = \"translate(0,0)\" >"
+  Return cadena
+  
+End
+
+Private Sub cierraCapa() As String
+  
+  Dim cadena As String
+  
+  cadena = "</g>" 
+  Return cadena
+  
+End
+
+Private Sub cierraFichero() As String
+  
+  Dim cadena As String
+  
+  cadena = "</svg>"
+  Return cadena
+  
+End
+
+' ------------------------------------------------------------------------------------
+' AÑADIR FOTOS DE PROFESORES Y ALUMNOS
+' ------------------------------------------------------------------------------------
+Private Sub anadeFotoAlumnos() As String
+  
+  Dim a As Integer
+  Dim cadena As String
+  'Añado fotos de alumnos y profesores...
+  
+  cadena &= anadefotoAlumno()
+  
+  Return cadena
+  
+End
+
+Private Sub anadeFotoProfesores() As String
+  
+  Dim a As Integer
+  Dim cadena As String
+  
+  cadena &= anadefotoProfesor()
+  
+  Return cadena
+  
+End
+
+Private Sub anadeFotoAlumno() As String
+  
+  Dim a As Integer
+  Dim cadenaTodasFotos As String
+  Dim cadena As String
+  
+  For a = 0 To ModuleGestionAlumnos.lista.Registros.Max
+    cadena = File.Load("/tmp/TexFoto")
+    cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionAlumnos.lista.Registros[a].posicion.x / 2.74 + 40))
+    cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionAlumnos.lista.Registros[a].posicion.y / 2.76 + 30))
+    cadena = Replace$(cadena, "ID_IMAGEN", "FotoAlumnos" & Str$(a))
+    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos/" & ModuleGestionAlumnos.lista.Registros[a].Foto)
+    
+    cadenaTodasFotos &= cadena
+  Next
+  
+  Return cadenaTodasFotos
+  
+End
+
+Private Sub anadeFotoProfesor() As String
+  
+  Dim a As Integer
+  Dim cadenaTodasFotos As String
+  Dim cadena As String
+  
+  For a = 0 To ModuleGestionProfesores.lista.Registros.Max
+    cadena = File.Load("/tmp/TexFoto")
+    cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionProfesores.lista.Registros[a].posicion.x / 2.74 + 40))
+    cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionProfesores.lista.Registros[a].posicion.y / 2.76 + 30))
+    cadena = Replace$(cadena, "ID_IMAGEN", "FotoProfesores" & Str$(a))
+    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", ModulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & ModuleGestionProfesores.lista.Registros[a].Foto)
+    cadenaTodasFotos &= cadena
+  Next
+  
+  Return cadenaTodasFotos
+  
+End
+
+' ------------------------------------------------------------------------------------
+' AÑADIR texto Alumnos....
+' ------------------------------------------------------------------------------------
+Public Sub anadeTEXTOAlumno(registro As ClassAlumno, a As Integer) As String
+  '   COORDENADA_X_FRASE1: COORDENADA_X + 46 
+  '   COORDENADA_Y_FRASE1: COORDENADA_Y + 122 
+  
+  '  COORDENADA_X_FRASE2: COORDENADA_X + 46 
+  '  COORDENADA_Y_FRASE2: COORDENADA_Y + 134 
+  
+  ' COORDENADA_X_FRASE3: COORDENADA_X + 46 
+  ' COORDENADA_Y_FRASE3: COORDENADA_Y + 147 
+  
+  'FRASE1: NOMBRE 
+  'FRASE2: APELLIDOS 
+  'FRASE3: PUEBLO - CIUDAD O ASIGNATURA 
+  
+  Dim cadena As String
+  
+  cadena = File.Load("/tmp/TexTEXTO")
+  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO1", "Textoalumno1" & Str$(a))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE1", Str$(Registro.posicion.x / 2.74 + 40 + 46))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE1", Str$(Registro.posicion.y / 2.76 + 30 + 122))
+  
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Registro.posicion.x / 2.74 + 40 + 46))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Registro.posicion.y / 2.76 + 30 + 134))
+  
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Registro.posicion.x / 2.74 + 40 + 46))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Registro.posicion.y / 2.76 + 30 + 147))
+  
+  cadena = Replace$(cadena, "FRASE1", registro.Nombre)
+  cadena = Replace$(cadena, "FRASE2", registro.Apellidos)
+  cadena = Replace$(cadena, "FRASE3", registro.Pueblo & " (" & registro.Provincia & ")")
+  Return cadena
+  
+End
+
+Public Sub anadeTEXTOProfesor(registro As ClassProfesor, A As Integer) As String
+  '   COORDENADA_X_FRASE1: COORDENADA_X + 46 
+  '   COORDENADA_Y_FRASE1: COORDENADA_Y + 122 
+  
+  '  COORDENADA_X_FRASE2: COORDENADA_X + 46 
+  '  COORDENADA_Y_FRASE2: COORDENADA_Y + 134 
+  
+  ' COORDENADA_X_FRASE3: COORDENADA_X + 46 
+  ' COORDENADA_Y_FRASE3: COORDENADA_Y + 147 
+  
+  'FRASE1: NOMBRE 
+  'FRASE2: APELLIDOS 
+  'FRASE3: PUEBLO - CIUDAD O ASIGNATURA 
+  
+  Dim cadena As String
+  
+  cadena = File.Load("/tmp/TexTEXTO")
+  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO1", "Textoalumno1" & Str$(a))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE1", Str$(Registro.posicion.x / 2.74 + 40 + 46))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE1", Str$(Registro.posicion.y / 2.76 + 30 + 122))
+  
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Registro.posicion.x / 2.74 + 40 + 46))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Registro.posicion.y / 2.76 + 30 + 134))
+  
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Registro.posicion.x / 2.74 + 40 + 46))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Registro.posicion.y / 2.76 + 30 + 147))
+  
+  cadena = Replace$(cadena, "FRASE1", registro.Nombre)
+  cadena = Replace$(cadena, "FRASE2", registro.Apellidos)
+  cadena = Replace$(cadena, "FRASE3", registro.Asignatura)
+  Return cadena
+  
+End

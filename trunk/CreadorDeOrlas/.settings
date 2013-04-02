@@ -212,9 +212,10 @@ File[86]=".src/Clases/Editor/ModuleGenerarFotos.module:117.4"
 File[87]="Editor/150x120.png"
 File[88]="icono_fotos_personas1.png"
 File[89]=".src/Modulos/ModuleAsignarYSoltarImagenes.module:16.61"
-Active=90
 File[90]=".src/Modulos/ModuleGenerarPdf.module:136.22"
-Count=90
+Active=91
+File[91]="EsquemasyNotas/Conversion a SVG/Comentarios para añadir informacion a los svg:106.88"
+Count=91
 
 [Watches]
 Count=0

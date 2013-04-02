@@ -573,3 +573,10 @@ Public Sub ToolButtonGenerarOrla_Click()
   ModuleGenerarPdf.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/")
   
 End
+
+Public Sub ToolButtonGeneraSVG_Click()
+
+  Try Copy User.home & "/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg" To ModulePrincipal.RutaPrograma & "trabajotmp/" & "plantillatmp.svg"
+  ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "plantillatmp.svg")
+  
+End
