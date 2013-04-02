@@ -613,7 +613,7 @@
     Text = ("Crear Pdf para imprimir")
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGenerarOrla ToolButton
-      MoveScaled(26,16,29,11)
+      MoveScaled(4,5,29,11)
       Text = ("Generar Orla en PDF")
       Picture = Picture["icon:/48/pdf"]
       Border = True
@@ -627,6 +627,12 @@
     { PictureBox7 PictureBox
       MoveScaled(25,46,30,25)
       Picture = Picture["dibujos/gatojugando.png"]
+    }
+    { ToolButtonGeneraSVG ToolButton
+      MoveScaled(42,8,33,10)
+      Text = ("Generar Orla en .SVG")
+      Picture = Picture["inkscape-icono.png"]
+      Border = True
     }
     Index = 11
     Text = ("Salir")
