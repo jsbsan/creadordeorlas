@@ -151,8 +151,23 @@ Public Sub CrearMarco(origen As String, destino As String, colormarco As String)
   
   Dim comando As String 
   
+  Try Kill destino
   comando = "convert " & origen & " -mattecolor '#" & Hex$(colormarco) & "'  -frame 10x10+5+5  " & destino
   
   Shell comando Wait
   
 End
+
+Public Sub SuperPonerForma(RutaImagenForma As String, RutaImagenOrigen As String, RutaImagenDestino As String) As String
+  
+  Dim comando As String 
+  
+  comando = "convert " & RutaImagenOrigen & " -resize 93x113 /tmp/dibujoReducido.png"
+  Shell comando Wait
+  comando = "composite -compose Dst_In -gravity center " & RutaImagenForma & " /tmp/dibujoReducido.png -alpha set " & RutaImagenDestino
+  Shell comando Wait 
+  Return RutaImagenDestino
+
+End
+
+ 

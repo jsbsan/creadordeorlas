@@ -1,0 +1,15 @@
+podemos utilizar la imagen "A" como una máscara para recortar su silueta de la imagen destino:
+
+composite -compose Dst_In -gravity center A_white.png rose.png -alpha set output_2.png
+
+
+
+http://www.rpublica.net/imagemagick/compuestas.html
+
+http://andalinux.wordpress.com/2010/08/09/aplicar-sombras-simultaneamente-a-un-lote-de-imagenes-utilizando-gimp-e-imagemagick/
+
+
+
+
+Marco.....
+ imagenAlumnoMarco = Picture[ModuleGenerarFotos.ponerMarco("Editor/Alu.png", RadioButtonMarco.value, ColorButton1.Value)]

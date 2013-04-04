@@ -162,7 +162,7 @@ End
 ' ------------------------------------------------------------------------------------
 ' AÑADIR texto Alumnos....
 ' ------------------------------------------------------------------------------------
-Public Sub anadeTEXTOAlumno(registro As ClassAlumno, a As Integer) As String
+Private Sub anadeTEXTOAlumno(registro As ClassAlumno, a As Integer) As String
   '   COORDENADA_X_FRASE1: COORDENADA_X + 46 
   '   COORDENADA_Y_FRASE1: COORDENADA_Y + 122 
   
@@ -186,8 +186,8 @@ Public Sub anadeTEXTOAlumno(registro As ClassAlumno, a As Integer) As String
   cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Registro.posicion.x / 2.74 + 40 + 46))
   cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Registro.posicion.y / 2.76 + 30 + 134))
   
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Registro.posicion.x / 2.74 + 40 + 46))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Registro.posicion.y / 2.76 + 30 + 147))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE3", Str$(Registro.posicion.x / 2.74 + 40 + 46))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE3", Str$(Registro.posicion.y / 2.76 + 30 + 147))
   
   cadena = Replace$(cadena, "FRASE1", registro.Nombre)
   cadena = Replace$(cadena, "FRASE2", registro.Apellidos)
@@ -196,7 +196,7 @@ Public Sub anadeTEXTOAlumno(registro As ClassAlumno, a As Integer) As String
   
 End
 
-Public Sub anadeTEXTOProfesor(registro As ClassProfesor, A As Integer) As String
+Private Sub anadeTEXTOProfesor(registro As ClassProfesor, A As Integer) As String
   '   COORDENADA_X_FRASE1: COORDENADA_X + 46 
   '   COORDENADA_Y_FRASE1: COORDENADA_Y + 122 
   
@@ -220,12 +220,20 @@ Public Sub anadeTEXTOProfesor(registro As ClassProfesor, A As Integer) As String
   cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Registro.posicion.x / 2.74 + 40 + 46))
   cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Registro.posicion.y / 2.76 + 30 + 134))
   
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Registro.posicion.x / 2.74 + 40 + 46))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Registro.posicion.y / 2.76 + 30 + 147))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE3", Str$(Registro.posicion.x / 2.74 + 40 + 46))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE3", Str$(Registro.posicion.y / 2.76 + 30 + 147))
   
   cadena = Replace$(cadena, "FRASE1", registro.Nombre)
   cadena = Replace$(cadena, "FRASE2", registro.Apellidos)
   cadena = Replace$(cadena, "FRASE3", registro.Asignatura)
   Return cadena
+  
+End
+
+'-------------------------------------------------------------
+' efectos
+'-------------------------------------------------------------
+
+Public Sub efectos()
   
 End

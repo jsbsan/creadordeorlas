@@ -613,26 +613,80 @@
     Text = ("Crear Pdf para imprimir")
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGenerarOrla ToolButton
-      MoveScaled(4,5,29,11)
+      MoveScaled(48,56,33,10)
       Text = ("Generar Orla en PDF")
       Picture = Picture["icon:/48/pdf"]
       Border = True
     }
-    { ProgressBar1 ProgressBar
-      MoveScaled(2,29,76,8)
-    }
-    { Timer1 #Timer
-      #MoveScaled(4,71)
-    }
     { PictureBox7 PictureBox
-      MoveScaled(25,46,30,25)
+      MoveScaled(39,69,15,13)
       Picture = Picture["dibujos/gatojugando.png"]
+      Stretch = True
     }
     { ToolButtonGeneraSVG ToolButton
-      MoveScaled(42,8,33,10)
+      MoveScaled(7,56,33,10)
+      ToolTip = ("Crear archivo .svg y editarlo con inkscape")
       Text = ("Generar Orla en .SVG")
       Picture = Picture["inkscape-icono.png"]
       Border = True
+    }
+    { PictureBoxMarco PictureBox
+      MoveScaled(24,7,13.2857,16.2857)
+      Picture = Picture["Efectos/Alu93x113.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { RadioButtonEfecto RadioButton
+      MoveScaled(4,10,19,6)
+      Text = ("Marco")
+    }
+    { Label24 Label
+      MoveScaled(3,2,75,4)
+      Font = Font["Bitstream Charter,Underline,+2"]
+      Text = ("Efectos en las Fotos: Marco o Recorte de Formas")
+      Alignment = Align.Center
+    }
+    { RadioButtonEfectoV RadioButton
+      MoveScaled(40,31,19,6)
+      Text = ("V")
+    }
+    { PictureBoxV PictureBox
+      MoveScaled(58,26,13.2857,16.2857)
+      Picture = Picture["Efectos/Vconversion.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { RadioButtonEfectoCuna RadioButton
+      MoveScaled(5,31,19,6)
+      Text = ("Cuna")
+    }
+    { PictureBoxCuna PictureBox
+      MoveScaled(24,26,13.2857,16.2857)
+      Picture = Picture["Efectos/Cunaconversion.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { RadioButtonEfectoElipse RadioButton
+      MoveScaled(39,10,19,6)
+      Text = ("Elipse")
+    }
+    { PictureBoxElipse PictureBox
+      MoveScaled(58,7,13.2857,16.2857)
+      Picture = Picture["Efectos/Elipseconversion.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { ColorButton1 ColorButton
+      MoveScaled(7,16,15,4)
+      Value = &H1FFF1F&
+    }
+    { CheckBox4 CheckBox
+      MoveScaled(5,48,72,3)
+      Text = ("Realizar trasparencia de fondos de imagenes de Alumnos y Profesores")
+    }
+    { ButtonRedibujaMarco Button
+      MoveScaled(7,20,15,3)
+      Text = ("Redibuja")
     }
     Index = 11
     Text = ("Salir")
