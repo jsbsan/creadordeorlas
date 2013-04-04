@@ -19,6 +19,12 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   'borrar datos anteriores
   borradoDatosAnteriores(rutaSprograma.Extract(1, rutaSprograma.max))
   
+  'formas y efectos
+  Try Copy "Efectos/Alu93x113.png" To "/tmp/Alu93x113.png"
+  Try Copy "Efectos/elipse.png" To "/tmp/elipse.png"
+  Try Copy "Efectos/formacuna.png" To "/tmp/formacuna.png"
+  Try Copy "Efectos/V.png" To "/tmp/V.png"
+  
 End
 
 Public Sub copiarPlantillasInternas()

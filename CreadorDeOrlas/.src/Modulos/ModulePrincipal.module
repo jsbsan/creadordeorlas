@@ -4,6 +4,10 @@ Public RutaPrograma As String = User.home & "/CreadorOrlas/" ''ruta donde estan 
 Public RutaDatos As String '' ruta donde esta el proyecto
 Public Rutas As New String[] ''rutas de trabajo
 Public DatosOrla As New ClassDatosOrla
+Public alumno93 As String = "/tmp/Alu93x113.png"
+Public formaElipse As String = "/tmp/elipse.png"
+Public formaCuna As String = "/tmp/formacuna.png"
+Public formaV As String = "/tmp/V.png"
 
 Public Sub iniciarDirectorios()
   

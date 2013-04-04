@@ -349,12 +349,12 @@ Public Sub ButtonReorganizarAlumnos_Click()
         Endif
       Next
       '
-      If CheckBoxMostraFotos.value = True Then 
-        'modifico foto Alumno generica poniendole un marco...
-        
-        imagenAlumnoMarco = New Picture
-        imagenAlumnoMarco = Picture[ModuleGenerarFotos.ponerMarco("Editor/Alu.png", RadioButtonMarco.value, ColorButton1.Value)]
-      Endif
+      ' If CheckBoxMostraFotos.value = True Then 
+      'modifico foto Alumno generica poniendole un marco...
+      
+      '  imagenAlumnoMarco = New Picture
+      ' imagenAlumnoMarco = Picture[ModuleGenerarFotos.ponerMarco("Editor/Alu.png", RadioButtonMarco.value, ColorButton1.Value)]
+      'Endif
       
       dibujoObjetos("alumnos")
     Endif
@@ -401,9 +401,13 @@ Public Sub TextBoxEsquema_KeyPress()
 End
 
 Public Sub TextBoxEsquema2_KeyPress()
-
+  
   If Key.Code = Key.enter Or Key.code = Key.Return Then 
     ButtonReorganizarProfesores_Click()
   Endif
+  
+End
+
+Public Sub RadioButtonMarco_Click()
   
 End
