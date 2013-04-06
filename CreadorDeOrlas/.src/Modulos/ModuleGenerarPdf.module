@@ -2,7 +2,7 @@
 
 Private rutaUsar As String
 
-Public Sub realizar(rutadelprograma As String)
+Public Sub realizar(rutadelprograma As String) ', codigo As Integer, colormarco As Integer, tipoEfecto As Integer)
   
   Dim fpensando As New FormPensando
   Dim comando As String
@@ -11,7 +11,9 @@ Public Sub realizar(rutadelprograma As String)
   fpensando.Show()
   Wait 0.1
   
-  'coger la plantilla actual e introducir datos actuales (colegio, etc...)
+  'NOTE: coger la plantilla actual e introducir datos actuales (colegio, etc...)
+  ModuleDistribucionFotos.rellenarOrla(rutadelprograma)
+  
   'insertar fotos y textos de los alumnos
   'crear imagen de fondo..
   
@@ -140,5 +142,5 @@ Private Sub anadetexto(persona As ClassPersona)
   ''NOTE: Incluir texto a pie de foto
   'atra pagina web a ver como lo hace
   'https://ubuntulife.wordpress.com/2010/11/06/anadiendo-un-titulo-a-una-imagen-con-imagemagick/
-
+  
 End

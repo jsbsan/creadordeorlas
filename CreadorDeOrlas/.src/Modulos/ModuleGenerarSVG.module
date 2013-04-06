@@ -1,18 +1,51 @@
 ' Gambas module file
 
-Public Sub realizar(RutaplantillaSvg As String)
+Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As Integer, HacerTransparencia As Boolean)
   
-  Dim Stream As File
+  Dim archivo As String
+  Dim DirectorioDeTrabajo As String
+  
   Dim fpensando As New FormPensando
   Dim comando, NombreArchivo, textoLinea As String
   Dim a As Integer
   
+  DirectorioDeTrabajo = modulePrincipal.RutaPrograma & "trabajotmp/imagenes/"
+  
   fpensando.Show()
   Wait 0.1
-  
+  Try Kill "/tmp/TexFoto" 'NOTE: Estas lineas se pueden eliminar 
+  Try Kill "/tmp/TexTEXTO" 'NOTE: Estas lineas se pueden eliminar
   Try Copy "Editor/TextFoto" To "/tmp/TexFoto"
   Try Copy "Editor/TextTEXTO" To "/tmp/TexTEXTO"
   
+  'hacer una copia de trabajo de fotos de profesor y alumnos
+  ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosAlumnos", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/", "*.*") 
+  ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosProfesores", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/", "*.*")
+  
+  'NOTE: EFECTOS al realizar SVG
+  '----------------------------------------------------------------------------
+  '  'aplicar efecto transparencia
+  '----------------------------------------------------------------------------
+  
+  If HacerTransparencia = True Then
+    'para todos los archivos de la carpeta   modulePrincipal.RutaPrograma & "trabajotmp/imagenes/"
+    
+    For Each archivo In Dir(DirectorioDeTrabajo, "*.*")
+      ModuleHacerTransparente.convertirTransparente(DirectorioDeTrabajo & archivo, DirectorioDeTrabajo & archivo)
+    Next
+    
+  Endif
+  
+  '----------------------------------------------------------------------------
+  'Aplicar efectos...
+  '----------------------------------------------------------------------------
+  For Each archivo In Dir(DirectorioDeTrabajo, "*.*")  
+    efectos(codigo, DirectorioDeTrabajo & archivo, DirectorioDeTrabajo & archivo, colormarco)
+  Next
+  
+  '----------------------------------------------------------------------------
+  'insercion de fotos y textos....
+  '----------------------------------------------------------------------------
   'Saco la ultima linea del contenido de toda la plantilla
   NombreArchivo = "/tmp/plantillaAbierta.svg"
   comando = "head -n -1 " & RutaplantillaSvg & ">" & NombreArchivo
@@ -56,11 +89,21 @@ Public Sub realizar(RutaplantillaSvg As String)
   comando = "cat  /tmp/plantillaAbierta.svg /tmp/contenidoextra >/tmp/total.svg"
   
   Shell comando Wait
+  Try Kill ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg"
+  
+  Exec ["cp", "/tmp/total.svg", ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg"] Wait
+  
+  'relleno los datos de la orla...
+  Print "----------------------------------------------------------------------------------------------"
+  Print "Editando: "; ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")
+  
+  Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")]
+  
   'crea el PNG
-  Exec ["inkscape", "/tmp/total.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait
+  '  Exec ["inkscape", "/tmp/total.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait
   
   'visualizar orla...
-  Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait
+  'Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait
   
   fpensando.parar = True
   fpensando.Delete
@@ -131,7 +174,7 @@ Private Sub anadeFotoAlumno() As String
     cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionAlumnos.lista.Registros[a].posicion.x / 2.74 + 40))
     cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionAlumnos.lista.Registros[a].posicion.y / 2.76 + 30))
     cadena = Replace$(cadena, "ID_IMAGEN", "FotoAlumnos" & Str$(a))
-    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos/" & ModuleGestionAlumnos.lista.Registros[a].Foto)
+    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & ModuleGestionAlumnos.lista.Registros[a].Foto)
     
     cadenaTodasFotos &= cadena
   Next
@@ -151,7 +194,7 @@ Private Sub anadeFotoProfesor() As String
     cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionProfesores.lista.Registros[a].posicion.x / 2.74 + 40))
     cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionProfesores.lista.Registros[a].posicion.y / 2.76 + 30))
     cadena = Replace$(cadena, "ID_IMAGEN", "FotoProfesores" & Str$(a))
-    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", ModulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & ModuleGestionProfesores.lista.Registros[a].Foto)
+    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & ModuleGestionProfesores.lista.Registros[a].Foto)
     cadenaTodasFotos &= cadena
   Next
   
@@ -179,19 +222,26 @@ Private Sub anadeTEXTOAlumno(registro As ClassAlumno, a As Integer) As String
   Dim cadena As String
   
   cadena = File.Load("/tmp/TexTEXTO")
-  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO1", "Textoalumno1" & Str$(a))
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE1", Str$(Registro.posicion.x / 2.74 + 40 + 46))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE1", Str$(Registro.posicion.y / 2.76 + 30 + 122))
+  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO1", "11" & Str$(a))
+  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO2", "22" & Str$(a))
+  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO3", "33" & Str$(a))
+  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO4", "44" & Str$(a))  
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE1", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE1", Str$(Int(Registro.posicion.y / 2.76 + 30 + 122)))
   
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Registro.posicion.x / 2.74 + 40 + 46))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Registro.posicion.y / 2.76 + 30 + 134))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Int(Registro.posicion.y / 2.76 + 30 + 134)))
   
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE3", Str$(Registro.posicion.x / 2.74 + 40 + 46))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE3", Str$(Registro.posicion.y / 2.76 + 30 + 147))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE3", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE3", Str$(Int(Registro.posicion.y / 2.76 + 30 + 147)))
   
   cadena = Replace$(cadena, "FRASE1", registro.Nombre)
   cadena = Replace$(cadena, "FRASE2", registro.Apellidos)
-  cadena = Replace$(cadena, "FRASE3", registro.Pueblo & " (" & registro.Provincia & ")")
+  If registro.Provincia = "" Then 
+    cadena = Replace$(cadena, "FRASE3", registro.Pueblo)
+  Else
+    cadena = Replace$(cadena, "FRASE3", registro.Pueblo & " (" & registro.Provincia & ")")
+  Endif
   Return cadena
   
 End
@@ -213,15 +263,18 @@ Private Sub anadeTEXTOProfesor(registro As ClassProfesor, A As Integer) As Strin
   Dim cadena As String
   
   cadena = File.Load("/tmp/TexTEXTO")
-  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO1", "Textoalumno1" & Str$(a))
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE1", Str$(Registro.posicion.x / 2.74 + 40 + 46))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE1", Str$(Registro.posicion.y / 2.76 + 30 + 122))
+  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO1", "111" & Str$(a))
+  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO2", "222" & Str$(a))
+  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO3", "333" & Str$(a))
+  cadena = Replace$(cadena, "ID_IMAGEN_TEXTO4", "444" & Str$(a))  
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE1", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE1", Str$(Int(Registro.posicion.y / 2.76 + 30 + 122)))
   
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Registro.posicion.x / 2.74 + 40 + 46))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Registro.posicion.y / 2.76 + 30 + 134))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Int(Registro.posicion.y / 2.76 + 30 + 134)))
   
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE3", Str$(Registro.posicion.x / 2.74 + 40 + 46))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE3", Str$(Registro.posicion.y / 2.76 + 30 + 147))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE3", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE3", Str$(Int(Registro.posicion.y / 2.76 + 30 + 147)))
   
   cadena = Replace$(cadena, "FRASE1", registro.Nombre)
   cadena = Replace$(cadena, "FRASE2", registro.Apellidos)
@@ -234,6 +287,21 @@ End
 ' efectos
 '-------------------------------------------------------------
 
-Public Sub efectos()
+Public Sub efectos(codigo As Integer, Rutaimagenorigen As String, Rutaimagendestino As String, colormarco As Integer)
+  
+  Select Case codigo
+    Case 1
+      '    codigo = 1
+      ModuleGenerarFotos.ponerMarco(Rutaimagenorigen, Rutaimagendestino, True, colormarco)
+    Case 2
+      ' codigo = 2
+      ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaElipse, Rutaimagenorigen, Rutaimagendestino)
+    Case 3
+      '   codigo = 3
+      ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, Rutaimagenorigen, Rutaimagendestino)
+    Case 4
+      '    codigo = 4
+      ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, Rutaimagenorigen, Rutaimagendestino)
+  End Select
   
 End

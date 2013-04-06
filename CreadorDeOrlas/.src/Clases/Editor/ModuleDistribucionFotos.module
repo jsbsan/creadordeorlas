@@ -315,7 +315,7 @@ Public Function rellenarOrla(plantillaOrigen As String) As String
   '  Print copia
   ' Print "/home/uno/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
   
-  Copy plantillaOrigen To copia
+  Try Copy plantillaOrigen To copia
   'modifico datos...
   'TODO: Rellenando datos de la orla
   

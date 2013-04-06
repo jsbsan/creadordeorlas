@@ -1,23 +1,18 @@
-  <text 
-       xml:space="preserve" 
-       style="font-size:40px;font-style:oblique;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold Oblique" 
-       sodipodi:linespacing="125%" 
-       id="ID_IMAGEN_TEXTO1" 
-       x="COORDENADA_X_FRASE1" 
-       y="COORDENADA_Y_FRASE1">
-       <tspan 
-         sodipodi:role="line" 
-         style="font-size:10px;font-style:oblique;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold Oblique" 
-         id="ID_IMAGEN_TEXTO2" 
-         x="COORDENADA_X_FRASE1" 
-         y="COORDENADA_Y_FRASE1">FRASE1</tspan><tspan 
-         sodipodi:role="line" 
-         style="font-size:10px;font-style:oblique;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold Oblique" 
-         id="ID_IMAGEN_TEXTO3" 
-         x="COORDENADA_X_FRASE2" 
-         y="COORDENADA_Y_FRASE2">FRASE2</tspan><tspan 
-         sodipodi:role="line" 
-         style="font-size:10px;font-style:oblique;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold Oblique" 
-         id="ID_IMAGEN_TEXTO4" 
-         x="COORDENADA_X_FRASE3" 
-         y="COORDENADA_Y_FRASE3">FRASE3</tspan></text> 
+   <text
+       x="COORDENADA_X_FRASE1"
+       y="COORDENADA_Y_FRASE1"
+       font-size="10"
+       id="textID_IMAGEN_TEXTO11"
+       style="font-size:10px;fill:#000000;text-anchor:middle;text-align:center">FRASE1</text>
+<text
+       x="COORDENADA_X_FRASE2"
+       y="COORDENADA_Y_FRASE2"
+       font-size="10"
+       id="textID_IMAGEN_TEXTO21"
+       style="font-size:10px;fill:#000000;text-anchor:middle;text-align:center">FRASE2</text>
+<text
+       x="COORDENADA_X_FRASE3"
+       y="COORDENADA_Y_FRASE3"
+       font-size="10"
+       id="textID_IMAGEN_TEXTO31"
+       style="font-size:10px;fill:#000000;text-anchor:middle;text-align:center">FRASE3</text>
