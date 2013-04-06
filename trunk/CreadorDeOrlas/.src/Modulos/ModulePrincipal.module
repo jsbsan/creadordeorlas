@@ -23,6 +23,7 @@ Public Sub iniciarDirectorios()
   rutas.Add(RutaPrograma & "trabajotmp/pdf")
   rutas.Add(RutaPrograma & "trabajotmp/exportar")
   rutas.Add(RutaPrograma & "trabajotmp/importar")
+  rutas.Add(RutaPrograma & "trabajotmp/imagenes")
   
   ModuleIntermedio.IniciarLaPrimeraVez(rutas)
   

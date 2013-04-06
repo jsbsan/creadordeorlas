@@ -589,42 +589,21 @@
       Text = ("Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla.")
     }
     Index = 9
-    Text = ("Previsualizar")
-    Picture = Picture["ojo22.png"]
-    { DrawingArea2 DrawingArea
-      MoveScaled(2,9,76,65)
-    }
-    { ToolButton2 ToolButton
-      MoveScaled(61,3,18,5)
-      Text = ("Ver Imagen")
-      Picture = Picture["icon:/22/image"]
-      Border = True
-    }
-    { Label17 Label
-      MoveScaled(24,0,26,5)
-      Font = Font["Bold,Italic,+2"]
-      Text = ("Previsualización")
-    }
-    { Label18 Label
-      MoveScaled(2,5,57,4)
-      Text = ("para ver con mejor definición pulse el botón \"Ver Imagen\"")
-    }
-    Index = 10
     Text = ("Crear Pdf para imprimir")
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGenerarOrla ToolButton
-      MoveScaled(48,56,33,10)
+      MoveScaled(49,72,33,10)
       Text = ("Generar Orla en PDF")
       Picture = Picture["icon:/48/pdf"]
       Border = True
     }
     { PictureBox7 PictureBox
-      MoveScaled(39,69,15,13)
+      MoveScaled(36,72,11,10)
       Picture = Picture["dibujos/gatojugando.png"]
       Stretch = True
     }
     { ToolButtonGeneraSVG ToolButton
-      MoveScaled(7,56,33,10)
+      MoveScaled(1,72,33,10)
       ToolTip = ("Crear archivo .svg y editarlo con inkscape")
       Text = ("Generar Orla en .SVG")
       Picture = Picture["inkscape-icono.png"]
@@ -639,10 +618,11 @@
     { RadioButtonEfecto RadioButton
       MoveScaled(4,10,19,6)
       Text = ("Marco")
+      Value = True
     }
     { Label24 Label
-      MoveScaled(3,2,75,4)
-      Font = Font["Bitstream Charter,Underline,+2"]
+      MoveScaled(2,1,78,5)
+      Font = Font["Bitstream Charter,Underline,+4"]
       Text = ("Efectos en las Fotos: Marco o Recorte de Formas")
       Alignment = Align.Center
     }
@@ -657,7 +637,7 @@
       Border = Border.Plain
     }
     { RadioButtonEfectoCuna RadioButton
-      MoveScaled(5,31,19,6)
+      MoveScaled(5,30,19,6)
       Text = ("Cuna")
     }
     { PictureBoxCuna PictureBox
@@ -680,13 +660,30 @@
       MoveScaled(7,16,15,4)
       Value = &H1FFF1F&
     }
-    { CheckBox4 CheckBox
+    { CheckBoxTransparencia CheckBox
       MoveScaled(5,48,72,3)
       Text = ("Realizar trasparencia de fondos de imagenes de Alumnos y Profesores")
     }
-    { ButtonRedibujaMarco Button
-      MoveScaled(7,20,15,3)
-      Text = ("Redibuja")
+    Index = 10
+    Text = ("Previsualizar")
+    Picture = Picture["ojo22.png"]
+    { DrawingArea2 DrawingArea
+      MoveScaled(2,9,76,65)
+    }
+    { ToolButton2 ToolButton
+      MoveScaled(61,3,18,5)
+      Text = ("Ver Imagen")
+      Picture = Picture["icon:/22/image"]
+      Border = True
+    }
+    { Label17 Label
+      MoveScaled(24,0,26,5)
+      Font = Font["Bold,Italic,+2"]
+      Text = ("Previsualización")
+    }
+    { Label18 Label
+      MoveScaled(2,5,57,4)
+      Text = ("para ver con mejor definición pulse el botón \"Ver Imagen\"")
     }
     Index = 11
     Text = ("Salir")

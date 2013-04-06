@@ -1,5 +1,7 @@
 ' Gambas class file
 
+Private codigo As Integer
+
 Public listaTiposDeLetra As New ClassDatoLetra[] 'lista de letras que contiene el sistema
 
 Public GridViewRegistrosAlumnos As ClassSuperGridview
@@ -576,24 +578,26 @@ End
 
 Public Sub ToolButtonGeneraSVG_Click()
   
-  Try Copy User.home & "/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg" To ModulePrincipal.RutaPrograma & "trabajotmp/" & "plantillatmp.svg"
-  ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "plantillatmp.svg")
+  If codigo = 0 Then codigo = 1
+  ' "/home/uno/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
+  Try Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & "plantillatmp.svg"
+  ModuleGestionOrla.orla.Plantilla = "" 
+  If ModuleGestionOrla.orla.Plantilla = "" Then 
+    Try Copy User.home & "/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg" To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
+  Else
+    Try Copy User.home & "/CreadorOrlas/plantillasOrla/" & ModuleGestionOrla.orla.Plantilla To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
+  Endif
+  
+  ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", codigo, ColorButton1.value, CheckBoxTransparencia.value)
   
 End
 
 Public Sub RadioButtonEfecto_Click()
   
   If RadioButtonEfecto.Value = True Then 
-    PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, True, ColorButton1.Value))
+    PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, "/tmp/destino.png", True, ColorButton1.Value))
+    codigo = 1
   Endif
-  
-End
-
-Public Sub ButtonRedibujaMarco_Click()
-  
-  PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, True, ColorButton1.Value))
-  PictureBoxMarco.Refresh()
-  'Wait 0.1
   
 End
 
@@ -601,6 +605,7 @@ Public Sub RadioButtonEfectoCuna_Click()
   
   If RadioButtonEfectoCuna.Value = True Then 
     PictureBoxCuna.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    codigo = 3
   Endif
   
 End
@@ -609,6 +614,7 @@ Public Sub RadioButtonEfectoV_Click()
   
   If RadioButtonEfectoV.Value = True Then 
     PictureBoxV.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    codigo = 4
   Endif  
   
 End
@@ -618,7 +624,13 @@ Public Sub RadioButtonEfectoElipse_Click()
   If RadioButtonEfectoElipse.Value = True Then 
     
     PictureBoxElipse.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaElipse, ModulePrincipal.alumno93, "/tmp/conversion.png"))
-    
+    codigo = 2
   Endif
+  
+End
+
+Public Sub ColorButton1_Change()
+  
+  PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, "/tmp/destino.png", True, ColorButton1.Value))
   
 End

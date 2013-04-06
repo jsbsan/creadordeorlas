@@ -2,7 +2,7 @@
 
 Private rutatrabajo As String = "/tmp/pruebasFotito/"
 
-Public Sub ponerMarco(dibujoRuta As String, marco As Boolean, colormarco As Integer) As String
+Public Sub ponerMarco(dibujoRuta As String, dibujoDestino As String, marco As Boolean, colormarco As Integer) As String
   
   Dim imagendestino, imagenorigen, texto, comando As String
   Dim a As Integer
@@ -25,9 +25,9 @@ Public Sub ponerMarco(dibujoRuta As String, marco As Boolean, colormarco As Inte
   '¿es un marco o una elipse?
   
   If marco = False Then 
-    CrearElipse(imagenorigen, imagendestino)
+    CrearElipse(imagenorigen, dibujoDestino)
   Else
-    CrearMarco(imagenorigen, imagendestino, colormarco)
+    CrearMarco(imagenorigen, dibujoDestino, colormarco)
     
   Endif  
   
@@ -51,7 +51,7 @@ Public Sub ponerMarco(dibujoRuta As String, marco As Boolean, colormarco As Inte
   
   '  Shell comando Wait
   
-  Return imagendestino
+  Return dibujoDestino
   
 End
 
@@ -151,7 +151,7 @@ Public Sub CrearMarco(origen As String, destino As String, colormarco As String)
   
   Dim comando As String 
   
-  Try Kill destino
+  ' Try Kill destino
   comando = "convert " & origen & " -mattecolor '#" & Hex$(colormarco) & "'  -frame 10x10+5+5  " & destino
   
   Shell comando Wait
@@ -167,7 +167,5 @@ Public Sub SuperPonerForma(RutaImagenForma As String, RutaImagenOrigen As String
   comando = "composite -compose Dst_In -gravity center " & RutaImagenForma & " /tmp/dibujoReducido.png -alpha set " & RutaImagenDestino
   Shell comando Wait 
   Return RutaImagenDestino
-
+  
 End
-
- 
