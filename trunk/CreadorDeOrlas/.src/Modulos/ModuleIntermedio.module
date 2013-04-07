@@ -25,6 +25,10 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   Try Copy "Efectos/formacuna.png" To "/tmp/formacuna.png"
   Try Copy "Efectos/V.png" To "/tmp/V.png"
   
+  'copia de icono de candado
+  Try Copy "CandadoAbierto.png" To "/tmp/CandadoAbierto.png"
+  Try Copy "CandadoCerrado.png" To "/tmp/CandadoCerrado.png"
+
 End
 
 Public Sub copiarPlantillasInternas()

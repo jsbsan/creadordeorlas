@@ -1,5 +1,8 @@
 ' Gambas class file
 
+Property PosicionesDefinidas As Boolean '' true: posicion fija, false: posiciones movibles
+Private hposicionesdefinidas As Boolean
+
 Property Plantilla As String ''tipo de plantilla de orla a usar
 Private hPlantilla As String
 
@@ -106,6 +109,8 @@ Public Sub _new()
   
   hEscalaFotosProfesores = 100
   hEscalaFotosAlumnos = 100
+  hEspacioEntreFotosHorizontal = 10
+  hEspacioEntreFotosVertical = 70
   
 End
 
@@ -148,6 +153,7 @@ Public Sub Text() As String
   
   cadena &= hEscalaFotosAlumnos & "\n"
   cadena &= hEscalaFotosProfesores & "\n"
+  cadena &= hposicionesdefinidas & "\n"
   Return cadena  
   
 End
@@ -215,6 +221,8 @@ Public Sub lecturaDatos(cadenas As String[]) As Boolean
   a += 1               
   hEscalaFotosProfesores = cadenas[a]
   a += 1            
+  hposicionesdefinidas = cadenas[a]
+  a += 1
   Return True                                           
   
 End
@@ -508,5 +516,17 @@ End
 Private Sub OrdenAlfabeticoProfesores_Write(Value As Boolean)
   
   hOrdenAlfabeticoProfesores = value
+  
+End
+
+Private Function PosicionesDefinidas_Read() As Boolean
+  
+  Return hposicionesdefinidas
+  
+End
+
+Private Sub PosicionesDefinidas_Write(Value As Boolean)
+  
+  hposicionesdefinidas = value
   
 End

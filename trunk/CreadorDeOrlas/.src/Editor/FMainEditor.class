@@ -29,6 +29,20 @@ End
 Public Sub Form_Open()
   
   '  Me.Maximized = True
+  
+  If ModuleGestionOrla.orla.PosicionesDefinidas = False Then
+    ModuleDistribucionFotos.hacerGenerico("alumno", ModuleGestionAlumnos.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
+    
+    ModuleDistribucionFotos.hacerGenerico("profesor", ModuleGestionProfesores.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla, esquemaprofesor)
+    ToolButtonBloquearPosicion.tag = "Desbloqueada"
+    ToolButtonBloquearPosicion.Picture = Picture["/tmp/CandadoAbierto.png"]
+    CheckBoxBloqueo.value = 1
+  Else
+    ToolButtonBloquearPosicion.tag = "bloqueada"
+    ToolButtonBloquearPosicion.Picture = Picture["/tmp/CandadoCerrado.png"]
+    CheckBoxBloqueo.value = 0
+  Endif
+  
   TextBoxEsquema.text = esquema
   TextBoxEsquema2.text = esquemaprofesor
   ValueBoxHorizontal.Value = espacioancho
@@ -73,7 +87,10 @@ End
 Public Sub obs_MouseMove()
   
   '  Print "Evento en Obs...mousemove"
-  capturaMoviendo(Mouse.screenx, Mouse.screeny)
+  If CheckBoxBloqueo.Value = False Then 
+  Else
+    capturaMoviendo(Mouse.screenx, Mouse.screeny)
+  Endif 
   
 End
 
@@ -87,7 +104,11 @@ End
 Public Sub PictureBoxFONDO_MouseMove()
   
   ' Print "Evento producido en PictureBoxFondo.... mousemove"
-  capturaMoviendo(Mouse.screenx, Mouse.screeny) 
+  If CheckBoxBloqueo.Value = False Then 
+  Else
+    capturaMoviendo(Mouse.screenx, Mouse.screeny) 
+    
+  Endif
   
 End
 
@@ -124,7 +145,10 @@ End
 Public Sub ScrollView1_MouseMove()
   
   '  Print "Evento producido en ScrollView1....mouseMove"
-  capturaMoviendo(Mouse.screenX, Mouse.screenY)
+  If CheckBoxBloqueo.Value = False Then 
+  Else 
+    capturaMoviendo(Mouse.screenX, Mouse.screenY)
+  Endif 
   
 End
 
@@ -286,15 +310,10 @@ Public Sub dibujoObjetos(Optional cadena As String)
   '------------------------
   For a = 0 To listaAlumnos.Registros.Max
     temporalpicture = New ClassMejorPictureBox(ScrollView1)
-    If CheckBoxMostraFotos.value = True Then 
-      temporalpicture.Picture = imagenAlumnoMarco
-      temporalpicture.w = imagenAlumnoMarco.w / escalafoto
-      temporalpicture.h = imagenAlumnoMarco.h / escalafoto
-    Else
-      temporalpicture.Picture = imagenAlumno
-      temporalpicture.w = imagenAlumno.w / escalafoto
-      temporalpicture.h = imagenAlumno.h / escalafoto
-    Endif
+    
+    temporalpicture.Picture = imagenAlumno
+    temporalpicture.w = imagenAlumno.w / escalafoto
+    temporalpicture.h = imagenAlumno.h / escalafoto
     
     temporalpicture.Stretch = True
     Object.Attach(temporalpicture, Me, "Obs")
@@ -409,5 +428,21 @@ Public Sub TextBoxEsquema2_KeyPress()
 End
 
 Public Sub RadioButtonMarco_Click()
+  
+End
+
+Public Sub CheckBoxBloqueo_Click()
+  
+  If CheckBoxBloqueo.Value = True Then 
+    ToolButtonBloquearPosicion.tag = "Desbloqueada"
+    ToolButtonBloquearPosicion.Picture = Picture["/tmp/CandadoAbierto.png"]
+    ModuleGestionOrla.orla.PosicionesDefinidas = False
+    
+  Else
+    ToolButtonBloquearPosicion.tag = "bloqueada"
+    ToolButtonBloquearPosicion.Picture = Picture["/tmp/CandadoCerrado.png"]
+    ModuleGestionOrla.orla.PosicionesDefinidas = True
+    
+  Endif
   
 End

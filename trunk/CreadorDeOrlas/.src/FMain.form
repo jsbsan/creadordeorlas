@@ -589,7 +589,10 @@
       Text = ("Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla.")
     }
     Index = 9
-    Text = ("Crear Pdf para imprimir")
+    Text = ("Editor")
+    Picture = Picture["ojo22.png"]
+    Index = 10
+    Text = ("Crear .svg o .pdf")
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGenerarOrla ToolButton
       MoveScaled(49,72,33,10)
@@ -663,27 +666,6 @@
     { CheckBoxTransparencia CheckBox
       MoveScaled(5,48,72,3)
       Text = ("Realizar trasparencia de fondos de imagenes de Alumnos y Profesores")
-    }
-    Index = 10
-    Text = ("Previsualizar")
-    Picture = Picture["ojo22.png"]
-    { DrawingArea2 DrawingArea
-      MoveScaled(2,9,76,65)
-    }
-    { ToolButton2 ToolButton
-      MoveScaled(61,3,18,5)
-      Text = ("Ver Imagen")
-      Picture = Picture["icon:/22/image"]
-      Border = True
-    }
-    { Label17 Label
-      MoveScaled(24,0,26,5)
-      Font = Font["Bold,Italic,+2"]
-      Text = ("Previsualización")
-    }
-    { Label18 Label
-      MoveScaled(2,5,57,4)
-      Text = ("para ver con mejor definición pulse el botón \"Ver Imagen\"")
     }
     Index = 11
     Text = ("Salir")
