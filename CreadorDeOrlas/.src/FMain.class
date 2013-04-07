@@ -61,13 +61,6 @@ Public Sub ButtonEditorOrla_Click()
   
   Dim esquemaprofesor As String = Str$(ModuleGestionProfesores.lista.Registros.Count) & "=" & Str$(ModuleGestionProfesores.lista.Registros.Count) 
   Dim feditor As New FMainEditor
-  'Reemplaza la plantilla con los datos que ha introducido (colegio, curso,etc )
-  
-  '  ModuleDistribucionFotos.hacer(ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
-  
-  ModuleDistribucionFotos.hacerGenerico("alumno", ModuleGestionAlumnos.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
-  
-  ModuleDistribucionFotos.hacerGenerico("profesor", ModuleGestionProfesores.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla, esquemaprofesor)
   
   'asigno nueva posicion de traslado
   feditor.esquema = LabelEsquema.Text
@@ -77,7 +70,7 @@ Public Sub ButtonEditorOrla_Click()
   feditor.listaProfesores = ModuleGestionProfesores.lista
   feditor.listaAlumnos = ModuleGestionAlumnos.lista
   FormPensando.show()
-  Wait 0.5
+  Wait 0.2
   
   feditor.plantillaActual = User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
   feditor.ShowDialog()
@@ -354,6 +347,13 @@ Public Sub IconPanel1_Click()
   Dim resultado As Boolean
   
   Print "Opcion elegida: ", IconPanel1.Index 
+  
+  If IconPanel1.index = 9 Then 
+    rellenarDatosOrlas()
+    ToolButtonAutomatica_Click()
+    ButtonEditorOrla_Click()
+    IconPanel1.index = 0
+  Endif
   
   If IconPanel1.Index = 11 Then Me.Close
   

@@ -314,7 +314,10 @@ Public Function rellenarOrla(plantillaOrigen As String) As String
   ' Print plantillaOrigen
   '  Print copia
   ' Print "/home/uno/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
-  
+  If plantillaOrigen = "" Then 
+    Message.Error(("La plantilla origen esta vacia"))
+    Return 
+  Endif
   Try Copy plantillaOrigen To copia
   'modifico datos...
   'TODO: Rellenando datos de la orla

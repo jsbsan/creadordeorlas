@@ -29,12 +29,13 @@
     }
   }
   { CheckBoxRejilla CheckBox
-    MoveScaled(2,0,13,4)
-    Text = ("Rejilla")
+    MoveScaled(3,16,20,4)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Dibujar Rejilla")
     Value = CheckBox.True
   }
   { Frame6 Frame
-    MoveScaled(4,34,17,17)
+    MoveScaled(3,45,17,17)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Espacio entre fotos")
     { Label6 Label
@@ -57,36 +58,18 @@
     }
   }
   { Label1 Label
-    MoveScaled(1,5,21,3)
+    MoveScaled(1,33,21,3)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Definir esquema Alumno:")
   }
   { ButtonReorganizarAlumnos Button
-    MoveScaled(3,12,21,4)
+    MoveScaled(4,39,21,4)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Reorganizar Alumnos")
   }
   { TextBoxEsquema TextBox
-    MoveScaled(3,8,21,4)
+    MoveScaled(3,36,21,4)
     Font = Font["Bitstream Charter,-1"]
-  }
-  { CheckBoxMostraFotos CheckBox
-    MoveScaled(0,56,20,4)
-    Enabled = False
-    Text = ("Mostrar Efectos")
-  }
-  { RadioButtonElipse RadioButton
-    MoveScaled(4,61,14,3)
-    Text = ("Elipse")
-  }
-  { RadioButtonMarco RadioButton
-    MoveScaled(4,65,12,4)
-    Text = ("Marco")
-    Value = True
-  }
-  { ColorButton1 ColorButton
-    MoveScaled(16,64,7,4)
-    Value = &H1FFF1F&
   }
   { Label2 Label
     MoveScaled(1,21,22,3)
@@ -101,5 +84,21 @@
     MoveScaled(3,28,21,4)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Reorganizar Profesores")
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(3,1,18,3)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Posiciones")
+    Alignment = Align.Center
+  }
+  { ToolButtonBloquearPosicion ToolButton
+    MoveScaled(6,5,10,6)
+    Tag = "bloqueada"
+    Picture = Picture["CandadoAbierto.png"]
+    Border = True
+  }
+  { CheckBoxBloqueo CheckBox
+    MoveScaled(3,5,4,6)
+    Value = CheckBox.None
   }
 }
