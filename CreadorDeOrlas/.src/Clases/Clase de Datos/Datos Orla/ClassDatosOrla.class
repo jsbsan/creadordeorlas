@@ -1,5 +1,8 @@
 ' Gambas class file
 
+Property orden As Integer[]
+Private horden As Integer[]
+
 Property PosicionesDefinidas As Boolean '' true: posicion fija, false: posiciones movibles
 Private hposicionesdefinidas As Boolean
 
@@ -528,5 +531,17 @@ End
 Private Sub PosicionesDefinidas_Write(Value As Boolean)
   
   hposicionesdefinidas = value
+  
+End
+
+Private Function orden_Read() As Integer[]
+  
+  Return horden
+  
+End
+
+Private Sub orden_Write(Value As Integer[])
+  
+  horden = value
   
 End

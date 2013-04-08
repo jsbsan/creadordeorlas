@@ -7,7 +7,7 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   
   Dim fpensando As New FormPensando
   Dim comando, NombreArchivo, textoLinea As String
-  Dim a As Integer
+  Dim a, b As Integer
   
   DirectorioDeTrabajo = modulePrincipal.RutaPrograma & "trabajotmp/imagenes/"
   
@@ -65,7 +65,8 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   TextoLinea &= anadeCapa("TEXTOS ALUMNOS", "textoAlumnos")
   
   For a = 0 To ModuleGestionAlumnos.lista.Registros.Max
-    TextoLinea &= anadeTEXTOAlumno(ModuleGestionAlumnos.lista.Registros[A], a)
+    b = ModuleGestionAlumnos.ListaOrdenada[a]
+    TextoLinea &= anadeTEXTOAlumno(ModuleGestionAlumnos.lista.Registros[b], b)
   Next
   
   TextoLinea &= cierraCapa()
@@ -74,7 +75,8 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   TextoLinea &= anadeCapa("TEXTOS PROFESORES", "textoprofesores")
   
   For a = 0 To ModuleGestionProfesores.lista.Registros.Max
-    TextoLinea &= anadeTEXTOProfesor(ModuleGestionProfesores.lista.Registros[A], a)
+    b = ModuleGestionProfesores.ListaOrdenada[a]
+    TextoLinea &= anadeTEXTOProfesor(ModuleGestionProfesores.lista.Registros[b], b)
   Next
   
   TextoLinea &= cierraCapa()
@@ -168,13 +170,16 @@ Private Sub anadeFotoAlumno() As String
   Dim a As Integer
   Dim cadenaTodasFotos As String
   Dim cadena As String
+  Dim b As Integer
   
   For a = 0 To ModuleGestionAlumnos.lista.Registros.Max
+    
+    b = ModuleGestionAlumnos.ListaOrdenada[a]
     cadena = File.Load("/tmp/TexFoto")
-    cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionAlumnos.lista.Registros[a].posicion.x / 2.74 + 40))
-    cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionAlumnos.lista.Registros[a].posicion.y / 2.76 + 30))
-    cadena = Replace$(cadena, "ID_IMAGEN", "FotoAlumnos" & Str$(a))
-    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & ModuleGestionAlumnos.lista.Registros[a].Foto)
+    cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionAlumnos.lista.Registros[b].posicion.x / 2.74 + 40))
+    cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionAlumnos.lista.Registros[b].posicion.y / 2.76 + 30))
+    cadena = Replace$(cadena, "ID_IMAGEN", "FotoAlumnos" & Str$(b))
+    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & ModuleGestionAlumnos.lista.Registros[b].Foto)
     
     cadenaTodasFotos &= cadena
   Next
@@ -188,13 +193,16 @@ Private Sub anadeFotoProfesor() As String
   Dim a As Integer
   Dim cadenaTodasFotos As String
   Dim cadena As String
+  Dim b As Integer
   
   For a = 0 To ModuleGestionProfesores.lista.Registros.Max
+    b = ModuleGestionProfesores.ListaOrdenada[a]
+    
     cadena = File.Load("/tmp/TexFoto")
-    cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionProfesores.lista.Registros[a].posicion.x / 2.74 + 40))
-    cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionProfesores.lista.Registros[a].posicion.y / 2.76 + 30))
-    cadena = Replace$(cadena, "ID_IMAGEN", "FotoProfesores" & Str$(a))
-    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & ModuleGestionProfesores.lista.Registros[a].Foto)
+    cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionProfesores.lista.Registros[b].posicion.x / 2.74 + 40))
+    cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionProfesores.lista.Registros[b].posicion.y / 2.76 + 30))
+    cadena = Replace$(cadena, "ID_IMAGEN", "FotoProfesores" & Str$(b))
+    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & ModuleGestionProfesores.lista.Registros[b].Foto)
     cadenaTodasFotos &= cadena
   Next
   

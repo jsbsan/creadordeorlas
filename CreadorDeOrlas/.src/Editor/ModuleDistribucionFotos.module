@@ -81,6 +81,7 @@ Public Sub hacerGenerico(tipo As String, registros As Object[], espacioHorizonta
   'TODO: 0 0rdenacion y colocacion de fotos
   'asignar coordenadas a cada foto
   contador = -1
+  
   For a = 0 To nfilas - 1
     For b = 0 To Val(numerosColumna[a]) - 1
       'ASIGNA COORDENADAS
@@ -88,7 +89,12 @@ Public Sub hacerGenerico(tipo As String, registros As Object[], espacioHorizonta
       pos.x = b * (anchoFoto + espacioHorizontal)
       pos.y = a * (altoFoto + espacioVertical)
       contador += 1
-      registros[contador].posicion = pos
+      If Upper$(tipo) = "PROFESOR" Or Upper$(tipo) = "PROFESORES" Then 
+        registros[ModuleGestionProfesores.ListaOrdenada[contador]].posicion = pos
+      Else
+        registros[ModuleGestionAlumnos.ListaOrdenada[contador]].posicion = pos
+      Endif
+      
       '  Print "foto nº: "; contador, pos.x, pos.y
     Next
     AnchoColumna = Val(numerosColumna[a]) * (anchoFoto + espacioHorizontal) - espacioHorizontal
