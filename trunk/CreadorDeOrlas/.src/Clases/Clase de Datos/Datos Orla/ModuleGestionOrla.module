@@ -1,5 +1,8 @@
 ' Gambas module file
 
+Public ordenProfesor As String
+Public ordenAlumno As String
+
 Public orla As New ClassDatosOrla
 
 Public rutaFicheroDatos As String 
@@ -64,3 +67,13 @@ Public Sub rellena(f As Container)
   f[5].LabelTipoAlumno.font = orla.LetraProfesor  
   
 End
+
+'Public Sub ordenar(cadena As String[], id As Integer[]) As Integer[]
+
+'  Dim cadenaOrdenar As New String[]
+'NOTE: Ordenar, codigo de Shordi...
+'http://www.gambas-es.org/viewtopic.php?f=1&t=3035
+
+'End
+'
+'

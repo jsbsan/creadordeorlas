@@ -104,3 +104,9 @@ Public Sub PictureBoxFoto_MouseDown()
   PictureBoxFoto.tag = reg.foto
   
 End
+
+Public Sub ToolButtonCancelar_Click()
+  
+  Me.Close
+  
+End

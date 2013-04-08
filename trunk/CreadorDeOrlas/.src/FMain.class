@@ -299,6 +299,12 @@ Public Sub ObservadorGridViewRegistrosAlumnos_DblClick()
   
 End
 
+Public Sub ObservadorGridViewRegistrosProfesores_Dblclick()
+  
+  ToolButtonEditar2_Click()
+  
+End
+
 Public Sub ToolButtonEditar_Click()
   
   'TODO: editar alumnos
@@ -632,5 +638,65 @@ End
 Public Sub ColorButton1_Change()
   
   PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, "/tmp/destino.png", True, ColorButton1.Value))
+  
+End
+
+Public Sub CheckBoxMostrarProfesores_Click()
+  
+End
+
+Public Sub RadioButtonProfesorAlfabetico_Click()
+  
+  If RadioButtonProfesorAlfabetico.Value = True Then
+    ModuleGestionOrla.ordenProfesor = "apellidos"
+  Else
+    ModuleGestionOrla.ordenProfesor = ""
+  Endif
+  
+End
+
+Public Sub RadioButtonProfesorIndicado_Click()
+  
+  If RadioButtonProfesorIndicado.value = False Then
+    
+    ModuleGestionOrla.ordenProfesor = "apellidos"
+    
+  Else
+    
+    ModuleGestionOrla.ordenProfesor = ""
+    
+  Endif
+  
+End
+
+Public Sub RadioButtonAlumnoAlfabetico_Click()
+  
+  If RadioButtonAlumnoAlfabetico.value = True Then
+    
+    ModuleGestionOrla.OrdenAlumno = "apellidos"
+    
+  Else
+    
+    ModuleGestionOrla.OrdenAlumno = ""
+    
+  Endif
+  
+End
+
+Public Sub RadioButtonAlumnoIndicado_Click()
+  
+  If RadioButtonAlumnoIndicado.value = False Then
+    
+    ModuleGestionOrla.OrdenAlumno = "apellidos"
+    
+  Else
+    
+    ModuleGestionOrla.OrdenAlumno = ""
+    
+  Endif
+  
+End
+
+Public Sub Frame3_MouseDown()
   
 End

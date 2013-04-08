@@ -14,51 +14,71 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FMainEditor.form:43
+#: FMainEditor.form:49
 msgid "datos"
 msgstr ""
 
-#: FMainEditor.form:52
+#: FMainEditor.form:58
 msgid "coord"
 msgstr ""
 
-#: FMainEditor.form:60
+#: FMainEditor.form:66
 msgid "Dibujar Rejilla"
 msgstr ""
 
-#: FMainEditor.form:67
+#: FMainEditor.form:73
 msgid "Espacio entre fotos"
 msgstr ""
 
-#: FMainEditor.form:71
+#: FMainEditor.form:77
 msgid "Horizontal:"
 msgstr ""
 
-#: FMainEditor.form:77
+#: FMainEditor.form:83
 msgid "ValueBox1"
 msgstr ""
 
-#: FMainEditor.form:87
+#: FMainEditor.form:93
 msgid "Vertical:"
 msgstr ""
 
-#: FMainEditor.form:95
+#: FMainEditor.form:101
 msgid "Definir esquema Alumno:"
 msgstr ""
 
-#: FMainEditor.form:101
+#: FMainEditor.form:107
 msgid "Reorganizar Alumnos"
 msgstr ""
 
-#: FMainEditor.form:112
+#: FMainEditor.form:118
 msgid "Definir esquema Profesores:"
 msgstr ""
 
-#: FMainEditor.form:123
+#: FMainEditor.form:129
 msgid "Reorganizar Profesores"
 msgstr ""
 
-#: FMainEditor.form:129
+#: FMainEditor.form:135
 msgid "Posiciones"
+msgstr ""
+
+#: FMainEditor.form:149
+msgid "Alumnos"
+msgstr ""
+
+#: FMainEditor.form:153
+msgid "Orden Alfabético"
+msgstr ""
+
+#: FMainEditor.form:159
+msgid "Orden Indicado"
+msgstr ""
+
+#: FMainEditor.form:166
+msgid "Orden Alfabetico"
+msgstr ""
+
+#: FMainEditor.form:180
+msgid "Mostrar Profesores"
 msgstr ""
 

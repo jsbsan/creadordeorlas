@@ -1,12 +1,12 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,119,71)
+  MoveScaled(0,0,119,74)
   Tracking = True
   Icon = Picture["icon:/16/edit"]
   AutoResize = True
   { ScrollView1 ScrollView
-    MoveScaled(25,2,92,65)
+    MoveScaled(25,2,92,71)
     { PictureBoxFONDO PictureBox
       MoveScaled(0,0,58,45)
       Background = &HFFFFFF&
@@ -29,13 +29,13 @@
     }
   }
   { CheckBoxRejilla CheckBox
-    MoveScaled(3,16,20,4)
+    MoveScaled(3,12,20,4)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Dibujar Rejilla")
     Value = CheckBox.True
   }
   { Frame6 Frame
-    MoveScaled(3,45,17,17)
+    MoveScaled(1,42,22,13)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Espacio entre fotos")
     { Label6 Label
@@ -44,7 +44,7 @@
       Alignment = Align.Right
     }
     { ValueBoxVertical ValueBox
-      MoveScaled(11,12,5,3)
+      MoveScaled(11,8,5,3)
       Text = ("ValueBox1")
     }
     { ValueBoxHorizontal ValueBox
@@ -52,36 +52,36 @@
       Text = ("ValueBox1")
     }
     { Label19 Label
-      MoveScaled(0,12,10,3)
+      MoveScaled(-1,8,10,3)
       Text = ("Vertical:")
       Alignment = Align.Right
     }
   }
   { Label1 Label
-    MoveScaled(1,33,21,3)
+    MoveScaled(1,30,21,3)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Definir esquema Alumno:")
   }
   { ButtonReorganizarAlumnos Button
-    MoveScaled(4,39,21,4)
+    MoveScaled(3,37,21,4)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Reorganizar Alumnos")
   }
   { TextBoxEsquema TextBox
-    MoveScaled(3,36,21,4)
+    MoveScaled(3,33,21,4)
     Font = Font["Bitstream Charter,-1"]
   }
   { Label2 Label
-    MoveScaled(1,21,22,3)
+    MoveScaled(2,18,22,3)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Definir esquema Profesores:")
   }
   { TextBoxEsquema2 TextBox
-    MoveScaled(3.1429,24.2857,21,4)
+    MoveScaled(3,21,21,4)
     Font = Font["Bitstream Charter,-1"]
   }
   { ButtonReorganizarProfesores Button
-    MoveScaled(3,28,21,4)
+    MoveScaled(3,25,21,4)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Reorganizar Profesores")
   }
@@ -97,8 +97,40 @@
     Picture = Picture["CandadoAbierto.png"]
     Border = True
   }
+  { Frame7 Frame
+    MoveScaled(1,57,23,8)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Alumnos")
+    { RadioButtonAlumnoAlfabetico RadioButton
+      MoveScaled(2,3,24,2)
+      Text = ("Orden Alfabético")
+      Value = True
+    }
+    { RadioButtonAlumnoIndicado RadioButton
+      MoveScaled(2,5,24,4)
+      Text = ("Orden Indicado")
+    }
+  }
+  { RadioButtonProfesorAlfabetico RadioButton
+    MoveScaled(3,69,18,2)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Orden Alfabetico")
+    Value = True
+  }
+  { RadioButtonProfesorIndicado RadioButton
+    MoveScaled(3,72,19,2)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Orden Indicado")
+  }
+  { CheckBoxMostrarProfesores CheckBox
+    MoveScaled(1,66,23,3)
+    Enabled = False
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Mostrar Profesores")
+    Value = CheckBox.True
+  }
   { CheckBoxBloqueo CheckBox
-    MoveScaled(3,5,4,6)
+    MoveScaled(3,5,16,6)
     Value = CheckBox.None
   }
 }

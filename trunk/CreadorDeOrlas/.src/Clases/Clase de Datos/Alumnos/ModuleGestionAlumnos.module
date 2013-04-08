@@ -1,6 +1,7 @@
 ' Gambas module file
 
 Public lista As New ClassListaAlumnos
+Public ListaOrdenada As New Integer[]
 
 Public rutaFicheroDatos As String 
 
@@ -85,5 +86,39 @@ Public Sub CargarDatos(rutaLecturaFichero As String) As Boolean
     Message.Error("El fichero no lo puedo leer.\n Versión Desconocida.")
     Return False
   Endif
+  
+End
+
+Public Sub Ordenar(tipo As String, Optional modo As Integer) As Integer[] '' tipo="apellidos" Ordena por apellidos + nombre, sino por el campo orden
+  
+  Dim contenido As String
+  Dim listaOrdenada As New Integer[]
+  Dim ContenidoAOrdenar As New String[]
+  Dim separo As New String[]
+  Dim a As Integer
+  
+  'Ordenar alfabeticamente
+  If Not modo Then modo = gb.Ascent   
+  
+  'lista a ordenar
+  For a = 0 To lista.Registros.Max
+    
+    contenido = Upper$(lista.Registros[a].Apellidos & " " & lista.Registros[a].Nombre & "|" & Str$(a))
+    If tipo = "apellidos" Then
+      ContenidoAOrdenar.add(contenido)
+    Else
+      ContenidoAOrdenar.add(Right(String(12, "0") & CString(lista.Registros[a].orden), 12) & contenido)
+      
+    Endif
+  Next
+  
+  ContenidoAOrdenar.sort(modo)
+  
+  For a = 0 To lista.Registros.Max
+    separo = Split(contenidoAordenar[a], "|")
+    listaOrdenada.Add(Val(separo[1]))
+  Next 
+  
+  Return listaOrdenada
   
 End

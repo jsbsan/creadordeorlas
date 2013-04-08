@@ -29,6 +29,9 @@ End
 Public Sub Form_Open()
   
   '  Me.Maximized = True
+  'aplicar ordenacion de registros 
+  ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar(ModuleGestionOrla.ordenAlumno)
+  ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar(ModuleGestionOrla.ordenProfesor)
   
   If ModuleGestionOrla.orla.PosicionesDefinidas = False Then
     ModuleDistribucionFotos.hacerGenerico("alumno", ModuleGestionAlumnos.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
@@ -351,6 +354,9 @@ End
 Public Sub ButtonReorganizarAlumnos_Click()
   
   Dim objeto As Object
+  'aplicar ordenacion de registros 
+  ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar(ModuleGestionOrla.ordenAlumno)
+  ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar(ModuleGestionOrla.ordenProfesor)
   
   If TextBoxEsquema.text <> "" Then 
     If ModuleDistribucionFotos.comprobarEsquema(TextBoxEsquema.text, listaAlumnos.Registros.Count) Then 
@@ -387,6 +393,9 @@ End
 Public Sub ButtonReorganizarProfesores_Click()
   
   Dim objeto As Object
+  'aplicar ordenacion de registros 
+  ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar(ModuleGestionOrla.ordenAlumno)
+  ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar(ModuleGestionOrla.ordenProfesor)
   
   If TextBoxEsquema2.text <> "" Then 
     If ModuleDistribucionFotos.comprobarEsquema(TextBoxEsquema2.text, listaProfesores.Registros.Count) Then 
@@ -444,5 +453,69 @@ Public Sub CheckBoxBloqueo_Click()
     ModuleGestionOrla.orla.PosicionesDefinidas = True
     
   Endif
+  
+End
+
+'------------------------------------
+' Elegir Orden alfabeticamente o definido
+'------------------------------------    
+
+Public Sub RadioButtonProfesorAlfabetico_Click()
+  
+  If RadioButtonProfesorAlfabetico.Value = True Then
+    
+    ModuleGestionOrla.ordenProfesor = "apellidos"
+    
+  Else
+    
+    ModuleGestionOrla.ordenProfesor = ""
+    
+  Endif
+  
+End
+
+Public Sub RadioButtonProfesorIndicado_Click()
+  
+  If RadioButtonProfesorIndicado.value = False Then
+    
+    ModuleGestionOrla.ordenProfesor = "apellidos"
+    
+  Else
+    
+    ModuleGestionOrla.ordenProfesor = ""
+    
+  Endif
+  
+End
+
+Public Sub RadioButtonAlumnoAlfabetico_Click()
+  
+  If RadioButtonAlumnoAlfabetico.value = True Then
+    
+    ModuleGestionOrla.OrdenAlumno = "apellidos"
+    
+  Else
+    
+    ModuleGestionOrla.OrdenAlumno = ""
+    
+  Endif
+  
+End
+
+Public Sub RadioButtonAlumnoIndicado_Click()
+  
+  If RadioButtonAlumnoIndicado.value = False Then
+    
+    ModuleGestionOrla.OrdenAlumno = "apellidos"
+    
+  Else
+    
+    ModuleGestionOrla.OrdenAlumno = ""
+    
+  Endif
+  
+End
+
+Public Sub Frame7_MouseDown()
   
 End

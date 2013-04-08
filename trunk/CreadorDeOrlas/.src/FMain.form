@@ -135,12 +135,14 @@
       }
       { ToolButtonPegar ToolButton
         MoveScaled(40,0,12,4)
+        Enabled = False
         Text = ("Pegar")
         Picture = Picture["icon:/22/paste"]
         Border = True
       }
       { ToolButtonCopiar ToolButton
         MoveScaled(54,0,13,4)
+        Enabled = False
         Text = ("Copiar")
         Picture = Picture["icon:/22/copy"]
         Border = True
@@ -177,12 +179,14 @@
       }
       { ToolButtonPegar2 ToolButton
         MoveScaled(40,0,12,4)
+        Enabled = False
         Text = ("Pegar")
         Picture = Picture["icon:/22/paste"]
         Border = True
       }
       { ToolButtonCopiar2 ToolButton
         MoveScaled(54,0,13,4)
+        Enabled = False
         Text = ("Copiar")
         Picture = Picture["icon:/22/copy"]
         Border = True
@@ -198,6 +202,7 @@
     Picture = Picture["icon:/22/people"]
     { Frame2 Frame
       MoveScaled(59,49,22,17)
+      Enabled = False
       Font = Font["Bitstream Charter,Bold,-1"]
       Text = ("Escala Fotos")
       { Label25 Label
@@ -237,12 +242,13 @@
       Picture = Picture["icon:/22/grid"]
     }
     { TextLabel6 TextLabel
-      MoveScaled(1,73,81,9)
+      MoveScaled(1,72,81,9)
       Font = Font["Bitstream Charter,-1"]
       Text = ("Cuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Editar Orla\", para ver poder ver como queda el diseño de la misma. Además podrá modificar la disposición de las fotografías para personalizar su orla.")
     }
     { Frame1 Frame
       MoveScaled(1,49,37,17)
+      Enabled = False
       Font = Font["Bitstream Charter,-1"]
       Text = ("Tipos de letra")
       { LabelTipoProfesor Label
@@ -280,6 +286,7 @@
     }
     { Frame4 Frame
       MoveScaled(1,21,80,19)
+      Enabled = False
       Font = Font["Bitstream Charter,-1"]
       Text = ("Imagenes")
       { Label1 Label
@@ -501,11 +508,12 @@
         Value = True
       }
       { RadioButtonProfesorIndicado RadioButton
-        MoveScaled(36,6,19,2)
+        MoveScaled(36.1429,5.8571,19,2)
         Text = ("Orden Indicado")
       }
       { CheckBoxMostrarProfesores CheckBox
         MoveScaled(33,0,19,3)
+        Enabled = False
         Text = ("Mostrar Profesores")
         Value = CheckBox.True
       }
