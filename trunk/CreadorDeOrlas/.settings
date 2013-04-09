@@ -4,8 +4,9 @@ FMain=[290]
 ModuleGenerarSVG=[76]
 
 [Breakpoints]
-Breakpoint[1]="FMainEditor.492"
-Count=1
+Breakpoint[1]="FMainEditor.493"
+Breakpoint[2]="FMainEditor.507"
+Count=2
 
 [DebugWindow]
 Count=0
@@ -21,6 +22,9 @@ Geometry=[1319,78,210,573]
 
 [DebugWindow/ComboBoxPlantillaUsar]
 Geometry=[10,0,233,210]
+
+[DebugWindow/ContenidoAOrdenar]
+Geometry=[20,12,301,220]
 
 [DebugWindow/Dialog]
 Geometry=[-10,-8,295,584]
@@ -47,7 +51,11 @@ Geometry=[-7,-8,210,210]
 Geometry=[-7,-8,210,661]
 
 [DebugWindow/ModuleGestionAlumnos]
-Geometry=[-3,483,448,241]
+Geometry=[-7,483,389,233]
+
+[DebugWindow/ModuleGestionAlumnos.ListaOrdenada]
+ShowHidden=True
+Geometry=[86,496,210,210]
 
 [DebugWindow/ModuleGestionAlumnos.lista]
 Geometry=[-7,-8,210,210]
@@ -110,7 +118,7 @@ Geometry=[1270,66,210,210]
 Geometry=[-3,98,1124,312]
 
 [DebugWindow/listaOrdenada]
-Geometry=[-7,-8,210,210]
+Geometry=[24,250,210,210]
 
 [DebugWindow/listaRegistros]
 Geometry=[-7,-8,411,303]
@@ -141,7 +149,7 @@ LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\n
 
 [OpenFile]
 File[1]=".src/FMain.form"
-File[2]=".src/FMain.class:698.0"
+File[2]=".src/FMain.class:586.2"
 File[3]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[4]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[5]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -194,8 +202,8 @@ File[51]=".src/FormAlumno.form"
 File[52]=".src/FormAlumno.class:152.0"
 File[53]=".src/FormProfesor.form"
 File[54]=".src/FormProfesor.class:109.10"
-File[55]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:121.15"
-File[56]=".src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module:118.45"
+File[55]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:105.7"
+File[56]=".src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module:125.0"
 File[57]=".src/Formularios Comunes/FormError.form"
 File[58]="icoLoading.gif"
 File[59]=".src/Formularios Comunes/FormPensando.form"
@@ -208,8 +216,7 @@ File[65]="Editor/enblancoA3.png"
 File[66]="Editor/Pro.png"
 File[67]="Editor/ProDes.png"
 File[68]="Editor/temporalFondo.png"
-Active=69
-File[69]=".src/Editor/FMainEditor.class:492.2"
+File[69]=".src/Editor/FMainEditor.class:236.44"
 File[70]=".src/Clases/DeTrabajo/ClassSuperGridview.class:0.19"
 File[71]=".src/Formularios Comunes/FormPensando.class:3.0"
 File[72]=".src/Modulos/ModuleUpdate.module:2.20"
@@ -224,14 +231,15 @@ File[80]=".src/Modulos/ModuleExtraerDatosOrla.module:10.38"
 File[81]=".src/Modulos/ModuleMensajeError.module:0.20"
 File[82]=".src/Editor/ModuleSistemaOrdenacion.module:124.0"
 File[83]=".src/Modulos/ModuleUnicaVez.module:0.20"
-File[84]=".src/Editor/ModuleDistribucionFotos.module:96.6"
+File[84]=".src/Editor/ModuleDistribucionFotos.module:94.59"
 File[85]=".src/Editor/FMainEditor.form"
-File[86]=".src/Editor/ModuleGenerarFotos.module:53.22"
+Active=86
+File[86]=".src/Editor/ModuleGenerarFotos.module:30.38"
 File[87]="Editor/150x120.png"
 File[88]="icono_fotos_personas1.png"
 File[89]=".src/Modulos/ModuleAsignarYSoltarImagenes.module:16.61"
 File[90]=".src/Modulos/ModuleGenerarPdf.module:5.2"
-File[91]=".src/Modulos/ModuleGenerarSVG.module:53.26"
+File[91]=".src/Modulos/ModuleGenerarSVG.module:309.2"
 File[92]="EsquemasyNotas/Conversion a SVG/Comentarios para añadir informacion a los svg:72.0"
 File[93]="Editor/TextFoto:7.2"
 File[94]="Editor/TextTEXTO:5.42"

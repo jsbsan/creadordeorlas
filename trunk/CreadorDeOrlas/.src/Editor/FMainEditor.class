@@ -29,16 +29,17 @@ End
 Public Sub Form_Open()
   
   '  Me.Maximized = True
-  'aplicar ordenacion de registros 
-  ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar(ModuleGestionOrla.ordenAlumno)
-  ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar(ModuleGestionOrla.ordenProfesor)
   
   If ModuleGestionOrla.orla.PosicionesDefinidas = False Then
-    ModuleDistribucionFotos.hacerGenerico("alumno", ModuleGestionAlumnos.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
+    'aplicar ordenacion de registros , en el principio lo ordena todo segun los apellidos
+    ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar("apellidos")
+    ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar("apellidos")
     
+    ModuleDistribucionFotos.hacerGenerico("alumno", ModuleGestionAlumnos.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
     ModuleDistribucionFotos.hacerGenerico("profesor", ModuleGestionProfesores.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla, esquemaprofesor)
     ToolButtonBloquearPosicion.tag = "Desbloqueada"
     ToolButtonBloquearPosicion.Picture = Picture["/tmp/CandadoAbierto.png"]
+    
     CheckBoxBloqueo.value = 1
   Else
     ToolButtonBloquearPosicion.tag = "bloqueada"
@@ -211,8 +212,8 @@ Public Sub capturaDown(mouseScreenx As Integer, mouseScreeny As Integer)
   For Each objtemp In arrayBox
     ' Print "       Objeto:", objtemp.screenX, objtemp.screenY
     '  Print "       scrollX:", ScrollView1.Scrollx
-    If (MousescreenX + 50) >= objtemp.screenX And objtemp.screenX >= (MousescreenX - 20) Then 
-      If (MousescreenY - 20) <= objtemp.ScreenY And (MousescreenY + 50) >= objtemp.screenY Then 
+    If (MousescreenX + 20) >= objtemp.screenX And objtemp.screenX >= (MousescreenX - 20) Then 
+      If (MousescreenY - 20) <= objtemp.ScreenY And (MousescreenY + 20) >= objtemp.screenY Then 
         objetoCapturado = objtemp
         If objetoCapturado.tipo = "Alumno" Then 
           objetoCapturado.Picture = imagenAlumnoDes

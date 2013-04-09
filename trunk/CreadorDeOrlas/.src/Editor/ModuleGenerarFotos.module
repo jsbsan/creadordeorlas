@@ -14,9 +14,19 @@ Public Sub ponerMarco(dibujoRuta As String, dibujoDestino As String, marco As Bo
   If Not Exist(rutatrabajo & "trasparente250x348.png") Then 
     Copy "Editor/trasparente250x348.png" To rutatrabajo & "trasparente250x348.png"
   Endif
+  ''NOTE: mejorar haciendo el fichero trnasparente a 93x113
+  comando = "convert " & rutatrabajo & "trasparente250x348.png" & " -resize 93x113 " & rutatrabajo & "trasparente250x348.png"
+  Shell comando Wait
   
-  Try Copy dibujoRuta To rutatrabajo & "t.png"
+  If Exist(rutatrabajo & "t.png") Then
+    Kill rutatrabajo & "t.png"
+  Endif
+  
+  Copy dibujoRuta To rutatrabajo & "t.png"
   'proceso a repetir por cada registro
+  
+  comando = "convert " & rutatrabajo & "t.png" & " -resize 93x113 " & rutatrabajo & "t.png"
+  Shell comando Wait
   
   imagenorigen = rutatrabajo & "t.png"
   

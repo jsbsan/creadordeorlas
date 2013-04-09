@@ -92,7 +92,7 @@
     Alignment = Align.Center
   }
   { ToolButtonBloquearPosicion ToolButton
-    MoveScaled(6,5,10,6)
+    MoveScaled(7,5,10,6)
     Tag = "bloqueada"
     Picture = Picture["CandadoAbierto.png"]
     Border = True
@@ -130,7 +130,7 @@
     Value = CheckBox.True
   }
   { CheckBoxBloqueo CheckBox
-    MoveScaled(3,5,16,6)
+    MoveScaled(3,5,4,6)
     Value = CheckBox.None
   }
 }
