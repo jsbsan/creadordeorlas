@@ -659,8 +659,12 @@ msgstr ""
 msgid "La plantilla origen esta vacia"
 msgstr ""
 
-#: ModuleGenerarFotos.module:125
+#: ModuleGenerarFotos.module:135
 msgid "No ha sido posible crear la foto con los datos"
+msgstr ""
+
+#: ModuleGenerarSVG.module:15
+msgid "Es necesario que edite la orla"
 msgstr ""
 
 #: ModuleUnicaVez.module:24

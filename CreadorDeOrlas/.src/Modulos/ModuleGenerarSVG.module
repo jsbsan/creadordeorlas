@@ -11,6 +11,16 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   
   DirectorioDeTrabajo = modulePrincipal.RutaPrograma & "trabajotmp/imagenes/"
   
+  If ModuleGestionAlumnos.lista.Registros.count <> 0 And ModuleGestionAlumnos.ListaOrdenada.count = 0 Then
+    Message.Info(("Es necesario que edite la orla"))
+    Return 
+  Endif
+  
+  If ModuleGestionProfesores.lista.Registros.count <> 0 And ModuleGestionProfesores.ListaOrdenada.count = 0 Then
+    Message.Info(("Es necesario que edite la orla"))
+    Return
+  Endif
+  
   fpensando.Show()
   Wait 0.1
   Try Kill "/tmp/TexFoto" 'NOTE: Estas lineas se pueden eliminar 
@@ -99,7 +109,7 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   Print "----------------------------------------------------------------------------------------------"
   Print "Editando: "; ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")
   
-  Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")]
+  Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")] Wait
   
   'crea el PNG
   '  Exec ["inkscape", "/tmp/total.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait

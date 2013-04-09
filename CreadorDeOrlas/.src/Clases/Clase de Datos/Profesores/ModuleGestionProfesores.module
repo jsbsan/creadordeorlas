@@ -104,12 +104,12 @@ Public Sub Ordenar(tipo As String, Optional modo As Integer) As Integer[] '' tip
   'lista a ordenar
   For a = 0 To lista.Registros.Max
     
-    contenido = Upper$(lista.Registros[a].Apellidos & " " & lista.Registros[a].Nombre & "|" & Str$(a))
+    contenido = Upper$(relleno(lista.Registros[a].Apellidos) & relleno(lista.Registros[a].Nombre) & "|" & Str$(a))
+    
     If tipo = "apellidos" Then
       ContenidoAOrdenar.add(contenido)
     Else
       ContenidoAOrdenar.add(Right(String(12, "0") & CString(lista.Registros[a].orden), 12) & contenido)
-      
     Endif
   Next
   
@@ -121,5 +121,13 @@ Public Sub Ordenar(tipo As String, Optional modo As Integer) As Integer[] '' tip
   Next 
   
   Return listaOrdenada
+  
+End
+
+Private Function relleno(cadena As String) As String
+  
+  cadena &= "                                                                     "
+  cadena = Upper$(Mid$(cadena, 1, 25))
+  Return cadena
   
 End
