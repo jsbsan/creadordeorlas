@@ -3,7 +3,7 @@
 Title=CreadorDeOrlas
 Startup=FMain
 Icon=orlaicono.png
-Version=0.0.10
+Version=0.0.13
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -16,5 +16,5 @@ Description="Solo editor\nAlgo de codigo mas..."
 TabSize=2
 Translate=1
 Language=es
-ExecPath=/home/uno/CreadorDeOrlas.gambas
+ExecPath=/home/uno/CreadorDeOrlas2.gambas
 Packager=1
