@@ -14,7 +14,7 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   ModuleHacerTransparente.copiarScriptTransparente(ModulePrincipal.RutaPrograma)
   
   Try Copy "FotoCarnetMyWebCam.gambas" To ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas"
-  Chmod ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
+  Try Chmod ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
   
   'borrar datos anteriores
   borradoDatosAnteriores(rutaSprograma.Extract(1, rutaSprograma.max))
@@ -28,7 +28,10 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   'copia de icono de candado
   Try Copy "CandadoAbierto.png" To "/tmp/CandadoAbierto.png"
   Try Copy "CandadoCerrado.png" To "/tmp/CandadoCerrado.png"
-
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
 End
 
 Public Sub copiarPlantillasInternas()
