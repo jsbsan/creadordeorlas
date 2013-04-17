@@ -83,16 +83,10 @@ Public Sub ToolButton1_Click()
   Print comando
   Shell comando
   
-  comando = "convert /tmp/reducido.png -crop " & Str$(Int(126)) & "x" & Str$(Int(175)) & signo1 & Str$(Abs(Int(SliderX.value / escalaimagen)) + 198) & signo2 & Str$(Abs(Int(SliderY.value / escalaimagen)) + 38) & " /tmp/crop.png" 
+  comando = "convert /tmp/reducido.png -crop " & Str$(Int(126)) & "x" & Str$(Int(175)) & signo1 & Str$(s(Int(SliderX.value))) & signo2 & Str$(Abs(Int(SliderY.value))) & " /tmp/crop.png" 
   ' comando = "convert " & ruta & " -crop 126x175+0+0 /tmp/crop.png"
   
   Print comando
   Shell comando
-  
-End
-
-Public Sub AreaDibujo_MouseMove()
-  
-  Print Mouse.x, Mouse.Y
   
 End
