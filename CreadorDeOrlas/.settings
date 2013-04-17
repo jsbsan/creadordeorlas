@@ -2,14 +2,10 @@
 FormEditorGrafico=[9]
 FMain=[290]
 ModuleGenerarSVG=[76]
+FormExtraerFoto=[]
 
 [Breakpoints]
-Breakpoint[1]="FMainEditor.493"
-Breakpoint[2]="FMainEditor.507"
-Breakpoint[3]="FMain.70"
-Breakpoint[4]="FMain.746"
-Breakpoint[5]="FormExtraerFoto.88"
-Count=5
+Count=0
 
 [DebugWindow]
 Count=0
@@ -161,7 +157,7 @@ LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\n
 
 [OpenFile]
 File[1]=".src/FMain.form"
-File[2]=".src/FMain.class:77.3"
+File[2]=".src/FMain.class:825.32"
 File[3]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[4]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[5]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -204,14 +200,14 @@ File[41]="camara_icono.png"
 File[42]="icono_fotos_personas.png"
 File[43]=".src/Clases/Clase de Datos/ClassGestion.class:0.19"
 File[44]=".src/Modulos/ModulePrincipal.module:18.56"
-File[45]=".src/Modulos/ModuleIntermedio.module:56.0"
+File[45]=".src/Modulos/ModuleIntermedio.module:39.5"
 File[46]=".src/Editor/ModuleHacerTransparente.module:9.32"
 File[47]="magicwand:0.0"
-File[48]=".src/Modulos/ModuleImprimir.module:18.25"
+File[48]=".src/Modulos/ModuleImprimir.module:7.18"
 File[49]=".src/FormAlumno.form"
-File[50]=".src/FormAlumno.class:47.2"
+File[50]=".src/FormAlumno.class:216.19"
 File[51]=".src/FormProfesor.form"
-File[52]=".src/FormProfesor.class:109.10"
+File[52]=".src/FormProfesor.class:150.7"
 File[53]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:105.7"
 File[54]=".src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module:125.0"
 File[55]=".src/Formularios Comunes/FormError.form"
@@ -228,7 +224,7 @@ File[65]="Editor/ProDes.png"
 File[66]="Editor/temporalFondo.png"
 File[67]=".src/Editor/FMainEditor.class:30.2"
 File[68]=".src/Clases/DeTrabajo/ClassSuperGridview.class:0.19"
-File[69]=".src/Formularios Comunes/FormPensando.class:3.0"
+File[69]=".src/Formularios Comunes/FormPensando.class:13.0"
 File[70]=".src/Modulos/ModuleUpdate.module:2.20"
 File[71]=".src/Modulos/comun.module:2.27"
 File[72]=".src/Clases/ClassDatoLetra.class:0.19"
@@ -241,9 +237,9 @@ File[78]=".src/Modulos/ModuleExtraerDatosOrla.module:10.38"
 File[79]=".src/Modulos/ModuleMensajeError.module:0.20"
 File[80]=".src/Editor/ModuleSistemaOrdenacion.module:124.0"
 File[81]=".src/Modulos/ModuleUnicaVez.module:0.20"
-File[82]=".src/Editor/ModuleDistribucionFotos.module:331.4"
+File[82]=".src/Editor/ModuleDistribucionFotos.module:374.46"
 File[83]=".src/Editor/FMainEditor.form"
-File[84]=".src/Editor/ModuleGenerarFotos.module:30.2"
+File[84]=".src/Editor/ModuleGenerarFotos.module:28.88"
 File[85]="Editor/150x120.png"
 File[86]="icono_fotos_personas1.png"
 File[87]=".src/Modulos/ModuleAsignarYSoltarImagenes.module:16.61"
@@ -262,14 +258,18 @@ File[99]="Efectos/Vconversion.png"
 File[100]="CandadoAbierto.png"
 File[101]="CandadoCerrado.png"
 File[102]="destino.png"
-File[103]=".src/Modulos/ModuleGestorPlantillas.module:27.11"
+File[103]=".src/Modulos/ModuleGestorPlantillas.module:89.39"
 File[104]="googledriveacceso.png"
 File[105]="Plantillas/orla1/Barcos_de_colores.png"
 File[106]="Plantillas/orla2/Naranja_Floral.png"
-File[107]=".src/FormExtraerFoto.form"
-Active=108
-File[108]=".src/FormExtraerFoto.class:91.3"
-Count=108
+File[107]="Plantillas/orla1/En_Blanco.svg:0.0"
+File[108]="Plantillas/orla1/En_Blanco.png"
+File[109]=".src/FormExtraerFoto.form"
+Active=110
+File[110]=".src/FormExtraerFoto.class:84.0"
+File[111]="editarImagen.png"
+File[112]="mascara.png"
+Count=112
 
 [VersionControl]
 RememberPassword=0
