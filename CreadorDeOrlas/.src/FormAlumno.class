@@ -160,3 +160,60 @@ Public Sub PictureBoxFoto_MouseDown()
   PictureBoxFoto.tag = reg.foto
   
 End
+
+Public Sub TextBoxNombre_KeyPress()
+  
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    TextBoxApellidos.SetFocus
+  Endif
+  
+End
+
+Public Sub TextBoxApellidos_KeyPress()
+  
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    TextBoxPueblo.SetFocus
+  Endif
+  
+End
+
+Public Sub TextBoxPueblo_KeyPress()
+  
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    TextBoxProvincia.SetFocus
+  Endif
+  
+End
+
+Public Sub ValueBoxOrden_KeyPress()
+  
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    ToolButtonAceptar.SetFocus
+  Endif
+  
+End
+
+Public Sub TextBoxProvincia_KeyPress()
+  
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    ValueBoxOrden.SetFocus
+  Endif
+  
+End
+
+Public Sub ToolButtonAceptar_KeyPress()
+  
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    ToolButtonAceptar_Click()
+  Endif
+  
+End
+
+Public Sub ToolButtonAjustarFoto_Click()
+  
+  Dim ajusteFoto As New FormExtraerFoto
+  
+  ajusteFoto.ruta = User.home & "/CreadorOrlas/temporales/FotosAlumnos/" & reg.foto 
+  ajusteFoto.Show()
+  
+End

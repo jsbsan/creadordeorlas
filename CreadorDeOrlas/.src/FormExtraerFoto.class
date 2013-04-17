@@ -1,0 +1,98 @@
+' Gambas class file
+
+Public ruta As String
+Private escalaimagen As Float
+
+Public Sub Form_Open()
+  'dibujar
+  
+  Me.Center
+  dibujaPNG()
+  
+End
+
+Public Sub dibujaPNG()
+  
+  Dim hbrush As PaintBrush
+  Dim himage As Image
+  Dim mascara As Image
+  Dim escalax, escalay As Float
+  
+  himage = Image.Load(ruta)
+  mascara = Image.Load("mascara.png")
+  
+  AreaDibujo.Cached = True
+  AreaDibujo.Border = 1
+  '  AreaDibujo.Painted = True
+  
+  Paint.Begin(AreaDibujo)
+  
+  hbrush = Paint.Image(himage)
+  hbrush.Translate(SliderX.value, - SliderY.value)
+  escalax = AreaDibujo.W / himage.Width * (1 + SliderZ.value / 10)
+  paint.Scale(escalax, escalax)
+  escalaimagen = escalax
+  
+  Paint.Brush = hbrush
+  Paint.Rectangle(SliderX.value, - SliderY.value, himage.w, himage.h)
+  Paint.Fill()
+  Paint.End
+  
+  '------------------------------------------------
+  
+  Paint.Begin(AreaDibujo)
+  hbrush = Paint.Image(mascara)
+  hbrush.Translate(0, 0)
+  escalax = AreaDibujo.W - mascara.Width / 2
+  escalay = AreaDibujo.h - mascara.H / 2
+  
+  paint.Scale(0.99, 0.99)
+  
+  Paint.Brush = hbrush
+  Paint.Rectangle(0, 0, mascara.w, mascara.h)
+  Paint.Fill()
+  Paint.End
+  
+End
+
+Public Sub Cambio_Change()
+  
+  dibujaPNG()
+  
+End
+
+Public Sub ToolButton2_Click()
+  
+  Me.close
+  
+End
+
+Public Sub ToolButton1_Click()
+  
+  Dim signo1, signo2 As String
+  Dim comando As String
+  'debo de obtener las cooredenadas...
+  signo1 = "+"
+  signo2 = "+"
+  If (SliderX.value) > 0 Then signo1 = ""
+  If (- SliderY.value) > 0 Then signo2 = ""
+  
+  Print escalaimagen
+  comando = "convert " & ruta & " -resize " & Str$(Int(escalaimagen * 100)) & "%  /tmp/reducido.png"
+  
+  Print comando
+  Shell comando
+  
+  comando = "convert /tmp/reducido.png -crop " & Str$(Int(126)) & "x" & Str$(Int(175)) & signo1 & Str$(Abs(Int(SliderX.value / escalaimagen)) + 198) & signo2 & Str$(Abs(Int(SliderY.value / escalaimagen)) + 38) & " /tmp/crop.png" 
+  ' comando = "convert " & ruta & " -crop 126x175+0+0 /tmp/crop.png"
+  
+  Print comando
+  Shell comando
+  
+End
+
+Public Sub AreaDibujo_MouseMove()
+  
+  Print Mouse.x, Mouse.Y
+  
+End

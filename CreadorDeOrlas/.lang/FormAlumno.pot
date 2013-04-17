@@ -14,56 +14,60 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FormAlumno.form:36
+#: FormAlumno.form:37
 msgid "Nombre:"
 msgstr ""
 
-#: FormAlumno.form:45
+#: FormAlumno.form:46
 msgid "<h3>Alumnos</h3>"
 msgstr ""
 
-#: FormAlumno.form:53
+#: FormAlumno.form:54
 msgid "Foto WebCam"
 msgstr ""
 
-#: FormAlumno.form:64
+#: FormAlumno.form:65
 msgid "Apellidos:"
 msgstr ""
 
-#: FormAlumno.form:73
+#: FormAlumno.form:74
 msgid "Pueblo:"
 msgstr ""
 
-#: FormAlumno.form:78
+#: FormAlumno.form:79
 msgid "Provincia:"
 msgstr ""
 
-#: FormAlumno.form:87
+#: FormAlumno.form:88
 msgid "Orden:"
 msgstr ""
 
-#: FormAlumno.form:92
+#: FormAlumno.form:93
 msgid "ValueBox1"
 msgstr ""
 
-#: FormAlumno.form:97
+#: FormAlumno.form:98
 msgid "Aceptar"
 msgstr ""
 
-#: FormAlumno.form:104
+#: FormAlumno.form:105
 msgid "Cancelar"
 msgstr ""
 
-#: FormAlumno.form:111
+#: FormAlumno.form:112
 msgid "(opcional)"
 msgstr ""
 
-#: FormAlumno.form:118
+#: FormAlumno.form:119
 msgid "="
 msgstr ""
 
-#: FormAlumno.form:130
+#: FormAlumno.form:131
 msgid "+"
+msgstr ""
+
+#: FormAlumno.form:137
+msgid "Ajustar foto"
 msgstr ""
 
 #: FormAlumno.class:64

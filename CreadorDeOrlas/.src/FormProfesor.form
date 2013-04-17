@@ -3,10 +3,6 @@
 { Form Form
   MoveScaled(0,0,56,47)
   Resizable = False
-  { ValueBoxOrden ValueBox
-    MoveScaled(32,29,6,4)
-    Text = ("ValueBox1")
-  }
   { PictureBoxFoto PictureBox
     MoveScaled(3,10,12.1429,17)
     Picture = Picture["icono_fotos_personas.png"]
@@ -50,6 +46,10 @@
   { Label5 Label
     MoveScaled(22,29,9,4)
     Text = ("Orden:")
+  }
+  { ValueBoxOrden ValueBox
+    MoveScaled(32,29,6,4)
+    Text = ("ValueBox1")
   }
   { ToolButtonAceptar ToolButton
     MoveScaled(9,39,15,6)

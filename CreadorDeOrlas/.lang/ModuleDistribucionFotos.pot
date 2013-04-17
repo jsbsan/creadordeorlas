@@ -42,3 +42,7 @@ msgstr ""
 msgid "La plantilla origen esta vacia"
 msgstr ""
 
+#: ModuleDistribucionFotos.module:330
+msgid "Se ha producido un error al intentar copiar la plantilla origen:"
+msgstr ""
+

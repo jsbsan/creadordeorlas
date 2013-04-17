@@ -5,7 +5,7 @@
   Icon = Picture["orlaicono.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(0,0,114,83)
+    MoveScaled(-1,0,116,83)
     Count = 13
     Border = True
     Index = 0
@@ -237,9 +237,10 @@
       }
     }
     { ButtonEditorOrla Button
-      MoveScaled(29,67,28,5)
+      MoveScaled(30,66,28,5)
+      Font = Font["Bitstream Charter"]
       Text = ("Editor Gráfico Orla")
-      Picture = Picture["icon:/22/grid"]
+      Picture = Picture["ojo22.png"]
     }
     { TextLabel6 TextLabel
       MoveScaled(1,72,81,9)
@@ -290,8 +291,8 @@
       Font = Font["Bitstream Charter,-1"]
       Text = ("Imagenes")
       { Label1 Label
-        MoveScaled(1,2,11,3)
-        Text = ("Fondo")
+        MoveScaled(1,2,14,3)
+        Text = ("Escudo Colegio")
         Alignment = Align.Center
       }
       { PictureBoxFondo PictureBox
@@ -322,7 +323,7 @@
       }
       { Label3 Label
         MoveScaled(43,2,9,3)
-        Text = ("Logo")
+        Text = ("Imag. Opc.1")
         Alignment = Align.Center
       }
       { PictureBoxLogo2 PictureBox
@@ -334,12 +335,12 @@
       }
       { Label5 Label
         MoveScaled(61,2,9,3)
-        Text = ("Ima. Opc.")
+        Text = ("Imag.Opc.2")
         Alignment = Align.Center
       }
       { ToolButton1 ToolButton botontransparente
         Name = "ToolButton1"
-        MoveScaled(12,1,5,4)
+        MoveScaled(15,1,5,4)
         Tag = "1"
         Text = ("ToolButton1")
         Picture = Picture["icono_transparente.png"]
@@ -549,52 +550,66 @@
     Text = ("Gestor de Plantillas")
     Picture = Picture["gestorOrlas.png"]
     { Label16 Label
-      MoveScaled(3,2,33,7)
+      MoveScaled(24,1,33,5)
       Font = Font["Bold,Italic,+2"]
-      Text = ("Orlas Tipo")
+      Text = ("Plantillas de Orlas")
       Alignment = Align.Center
       Border = Border.Plain
     }
-    { DrawingArea1 DrawingArea
-      MoveScaled(43,10,36,25)
+    { DrawingAreaPlantilla DrawingArea
+      MoveScaled(30,7,57,42)
       Background = &HFFFFFF&
+      ToolTip = ("Haga click para ver mejor la imagen")
+    }
+    { TextLabel4 TextLabel
+      MoveScaled(1,62,33,18)
+      Text = ("Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla.")
+    }
+    { ListBoxOrla ListBox
+      MoveScaled(1,7,28,52)
     }
     { HBox3 VPanel
-      MoveScaled(43,38,36,39)
-      { ToolButtonEditar3 ToolButton
-        MoveScaled(1,3,29,4)
+      MoveScaled(36,52,49,29)
+      { ToolButtonEditarOrlas ToolButton
+        MoveScaled(4,0,34,4)
         Text = ("Editar Orla")
         Picture = Picture["icon:/22/edit"]
         Border = True
       }
-      { ToolButtonBorrar3 ToolButton
-        MoveScaled(1,10,29,4)
+      { ToolButtonBorrarOrla ToolButton
+        MoveScaled(4,4,34,4)
         Text = ("Borrar Orla")
         Picture = Picture["icon:/22/erase"]
         Border = True
       }
-      { ToolButtonAnnadir3 ToolButton
-        MoveScaled(1,16,29,4)
+      { ToolButtonDefinir ToolButton
+        MoveScaled(4,8,34,4)
         Text = ("Definir Orla desde Cero")
         Picture = Picture["icon:/22/add"]
         Border = True
       }
-      { ToolButtonPegar3 ToolButton
-        MoveScaled(1,23,29,4)
+      { ToolButtonExportarOrla ToolButton
+        MoveScaled(4,12,34,4)
+        Visible = False
+        Enabled = False
         Text = ("Exportar Orla")
         Picture = Picture["exportar.png"]
         Border = True
       }
-      { ToolButtonCopiar3 ToolButton
-        MoveScaled(1,30,29,4)
-        Text = ("Importar Orla")
+      { ToolButtonImportarOrla ToolButton
+        MoveScaled(4,16,34,4)
+        Text = ("Añadir plantilla de Orla")
         Picture = Picture["importar.png"]
         Border = True
       }
-    }
-    { TextLabel4 TextLabel
-      MoveScaled(3,65,34,12)
-      Text = ("Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla.")
+      { ToolButtonNube ToolButton
+        MoveScaled(4,21,34,7)
+        Font = Font["Bitstream Charter,Italic,-1"]
+        Tag = "Se accede a una direccion web, donde hay material compartido, debe de tener cuenta en google"
+        Text = ("Compartidos en la Nube")
+        Picture = Picture["googledriveacceso.png"]
+        Border = True
+      }
     }
     Index = 9
     Text = ("Editor")
@@ -604,6 +619,7 @@
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGenerarOrla ToolButton
       MoveScaled(49,72,33,10)
+      Enabled = False
       Text = ("Generar Orla en PDF")
       Picture = Picture["icon:/48/pdf"]
       Border = True
@@ -622,7 +638,7 @@
     }
     { PictureBoxMarco PictureBox
       MoveScaled(24,7,13.2857,16.2857)
-      Picture = Picture["Efectos/Alu93x113.png"]
+      Picture = Picture["destino.png"]
       Stretch = True
       Border = Border.Plain
     }

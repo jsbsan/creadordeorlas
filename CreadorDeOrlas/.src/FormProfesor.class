@@ -110,3 +110,44 @@ Public Sub ToolButtonCancelar_Click()
   Me.Close
   
 End
+
+Public Sub TextBoxNombre_KeyPress()
+  
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    TextBoxApellidos.SetFocus
+  Endif
+  
+End
+
+Public Sub TextBoxApellidos_KeyPress()
+  
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    TextBoxAsignatura.SetFocus
+  Endif
+  
+End
+
+Public Sub TextBoxAsignatura_KeyPress()
+  
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    ValueBoxOrden.SetFocus
+  Endif
+  
+End
+
+Public Sub ValueBoxOrden_KeyPress()
+  
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    ToolButtonAceptar.SetFocus
+  Endif
+  
+End
+
+Public Sub ToolButtonAceptar_KeyPress()
+
+  If Key.code = Key.enter Or Key.Code = Key.Return Then 
+    
+    ToolButtonAceptar_Click()
+  Endif
+
+End

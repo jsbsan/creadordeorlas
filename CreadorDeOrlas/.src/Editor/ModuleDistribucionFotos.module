@@ -325,6 +325,13 @@ Public Function rellenarOrla(plantillaOrigen As String) As String
     Return 
   Endif
   Try Copy plantillaOrigen To copia
+  
+  If Error Then 
+    Message.Info(("Se ha producido un error al intentar copiar la plantilla origen:") & "\n" & plantillaOrigen)
+    ModuleMensajeError.SistemaDescripcionError()
+    
+    Return
+  Endif
   'modifico datos...
   'TODO: Rellenando datos de la orla
   
@@ -364,5 +371,7 @@ Public Function rellenarOrla(plantillaOrigen As String) As String
   
   File.Save(copia, cadena)
   Return copia
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End

@@ -1,0 +1,98 @@
+' Gambas module file
+
+Private rutaPlantillasOrla As String = User.Home & "/CreadorOrlas/plantillasOrla/"
+
+Public Sub cargalistbox(lista As ListBox)
+  
+  Dim file As String
+  'por cada fichero tipo *.svg, existente en /CreadorOrlas/plantillasOrla
+  Dim directorio As String = rutaPlantillasOrla 
+  
+  lista.Clear
+  
+  For Each File In Dir(directorio, "*.svg")
+    lista.Add(Replace$(File, ".svg", ""))
+  Next
+  
+  ' convertir biblioteca de orlas en imagenes...
+  ' conviertetodoslasimagenes()
+  
+End
+
+Public Sub cargaComboBox(com As ComboBox)
+  
+  Dim file As String
+  
+  Dim directorio As String = rutaPlantillasOrla 
+  
+  com.Clear
+  
+  For Each File In Dir(directorio, "*.svg")
+    com.Add(Replace$(File, ".svg", ""))
+  Next
+  
+End
+
+Public Sub cargaprevisualizacion(lbox As ListBox, area As DrawingArea)
+  
+  If Exist(rutaPlantillasOrla & lbox.List[lbox.Index] & ".png") Then 
+  Else
+    creaPng(rutaPlantillasOrla & lbox.List[lbox.Index])
+  Endif
+  
+  dibujaPng(rutaPlantillasOrla & lbox.List[lbox.Index] & ".png", area)
+  area.tag = rutaPlantillasOrla & lbox.List[lbox.Index] & ".png"
+  
+End
+
+Private Sub conviertetodoslasimagenes()
+  
+  Dim file As String
+  
+  Dim directorio As String = "/home/uno/Descargas/orlas(1)/TODAS"
+  
+  For Each File In Dir(directorio, "*.svg")
+    
+    creapng(directorio & "/" & Replace(file, ".svg", ""))
+    
+  Next
+  
+End
+
+Private Sub creaPng(nombre As String)
+  
+  Dim f As New FormPensando
+  
+  f.Show()
+  Wait 0.1
+  Exec ["inkscape", nombre & ".svg", "--export-png", nombre & ".png"] Wait
+  f.parar = True
+  f.Delete()
+  
+End
+
+Public Sub dibujaPNG(ruta As String, areadibujo As DrawingArea)
+  
+  Dim hbrush As PaintBrush
+  Dim himage As Image
+  Dim escalax As Float
+  
+  himage = Image.Load(ruta)
+  
+  AreaDibujo.Cached = True
+  AreaDibujo.Border = 1
+  '  AreaDibujo.Painted = True
+  
+  Paint.Begin(AreaDibujo)
+  
+  hbrush = Paint.Image(himage)
+  hbrush.Translate(0, 0)
+  escalax = AreaDibujo.W / himage.Width
+  paint.Scale(escalax, escalax)
+  
+  Paint.Brush = hbrush
+  Paint.Rectangle(0, 0, himage.w, himage.h)
+  Paint.Fill()
+  Paint.End
+  
+End
