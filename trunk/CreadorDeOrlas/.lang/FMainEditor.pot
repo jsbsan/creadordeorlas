@@ -35,50 +35,46 @@ msgid "Horizontal:"
 msgstr ""
 
 #: FMainEditor.form:83
-msgid "ValueBox1"
-msgstr ""
-
-#: FMainEditor.form:93
 msgid "Vertical:"
 msgstr ""
 
-#: FMainEditor.form:101
+#: FMainEditor.form:105
 msgid "Definir esquema Alumno:"
 msgstr ""
 
-#: FMainEditor.form:107
+#: FMainEditor.form:111
 msgid "Reorganizar Alumnos"
 msgstr ""
 
-#: FMainEditor.form:118
+#: FMainEditor.form:122
 msgid "Definir esquema Profesores:"
 msgstr ""
 
-#: FMainEditor.form:129
+#: FMainEditor.form:133
 msgid "Reorganizar Profesores"
 msgstr ""
 
-#: FMainEditor.form:135
+#: FMainEditor.form:139
 msgid "Posiciones"
 msgstr ""
 
-#: FMainEditor.form:149
+#: FMainEditor.form:153
 msgid "Alumnos"
 msgstr ""
 
-#: FMainEditor.form:153
+#: FMainEditor.form:157
 msgid "Orden Alfabético"
 msgstr ""
 
-#: FMainEditor.form:159
+#: FMainEditor.form:163
 msgid "Orden Indicado"
 msgstr ""
 
-#: FMainEditor.form:166
+#: FMainEditor.form:170
 msgid "Orden Alfabetico"
 msgstr ""
 
-#: FMainEditor.form:180
+#: FMainEditor.form:184
 msgid "Mostrar Profesores"
 msgstr ""
 

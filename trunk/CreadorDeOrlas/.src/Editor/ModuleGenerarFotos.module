@@ -26,6 +26,7 @@ Public Sub ponerMarco(dibujoRuta As String, dibujoDestino As String, marco As Bo
   'proceso a repetir por cada registro
   
   comando = "convert " & rutatrabajo & "t.png" & " -resize 93x113 " & rutatrabajo & "t.png"
+  comando = "convert " & rutatrabajo & "t.png" & " -resize 93x " & rutatrabajo & "t.png"
   Shell comando Wait
   
   imagenorigen = rutatrabajo & "t.png"
@@ -173,6 +174,7 @@ Public Sub SuperPonerForma(RutaImagenForma As String, RutaImagenOrigen As String
   Dim comando As String 
   
   comando = "convert " & RutaImagenOrigen & " -resize 93x113 /tmp/dibujoReducido.png"
+  comando = "convert " & RutaImagenOrigen & " -resize 93x /tmp/dibujoReducido.png"
   Shell comando Wait
   comando = "composite -compose Dst_In -gravity center " & RutaImagenForma & " /tmp/dibujoReducido.png -alpha set " & RutaImagenDestino
   Shell comando Wait 

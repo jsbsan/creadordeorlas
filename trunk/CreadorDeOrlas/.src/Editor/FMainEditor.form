@@ -43,18 +43,22 @@
       Text = ("Horizontal:")
       Alignment = Align.Right
     }
-    { ValueBoxVertical ValueBox
-      MoveScaled(11,8,5,3)
-      Text = ("ValueBox1")
-    }
-    { ValueBoxHorizontal ValueBox
-      MoveScaled(11,5,5,3)
-      Text = ("ValueBox1")
-    }
     { Label19 Label
       MoveScaled(-1,8,10,3)
       Text = ("Vertical:")
       Alignment = Align.Right
+    }
+    { ValueBoxHorizontal SpinBox
+      MoveScaled(11,5,7,3)
+      MinValue = 10
+      MaxValue = 300
+      Value = 10
+    }
+    { ValueBoxVertical SpinBox
+      MoveScaled(11,8,7,3)
+      MinValue = 70
+      MaxValue = 300
+      Value = 70
     }
   }
   { Label1 Label
