@@ -2,7 +2,6 @@
 FormEditorGrafico=[9]
 FMain=[290]
 ModuleGenerarSVG=[76]
-FormExtraerFoto=[]
 
 [Breakpoints]
 Count=0
@@ -39,6 +38,9 @@ Geometry=[-7,-8,210,210]
 
 [DebugWindow/FormPensando]
 Geometry=[-10,-8,210,524]
+
+[DebugWindow/Image]
+Geometry=[643,0,210,210]
 
 [DebugWindow/Integer[]]
 Geometry=[339,10,210,210]
@@ -102,7 +104,7 @@ Geometry=[-7,-8,210,210]
 Geometry=[1534,801,964,210]
 
 [DebugWindow/PictureBoxFoto]
-Geometry=[-7,-8,210,210]
+Geometry=[-7,-8,331,743]
 
 [DebugWindow/ScrollView1]
 Geometry=[-7,-8,210,210]
@@ -112,6 +114,9 @@ Geometry=[-7,-8,210,210]
 
 [DebugWindow/TabStrip1]
 Geometry=[-7,-8,490,684]
+
+[DebugWindow/TrozoImagen]
+Geometry=[-7,-8,210,210]
 
 [DebugWindow/contenidoAordenar]
 Geometry=[-7,-8,777,210]
@@ -157,7 +162,7 @@ LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\n
 
 [OpenFile]
 File[1]=".src/FMain.form"
-File[2]=".src/FMain.class:825.32"
+File[2]=".src/FMain.class:617.105"
 File[3]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[4]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[5]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -192,7 +197,7 @@ File[33]=".src/Clases/Clase de Datos/ClassPos.class:11.0"
 File[34]=".src/Clases/Clase de Datos/ClassPersona.class:160.2"
 File[35]=".src/Clases/Clase de Datos/ClassAlumno.class:10.2"
 File[36]=".src/Clases/Clase de Datos/ClassProfesor.class:14.0"
-File[37]=".src/Clases/Clase de Datos/Datos Orla/ClassDatosOrla.class:527.2"
+File[37]=".src/Clases/Clase de Datos/Datos Orla/ClassDatosOrla.class:115.33"
 File[38]=".src/Modulos/ModulePruebas.module:11.2"
 File[39]=".src/Clases/Clase de Datos/Alumnos/ClassListaAlumnos.class:1.0"
 File[40]=".src/Clases/Clase de Datos/Profesores/ClassListaProfesores.class:1.0"
@@ -200,14 +205,14 @@ File[41]="camara_icono.png"
 File[42]="icono_fotos_personas.png"
 File[43]=".src/Clases/Clase de Datos/ClassGestion.class:0.19"
 File[44]=".src/Modulos/ModulePrincipal.module:18.56"
-File[45]=".src/Modulos/ModuleIntermedio.module:39.5"
+File[45]=".src/Modulos/ModuleIntermedio.module:190.64"
 File[46]=".src/Editor/ModuleHacerTransparente.module:9.32"
 File[47]="magicwand:0.0"
 File[48]=".src/Modulos/ModuleImprimir.module:7.18"
 File[49]=".src/FormAlumno.form"
-File[50]=".src/FormAlumno.class:216.19"
+File[50]=".src/FormAlumno.class:13.113"
 File[51]=".src/FormProfesor.form"
-File[52]=".src/FormProfesor.class:150.7"
+File[52]=".src/FormProfesor.class:156.2"
 File[53]=".src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module:105.7"
 File[54]=".src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module:125.0"
 File[55]=".src/Formularios Comunes/FormError.form"
@@ -238,11 +243,12 @@ File[79]=".src/Modulos/ModuleMensajeError.module:0.20"
 File[80]=".src/Editor/ModuleSistemaOrdenacion.module:124.0"
 File[81]=".src/Modulos/ModuleUnicaVez.module:0.20"
 File[82]=".src/Editor/ModuleDistribucionFotos.module:374.46"
+Active=83
 File[83]=".src/Editor/FMainEditor.form"
 File[84]=".src/Editor/ModuleGenerarFotos.module:28.88"
 File[85]="Editor/150x120.png"
 File[86]="icono_fotos_personas1.png"
-File[87]=".src/Modulos/ModuleAsignarYSoltarImagenes.module:16.61"
+File[87]=".src/Modulos/ModuleAsignarYSoltarImagenes.module:16.10"
 File[88]=".src/Modulos/ModuleGenerarPdf.module:5.2"
 File[89]=".src/Modulos/ModuleGenerarSVG.module:309.2"
 File[90]="EsquemasyNotas/Conversion a SVG/Comentarios para añadir informacion a los svg:72.0"
@@ -265,11 +271,11 @@ File[106]="Plantillas/orla2/Naranja_Floral.png"
 File[107]="Plantillas/orla1/En_Blanco.svg:0.0"
 File[108]="Plantillas/orla1/En_Blanco.png"
 File[109]=".src/FormExtraerFoto.form"
-Active=110
-File[110]=".src/FormExtraerFoto.class:84.0"
+File[110]=".src/FormExtraerFoto.class:89.48"
 File[111]="editarImagen.png"
 File[112]="mascara.png"
-Count=112
+File[113]="518x364.png"
+Count=113
 
 [VersionControl]
 RememberPassword=0

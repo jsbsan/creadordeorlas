@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModuleGenerarFotos.module:136
+#: ModuleGenerarFotos.module:116
 msgid "No ha sido posible crear la foto con los datos"
 msgstr ""
 

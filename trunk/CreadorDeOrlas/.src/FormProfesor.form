@@ -52,13 +52,13 @@
     Text = ("ValueBox1")
   }
   { ToolButtonAceptar ToolButton
-    MoveScaled(9,39,15,6)
+    MoveScaled(18,41,15,6)
     Text = ("Aceptar")
     Picture = Picture["icon:/22/apply"]
     Border = True
   }
   { ToolButtonCancelar ToolButton
-    MoveScaled(33,39,15,6)
+    MoveScaled(39,41,15,6)
     Text = ("Cancelar")
     Picture = Picture["icon:/22/cancel"]
     Border = True
@@ -70,5 +70,12 @@
   { ButtonMasUno Button
     MoveScaled(39,29,4,4)
     Text = ("+")
+  }
+  { ToolButtonAjustarFoto ToolButton
+    MoveScaled(1,34,17,5)
+    Font = Font["Bitstream Charter,-2"]
+    Text = ("Ajustar foto")
+    Picture = Picture["editarImagen.png"]
+    Border = True
   }
 }

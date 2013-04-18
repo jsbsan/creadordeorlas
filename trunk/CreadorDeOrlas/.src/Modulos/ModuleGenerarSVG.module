@@ -186,7 +186,7 @@ Private Sub anadeFotoAlumno() As String
     
     b = ModuleGestionAlumnos.ListaOrdenada[a]
     cadena = File.Load("/tmp/TexFoto")
-    cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionAlumnos.lista.Registros[b].posicion.x / 2.74 + 40))
+    cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionAlumnos.lista.Registros[b].posicion.x / 2.74 + 40 - (739 - 686)))
     cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionAlumnos.lista.Registros[b].posicion.y / 2.76 + 30))
     cadena = Replace$(cadena, "ID_IMAGEN", "FotoAlumnos" & Str$(b))
     cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & ModuleGestionAlumnos.lista.Registros[b].Foto)
@@ -209,8 +209,8 @@ Private Sub anadeFotoProfesor() As String
     b = ModuleGestionProfesores.ListaOrdenada[a]
     
     cadena = File.Load("/tmp/TexFoto")
-    cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionProfesores.lista.Registros[b].posicion.x / 2.74 + 40))
-    cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionProfesores.lista.Registros[b].posicion.y / 2.76 + 30))
+    cadena = Replace$(cadena, "COORDENADA_X", Str$(Int(ModuleGestionProfesores.lista.Registros[b].posicion.x / 2.74) + 40 - (739 - 686)))
+    cadena = Replace$(cadena, "COORDENADA_Y", Str$(Int(ModuleGestionProfesores.lista.Registros[b].posicion.y / 2.76) + 30))
     cadena = Replace$(cadena, "ID_IMAGEN", "FotoProfesores" & Str$(b))
     cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & ModuleGestionProfesores.lista.Registros[b].Foto)
     cadenaTodasFotos &= cadena
@@ -244,14 +244,14 @@ Private Sub anadeTEXTOAlumno(registro As ClassAlumno, a As Integer) As String
   cadena = Replace$(cadena, "ID_IMAGEN_TEXTO2", "22" & Str$(a))
   cadena = Replace$(cadena, "ID_IMAGEN_TEXTO3", "33" & Str$(a))
   cadena = Replace$(cadena, "ID_IMAGEN_TEXTO4", "44" & Str$(a))  
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE1", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE1", Str$(Int(Registro.posicion.y / 2.76 + 30 + 122)))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE1", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46 - (739 - 686))))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE1", Str$(Int(Registro.posicion.y / 2.76 + 30 + 122 + 6)))
   
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Int(Registro.posicion.y / 2.76 + 30 + 134)))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46 - (739 - 686))))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Int(Registro.posicion.y / 2.76 + 30 + 134 + 6)))
   
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE3", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE3", Str$(Int(Registro.posicion.y / 2.76 + 30 + 147)))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE3", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46 - (739 - 686))))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE3", Str$(Int(Registro.posicion.y / 2.76 + 30 + 147 + 6)))
   
   cadena = Replace$(cadena, "FRASE1", registro.Nombre)
   cadena = Replace$(cadena, "FRASE2", registro.Apellidos)
@@ -285,14 +285,14 @@ Private Sub anadeTEXTOProfesor(registro As ClassProfesor, A As Integer) As Strin
   cadena = Replace$(cadena, "ID_IMAGEN_TEXTO2", "222" & Str$(a))
   cadena = Replace$(cadena, "ID_IMAGEN_TEXTO3", "333" & Str$(a))
   cadena = Replace$(cadena, "ID_IMAGEN_TEXTO4", "444" & Str$(a))  
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE1", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE1", Str$(Int(Registro.posicion.y / 2.76 + 30 + 122)))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE1", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46 - (739 - 686))))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE1", Str$(Int(Registro.posicion.y / 2.76 + 30 + 122 + 6)))
   
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Int(Registro.posicion.y / 2.76 + 30 + 134)))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE2", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46 - (739 - 686))))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE2", Str$(Int(Registro.posicion.y / 2.76 + 30 + 134 + 6)))
   
-  cadena = Replace$(cadena, "COORDENADA_X_FRASE3", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46)))
-  cadena = Replace$(cadena, "COORDENADA_Y_FRASE3", Str$(Int(Registro.posicion.y / 2.76 + 30 + 147)))
+  cadena = Replace$(cadena, "COORDENADA_X_FRASE3", Str$(Int(Registro.posicion.x / 2.74 + 40 + 46 - (739 - 686))))
+  cadena = Replace$(cadena, "COORDENADA_Y_FRASE3", Str$(Int(Registro.posicion.y / 2.76 + 30 + 147 + 6)))
   
   cadena = Replace$(cadena, "FRASE1", registro.Nombre)
   cadena = Replace$(cadena, "FRASE2", registro.Apellidos)

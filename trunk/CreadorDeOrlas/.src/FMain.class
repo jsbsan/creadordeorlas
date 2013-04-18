@@ -604,6 +604,10 @@ Public Sub ToolButtonGeneraSVG_Click()
   If codigo = 0 Then codigo = 1
   ' "/home/uno/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
   
+  If Exist(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg") Then 
+    Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
+  Endif
+  
   If Exist(ModulePrincipal.RutaPrograma & "trabajotmp/" & "plantillatmp.svg") Then 
     Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & "plantillatmp.svg"
   Endif

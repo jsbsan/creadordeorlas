@@ -19,6 +19,6 @@ msgid "CreadorDeOrlas"
 msgstr ""
 
 #: .project:2
-msgid "Solo editor\nAlgo de codigo mas..."
+msgid "Creador de Orlas"
 msgstr ""
 

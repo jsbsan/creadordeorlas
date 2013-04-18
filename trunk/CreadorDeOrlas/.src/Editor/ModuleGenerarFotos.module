@@ -42,26 +42,6 @@ Public Sub ponerMarco(dibujoRuta As String, dibujoDestino As String, marco As Bo
     
   Endif  
   
-  'hacer texto 1
-  '   textoAimagen(registros[a].Nombre, rutatrabajo & "paso1.png")
-  'hacer texto 2
-  '  textoAimagen(registros[a].Apellidos, rutatrabajo & "paso2.png")
-  
-  '------------------------------------
-  'Si es un alumno....
-  '------------------------------------
-  'hacer texto 3
-  'comproprobar si se desea escribir el pueblo y la provincia...
-  'texto = registros[a].Pueblo
-  'texto &= "-" & registros[a].Provincia
-  '
-  'textoAimagen(texto, rutatrabajo & "paso3.png")
-  'monto imagen 150x100 con fotito.png
-  
-  '  comando = "composite -gravity North " & rutatrabajo & "fotito.png" & " " & rutatrabajo & "trasparente250x348.png " & rutatrabajo & "north.png"    
-  
-  '  Shell comando Wait
-  
   Return dibujoDestino
   
 End
@@ -174,7 +154,7 @@ Public Sub SuperPonerForma(RutaImagenForma As String, RutaImagenOrigen As String
   Dim comando As String 
   
   comando = "convert " & RutaImagenOrigen & " -resize 93x113 /tmp/dibujoReducido.png"
-  comando = "convert " & RutaImagenOrigen & " -resize 93x /tmp/dibujoReducido.png"
+  comando = "convert " & RutaImagenOrigen & " -resize 93x113 /tmp/dibujoReducido.png"
   Shell comando Wait
   comando = "composite -compose Dst_In -gravity center " & RutaImagenForma & " /tmp/dibujoReducido.png -alpha set " & RutaImagenDestino
   Shell comando Wait 

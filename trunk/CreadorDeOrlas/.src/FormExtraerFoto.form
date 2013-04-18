@@ -35,7 +35,7 @@
     Text = ("Z")
     Alignment = Align.Center
   }
-  { ToolButton1 ToolButton
+  { ToolButtonAceptar ToolButton
     MoveScaled(3,52,15,4)
     Text = ("Aceptar")
     Picture = Picture["icon:/22/ok"]
@@ -46,7 +46,7 @@
     Background = &HDFDFDF&
     ToolTip = ("Haga click para ver mejor la imagen")
   }
-  { ToolButton2 ToolButton
+  { ToolButtonCancelar ToolButton
     MoveScaled(3,46,15,4)
     Text = ("Cancelar")
     Picture = Picture["icon:/22/cancel"]
