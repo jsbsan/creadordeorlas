@@ -74,7 +74,7 @@ msgstr ""
 msgid "Nueva"
 msgstr ""
 
-#: FMain.form:230 FormAlumno.form:37 FormProfesor.form:33
+#: FMain.form:230 FormAlumno.form:37 FormProfesor.form:34
 msgid "Nombre:"
 msgstr ""
 
@@ -138,7 +138,7 @@ msgstr ""
 msgid "Alumnos:"
 msgstr ""
 
-#: FMain.form:384 FormAlumno.form:93 FormProfesor.form:80
+#: FMain.form:384 FormAlumno.form:93 FormProfesor.form:81
 msgid "ValueBox1"
 msgstr ""
 
@@ -464,7 +464,7 @@ msgstr ""
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:234 ModuleAsignarYSoltarImagenes.module:31
+#: FMain.class:234 ModuleAsignarYSoltarImagenes.module:33
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
@@ -485,7 +485,7 @@ msgid "Cerrar"
 msgstr ""
 
 #: FMain.class:332 FormAlumno.form:105 FormElegirFichero.form:30
-#: FormExtraerFoto.form:71 FormProfesor.form:92
+#: FormExtraerFoto.form:71 FormProfesor.form:93
 msgid "Cancelar"
 msgstr ""
 
@@ -497,20 +497,20 @@ msgstr ""
 msgid "Si"
 msgstr ""
 
-#: FMain.class:764
+#: FMain.class:768
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:764
+#: FMain.class:768
 msgid "No"
 msgstr ""
 
-#: FMain.class:768
+#: FMain.class:772
 msgid ""
 "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:803
+#: FMain.class:807
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
@@ -550,11 +550,11 @@ msgstr ""
 msgid "<h3>Alumnos</h3>"
 msgstr ""
 
-#: FormAlumno.form:54 FormProfesor.form:50
+#: FormAlumno.form:54 FormProfesor.form:51
 msgid "Foto WebCam"
 msgstr ""
 
-#: FormAlumno.form:65 FormProfesor.form:61
+#: FormAlumno.form:65 FormProfesor.form:62
 msgid "Apellidos:"
 msgstr ""
 
@@ -566,16 +566,16 @@ msgstr ""
 msgid "Provincia:"
 msgstr ""
 
-#: FormAlumno.form:88 FormProfesor.form:75
+#: FormAlumno.form:88 FormProfesor.form:76
 msgid "Orden:"
 msgstr ""
 
 #: FormAlumno.form:98 FormElegirFichero.form:22 FormExtraerFoto.form:58
-#: FormProfesor.form:85
+#: FormProfesor.form:86
 msgid "Aceptar"
 msgstr ""
 
-#: FormAlumno.form:112 FormProfesor.form:99
+#: FormAlumno.form:112 FormProfesor.form:100
 msgid "(opcional)"
 msgstr ""
 
@@ -583,11 +583,11 @@ msgstr ""
 msgid "="
 msgstr ""
 
-#: FormAlumno.form:131 FormProfesor.form:104
+#: FormAlumno.form:131 FormProfesor.form:105
 msgid "+"
 msgstr ""
 
-#: FormAlumno.form:137
+#: FormAlumno.form:137 FormProfesor.form:111
 msgid "Ajustar foto"
 msgstr ""
 
@@ -632,11 +632,11 @@ msgstr ""
 msgid "Espere por favor..."
 msgstr ""
 
-#: FormProfesor.form:42
+#: FormProfesor.form:43
 msgid "<h3>Profesores</h3>"
 msgstr ""
 
-#: FormProfesor.form:66
+#: FormProfesor.form:67
 msgid "Asignatura:"
 msgstr ""
 
@@ -672,7 +672,7 @@ msgstr ""
 msgid "Se ha producido un error al intentar copiar la plantilla origen:"
 msgstr ""
 
-#: ModuleGenerarFotos.module:136
+#: ModuleGenerarFotos.module:116
 msgid "No ha sido posible crear la foto con los datos"
 msgstr ""
 

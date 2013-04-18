@@ -56,9 +56,9 @@
     }
     { ValueBoxVertical SpinBox
       MoveScaled(11,8,7,3)
-      MinValue = 70
+      MinValue = 85
       MaxValue = 300
-      Value = 70
+      Value = 85
     }
   }
   { Label1 Label

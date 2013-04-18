@@ -90,7 +90,7 @@
     Text = ("+")
   }
   { ToolButtonAjustarFoto ToolButton
-    MoveScaled(0,34,17,6)
+    MoveScaled(0,33,17,6)
     Font = Font["Bitstream Charter,-2"]
     Text = ("Ajustar foto")
     Picture = Picture["editarImagen.png"]

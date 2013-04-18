@@ -28,6 +28,9 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   Try Chmod ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
   
   'formas y efectos
+  
+  '
+  '
   Try Copy "Efectos/Alu93x113.png" To "/tmp/Alu93x113.png"
   Try Copy "Efectos/elipse.png" To "/tmp/elipse.png"
   Try Copy "Efectos/formacuna.png" To "/tmp/formacuna.png"
@@ -188,7 +191,7 @@ Public Sub rellenarGridviewsProfesores(rejilla As ClassSuperGridview, Lista As C
     '    rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
     If regtmp.foto <> "" Then 
       If Not Exist(modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & regtmp.foto) Then 
-        rejilla[contadorPosicionFilaGrid, 0].picture = reduce(modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & regtmp.foto, modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & regtmp.foto)
+        rejilla[contadorPosicionFilaGrid, 0].picture = reduce(modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & regtmp.foto, modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & regtmp.foto)
         
       Else
         

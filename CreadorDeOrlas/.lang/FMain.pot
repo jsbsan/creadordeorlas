@@ -430,19 +430,19 @@ msgstr ""
 msgid "Si"
 msgstr ""
 
-#: FMain.class:764
+#: FMain.class:768
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:764
+#: FMain.class:768
 msgid "No"
 msgstr ""
 
-#: FMain.class:768
+#: FMain.class:772
 msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:803
+#: FMain.class:807
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 

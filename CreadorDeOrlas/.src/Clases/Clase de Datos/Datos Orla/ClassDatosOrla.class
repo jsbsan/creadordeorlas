@@ -113,7 +113,7 @@ Public Sub _new()
   hEscalaFotosProfesores = 100
   hEscalaFotosAlumnos = 100
   hEspacioEntreFotosHorizontal = 10
-  hEspacioEntreFotosVertical = 70
+  hEspacioEntreFotosVertical = 85
   
 End
 

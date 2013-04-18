@@ -11,7 +11,7 @@ Public Sub Form_Open()
   If modo > -1 Then   
     If reg.foto <> "" And Exist(modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & reg.foto) Then 
       PictureBoxFoto.Tag = Replace$(reg.foto, " ", "_")
-      PictureBoxFoto.Picture = Picture[modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & reg.foto]
+      PictureBoxFoto.Picture = Picture.Load(modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & reg.foto)
     Else
       If Not Exist(modulePrincipal.RutaPrograma & "temporales/FotosProfesores/icono_fotos_personas.png") Then 
         Copy "icono_fotos_personas.png" To modulePrincipal.RutaPrograma & "temporales/FotosProfesores/icono_fotos_personas.png"
@@ -144,10 +144,24 @@ Public Sub ValueBoxOrden_KeyPress()
 End
 
 Public Sub ToolButtonAceptar_KeyPress()
-
+  
   If Key.code = Key.enter Or Key.Code = Key.Return Then 
     
     ToolButtonAceptar_Click()
   Endif
+  
+End
 
+Public Sub ToolButtonAjustarFoto_Click()
+  
+  Dim ajusteFoto As New FormExtraerFoto
+  
+  If reg.foto <> "" Then 
+    ajusteFoto.ruta = User.home & "/CreadorOrlas/temporales/FotosProfesores/" & reg.foto 
+    ajusteFoto.ShowDialog()
+    
+    PictureBoxFoto.Picture = Picture.Load(User.home & "/CreadorOrlas/temporales/FotosProfesores/" & reg.foto)
+    PictureBoxFoto.Refresh()
+  Endif
+  
 End
