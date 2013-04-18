@@ -1,12 +1,12 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,115,83)
+  MoveScaled(0,0,118,89)
   Icon = Picture["orlaicono.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(-1,0,116,83)
-    Count = 13
+    MoveScaled(0,-1,118,90)
+    Count = 14
     Border = True
     Index = 0
     Text = ("Creador de Orlas")
@@ -83,23 +83,23 @@
     Text = ("Nueva")
     Picture = Picture["icon:/22/new"]
     { DirChooserElegirDirectorioCrearGrupo DirChooser
-      MoveScaled(2,1,72,69)
+      MoveScaled(2,1,82,80)
     }
     { Label14 Label
-      MoveScaled(4,72,11,5)
+      MoveScaled(1,83,11,5)
       Text = ("Nombre:")
     }
     { TextBoxNombreFicheroNuevo TextBox
-      MoveScaled(15,72,31,5)
+      MoveScaled(12,83,31,5)
     }
     { ToolButtonCrear ToolButton
-      MoveScaled(62,71,13,6)
+      MoveScaled(62,82,13,6)
       Text = ("Crear")
       Picture = Picture["icon:/22/wizard"]
       Border = True
     }
     { Label15 Label
-      MoveScaled(49,72,6,5)
+      MoveScaled(45,83,6,5)
       Text = (".Orla")
     }
     Index = 2
@@ -149,7 +149,7 @@
       }
     }
     { PictureBox5 PictureBox
-      MoveScaled(76,74,7,8)
+      MoveScaled(76,81,7,8)
       Picture = Picture["dibujos/Iconos_Educatronica_01.png"]
       Stretch = True
       Border = Border.Plain
@@ -193,7 +193,7 @@
       }
     }
     { PictureBox6 PictureBox
-      MoveScaled(72,74,11,8)
+      MoveScaled(73,81,11,8)
       Picture = Picture["dibujos/icono_profesor.png"]
       Border = Border.Plain
     }
@@ -237,13 +237,13 @@
       }
     }
     { ButtonEditorOrla Button
-      MoveScaled(30,66,28,5)
+      MoveScaled(30,71,28,5)
       Font = Font["Bitstream Charter"]
       Text = ("Editor Gráfico Orla")
       Picture = Picture["ojo22.png"]
     }
     { TextLabel6 TextLabel
-      MoveScaled(1,72,81,9)
+      MoveScaled(2,80,81,9)
       Font = Font["Bitstream Charter,-1"]
       Text = ("Cuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Editar Orla\", para ver poder ver como queda el diseño de la misma. Además podrá modificar la disposición de las fotografías para personalizar su orla.")
     }
@@ -543,9 +543,27 @@
     Index = 6
     Text = ("Guardar")
     Picture = Picture["icon:/22/save"]
+    { LabelNombreFichero Label
+      MoveScaled(33,49,41,4)
+    }
+    { Label17 Label
+      MoveScaled(28,44,36,4)
+      Font = Font["Bitstream Charter,Bold,+1"]
+      Text = ("Nombre fichero de Datos:")
+    }
+    { TextLabel3 TextLabel
+      MoveScaled(23,16,37,26)
+      Text = ("<h2>Espere por favor, estoy guardando <br>los datos</h2>")
+      Alignment = Align.Center
+    }
     Index = 7
     Text = ("Guardar como....")
     Picture = Picture["icon:/22/save-as"]
+    { TextLabel7 TextLabel
+      MoveScaled(29,23,37,26)
+      Text = ("<h2>Espere por favor, estoy guardando <br> los datos</h2>")
+      Alignment = Align.Center
+    }
     Index = 8
     Text = ("Gestor de Plantillas")
     Picture = Picture["gestorOrlas.png"]
@@ -562,14 +580,14 @@
       ToolTip = ("Haga click para ver mejor la imagen")
     }
     { TextLabel4 TextLabel
-      MoveScaled(1,62,33,18)
+      MoveScaled(2,69,33,18)
       Text = ("Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla.")
     }
     { ListBoxOrla ListBox
-      MoveScaled(1,7,28,52)
+      MoveScaled(1,7,28,58)
     }
     { HBox3 VPanel
-      MoveScaled(36,52,49,29)
+      MoveScaled(36,60,49,29)
       { ToolButtonEditarOrlas ToolButton
         MoveScaled(4,0,34,4)
         Text = ("Editar Orla")
@@ -618,19 +636,19 @@
     Text = ("Crear .svg o .pdf")
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGenerarOrla ToolButton
-      MoveScaled(49,72,33,10)
+      MoveScaled(50,75,33,10)
       Enabled = False
       Text = ("Generar Orla en PDF")
       Picture = Picture["icon:/48/pdf"]
       Border = True
     }
     { PictureBox7 PictureBox
-      MoveScaled(36,72,11,10)
+      MoveScaled(36,75,11,10)
       Picture = Picture["dibujos/gatojugando.png"]
       Stretch = True
     }
     { ToolButtonGeneraSVG ToolButton
-      MoveScaled(1,72,33,10)
+      MoveScaled(2,75,33,10)
       ToolTip = ("Crear archivo .svg y editarlo con inkscape")
       Text = ("Generar Orla en .SVG")
       Picture = Picture["inkscape-icono.png"]
@@ -698,9 +716,17 @@
     Text = ("Ayuda")
     Picture = Picture["icon:/22/info"]
     { TextLabel5 TextLabel
-      MoveScaled(1,2,77,76)
+      MoveScaled(1,1,81,86)
       Font = Font["-1"]
       Text = ("<h3>Especificaciones para los formatos de Orla:</h3><br>\n<br>\nEl archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n      - o embebidas en ellas.<br>\n<br>\n<br>\n\n<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n\tTexto a sustituir y que se rellenará con datos<br>\n\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n\t       CLASE............................... texto: 1º de ESO<br>\n\t       CURSO ..................... texto: 2012-2013<br>\n\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n<br>\n\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n<br>\n<br>\n<b>Imagenes:</b><br>\n         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>")
+    }
+    Index = 13
+    Text = ("Buscar Actualizaciones")
+    Picture = Picture["rayo.png"]
+    { TextLabel8 TextLabel
+      MoveScaled(25,29,37,26)
+      Text = ("<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>")
+      Alignment = Align.Center
     }
     Index = 0
   }

@@ -15,9 +15,9 @@ Public Sub borrarTemporal(Optional RutaFicheroTemporal As String)
   
   Dim ruta As String
   
-  If RutaFicheroTemporal = "" Then ruta = User.home & "/temporal.zip"
+  If RutaFicheroTemporal = "" Then ruta = "/tmp/temporal.zip"
   
-  If Exist(User.home & "/temporal.zip") Then Kill User.home & "/temporal.zip"
+  If Exist("/tmp/temporal.zip") Then Kill "/tmp/temporal.zip"
   
 End
 
@@ -35,8 +35,8 @@ Public Sub CrearFicheroAlmacen(RutaNombreConExtension As String, Optional RutaFi
     Return False
   Else
     If RutaFicheroTemporal = "" Then 
-      Try Copy User.home & "/temporal.zip" To RutaNombreConExtension 'copio al nuevo nombre
-      Try Kill User.home & "/temporal.zip" 'borrado del fichero temporal, ya no nos hace falta
+      Try Copy "/tmp/temporal.zip" To RutaNombreConExtension 'copio al nuevo nombre
+      Try Kill "/tmp/temporal.zip" 'borrado del fichero temporal, ya no nos hace falta
     Else
       Try Copy RutaFicheroTemporal To RutaNombreConExtension
       Try Kill RutaFicheroTemporal
@@ -52,7 +52,7 @@ Public Sub comprimirDatos(rutaAcomprimir As String, Optional RutaFicheroTemporal
   
   Dim rutafinalFichero As String
   
-  If RutaFicheroTemporal = "" Then rutafinalFichero = User.home & "/temporal.zip"
+  If RutaFicheroTemporal = "" Then rutafinalFichero = "/tmp/temporal.zip"
   
   If Right$(rutaAcomprimir, 1) = "/" Then rutaAcomprimir = Mid$(rutaAcomprimir, 1, Len(rutaAcomprimir) - 1)
   

@@ -54,6 +54,10 @@ Public Sub Form_Open()
     ModuleGestionOrla.guardado = True
     Me.Close()
   Endif
+  'inicialmente se 
+  'guarda en un fichero temporal...
+  LabelNombreFichero.text = "/tmp/Base"
+  ModulePrincipal.RutaDatos = "/tmp/Base"
   
 End
 
@@ -349,6 +353,12 @@ Public Sub IconPanel1_Click()
   
   Print "Opcion elegida: ", IconPanel1.Index 
   
+  If IconPanel1.index = 13 Then 
+    ModuleUpdate.comprobar("CreadorDeOrlas", Application.Version, "http://creadordeorlas.blogspot.com.es/2013/03/version.html")
+    IconPanel1.index = 0
+    IconPanel1_Click()
+  Endif
+  
   If IconPanel1.index = 9 Then 
     rellenarDatosOrlas()
     ToolButtonAutomatica_Click()
@@ -395,6 +405,57 @@ Public Sub IconPanel1_Click()
     ToolButtonAutomatica_Click()
     Return
   Endif
+  '----------------------------------------------------------------------------------------------
+  ''guardar o guardar como....
+  '----------------------------------------------------------------------------------------------
+  If Replace(IconPanel1.text, ".", "") = Replace(("Guardar como...."), ".", "") Then
+    ''TODO: guardar como....
+    If ModulePrincipal.RutaDatos <> "" Then 
+      Dialog.PATH = User.HOME & "/"
+      Dialog.Title = ("Guardar como....")
+      Dialog.Filter = ["*.Orla", ".Orla"]
+      
+      If Not Dialog.SaveFile() Then 
+        ModulePrincipal.RutaDatos = Replace$(Dialog.Path, ".Orla", "")
+      Else
+        IconPanel1.index = 0
+        IconPanel1_click()
+        Return 'cancelado guardar como...
+      Endif
+    Else
+      Message.Info(("Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"))
+    Endif
+    
+  Endif
+  
+  If IconPanel1.text = ("Guardar") Or Replace$(IconPanel1.text, ".", "") = Replace$(("Guardar como...."), ".", "") Then 
+    If ModuleGestionOrla.orla.Plantilla = "" Then 
+      Message.Info(("necesita asignar una plantilla a la orla"))
+      Return 
+    Endif
+    
+    LabelNombreFichero.text = Replace$(ModulePrincipal.RutaDatos, ".Orla", "") & ".Orla"
+    
+    If LabelNombreFichero.text = "/tmp/Base.Orla" Then 
+      'tenemos que pedir nombre, para no machar al fichero que nos sirve de base..
+      IconPanel1.index = 7
+      IconPanel1_click()    
+      
+    Else
+      resultado = ModulePrincipal.GuardarDatos()
+      If resultado Then 
+        ModulePrincipal.RutaDatos = Replace$(ModulePrincipal.RutaDatos, ".Orla", "") 
+        Message.Info(("Guardado correctamente") & gb.CrLf & ModulePrincipal.RutaDatos & ".Orla")
+      Else
+        Message.Error(("No he podido guardar los datos"))
+      Endif
+      IconPanel1.index = 0
+      IconPanel1_Click()
+    Endif
+  Endif
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 

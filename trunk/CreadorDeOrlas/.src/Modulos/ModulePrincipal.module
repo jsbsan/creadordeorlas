@@ -49,12 +49,74 @@ End
 
 Public Sub guardarDatos() As Boolean
   
+  Dim contenidoAlumnos As String
+  Dim contenidoProfesores As String
+  Dim contenidoOrlas As String
+  
+  Dim resultado As Boolean
+  'creo fichero de datos...
+  If RutaDatos = "" Then 
+    Message.Error(("Nombre de archivo incorrecto"))
+    Return False
+  Endif
+  
+  contenidoAlumnos = "version 1" & "\n" & ModuleGestionAlumnos.Lista.contenido()
+  File.Save(rutaprograma & "temporales/datosALumnos.txt", contenidoAlumnos)
+  
+  contenidoProfesores = "version 1" & "\n" & ModuleGestionProfesores.Lista.contenido()
+  File.Save(rutaprograma & "temporales/datosProfesores.txt", contenidoProfesores)
+  
+  contenidoOrlas = "version 1" & "\n" & ModuleGestionOrla.orla.contenido()
+  File.Save(rutaprograma & "temporales/datosOrla.txt", contenidoOrlas)
+  
+  'copia de plantillas...
+  resultado = copiarplantillas()
+  If resultado = False Then Message.Error(("Problemas al copiar la plantilla de la orla"))
+  resultado = comprimirDatos() 
+  If resultado = False Then Message.Error(("Problemas al comprimir datos"))
+  Return resultado
+  
 End
 
 Public Sub copiarplantillas() As Boolean
   
+  Dim nombredestino As String = User.home & "/CreadorOrlas/temporales/" & ModuleUtilidadesDisco.extraedesdebarra(ModuleGestionOrla.orla.Plantilla)
+  
+  If Exist(nombredestino) Then 
+    Kill nombredestino
+  Endif
+  
+  Copy ModuleGestionOrla.orla.Plantilla To User.home & "/CreadorOrlas/temporales/" & ModuleUtilidadesDisco.extraedesdebarra(ModuleGestionOrla.orla.Plantilla)
+  Return True
+  
 End
 
 Public Sub comprimirDatos() As Boolean
+
+  Dim zip As New ClassZip
   
+  If Exist("/tmp/temporal.zip") Then Kill "/tmp/temporal.zip"
+  
+  zip.comprimirDatos(rutaprograma & "temporales/FotosAlumnos")
+  zip.comprimirDatos(rutaprograma & "temporales/FotosAlumnosMini")
+  zip.comprimirDatos(rutaprograma & "temporales/FotosPlantillaOrla")
+  zip.comprimirDatos(rutaprograma & "temporales/FotosProfesores")
+  zip.comprimirDatos(rutaprograma & "temporales/FotosProfesoresMini")
+  zip.comprimirDatos(rutaprograma & "temporales")
+  
+  If Exist(RutaDatos & ".Orla") Then 
+    'existe, lo borro para actualizarlo
+    Try Kill RutaDatos & ".Orla"
+  Endif
+  
+  Try Copy "/tmp/temporal.zip" To RutaDatos & ".Orla"
+  If Error Then 
+    Message.Error(("Error al intentar copiar el archivo comprimido temporal al archivo final"))
+    Return False
+  Endif
+  ModuleGestionAlumnos.guardado = True
+  ModuleGestionOrla.guardado = True
+  ModuleGestionProfesores.guardado = True
+  Return True
+
 End
