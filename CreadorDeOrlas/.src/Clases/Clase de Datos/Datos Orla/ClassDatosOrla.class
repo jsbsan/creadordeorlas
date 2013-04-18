@@ -125,6 +125,7 @@ End
 
 Public Sub Text() As String
   
+  Dim a As Integer
   Dim cadena As String
   
   cadena = hPlantilla & "\n"
@@ -157,13 +158,17 @@ Public Sub Text() As String
   cadena &= hEscalaFotosAlumnos & "\n"
   cadena &= hEscalaFotosProfesores & "\n"
   cadena &= hposicionesdefinidas & "\n"
+  cadena &= Str$(horden.count) & "\n" 'longitud del array de orden
+  For a = 0 To horden.Count
+    cadena &= Str$(horden[a]) & "\n" 
+  Next
   Return cadena  
   
 End
 
 Public Sub lecturaDatos(cadenas As String[]) As Boolean
   
-  Dim a As Integer        
+  Dim a, b As Integer        
   
   hPlantilla = cadenas[a]
   a += 1                         
@@ -226,6 +231,10 @@ Public Sub lecturaDatos(cadenas As String[]) As Boolean
   a += 1            
   hposicionesdefinidas = cadenas[a]
   a += 1
+  For b = 0 To Val(cadenas[a])
+    a += 1
+    horden[b] = Val(cadenas[a])
+  Next
   Return True                                           
   
 End

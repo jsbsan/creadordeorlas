@@ -14,3 +14,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ModulePrincipal.module:59
+msgid "Nombre de archivo incorrecto"
+msgstr ""
+
+#: ModulePrincipal.module:74
+msgid "Problemas al copiar la plantilla de la orla"
+msgstr ""
+
+#: ModulePrincipal.module:76
+msgid "Problemas al comprimir datos"
+msgstr ""
+
+#: ModulePrincipal.module:114
+msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
+msgstr ""
+
