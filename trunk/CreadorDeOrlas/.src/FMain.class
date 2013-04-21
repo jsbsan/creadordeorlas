@@ -42,6 +42,17 @@ Public Sub Form_Open()
     ModuleIntermedio.IniciarGridViewRegistrosProfesoresores(GridViewRegistrosProfesores)
     
     'TODO: abrir un ejemplo inicial de orla
+    ModuleGestionAlumnos.guardado = False
+    ModuleGestionProfesores.guardado = False
+    ModuleGestionOrla.guardado = False
+    ModuleGestionAlumnos.lista.Registros.Clear()
+    ModuleGestionProfesores.lista.Registros.Clear()
+    ModuleGestionOrla.orla.vacio()
+    Me.caption = "Orla: Nueva" 
+    ModulePrincipal.RutaDatos = "/tmp/Nueva"
+    'aqui
+    IconPanel1.index = 3
+    IconPanel1_Click()
     ' 
     ' 
     pensando.parar = True
@@ -128,14 +139,24 @@ Public Sub ToolButtonCrear_Click()
   Else
     'comprobar que si existe...
     If Not Exist(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".Orla") Then
-      
+      ModuleGestionAlumnos.guardado = False
+      ModuleGestionProfesores.guardado = False
+      ModuleGestionOrla.guardado = False
+      ModuleGestionAlumnos.lista.Registros.Clear()
+      ModuleGestionProfesores.lista.Registros.Clear()
+      ModuleGestionOrla.orla.vacio()
+      Me.caption = "Orla: " & ToolButtonCrear.Text
+      ModulePrincipal.RutaDatos = ToolButtonCrear.Text
+      'aqui
+      IconPanel1.index = 3
+      IconPanel1_Click()
     Else
       respuesta = Message.Question("Existe el fichero:" & gb.CrLf & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & gb.crlf & "¿que desea hacer?", " SobreEscribir ", " Cancelar ")
       If respuesta = 1 Then 
         
       Else
         'ha cancelado la operacion...
-        Print "Cancelado Crear Grupo"
+        Print "Cancelado Crear"
         
       Endif
       
@@ -366,8 +387,10 @@ Public Sub IconPanel1_Click()
     IconPanel1.index = 0
   Endif
   
+  ''salir
   If IconPanel1.Index = 11 Then Me.Close
   
+  ''gestor de plantillas
   If IconPanel1.Index = 8 Then 
     'Gestor de plantillas
     'Cargar las lista de plantillas que haya.
@@ -445,11 +468,43 @@ Public Sub IconPanel1_Click()
       resultado = ModulePrincipal.GuardarDatos()
       If resultado Then 
         ModulePrincipal.RutaDatos = Replace$(ModulePrincipal.RutaDatos, ".Orla", "") 
+        Me.caption = "Orla: " & ModuleUtilidadesDisco.extraedesdebarra(ModulePrincipal.RutaDatos)
         Message.Info(("Guardado correctamente") & gb.CrLf & ModulePrincipal.RutaDatos & ".Orla")
       Else
         Message.Error(("No he podido guardar los datos"))
       Endif
       IconPanel1.index = 0
+      IconPanel1_Click()
+    Endif
+  Endif
+  
+  '----------------------------------------------------------------------------------------
+  'Abrir (opcion 2)
+  '----------------------------------------------------------------------------------------
+  
+  If IconPanel1.index = 2 Then
+    If ModuleGestionAlumnos.guardado = False Or ModuleGestionOrla.guardado = False Or ModuleGestionProfesores.guardado = True
+      Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si Abre una Orla, se borrarán los datos anteriores!!"))
+    Endif
+    Dialog.title = ("Indique archivo de datos para abrir...")
+    Dialog.Filter = ["*.Orla", ".Orla"]
+    If Not Dialog.OpenFile() Then 
+      resultado = ModulePrincipal.AbrirFichero(Dialog.Path, "CreadorOrlas")
+      
+      If resultado Then
+        resultado = ModulePrincipal.CargarDatos()
+        ModulePrincipal.RutaDatos = Replace(Dialog.Path, ".Orla", "")
+        Me.caption = "Orla: " & ModuleUtilidadesDisco.extraedesdebarra(ModulePrincipal.RutaDatos)
+        IconPanel1.index = 3
+        IconPanel1_click()    
+      Else
+        Message.Error(("Problemas al abrir el archivo..."))
+        IconPanel1.Index = 0
+        IconPanel1_Click()
+        Return
+      Endif
+    Else
+      IconPanel1.Index = 0
       IconPanel1_Click()
     Endif
   Endif

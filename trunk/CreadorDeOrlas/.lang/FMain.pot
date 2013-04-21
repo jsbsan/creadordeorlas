@@ -410,75 +410,91 @@ msgstr ""
 msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
 msgstr ""
 
-#: FMain.class:218
+#: FMain.class:239
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:219
+#: FMain.class:240
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:238
+#: FMain.class:259
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:324
+#: FMain.class:345
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:336
+#: FMain.class:357
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:336
+#: FMain.class:357
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:336
+#: FMain.class:357
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:336
+#: FMain.class:357
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:426
+#: FMain.class:449
 msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
 msgstr ""
 
-#: FMain.class:433
+#: FMain.class:456
 msgid "necesita asignar una plantilla a la orla"
 msgstr ""
 
-#: FMain.class:448
+#: FMain.class:472
 msgid "Guardado correctamente"
 msgstr ""
 
-#: FMain.class:450
+#: FMain.class:474
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:615
+#: FMain.class:487
+msgid "Los datos anteriores no se guardaron,"
+msgstr ""
+
+#: FMain.class:487
+msgid "si Abre una Orla, se borrarán los datos anteriores!!"
+msgstr ""
+
+#: FMain.class:489
+msgid "Indique archivo de datos para abrir..."
+msgstr ""
+
+#: FMain.class:501
+msgid "Problemas al abrir el archivo..."
+msgstr ""
+
+#: FMain.class:670
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:615
+#: FMain.class:670
 msgid "Si"
 msgstr ""
 
-#: FMain.class:829
+#: FMain.class:884
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:829
+#: FMain.class:884
 msgid "No"
 msgstr ""
 
-#: FMain.class:833
+#: FMain.class:888
 msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:868
+#: FMain.class:923
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
