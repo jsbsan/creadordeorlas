@@ -14,12 +14,17 @@ msgstr ""
 msgid "CreadorDeOrlas"
 msgstr ""
 
-#: .project:2 FMain.form:142
-msgid "Creador de Orlas"
+#: .project:2
+msgid ""
+"Crea las orlas de tus alumnos, compañeros de promocion, etc.. facilmente."
 msgstr ""
 
 #: ClassSuperGridview.class:46
 msgid "Copiado contenido al portapapeles"
+msgstr ""
+
+#: FMain.form:142
+msgid "Creador de Orlas"
 msgstr ""
 
 #: FMain.form:160
@@ -34,7 +39,7 @@ msgstr ""
 msgid ""
 "<h3>Licencia: GPL, Softwarelibre</h3><br>\n"
 "\n"
-"Realizado en Gambas3.3.4 <br>\n"
+"Realizado en Gambas3.4 <br>\n"
 "\n"
 "Para usar este programa, instala:<br>\n"
 "zip <br>\n"
