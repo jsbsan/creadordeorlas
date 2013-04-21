@@ -19,6 +19,6 @@ msgid "CreadorDeOrlas"
 msgstr ""
 
 #: .project:2
-msgid "Creador de Orlas"
+msgid "Crea las orlas de tus alumnos, compañeros de promocion, etc.. facilmente."
 msgstr ""
 

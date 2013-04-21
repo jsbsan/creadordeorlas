@@ -51,7 +51,7 @@ Public Sub Form_Open()
     Me.caption = "Orla: Nueva" 
     ModulePrincipal.RutaDatos = "/tmp/Nueva"
     'aqui
-    IconPanel1.index = 3
+    IconPanel1.index = 0
     IconPanel1_Click()
     ' 
     ' 

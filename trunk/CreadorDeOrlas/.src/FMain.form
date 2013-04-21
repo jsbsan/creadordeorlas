@@ -36,7 +36,7 @@
     }
     { TextLabel1 TextLabel
       MoveScaled(17,21,48,38)
-      Text = ("<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".")
+      Text = ("<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".")
       Alignment = Align.Center
     }
     { PictureBox1 PictureBox
@@ -44,7 +44,7 @@
       Picture = Picture["gambas360.png"]
     }
     { Label10 Label
-      MoveScaled(6,56,32,6)
+      MoveScaled(7,56,32,6)
       Text = ("Crea tus propias plantillas con: ")
     }
     { PictureBox2 PictureBox
