@@ -75,7 +75,7 @@ Public Sub lecturaDatos(cadenas As String[]) As Boolean
     regtmp.Asignatura = cadenas[a]
     
     hRegistros.Add(regtmp)
-    regtmp = New ClassAlumno
+    regtmp = New ClassProfesor
     
   Next
   

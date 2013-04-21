@@ -88,6 +88,9 @@ Public Sub CargarDatos(rutaLecturaFichero As String) As Boolean
     Return False
   Endif
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
 End
 
 Public Sub Ordenar(tipo As String, Optional modo As Integer) As Integer[] '' tipo="apellidos" Ordena por apellidos + nombre, sino por el campo orden

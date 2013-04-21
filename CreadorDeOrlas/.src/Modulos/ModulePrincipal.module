@@ -37,10 +37,89 @@ Public Sub iniciarDirectorios()
 End
 
 Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Boolean
+  ' NombreCarpetaPrograma:  "GeneradorCarnets", depende de la estructura donde se almacena la informacion: /home/uno/GeneradorCarnets/datos
+  
+  Dim comando As String
+  Dim zip As New ClassZip
+  Dim borrasubruta As String
+  Dim rutaDescomprimida As String
+  
+  Dim nombreRutaAntinua As String
+  Dim fpensando As New FormPensando
+  
+  fpensando.Show
+  Wait 0.2
+  'Operaciones a realizar
+  '
+  '
+  If InStr(nombre, "(") <> 0 Or InStr(nombre, ")") <> 0 Then 
+    Message.Error(("Nombre no valido de archivo, contiene parentesis en su nombre"))
+    Return False
+  Endif
+  ' listar contenido del fichero -> para obtener rutas relativas
+  nombreRutaAntinua = zip.extraeRutaZip(nombre, NombreCarpetaPrograma)
+  
+  ModuleIntermedio.borradoDatosAnteriores(rutas.Extract(1, rutas.max))
+  If nombreRutaAntinua = "" Then 
+    Return False ' a fallado la extracion de informacion del fichero
+  Endif
+  
+  Shell "rm -r " & User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/home/" Wait
+  ' extraer en algun lugar temporal...
+  Shell "cd " & User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/" & " && unzip " & nombre Wait
+  'borro los datos temporales que haya
+  ModuleIntermedio.BorradoDatosAnteriores(rutas.Extract(1, rutas.max))
+  Wait 0.5
+  rutaDescomprimida = User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/" & nombreRutaAntinua & "/" & NombreCarpetaPrograma & "/temporales/"
+  ' copiar ficheros desde ruta descomprimida hasta la ruta relativa
+  
+  ModuleUtilidadesDisco.CopiarFicheros(rutaDescomprimida, rutaprograma & "temporales", "*.txt")
+  ModuleUtilidadesDisco.CopiarFicheros(rutaDescomprimida, rutaprograma & "temporales", "*.svg")
+  
+  mueve(rutaDescomprimida, "FotosAlumnos", RutaPrograma)
+  mueve(rutaDescomprimida, "FotosAlumnosMini", RutaPrograma)
+  mueve(rutaDescomprimida, "FotosProfesores", RutaPrograma)
+  mueve(rutaDescomprimida, "FotosProfesoresMini", RutaPrograma)
+  mueve(rutaDescomprimida, "FotosPlantillaOrla", RutaPrograma)
+  
+  Wait 2 'doy tiempo a que se muevan los archivos...
+  
+  'borrado de todos los archivos descomprimidos:
+  comando = "rm -rf " & User.home & "/CreadorOrlas/trabajotmp/home/"
+  Shell comando Wait
+  
+  ' ************************************************************************
+  'TODO: AbrirFichero: he descomprimido el fichero de datos, hay que cargar los datos al programa
+  ' ************************************************************************
+  RutaDatos = nombre '
+  
+  fpensando.parar = True
+  fpensando.Delete
+  
+  Return True
+Catch
+  ModuleMensajeError.SistemaDescripcionError() 
+  
+End
+
+Public Sub mueve(rutaDescomprimida As String, variable As String, rutaprograma As String)
+  
+  ModuleUtilidadesDisco.MoverFicheros(rutaDescomprimida & variable & "/", RutaPrograma & "temporales/" & variable)
+  ModuleUtilidadesDisco.MoverFicheros(rutaprograma & "temporales/" & variable & "/", rutaprograma & "temporales/" & variable)
   
 End
 
 Public Sub CargarDatos() As Boolean ''fichero de datos a cargar
+  
+  Dim resultado As Boolean
+
+  resultado = ModuleGestionAlumnos.CargarDatos(RutaPrograma & "temporales" & "/datosALumnos.txt")
+  resultado = ModuleGestionProfesores.CargarDatos(RutaPrograma & "temporales" & "/datosProfesores.txt")
+  resultado = ModuleGestionOrla.CargarDatos(RutaPrograma & "temporales" & "/datosOrla.txt")
+  'Try Copy "transparente.png" To rutaprograma & "temporales/FotosPlantillasTematica/transparente.png"
+  'Try Copy "transparente.png" To rutaprograma & "temporales/FotosRegistros/transparente.png"
+  
+  Return resultado
   
 End
 ' ---------------------------------------------------
@@ -92,7 +171,7 @@ Public Sub copiarplantillas() As Boolean
 End
 
 Public Sub comprimirDatos() As Boolean
-
+  
   Dim zip As New ClassZip
   
   If Exist("/tmp/temporal.zip") Then Kill "/tmp/temporal.zip"
@@ -118,5 +197,5 @@ Public Sub comprimirDatos() As Boolean
   ModuleGestionOrla.guardado = True
   ModuleGestionProfesores.guardado = True
   Return True
-
+  
 End

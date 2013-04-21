@@ -1,7 +1,7 @@
 ' Gambas class file
 
 Property orden As Integer[]
-Private horden As Integer[]
+Private horden As New Integer[]
 
 Property PosicionesDefinidas As Boolean '' true: posicion fija, false: posiciones movibles
 Private hposicionesdefinidas As Boolean
@@ -158,8 +158,8 @@ Public Sub Text() As String
   cadena &= hEscalaFotosAlumnos & "\n"
   cadena &= hEscalaFotosProfesores & "\n"
   cadena &= hposicionesdefinidas & "\n"
-  cadena &= Str$(horden.count) & "\n" 'longitud del array de orden
-  For a = 0 To horden.Count
+  cadena &= Str$(horden.max) & "\n" 'longitud del array de orden
+  For a = 0 To horden.max
     cadena &= Str$(horden[a]) & "\n" 
   Next
   Return cadena  
