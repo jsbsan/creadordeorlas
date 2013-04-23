@@ -711,11 +711,17 @@ End
 
 Public Sub ToolButtonGenerarOrla_Click()
   
-  ModuleGenerarPdf.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/")
+  hacerSVGoPNg(True)
   
 End
 
 Public Sub ToolButtonGeneraSVG_Click()
+
+  hacerSVGoPNg(False)
+  
+End
+
+Private Sub hacerSVGoPNg(pdf As Boolean)
   
   If codigo = 0 Then codigo = 1
   ' "/home/uno/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
@@ -734,7 +740,7 @@ Public Sub ToolButtonGeneraSVG_Click()
     Copy ModuleGestionOrla.orla.Plantilla To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
   Endif
   
-  ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", codigo, ColorButton1.value, CheckBoxTransparencia.value)
+  ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", codigo, ColorButton1.value, CheckBoxTransparencia.value, pdf)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
   
@@ -952,3 +958,34 @@ Public Sub ToolButtonImportarOrla_Click()
   Endif
   
 End
+
+''---------------------------------------------------------------
+'' pegar y copiar datos 
+''---------------------------------------------------------------
+Public Sub ToolButtonPegar_Click()
+  
+  ModulePrincipal.PegarDatosPortapapelesGridViewsAlumnos()  
+  
+  ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+  
+End
+
+Public Sub ToolButtonPegar2_Click()
+  
+  ModulePrincipal.PegarDatosPortapapelesGridViewsProfesores()
+  ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+  
+End
+
+Public Sub ToolButtonCopiar_Click()
+  
+  GridViewRegistrosAlumnos.copiaralportapapeles()
+  
+End
+
+Public Sub ToolButtonCopiar2_Click()
+  
+  GridViewRegistrosProfesores.copiaralportapapeles()
+  
+End
+
