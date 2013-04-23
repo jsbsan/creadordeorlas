@@ -34,3 +34,7 @@ msgstr ""
 msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 
+#: ModulePrincipal.module:225
+msgid "error al leer datos del portapapeles"
+msgstr ""
+

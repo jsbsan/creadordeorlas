@@ -112,7 +112,7 @@ End
 Public Sub CargarDatos() As Boolean ''fichero de datos a cargar
   
   Dim resultado As Boolean
-
+  
   resultado = ModuleGestionAlumnos.CargarDatos(RutaPrograma & "temporales" & "/datosALumnos.txt")
   resultado = ModuleGestionProfesores.CargarDatos(RutaPrograma & "temporales" & "/datosProfesores.txt")
   resultado = ModuleGestionOrla.CargarDatos(RutaPrograma & "temporales" & "/datosOrla.txt")
@@ -196,6 +196,98 @@ Public Sub comprimirDatos() As Boolean
   ModuleGestionAlumnos.guardado = True
   ModuleGestionOrla.guardado = True
   ModuleGestionProfesores.guardado = True
+  Return True
+  
+End
+'----------------------------------------------------
+' Pegar datos desde el portapapeles al gridviews de alumnos
+'----------------------------------------------------
+
+Public Sub PegarDatosPortapapelesGridViewsAlumnos() As Boolean  
+  
+  Dim portapapeles As String
+  Dim lineas As New String[]
+  Dim columnas As New String[]
+  Dim regtmp As New ClassAlumno
+  Dim finlinea As String
+  Dim fincolumna As String
+  Dim a As Integer
+  'es añadir datos 
+  'por cada linea leida, asignar a un reg temporal y añadirlo
+  finlinea = "\n" ' retorno de carro (separa las filas)
+  fincolumna = "\t" 'tabulador (separa las colunmas)
+  
+  Try portapapeles = Clipboard.paste()
+  Try lineas = Split(portapapeles, finlinea)
+  Try columnas = Split(lineas[0], fincolumna) 
+  
+  If Error Then
+    Message.Error(("error al leer datos del portapapeles"))
+    Return False
+  Endif 
+  
+  For a = 0 To lineas.count - 2
+    'intento leer toda la informacion del portapapeles, si hay algun error, sigue ejecutandose
+    regtmp = New ClassAlumno
+    regtmp.vacio() 'creo el registro completamente vacio
+    
+    Try columnas = Split(lineas[a], fincolumna) 
+    
+    Try regtmp.Nombre = columnas[0]
+    Try regtmp.Apellidos = columnas[1]
+    Try regtmp.orden = Val(columnas[2])
+    Try regtmp.Pueblo = columnas[3]
+    Try regtmp.Provincia = columnas[4]
+    
+    'añado registro 
+    ModuleGestionAlumnos.anadirRegistro(regtmp)
+    
+  Next
+  Return True
+  
+End
+
+'----------------------------------------------------
+' Pegar datos desde el portapapeles al gridviews de profesores
+'----------------------------------------------------
+Public Sub PegarDatosPortapapelesGridViewsProfesores() As Boolean  
+  
+  Dim portapapeles As String
+  Dim lineas As New String[]
+  Dim columnas As New String[]
+  Dim regtmp As New ClassProfesor
+  Dim finlinea As String
+  Dim fincolumna As String
+  Dim a As Integer
+  'es añadir datos 
+  'por cada linea leida, asignar a un reg temporal y añadirlo
+  finlinea = "\n" ' retorno de carro (separa las filas)
+  fincolumna = "\t" 'tabulador (separa las colunmas)
+  
+  Try portapapeles = Clipboard.paste()
+  Try lineas = Split(portapapeles, finlinea)
+  Try columnas = Split(lineas[0], fincolumna) 
+  
+  If Error Then
+    Message.Error(("error al leer datos del portapapeles"))
+    Return False
+  Endif 
+  
+  For a = 0 To lineas.count - 2
+    'intento leer toda la informacion del portapapeles, si hay algun error, sigue ejecutandose
+    regtmp = New ClassProfesor
+    regtmp.vacio() 'creo el registro completamente vacio
+    
+    Try columnas = Split(lineas[a], fincolumna) 
+    
+    Try regtmp.Nombre = columnas[0]
+    Try regtmp.Apellidos = columnas[1]
+    Try regtmp.orden = Val(columnas[2])
+    Try regtmp.Asignatura = columnas[3]
+    
+    'añado registro 
+    ModuleGestionProfesores.anadirRegistro(regtmp)
+  Next
   Return True
   
 End

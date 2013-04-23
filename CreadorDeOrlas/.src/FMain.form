@@ -135,14 +135,14 @@
       }
       { ToolButtonPegar ToolButton
         MoveScaled(40,0,12,4)
-        Enabled = False
+        Tag = "Pegar el contenido del Portapapeles a la rejilla.\nLos datos deben de estar separados por tabuladores o\nestar en distintas columnas (hoja de cálculo).\nEmpiezo a pegar los datos desde la columna Nombre"
         Text = ("Pegar")
         Picture = Picture["icon:/22/paste"]
         Border = True
       }
       { ToolButtonCopiar ToolButton
         MoveScaled(54,0,13,4)
-        Enabled = False
+        Tag = "Copiar todo la rejilla de datos  actuales\nal portapapeles. \nÚselo para llevar los datos que ha introducido \nen este programa a otros programas\n(hojas de cálculo, procesadores de textos, etc)"
         Text = ("Copiar")
         Picture = Picture["icon:/22/copy"]
         Border = True
@@ -179,14 +179,14 @@
       }
       { ToolButtonPegar2 ToolButton
         MoveScaled(40,0,12,4)
-        Enabled = False
+        Tag = "Pegar el contenido del Portapapeles a la rejilla.\nLos datos deben de estar separados por tabuladores o\nestar en distintas columnas (hoja de cálculo).\nEmpiezo a pegar los datos desde la columna Nombre"
         Text = ("Pegar")
         Picture = Picture["icon:/22/paste"]
         Border = True
       }
       { ToolButtonCopiar2 ToolButton
         MoveScaled(54,0,13,4)
-        Enabled = False
+        Tag = "Copiar todo la rejilla de datos  actuales\nal portapapeles. \nÚselo para llevar los datos que ha introducido \nen este programa a otros programas\n(hojas de cálculo, procesadores de textos, etc)"
         Text = ("Copiar")
         Picture = Picture["icon:/22/copy"]
         Border = True
@@ -202,6 +202,7 @@
     Picture = Picture["icon:/22/people"]
     { Frame2 Frame
       MoveScaled(59,49,22,17)
+      Visible = False
       Enabled = False
       Font = Font["Bitstream Charter,Bold,-1"]
       Text = ("Escala Fotos")
@@ -248,7 +249,8 @@
       Text = ("Cuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Editar Orla\", para ver poder ver como queda el diseño de la misma. Además podrá modificar la disposición de las fotografías para personalizar su orla.")
     }
     { Frame1 Frame
-      MoveScaled(1,49,37,17)
+      MoveScaled(1,50,37,17)
+      Visible = False
       Enabled = False
       Font = Font["Bitstream Charter,-1"]
       Text = ("Tipos de letra")
@@ -287,7 +289,6 @@
     }
     { Frame4 Frame
       MoveScaled(1,21,80,19)
-      Enabled = False
       Font = Font["Bitstream Charter,-1"]
       Text = ("Imagenes")
       { Label1 Label
@@ -460,6 +461,7 @@
     }
     { Frame6 Frame
       MoveScaled(40,49,17,17)
+      Visible = False
       Font = Font["Bitstream Charter,-1"]
       Text = ("Espacio entre fotos")
       { Label6 Label
@@ -633,13 +635,12 @@
     Text = ("Editor")
     Picture = Picture["ojo22.png"]
     Index = 10
-    Text = ("Crear .svg o .pdf")
+    Text = ("Crear .svg o .png")
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGenerarOrla ToolButton
-      MoveScaled(50,75,33,10)
-      Enabled = False
-      Text = ("Generar Orla en PDF")
-      Picture = Picture["icon:/48/pdf"]
+      MoveScaled(49,75,38,10)
+      Text = ("Generar Orla en PNG")
+      Picture = Picture["dibujos/ORLA GENERADOR.png"]
       Border = True
     }
     { PictureBox7 PictureBox
@@ -707,6 +708,7 @@
     }
     { CheckBoxTransparencia CheckBox
       MoveScaled(5,48,72,3)
+      Enabled = False
       Text = ("Realizar trasparencia de fondos de imagenes de Alumnos y Profesores")
     }
     Index = 11
