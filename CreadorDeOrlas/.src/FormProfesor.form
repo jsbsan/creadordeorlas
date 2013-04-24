@@ -78,4 +78,10 @@
     Picture = Picture["editarImagen.png"]
     Border = True
   }
+  { ToolButtonHacerTransparente ToolButton
+    MoveScaled(6,40,7,5)
+    Text = ("ToolButton2")
+    Picture = Picture["icono_transparente.png"]
+    Border = True
+  }
 }

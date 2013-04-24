@@ -222,3 +222,14 @@ Public Sub ToolButtonAjustarFoto_Click()
   Endif
   
 End
+
+Public Sub ToolButtonHacerTransparente_Click()
+  
+  Dim numero As Integer
+  Dim ruta As String = User.home & "/CreadorOrlas/temporales/FotosAlumnos/"
+  
+  reg.Foto = ModuleHacerTransparente.convertirTransparente(reg.foto, ruta)
+  PictureBoxFoto.tag = reg.foto
+  PictureBoxFoto.Picture = Picture.Load(ruta & reg.foto)
+  
+End

@@ -73,7 +73,7 @@ msgstr ""
 msgid "Nueva"
 msgstr ""
 
-#: FMain.form:235 FormAlumno.form:37 FormProfesor.form:34
+#: FMain.form:235 FormAlumno.form:38 FormProfesor.form:35
 msgid "Nombre:"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgstr ""
 msgid "Alumnos:"
 msgstr ""
 
-#: FMain.form:390 FormAlumno.form:93 FormProfesor.form:81
+#: FMain.form:390 FormAlumno.form:94 FormProfesor.form:82
 msgid "ValueBox1"
 msgstr ""
 
@@ -505,65 +505,65 @@ msgstr ""
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:357 FormAlumno.form:105 FormElegirFichero.form:30
-#: FormExtraerFoto.form:72 FormProfesor.form:93
+#: FMain.class:357 FormAlumno.form:106 FormElegirFichero.form:30
+#: FormExtraerFoto.form:72 FormProfesor.form:94
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:449
+#: FMain.class:461
 msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
 msgstr ""
 
-#: FMain.class:456
+#: FMain.class:473
 msgid "necesita asignar una plantilla a la orla"
 msgstr ""
 
-#: FMain.class:472
+#: FMain.class:489
 msgid "Guardado correctamente"
 msgstr ""
 
-#: FMain.class:474
+#: FMain.class:491
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:487
+#: FMain.class:503
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: FMain.class:487
+#: FMain.class:503
 msgid "si Abre una Orla, se borrarán los datos anteriores!!"
 msgstr ""
 
-#: FMain.class:489
+#: FMain.class:505
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: FMain.class:501
+#: FMain.class:517
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:670
+#: FMain.class:686
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:670
+#: FMain.class:686
 msgid "Si"
 msgstr ""
 
-#: FMain.class:890
+#: FMain.class:906
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:890
+#: FMain.class:906
 msgid "No"
 msgstr ""
 
-#: FMain.class:894
+#: FMain.class:910
 msgid ""
 "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:929
+#: FMain.class:945
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
@@ -599,49 +599,53 @@ msgstr ""
 msgid "Posiciones"
 msgstr ""
 
-#: FormAlumno.form:46
+#: FormAlumno.form:47
 msgid "<h3>Alumnos</h3>"
 msgstr ""
 
-#: FormAlumno.form:54 FormProfesor.form:51
+#: FormAlumno.form:55 FormProfesor.form:52
 msgid "Foto WebCam"
 msgstr ""
 
-#: FormAlumno.form:65 FormProfesor.form:62
+#: FormAlumno.form:66 FormProfesor.form:63
 msgid "Apellidos:"
 msgstr ""
 
-#: FormAlumno.form:74
+#: FormAlumno.form:75
 msgid "Pueblo:"
 msgstr ""
 
-#: FormAlumno.form:79
+#: FormAlumno.form:80
 msgid "Provincia:"
 msgstr ""
 
-#: FormAlumno.form:88 FormProfesor.form:76
+#: FormAlumno.form:89 FormProfesor.form:77
 msgid "Orden:"
 msgstr ""
 
-#: FormAlumno.form:98 FormElegirFichero.form:22 FormExtraerFoto.form:59
-#: FormProfesor.form:86
+#: FormAlumno.form:99 FormElegirFichero.form:22 FormExtraerFoto.form:59
+#: FormProfesor.form:87
 msgid "Aceptar"
 msgstr ""
 
-#: FormAlumno.form:112 FormProfesor.form:100
+#: FormAlumno.form:113 FormProfesor.form:101
 msgid "(opcional)"
 msgstr ""
 
-#: FormAlumno.form:119
+#: FormAlumno.form:120
 msgid "="
 msgstr ""
 
-#: FormAlumno.form:131 FormProfesor.form:105
+#: FormAlumno.form:132 FormProfesor.form:106
 msgid "+"
 msgstr ""
 
-#: FormAlumno.form:137 FormProfesor.form:111
+#: FormAlumno.form:138 FormProfesor.form:112
 msgid "Ajustar foto"
+msgstr ""
+
+#: FormAlumno.form:145 FormProfesor.form:119
+msgid "ToolButton2"
 msgstr ""
 
 #: FormAlumno.class:64
@@ -685,11 +689,11 @@ msgstr ""
 msgid "Espere por favor..."
 msgstr ""
 
-#: FormProfesor.form:43
+#: FormProfesor.form:44
 msgid "<h3>Profesores</h3>"
 msgstr ""
 
-#: FormProfesor.form:67
+#: FormProfesor.form:68
 msgid "Asignatura:"
 msgstr ""
 
