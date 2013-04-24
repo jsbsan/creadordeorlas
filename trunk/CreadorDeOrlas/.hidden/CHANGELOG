@@ -1,3 +1,7 @@
+* Wed Apr 24 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.22
+-Añadido hacer transparente fondo de imagenes
+-Sustituido codigo interno de iconpanel
+
 * Tue Apr 23 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.21
 - Añadido Pegar y Copiar del portapapeles, añadido convertir a .png
 

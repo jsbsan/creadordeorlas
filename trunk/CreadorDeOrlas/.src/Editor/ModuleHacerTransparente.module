@@ -17,10 +17,10 @@ Public Sub convertirTransparente(fichero As String, rutaprograma As String) As S
   
   ficherotransparente = Mid$(fichero, 1, Len(fichero) - Len(ModuleUtilidadesDisco.extraeExtension(fichero))) & "png"
   
-  comando = rutaprograma & "./magicwand 1,1 -t 25 -f image -r outside -c trans " & fichero & " " & ficherotransparente
+  comando = ModulePrincipal.rutaprograma & "./magicwand 1,1 -t 25 -f image -r outside -c trans " & rutaprograma & fichero & " " & rutaprograma & ficherotransparente
   Shell comando Wait
   
-  ficherotransparente = ModuleUtilidadesDisco.extraedesdebarra(ficherotransparente)
+  ficherotransparente = ModuleUtilidadesDisco.extraedesdebarra(rutaprograma & ficherotransparente)
   Return ficherotransparente
   
 End

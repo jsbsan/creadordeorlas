@@ -179,20 +179,20 @@ Public Sub botontransparente_Click()
   ''TODO: Boton transparente definir...
   Select numero
     Case 1
-      ModuleGestionOrla.orla.escudo01 = ModuleHacerTransparente.convertirTransparente(ruta & ModuleGestionOrla.orla.escudo01, modulePrincipal.RutaPrograma)
-      PictureBoxFondo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo01]
+      ModuleGestionOrla.orla.escudo01 = ModuleHacerTransparente.convertirTransparente(ModuleGestionOrla.orla.escudo01, ruta) 'modulePrincipal.RutaPrograma)
+      PictureBoxFondo.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo01)
       PictureBoxFondo.tag = ModuleGestionOrla.orla.escudo01
     Case 2
-      ModuleGestionOrla.orla.escudo02 = ModuleHacerTransparente.convertirTransparente(ruta & ModuleGestionOrla.orla.escudo02, modulePrincipal.RutaPrograma)
-      PictureBoxEscudo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo02]
+      ModuleGestionOrla.orla.escudo02 = ModuleHacerTransparente.convertirTransparente(ModuleGestionOrla.orla.escudo02, ruta) 'modulePrincipal.RutaPrograma)
+      PictureBoxEscudo.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo02)
       PictureBoxEscudo.tag = ModuleGestionOrla.orla.escudo02
     Case 3
-      ModuleGestionOrla.orla.escudo03 = ModuleHacerTransparente.convertirTransparente(ruta & ModuleGestionOrla.orla.escudo03, modulePrincipal.RutaPrograma)
-      PictureBoxLogo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo03]
+      ModuleGestionOrla.orla.escudo03 = ModuleHacerTransparente.convertirTransparente(ModuleGestionOrla.orla.escudo03, ruta) 'modulePrincipal.RutaPrograma)
+      PictureBoxLogo.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo03)
       PictureBoxLogo.tag = ModuleGestionOrla.orla.escudo03
     Case 4
-      ModuleGestionOrla.orla.escudo04 = ModuleHacerTransparente.convertirTransparente(ruta & ModuleGestionOrla.orla.escudo04, modulePrincipal.RutaPrograma)
-      PictureBoxLogo2.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo04]
+      ModuleGestionOrla.orla.escudo04 = ModuleHacerTransparente.convertirTransparente(ModuleGestionOrla.orla.escudo04, ruta) 'modulePrincipal.RutaPrograma)
+      PictureBoxLogo2.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo04)
       PictureBoxLogo2.tag = ModuleGestionOrla.orla.escudo04
     Case 5
       
@@ -373,24 +373,32 @@ Public Sub IconPanel1_Click()
   Dim resultado As Boolean
   
   Print "Opcion elegida: ", IconPanel1.Index 
-  
+  ''-------------------------------
+  ''13-Buscar actualilzaciones
+  ''-------------------------------
   If IconPanel1.index = 13 Then 
     ModuleUpdate.comprobar("CreadorDeOrlas", Application.Version, "http://creadordeorlas.blogspot.com.es/2013/03/version.html")
     IconPanel1.index = 0
     IconPanel1_Click()
   Endif
   
+  ''-------------------------------
+  ''editor
+  ''-------------------------------
   If IconPanel1.index = 9 Then 
     rellenarDatosOrlas()
     ToolButtonAutomatica_Click()
     ButtonEditorOrla_Click()
     IconPanel1.index = 0
   Endif
-  
+  ''-------------------------------
   ''salir
+  ''-------------------------------
   If IconPanel1.Index = 11 Then Me.Close
   
+  ''-------------------------------
   ''gestor de plantillas
+  ''------------------------------- 
   If IconPanel1.Index = 8 Then 
     'Gestor de plantillas
     'Cargar las lista de plantillas que haya.
@@ -410,29 +418,33 @@ Public Sub IconPanel1_Click()
     
   Endif
   
+  ''-------------------------------
   'ver datos de alumnos...
+  ''-------------------------------
   If IconPanel1.Index = 3 Then 
     ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
     Return 
   Endif
-  
+  ''-------------------------------
   'ver datos de profesores...
+  ''-------------------------------
   If IconPanel1.Index = 4 Then 
     ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
     Return 
   Endif
-  
+  ''-------------------------------
   'Ver datos de orlas
+  ''-------------------------------
   If IconPanel1.Index = 5 Then 
     rellenarDatosOrlas()
     ToolButtonAutomatica_Click()
     Return
   Endif
   '----------------------------------------------------------------------------------------------
-  ''guardar o guardar como....
+  '' guardar como....
   '----------------------------------------------------------------------------------------------
-  If Replace(IconPanel1.text, ".", "") = Replace(("Guardar como...."), ".", "") Then
-    ''TODO: guardar como....
+  ' If Replace(IconPanel1.text, ".", "") = Replace(("Guardar como...."), ".", "") Then
+  If IconPanel1.index = 7 Then 
     If ModulePrincipal.RutaDatos <> "" Then 
       Dialog.PATH = User.HOME & "/"
       Dialog.Title = ("Guardar como....")
@@ -451,7 +463,12 @@ Public Sub IconPanel1_Click()
     
   Endif
   
-  If IconPanel1.text = ("Guardar") Or Replace$(IconPanel1.text, ".", "") = Replace$(("Guardar como...."), ".", "") Then 
+  '----------------------------------------------------------------------------------------------
+  'guardar o guardar como...
+  '----------------------------------------------------------------------------------------------
+  ' If IconPanel1.text = ("Guardar") Or Replace$(IconPanel1.text, ".", "") = Replace$(("Guardar como...."), ".", "") Then 
+  If IconPanel1.index = 7 Or IconPanel1.Index = 6 Then 
+    
     If ModuleGestionOrla.orla.Plantilla = "" Then 
       Message.Info(("necesita asignar una plantilla a la orla"))
       Return 
@@ -481,7 +498,6 @@ Public Sub IconPanel1_Click()
   '----------------------------------------------------------------------------------------
   'Abrir (opcion 2)
   '----------------------------------------------------------------------------------------
-  
   If IconPanel1.index = 2 Then
     If ModuleGestionAlumnos.guardado = False Or ModuleGestionOrla.guardado = False Or ModuleGestionProfesores.guardado = True
       Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si Abre una Orla, se borrarán los datos anteriores!!"))
@@ -716,7 +732,7 @@ Public Sub ToolButtonGenerarOrla_Click()
 End
 
 Public Sub ToolButtonGeneraSVG_Click()
-
+  
   hacerSVGoPNg(False)
   
 End
@@ -988,4 +1004,3 @@ Public Sub ToolButtonCopiar2_Click()
   GridViewRegistrosProfesores.copiaralportapapeles()
   
 End
-
