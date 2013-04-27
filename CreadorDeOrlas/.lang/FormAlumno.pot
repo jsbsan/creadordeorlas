@@ -78,3 +78,7 @@ msgstr ""
 msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
+#: FormAlumno.class:232
+msgid "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"
+msgstr ""
+

@@ -5,7 +5,8 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   Dim a As Integer 
   
   'borrar datos anteriores
-  borradoDatosAnteriores(rutaSprograma.Extract(1, rutaSprograma.max))
+  
+  borradoDatosAnteriores(rutaSprograma)
   
   'contador para bucle For...Next
   ' User.Home & "/ConstructorDiplomas/"
@@ -39,6 +40,9 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   'copia de icono de candado
   Try Copy "CandadoAbierto.png" To "/tmp/CandadoAbierto.png"
   Try Copy "CandadoCerrado.png" To "/tmp/CandadoCerrado.png"
+  'compia escudos
+  Try Copy "ESCUDO01" To ModulePrincipal.RutaPrograma & "plantillasOrla/ESCUDO01"
+  Try Copy "ESCUDO02" To ModulePrincipal.RutaPrograma & "plantillasOrla/ESCUDO02"
   
 Catch
   ModuleMensajeError.SistemaDescripcionError()
@@ -55,8 +59,8 @@ Public Sub copiarPlantillasInternas()
     
   Next
   
-  Copy "ESCUDO01" To ModulePrincipal.RutaPrograma & "plantillasOrla/ESCUDO01"
-  Copy "ESCUDO02" To ModulePrincipal.RutaPrograma & "plantillasOrla/ESCUDO02"
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 
@@ -64,7 +68,7 @@ Public Sub borradoDatosAnteriores(rutas As String[])
   
   Dim a As Integer
   
-  For a = 0 To rutas.count - 1 
+  For a = 1 To rutas.count - 1 
     ModuleUtilidadesDisco.vaciarDirectorio(rutas[a])
   Next
   

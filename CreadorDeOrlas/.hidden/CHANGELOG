@@ -1,3 +1,6 @@
+* Sat Apr 27 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.23
+-Corregido error al iniciarse la primera vez
+
 * Wed Apr 24 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.22
 -Añadido hacer transparente fondo de imagenes
 -Sustituido codigo interno de iconpanel

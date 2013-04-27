@@ -170,9 +170,14 @@ Public Sub ToolButtonHacerTransparente_Click()
   
   Dim numero As Integer
   Dim ruta As String = User.home & "/CreadorOrlas/temporales/FotosProfesores/"
-  
-  reg.Foto = ModuleHacerTransparente.convertirTransparente(reg.foto, ruta)
-  PictureBoxFoto.tag = reg.foto
-  PictureBoxFoto.Picture = Picture.Load(ruta & reg.foto)
-  
+
+  If reg.foto = "" Then 
+    Message.Info(("Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"))
+  Else
+    
+    reg.Foto = ModuleHacerTransparente.convertirTransparente(reg.foto, ruta)
+    PictureBoxFoto.tag = reg.foto
+    PictureBoxFoto.Picture = Picture.Load(ruta & reg.foto)
+  Endif
+
 End

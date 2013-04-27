@@ -639,7 +639,7 @@
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGenerarOrla ToolButton
       MoveScaled(49,75,38,10)
-      Text = ("Generar Orla en PNG")
+      Text = ("Generar Orla en .PNG")
       Picture = Picture["dibujos/ORLA GENERADOR.png"]
       Border = True
     }

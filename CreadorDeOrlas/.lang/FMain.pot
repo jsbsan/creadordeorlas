@@ -355,7 +355,7 @@ msgid "Crear .svg o .png"
 msgstr ""
 
 #: FMain.form:883
-msgid "Generar Orla en PNG"
+msgid "Generar Orla en .PNG"
 msgstr ""
 
 #: FMain.form:896
