@@ -381,7 +381,7 @@ msgid "Crear .svg o .png"
 msgstr ""
 
 #: FMain.form:883
-msgid "Generar Orla en PNG"
+msgid "Generar Orla en .PNG"
 msgstr ""
 
 #: FMain.form:896
@@ -651,6 +651,12 @@ msgstr ""
 #: FormAlumno.class:64
 msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
+msgstr ""
+
+#: FormAlumno.class:232 FormProfesor.class:175
+msgid ""
+"Tienes que elegir alguna foto, antes de intentar convertirla a  fondo "
+"transparente"
 msgstr ""
 
 #: FormElegirFichero.form:43

@@ -7,6 +7,10 @@ Private escalaimagen As Float
 Public Sub Form_Open()
   'dibujar
   
+End
+
+Public Sub form_Show()
+  
   Me.Center
   dibujaPNG()
   
@@ -54,11 +58,17 @@ Public Sub dibujaPNG()
   Paint.Fill()
   Paint.End
   
+Catch 
+  ModuleMensajeError.SistemaDescripcionError()
+  
 End
 
 Public Sub Cambio_Change()
   
   dibujaPNG()
+  
+Catch 
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 
@@ -124,5 +134,8 @@ Public Sub ToolButtonAceptar_Click()
   Kill ruta
   Copy resultadofinal To ruta
   Me.Close()  
+  
+Catch 
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
