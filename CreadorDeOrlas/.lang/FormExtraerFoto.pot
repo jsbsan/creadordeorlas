@@ -14,27 +14,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FormExtraerFoto.form:41
+#: FormExtraerFoto.form:42
 msgid "X"
 msgstr ""
 
-#: FormExtraerFoto.form:47
+#: FormExtraerFoto.form:48
 msgid "Y"
 msgstr ""
 
-#: FormExtraerFoto.form:53
+#: FormExtraerFoto.form:54
 msgid "Zoom"
 msgstr ""
 
-#: FormExtraerFoto.form:59
+#: FormExtraerFoto.form:60
 msgid "Aceptar"
 msgstr ""
 
-#: FormExtraerFoto.form:67
+#: FormExtraerFoto.form:68
 msgid "Haga click para ver mejor la imagen"
 msgstr ""
 
-#: FormExtraerFoto.form:72
+#: FormExtraerFoto.form:73
 msgid "Cancelar"
 msgstr ""
 

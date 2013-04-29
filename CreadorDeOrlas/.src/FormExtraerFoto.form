@@ -12,8 +12,9 @@
   { SliderZ Slider Cambio
     Name = "SliderZ"
     MoveScaled(3,7,4,48)
-    MinValue = -20
-    MaxValue = 20
+    MinValue = -50
+    MaxValue = 50
+    PageStep = 1
   }
   { SliderY Slider Cambio
     Name = "SliderY"

@@ -34,9 +34,7 @@ Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebo
     Return 
   Endif
   
-  PictureBoxElegido.Picture = Picture["ojo22.png"]
-  Wait 0.1
-  PictureBoxElegido.Picture = Picture[ruta]
+  PictureBoxElegido.Picture = Picture.Load(ruta)
   PictureBoxElegido.tag = ruta
   copiar = "si"
   

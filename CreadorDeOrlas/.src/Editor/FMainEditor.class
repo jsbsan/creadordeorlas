@@ -263,6 +263,27 @@ Public Sub UnirImagenes(orladibujopng As String, Optional rejilla As Boolean) As
   
   Try Copy "Editor/enblancoA3.png" To "/tmp" & "/pruebaCombinacion/enblancoA3.png"
   
+  'copio imagenes de la orla
+  If ModuleGestionOrla.orla.escudo01 <> "" Then 
+    Try Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo01
+    Try Copy ModulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/" & ModuleGestionOrla.orla.escudo01 To ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo01
+  Endif
+  
+  If ModuleGestionOrla.orla.escudo02 <> "" Then 
+    Try Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo02
+    Try Copy ModulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/" & ModuleGestionOrla.orla.escudo02 To ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo02
+  Endif
+  
+  If ModuleGestionOrla.orla.escudo03 <> "" Then 
+    Try Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo03
+    Try Copy ModulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/" & ModuleGestionOrla.orla.escudo03 To ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo03
+  Endif
+  
+  If ModuleGestionOrla.orla.escudo04 <> "" Then 
+    Try Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo04
+    Try Copy ModulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/" & ModuleGestionOrla.orla.escudo04 To ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo04
+  Endif
+  
   'crear la representacion del fondo..
   Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModuleGestionOrla.orla.Plantilla), "--export-png", "/tmp" & "/pruebaCombinacion/temporalFondo.png"] Wait
   

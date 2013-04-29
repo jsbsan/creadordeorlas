@@ -76,6 +76,8 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   ModuleUtilidadesDisco.CopiarFicheros(rutaDescomprimida, rutaprograma & "temporales", "*.txt")
   ModuleUtilidadesDisco.CopiarFicheros(rutaDescomprimida, rutaprograma & "temporales", "*.svg")
   
+  ModuleUtilidadesDisco.CopiarFicheros(rutaDescomprimida, rutaprograma & "plantillasOrla", "*.svg")
+  
   mueve(rutaDescomprimida, "FotosAlumnos", RutaPrograma)
   mueve(rutaDescomprimida, "FotosAlumnosMini", RutaPrograma)
   mueve(rutaDescomprimida, "FotosProfesores", RutaPrograma)
