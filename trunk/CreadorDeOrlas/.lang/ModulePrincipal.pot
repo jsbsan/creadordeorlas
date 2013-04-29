@@ -18,23 +18,23 @@ msgstr ""
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
 msgstr ""
 
-#: ModulePrincipal.module:138
+#: ModulePrincipal.module:140
 msgid "Nombre de archivo incorrecto"
 msgstr ""
 
-#: ModulePrincipal.module:153
+#: ModulePrincipal.module:155
 msgid "Problemas al copiar la plantilla de la orla"
 msgstr ""
 
-#: ModulePrincipal.module:155
+#: ModulePrincipal.module:157
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:193
+#: ModulePrincipal.module:195
 msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 
-#: ModulePrincipal.module:225
+#: ModulePrincipal.module:227
 msgid "error al leer datos del portapapeles"
 msgstr ""
 

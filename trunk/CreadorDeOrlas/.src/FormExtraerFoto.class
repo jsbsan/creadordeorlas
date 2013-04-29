@@ -34,7 +34,9 @@ Public Sub dibujaPNG()
   
   hbrush = Paint.Image(himage)
   hbrush.Translate(SliderX.value, - SliderY.value)
-  escalax = AreaDibujo.W / himage.Width * (1 + SliderZ.value / 10)
+  
+  ''nota:si se cambia la linea siguiente hay que cambiar la misma linea 
+  escalax = AreaDibujo.W / himage.Width * (1 + SliderZ.value / 25)
   paint.Scale(escalax, escalax)
   escalaimagen = escalax
   
@@ -103,7 +105,9 @@ Public Sub ToolButtonAceptar_Click()
   
   hbrush = Paint.Image(himage)
   hbrush.Translate(SliderX.value, - SliderY.value)
-  escalax = TrozoImagen.W / himage.Width * (1 + SliderZ.value / 10)
+  ''debede ser igual que la linea 39 (cambiando el TrozoImagen.W)
+  escalax = TrozoImagen.W / himage.Width * (1 + SliderZ.value / 25)
+  
   paint.Scale(escalax, escalax)
   escalaimagen = escalax
   

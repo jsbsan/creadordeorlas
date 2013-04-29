@@ -598,9 +598,11 @@ Public Sub rellenarDatosOrlas()
   
   If ModuleGestionOrla.orla.Plantilla <> "" Then 
     ComboBoxPlantillaUsar.text = Replace$(Replace$(ModuleGestionOrla.orla.Plantilla, User.Home & "/CreadorOrlas/plantillasOrla/", ""), ".svg", "")
+    activarFotos(ModuleGestionOrla.orla.Plantilla)
   Else
     ComboBoxPlantillaUsar.text = "Naranja_Floral"
     ModuleGestionOrla.orla.Plantilla = User.home & "/CreadorOrlas/plantillasOrla/Naranja_Floral.svg"
+    activarFotos(User.home & "/CreadorOrlas/plantillasOrla/Naranja_Floral.svg")
   Endif
   
   TextBoxOpcional2.text = ModuleGestionOrla.orla.textoopcional02
@@ -1002,5 +1004,51 @@ End
 Public Sub ToolButtonCopiar2_Click()
   
   GridViewRegistrosProfesores.copiaralportapapeles()
+  
+End
+
+Private Sub activarFotos(ruta As String)
+  
+  Dim contenido_plantilla As String
+  
+  contenido_plantilla = Upper$(File.Load(ruta))
+  
+  If InStr(contenido_plantilla, "ESCUDO01") <> 0 Then
+    PictureBoxFondo.visible = True
+    ToolButton1.visible = True
+  Else
+    PictureBoxFondo.visible = False
+    ToolButton1.visible = False
+  Endif
+  
+  If InStr(contenido_plantilla, "ESCUDO02") <> 0 Then
+    PictureBoxEscudo.visible = True
+    ToolButton4.visible = True 
+  Else
+    PictureBoxEscudo.visible = False
+    ToolButton4.visible = False
+  Endif
+  
+  If InStr(contenido_plantilla, "ESCUDO03") <> 0 Then
+    PictureBoxLogo.visible = True
+    ToolButton5.visible = True
+  Else
+    PictureBoxLogo.visible = False
+    ToolButton5.visible = False
+  Endif
+  
+  If InStr(contenido_plantilla, "ESCUDO04") <> 0 Then
+    PictureBoxLogo2.visible = True
+    ToolButton6.visible = True 
+  Else
+    PictureBoxLogo2.visible = False
+    ToolButton6.visible = False
+  Endif  
+  
+End
+
+Public Sub ComboBoxPlantillaUsar_Leave()
+  
+  activarFotos(ModuleGestionOrla.orla.Plantilla = User.home & "/CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg")
   
 End

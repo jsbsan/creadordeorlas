@@ -343,7 +343,6 @@
         Name = "ToolButton1"
         MoveScaled(15,1,5,4)
         Tag = "1"
-        Text = ("ToolButton1")
         Picture = Picture["icono_transparente.png"]
         Border = True
       }
@@ -351,7 +350,6 @@
         Name = "ToolButton4"
         MoveScaled(31,1,5,4)
         Tag = "2"
-        Text = ("ToolButton1")
         Picture = Picture["icono_transparente.png"]
         Border = True
       }
@@ -359,7 +357,6 @@
         Name = "ToolButton5"
         MoveScaled(54,1,5,4)
         Tag = "3"
-        Text = ("ToolButton1")
         Picture = Picture["icono_transparente.png"]
         Border = True
       }
@@ -367,7 +364,6 @@
         Name = "ToolButton6"
         MoveScaled(72,1,5,4)
         Tag = "4"
-        Text = ("ToolButton1")
         Picture = Picture["icono_transparente.png"]
         Border = True
       }
@@ -514,12 +510,6 @@
         MoveScaled(36.1429,5.8571,19,2)
         Text = ("Orden Indicado")
       }
-      { CheckBoxMostrarProfesores CheckBox
-        MoveScaled(33,0,19,3)
-        Enabled = False
-        Text = ("Mostrar Profesores")
-        Value = CheckBox.True
-      }
       { Frame7 Frame
         MoveScaled(56,0,23,8)
         Text = ("Alumnos")
@@ -540,6 +530,11 @@
       { LabelEsquema Label
         MoveScaled(11,6,17,3)
         Text = ("Label22")
+      }
+      { Label18 Label
+        MoveScaled(32,0,17,3)
+        Font = Font["Bitstream Charter,Bold"]
+        Text = ("Profesores")
       }
     }
     Index = 6
