@@ -58,7 +58,7 @@
     Text = ("ValueBox1")
   }
   { ToolButtonAceptar ToolButton
-    MoveScaled(17,43,15,6)
+    MoveScaled(15,43,15,6)
     Text = ("Aceptar")
     Picture = Picture["icon:/22/apply"]
     Border = True

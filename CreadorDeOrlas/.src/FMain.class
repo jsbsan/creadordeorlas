@@ -42,9 +42,9 @@ Public Sub Form_Open()
     ModuleIntermedio.IniciarGridViewRegistrosProfesoresores(GridViewRegistrosProfesores)
     
     'TODO: abrir un ejemplo inicial de orla
-    ModuleGestionAlumnos.guardado = False
-    ModuleGestionProfesores.guardado = False
-    ModuleGestionOrla.guardado = False
+    ModuleGestionAlumnos.guardado = True
+    ModuleGestionProfesores.guardado = True
+    ModuleGestionOrla.guardado = True
     ModuleGestionAlumnos.lista.Registros.Clear()
     ModuleGestionProfesores.lista.Registros.Clear()
     ModuleGestionOrla.orla.vacio()
@@ -533,37 +533,43 @@ End
 Public Sub TextBoxColegio_LostFocus()
   
   ModuleGestionOrla.orla.colegio = TextBoxColegio.text 
-  
+  ModuleGestionOrla.guardado = False
+
 End
 
 Public Sub TextBox2Clase_LostFocus()
   
   ModuleGestionOrla.orla.clase = TextBox2Clase.text 
-  
+  ModuleGestionOrla.guardado = False
+
 End
 
 Public Sub TextBoxCurso_LostFocus()
   
   ModuleGestionOrla.orla.curso = TextBoxCurso.text
-  
+  ModuleGestionOrla.guardado = False
+
 End
 
 Public Sub TextBoxOpcional_LostFocus()
   
   ModuleGestionOrla.orla.textoopcional01 = TextBoxOpcional.text
-  
+  ModuleGestionOrla.guardado = False
+
 End
 
 Public Sub TextBoxOpcional2_LostFocus()
   
   ModuleGestionOrla.orla.textoopcional02 = TextBoxOpcional2.text 
-  
+  ModuleGestionOrla.guardado = False
+
 End
 
 Public Sub ComboBoxPlantillaUsar_LostFocus()
   
   ModuleGestionOrla.orla.Plantilla = User.home & "/CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
-  
+  ModuleGestionOrla.guardado = False
+
 End
 
 Public Sub ToolButtonAnnadir_Click()
@@ -1051,4 +1057,16 @@ Public Sub ComboBoxPlantillaUsar_Leave()
   
   activarFotos(ModuleGestionOrla.orla.Plantilla = User.home & "/CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg")
   
+  ModuleGestionOrla.guardado = False
+
+End
+
+Public Sub ComboBoxPlantillaUsar_Click()
+  
+End
+
+Public Sub TextBoxColegio_KeyPress()
+
+  
+
 End

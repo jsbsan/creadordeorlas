@@ -538,28 +538,28 @@ msgstr ""
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:688
+#: FMain.class:694
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:688
+#: FMain.class:694
 msgid "Si"
 msgstr ""
 
-#: FMain.class:908
+#: FMain.class:914
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:908
+#: FMain.class:914
 msgid "No"
 msgstr ""
 
-#: FMain.class:912
+#: FMain.class:918
 msgid ""
 "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:947
+#: FMain.class:953
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
