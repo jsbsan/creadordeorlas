@@ -75,8 +75,15 @@
       Alignment = Align.Center
     }
     { LabelVersion Label
-      MoveScaled(33,14,41,5)
+      MoveScaled(33,12,41,4)
       Text = ("Label25")
+      Alignment = Align.Center
+    }
+    { LabelPaginaWebProyecto Label
+      MoveScaled(1,18,27,4)
+      Font = Font["Underline"]
+      Foreground = &H007FFF&
+      Text = ("Pagina WEB del Proyecto")
       Alignment = Align.Center
     }
     Index = 1
