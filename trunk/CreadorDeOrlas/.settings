@@ -172,7 +172,7 @@ LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\n
 [OpenFile]
 File[1]=".src/FMain.form"
 Active=2
-File[2]=".src/FMain.class:575.2"
+File[2]=".src/FMain.class:1062.37"
 File[3]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[4]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[5]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -252,7 +252,7 @@ File[78]=".src/Modulos/ModuleExtraerDatosOrla.module:10.38"
 File[79]=".src/Modulos/ModuleMensajeError.module:0.20"
 File[80]=".src/Editor/ModuleSistemaOrdenacion.module:124.0"
 File[81]=".src/Modulos/ModuleUnicaVez.module:0.20"
-File[82]=".src/Editor/ModuleDistribucionFotos.module:375.0"
+File[82]=".src/Editor/ModuleDistribucionFotos.module:374.46"
 File[83]=".src/Editor/FMainEditor.form"
 File[84]=".src/Editor/ModuleGenerarFotos.module:28.88"
 File[85]="Editor/150x120.png"
