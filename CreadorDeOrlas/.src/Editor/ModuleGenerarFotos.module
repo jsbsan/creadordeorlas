@@ -22,7 +22,7 @@ Public Sub ponerMarco(dibujoRuta As String, dibujoDestino As String, marco As Bo
     Kill rutatrabajo & "t.png"
   Endif
   
-  Copy dibujoRuta To rutatrabajo & "t.png"
+  Try Copy dibujoRuta To rutatrabajo & "t.png"
   'proceso a repetir por cada registro
   
   comando = "convert " & rutatrabajo & "t.png" & " -resize 93x113 " & rutatrabajo & "t.png"

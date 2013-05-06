@@ -14,399 +14,403 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FMain.form:143
+#: FMain.form:144
 msgid "Creador de Orlas"
 msgstr ""
 
-#: FMain.form:161
+#: FMain.form:162
 msgid "Autor: Julio Sánchez Berro"
 msgstr ""
 
-#: FMain.form:169
+#: FMain.form:170
 msgid "http://www.jsbsan.blogspot.com"
 msgstr ""
 
-#: FMain.form:175
+#: FMain.form:176
 msgid "<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\"."
 msgstr ""
 
-#: FMain.form:186
+#: FMain.form:187
 msgid "Crea tus propias plantillas con: "
 msgstr ""
 
-#: FMain.form:196
+#: FMain.form:197
 msgid "Creado especialmente para:"
 msgstr ""
 
-#: FMain.form:209
+#: FMain.form:210
 msgid "inkscape"
 msgstr ""
 
-#: FMain.form:217
+#: FMain.form:218
 msgid "minino.galpon.org"
 msgstr ""
 
-#: FMain.form:223
+#: FMain.form:224
 msgid "Label25"
 msgstr ""
 
-#: FMain.form:231
+#: FMain.form:232
 msgid "Pagina WEB del Proyecto"
 msgstr ""
 
-#: FMain.form:235
+#: FMain.form:236
 msgid "Nueva"
 msgstr ""
 
-#: FMain.form:244
+#: FMain.form:245
 msgid "Nombre:"
 msgstr ""
 
-#: FMain.form:253
+#: FMain.form:254
 msgid "Crear"
 msgstr ""
 
-#: FMain.form:260
+#: FMain.form:261
 msgid ".Orla"
 msgstr ""
 
-#: FMain.form:263
+#: FMain.form:264
 msgid "Abrir "
 msgstr ""
 
-#: FMain.form:268
+#: FMain.form:269
 msgid "<h2>Espere por favor, estoy leyendo los datos</h2>"
 msgstr ""
 
-#: FMain.form:272
+#: FMain.form:273
 msgid "Datos Alumnos"
 msgstr ""
 
-#: FMain.form:280
+#: FMain.form:281
 msgid "Añadir"
 msgstr ""
 
-#: FMain.form:287
+#: FMain.form:288
 msgid "Editar"
 msgstr ""
 
-#: FMain.form:294
+#: FMain.form:295
 msgid "Borrar"
 msgstr ""
 
-#: FMain.form:302
+#: FMain.form:303
 msgid "Pegar"
 msgstr ""
 
-#: FMain.form:310
+#: FMain.form:311
 msgid "Copiar"
 msgstr ""
 
-#: FMain.form:323
+#: FMain.form:324
 msgid "Datos Profesores"
 msgstr ""
 
-#: FMain.form:373
+#: FMain.form:374
 msgid "Datos Orla"
 msgstr ""
 
-#: FMain.form:381
+#: FMain.form:382
 msgid "Escala Fotos"
 msgstr ""
 
-#: FMain.form:386
+#: FMain.form:387
 msgid "Profesores:"
 msgstr ""
 
-#: FMain.form:393
+#: FMain.form:394
 msgid "Alumnos:"
 msgstr ""
 
-#: FMain.form:399
+#: FMain.form:400
 msgid "ValueBox1"
 msgstr ""
 
-#: FMain.form:411
+#: FMain.form:412
 msgid "%"
 msgstr ""
 
-#: FMain.form:423
+#: FMain.form:424
 msgid "Editor Gráfico Orla"
 msgstr ""
 
-#: FMain.form:430
+#: FMain.form:431
 msgid "Cuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Editar Orla\", para ver poder ver como queda el diseño de la misma. Además podrá modificar la disposición de las fotografías para personalizar su orla."
 msgstr ""
 
-#: FMain.form:438
+#: FMain.form:439
 msgid "Tipos de letra"
 msgstr ""
 
-#: FMain.form:442
+#: FMain.form:443
 msgid "TipoProfesor"
 msgstr ""
 
-#: FMain.form:447
+#: FMain.form:448
 msgid "TipoAlumno"
 msgstr ""
 
-#: FMain.form:453
+#: FMain.form:454
 msgid "Tipo letra Alumnos:"
 msgstr ""
 
-#: FMain.form:460
+#: FMain.form:461
 msgid "Tipo letra Profesor:"
 msgstr ""
 
-#: FMain.form:466
+#: FMain.form:467
 msgid "ToolButton4"
 msgstr ""
 
-#: FMain.form:482
+#: FMain.form:483
 msgid "Imagenes"
 msgstr ""
 
-#: FMain.form:486
+#: FMain.form:487
 msgid "Escudo Colegio"
 msgstr ""
 
-#: FMain.form:508
+#: FMain.form:509
 msgid "Escudo"
 msgstr ""
 
-#: FMain.form:522
+#: FMain.form:523
 msgid "Imag. Opc.1"
 msgstr ""
 
-#: FMain.form:536
+#: FMain.form:537
 msgid "Imag.Opc.2"
 msgstr ""
 
-#: FMain.form:576
+#: FMain.form:577
 msgid "Textos"
 msgstr ""
 
-#: FMain.form:581
+#: FMain.form:582
 msgid "por ejemplo: 2012-2013"
 msgstr ""
 
-#: FMain.form:587
+#: FMain.form:588
 msgid "Curso:"
 msgstr ""
 
-#: FMain.form:594
+#: FMain.form:595
 msgid "Clase:"
 msgstr ""
 
-#: FMain.form:601
+#: FMain.form:602
 msgid "Colegio:"
 msgstr ""
 
-#: FMain.form:613
+#: FMain.form:614
 msgid "por ejemplo 1º de ESO"
 msgstr ""
 
-#: FMain.form:619
+#: FMain.form:620
 msgid "Plantilla a usar:"
 msgstr ""
 
-#: FMain.form:627
+#: FMain.form:628
 msgid "gsdfgs"
 msgstr ""
 
-#: FMain.form:633
+#: FMain.form:634
 msgid "Texto Opcional(1):"
 msgstr ""
 
-#: FMain.form:645
+#: FMain.form:646
 msgid "Texto Opcional(2):"
 msgstr ""
 
-#: FMain.form:658
+#: FMain.form:659
 msgid "Muestra Pueblo"
 msgstr ""
 
-#: FMain.form:665
+#: FMain.form:666
 msgid "Muestra Provincia"
 msgstr ""
 
-#: FMain.form:672
+#: FMain.form:673
 msgid "Muestra Asignatura"
 msgstr ""
 
-#: FMain.form:680
+#: FMain.form:681
 msgid "Espacio entre fotos"
 msgstr ""
 
-#: FMain.form:684
+#: FMain.form:685
 msgid "Horizontal:"
 msgstr ""
 
-#: FMain.form:700
+#: FMain.form:701
 msgid "Vertical:"
 msgstr ""
 
-#: FMain.form:708
+#: FMain.form:709
 msgid "Organización Inicial de Fotos"
 msgstr ""
 
-#: FMain.form:712
+#: FMain.form:713
 msgid "Calcular automaticamente las filas"
 msgstr ""
 
-#: FMain.form:727
+#: FMain.form:728
 msgid "Número de filas:"
 msgstr ""
 
-#: FMain.form:733
+#: FMain.form:735
 msgid "Orden Alfabetico"
 msgstr ""
 
-#: FMain.form:739
+#: FMain.form:742
 msgid "Orden Indicado"
 msgstr ""
 
-#: FMain.form:744
+#: FMain.form:748
 msgid "Alumnos"
 msgstr ""
 
-#: FMain.form:748
+#: FMain.form:752
 msgid "Orden Alfabético"
 msgstr ""
 
-#: FMain.form:760
+#: FMain.form:764
 msgid "Esquema:"
 msgstr ""
 
-#: FMain.form:765
+#: FMain.form:769
 msgid "Label22"
 msgstr ""
 
-#: FMain.form:771
+#: FMain.form:776
 msgid "Profesores"
 msgstr ""
 
-#: FMain.form:775
+#: FMain.form:780
 msgid "Guardar"
 msgstr ""
 
-#: FMain.form:785
+#: FMain.form:790
 msgid "Nombre fichero de Datos:"
 msgstr ""
 
-#: FMain.form:790
+#: FMain.form:795
 msgid "<h2>Espere por favor, estoy guardando <br>los datos</h2>"
 msgstr ""
 
-#: FMain.form:794
+#: FMain.form:799
 msgid "Guardar como...."
 msgstr ""
 
-#: FMain.form:799
+#: FMain.form:804
 msgid "<h2>Espere por favor, estoy guardando <br> los datos</h2>"
 msgstr ""
 
-#: FMain.form:803
+#: FMain.form:808
 msgid "Gestor de Plantillas"
 msgstr ""
 
-#: FMain.form:809
+#: FMain.form:814
 msgid "Plantillas de Orlas"
 msgstr ""
 
-#: FMain.form:817
+#: FMain.form:822
 msgid "Haga click para ver mejor la imagen"
 msgstr ""
 
-#: FMain.form:822
+#: FMain.form:827
 msgid "Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla."
 msgstr ""
 
-#: FMain.form:834
+#: FMain.form:839
 msgid "Editar Orla"
 msgstr ""
 
-#: FMain.form:841
+#: FMain.form:846
 msgid "Borrar Orla"
 msgstr ""
 
-#: FMain.form:848
+#: FMain.form:853
 msgid "Definir Orla desde Cero"
 msgstr ""
 
-#: FMain.form:857
+#: FMain.form:862
 msgid "Exportar Orla"
 msgstr ""
 
-#: FMain.form:864
+#: FMain.form:869
 msgid "Añadir plantilla de Orla"
 msgstr ""
 
-#: FMain.form:873
+#: FMain.form:878
 msgid "Compartidos en la Nube"
 msgstr ""
 
-#: FMain.form:879
+#: FMain.form:884
 msgid "Editor"
 msgstr ""
 
-#: FMain.form:882
+#: FMain.form:887
 msgid "Crear .svg o .png"
 msgstr ""
 
-#: FMain.form:887
+#: FMain.form:892
 msgid "Generar Orla en .PNG"
 msgstr ""
 
-#: FMain.form:900
+#: FMain.form:905
 msgid "Crear archivo .svg y editarlo con inkscape"
 msgstr ""
 
-#: FMain.form:901
+#: FMain.form:906
 msgid "Generar Orla en .SVG"
 msgstr ""
 
-#: FMain.form:915
+#: FMain.form:920
 msgid "Marco"
 msgstr ""
 
-#: FMain.form:922
+#: FMain.form:927
 msgid "Efectos en las Fotos: Marco o Recorte de Formas"
 msgstr ""
 
-#: FMain.form:928
+#: FMain.form:933
 msgid "V"
 msgstr ""
 
-#: FMain.form:940
+#: FMain.form:945
 msgid "Cuna"
 msgstr ""
 
-#: FMain.form:952
+#: FMain.form:957
 msgid "Elipse"
 msgstr ""
 
-#: FMain.form:970
+#: FMain.form:975
 msgid "Realizar trasparencia de fondos de imagenes de Alumnos y Profesores"
 msgstr ""
 
-#: FMain.form:973
+#: FMain.form:978
 msgid "Salir"
 msgstr ""
 
-#: FMain.form:976
+#: FMain.form:981
 msgid "Ayuda"
 msgstr ""
 
-#: FMain.form:982
+#: FMain.form:987
 msgid "<h3>Especificaciones para los formatos de Orla:</h3><br>\n<br>\nEl archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n      - o embebidas en ellas.<br>\n<br>\n<br>\n\n<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n\tTexto a sustituir y que se rellenará con datos<br>\n\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n\t       CLASE............................... texto: 1º de ESO<br>\n\t       CURSO ..................... texto: 2012-2013<br>\n\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n<br>\n\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n<br>\n<br>\n<b>Imagenes:</b><br>\n         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>"
 msgstr ""
 
-#: FMain.form:985
+#: FMain.form:992
+msgid "Visite la página del proyecto para más ayuda"
+msgstr ""
+
+#: FMain.form:997
 msgid "Buscar Actualizaciones"
 msgstr ""
 
-#: FMain.form:990
+#: FMain.form:1002
 msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
 msgstr ""
 
@@ -482,19 +486,19 @@ msgstr ""
 msgid "Si"
 msgstr ""
 
-#: FMain.class:914
+#: FMain.class:916
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:914
+#: FMain.class:916
 msgid "No"
 msgstr ""
 
-#: FMain.class:918
+#: FMain.class:920
 msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:953
+#: FMain.class:955
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 

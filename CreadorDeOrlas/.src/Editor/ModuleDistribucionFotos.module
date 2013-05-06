@@ -115,7 +115,13 @@ Public Sub hacerGenerico(tipo As String, registros As Object[], espacioHorizonta
       traslado = pcx - FilaAncho[a]
       contador += 1
       'ASIGNA COORDENADAS
-      registros[contador].posicion.x += traslado
+      
+      If Upper$(tipo) = "PROFESOR" Or Upper$(tipo) = "PROFESORES" Then 
+        'registros[contador].posicion.x += traslado
+        registros[ModuleGestionProfesores.ListaOrdenada[contador]].posicion.x += traslado
+      Else
+        registros[ModuleGestionAlumnos.ListaOrdenada[contador]].posicion.x += traslado
+      Endif
     Next
   Next
   
@@ -126,11 +132,15 @@ Public Sub hacerGenerico(tipo As String, registros As Object[], espacioHorizonta
   '     Traslado:
   '     7º) xTras=Xdato+CentroX-pcx
   '     8º) yTras=Ydato+CentroY-pcy
-  '
+  
   For a = 0 To contador 
-    
-    registros[a].posicion.x += (centrox * 2.74 - pcx) 
-    registros[a].posicion.y += (centroy * 2.74 - pcy) 
+    If Upper$(tipo) = "PROFESOR" Or Upper$(tipo) = "PROFESORES" Then 
+      registros[ModuleGestionProfesores.ListaOrdenada[a]].posicion.x += (centrox * 2.74 - pcx) 
+      registros[ModuleGestionProfesores.ListaOrdenada[a]].posicion.y += (centroy * 2.74 - pcy) 
+    Else
+      registros[ModuleGestionAlumnos.ListaOrdenada[a]].posicion.x += (centrox * 2.74 - pcx) 
+      registros[ModuleGestionAlumnos.ListaOrdenada[a]].posicion.y += (centroy * 2.74 - pcy) 
+    Endif
     
   Next 
   
@@ -193,12 +203,12 @@ Public Sub hacer(espacioHorizontal As Integer, espacioVertical As Integer, plant
   'extraigo coordenada de la orla donde van los Alumnos y Profesores
   'CentroX y CentroY
   ModuleGestionOrla.orla.CoordZonaFotosProfesores = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosProfesores")
-  Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.x
-  Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.y
+  '  Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.x
+  '  Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.y
   
   ModuleGestionOrla.orla.CoordZonaFotosAlumnos = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosAlumnos")
-  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.x
-  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.y
+  '  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.x
+  '  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.y
   
   'ordenar fotos Alfabeticamente o Indicado
   'TODO: enlace de como Ordenar

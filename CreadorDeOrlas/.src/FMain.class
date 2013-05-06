@@ -499,7 +499,7 @@ Public Sub IconPanel1_Click()
   'Abrir (opcion 2)
   '----------------------------------------------------------------------------------------
   If IconPanel1.index = 2 Then
-    If ModuleGestionAlumnos.guardado = False Or ModuleGestionOrla.guardado = False Or ModuleGestionProfesores.guardado = True
+    If ModuleGestionAlumnos.guardado = False Or ModuleGestionOrla.guardado = False Or ModuleGestionProfesores.guardado = False Then
       Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si Abre una Orla, se borrarán los datos anteriores!!"))
     Endif
     Dialog.title = ("Indique archivo de datos para abrir...")
@@ -810,6 +810,8 @@ End
 Public Sub ColorButton1_Change()
   
   PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, "/tmp/destino.png", True, ColorButton1.Value))
+  'borrado de ficheros...
+  Shell ("rm " & User.Home & "/CreadorOrlas/trabajotmp/imagenes/*.*") Wait
   
 End
 
@@ -1079,6 +1081,12 @@ Public Sub LabelPaginaWebProyecto_MouseDown()
 End
 
 Public Sub PictureBox4_MouseDown()
+  
+  Desktop.Open("http://creadordeorlas.blogspot.com.es/p/presentacion.html")
+  
+End
+
+Public Sub ToolButtonAccesoPaginaWeb_Click()
   
   Desktop.Open("http://creadordeorlas.blogspot.com.es/p/presentacion.html")
   

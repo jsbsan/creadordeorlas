@@ -50,7 +50,8 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   'Aplicar efectos...
   '----------------------------------------------------------------------------
   For Each archivo In Dir(DirectorioDeTrabajo, "*.*")  
-    efectos(codigo, DirectorioDeTrabajo & archivo, DirectorioDeTrabajo & archivo, colormarco)
+    Try Kill DirectorioDeTrabajo & Replace(archivo, ".jpg", ".png")
+    efectos(codigo, DirectorioDeTrabajo & archivo, DirectorioDeTrabajo & Replace(archivo, ".jpg", ".png"), colormarco)
   Next
   
   '----------------------------------------------------------------------------
@@ -110,12 +111,13 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   Print "Editando: "; ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")
   
   If convertirPdf = False Then 
+    
     Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")] Wait
   Else
     
     Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg"), "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait
     'visualizar orla...
-    Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait
+    Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] 
     
   Endif
   
@@ -191,7 +193,7 @@ Private Sub anadeFotoAlumno() As String
     cadena = Replace$(cadena, "COORDENADA_X", Str$(ModuleGestionAlumnos.lista.Registros[b].posicion.x / 2.74 + 40 - (739 - 686)))
     cadena = Replace$(cadena, "COORDENADA_Y", Str$(ModuleGestionAlumnos.lista.Registros[b].posicion.y / 2.76 + 30))
     cadena = Replace$(cadena, "ID_IMAGEN", "FotoAlumnos" & Str$(b))
-    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & ModuleGestionAlumnos.lista.Registros[b].Foto)
+    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & Replace(ModuleGestionAlumnos.lista.Registros[b].Foto, ".jpg", ".png"))
     
     cadenaTodasFotos &= cadena
   Next
@@ -214,7 +216,7 @@ Private Sub anadeFotoProfesor() As String
     cadena = Replace$(cadena, "COORDENADA_X", Str$(Int(ModuleGestionProfesores.lista.Registros[b].posicion.x / 2.74) + 40 - (739 - 686)))
     cadena = Replace$(cadena, "COORDENADA_Y", Str$(Int(ModuleGestionProfesores.lista.Registros[b].posicion.y / 2.76) + 30))
     cadena = Replace$(cadena, "ID_IMAGEN", "FotoProfesores" & Str$(b))
-    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & ModuleGestionProfesores.lista.Registros[b].Foto)
+    cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & Replace(ModuleGestionProfesores.lista.Registros[b].Foto, ".jpg", ".png"))
     cadenaTodasFotos &= cadena
   Next
   
@@ -226,18 +228,6 @@ End
 ' AÑADIR texto Alumnos....
 ' ------------------------------------------------------------------------------------
 Private Sub anadeTEXTOAlumno(registro As ClassAlumno, a As Integer) As String
-  '   COORDENADA_X_FRASE1: COORDENADA_X + 46 
-  '   COORDENADA_Y_FRASE1: COORDENADA_Y + 122 
-  
-  '  COORDENADA_X_FRASE2: COORDENADA_X + 46 
-  '  COORDENADA_Y_FRASE2: COORDENADA_Y + 134 
-  
-  ' COORDENADA_X_FRASE3: COORDENADA_X + 46 
-  ' COORDENADA_Y_FRASE3: COORDENADA_Y + 147 
-  
-  'FRASE1: NOMBRE 
-  'FRASE2: APELLIDOS 
-  'FRASE3: PUEBLO - CIUDAD O ASIGNATURA 
   
   Dim cadena As String
   
@@ -267,18 +257,6 @@ Private Sub anadeTEXTOAlumno(registro As ClassAlumno, a As Integer) As String
 End
 
 Private Sub anadeTEXTOProfesor(registro As ClassProfesor, A As Integer) As String
-  '   COORDENADA_X_FRASE1: COORDENADA_X + 46 
-  '   COORDENADA_Y_FRASE1: COORDENADA_Y + 122 
-  
-  '  COORDENADA_X_FRASE2: COORDENADA_X + 46 
-  '  COORDENADA_Y_FRASE2: COORDENADA_Y + 134 
-  
-  ' COORDENADA_X_FRASE3: COORDENADA_X + 46 
-  ' COORDENADA_Y_FRASE3: COORDENADA_Y + 147 
-  
-  'FRASE1: NOMBRE 
-  'FRASE2: APELLIDOS 
-  'FRASE3: PUEBLO - CIUDAD O ASIGNATURA 
   
   Dim cadena As String
   
