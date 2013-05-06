@@ -30,6 +30,9 @@ Public Sub Form_Open()
   
   '  Me.Maximized = True
   
+  ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar("apellidos")
+  ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar("apellidos")
+  
   If ModuleGestionOrla.orla.PosicionesDefinidas = False Then
     'aplicar ordenacion de registros , en el principio lo ordena todo segun los apellidos
     ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar("apellidos")
@@ -326,7 +329,7 @@ End
 
 Public Sub dibujoObjetos(Optional cadena As String)
   
-  Dim a As Integer
+  Dim a, b As Integer
   Dim temporalpicture As ClassMejorPictureBox
   
   arrayBox.Clear()
@@ -334,6 +337,7 @@ Public Sub dibujoObjetos(Optional cadena As String)
   'Para los alumnos
   '------------------------
   For a = 0 To listaAlumnos.Registros.Max
+    b = ModuleGestionAlumnos.ListaOrdenada[a]
     temporalpicture = New ClassMejorPictureBox(ScrollView1)
     
     temporalpicture.Picture = imagenAlumno
@@ -342,13 +346,15 @@ Public Sub dibujoObjetos(Optional cadena As String)
     
     temporalpicture.Stretch = True
     Object.Attach(temporalpicture, Me, "Obs")
-    temporalpicture.x = listaAlumnos.Registros[a].posicion.x / escalafoto 
-    temporalpicture.y = listaAlumnos.Registros[a].posicion.y / escalafoto 
+    'comprobar julio
+    '
+    temporalpicture.x = listaAlumnos.Registros[b].posicion.x / escalafoto 
+    temporalpicture.y = listaAlumnos.Registros[b].posicion.y / escalafoto 
     '  Print "Foto Editor: "; A, temporalpicture.x, temporalpicture.y
     
     temporalpicture.tipo = "Alumno"
-    temporalpicture.indice = a
-    temporalpicture.texto = listaAlumnos.Registros[a].Nombre & "\n" & listaAlumnos.Registros[a].Apellidos
+    temporalpicture.indice = b
+    temporalpicture.texto = listaAlumnos.Registros[b].Nombre & "\n" & listaAlumnos.Registros[b].Apellidos
     arrayBox.Add(temporalpicture)
     
   Next 
@@ -356,17 +362,18 @@ Public Sub dibujoObjetos(Optional cadena As String)
   'para los profesores
   '------------------------
   For a = 0 To listaProfesores.Registros.Max
+    b = ModuleGestionProfesores.ListaOrdenada[a]
     temporalpicture = New ClassMejorPictureBox(ScrollView1)
     temporalpicture.Picture = imagenPro
     temporalpicture.w = imagenPro.w / escalafoto
     temporalpicture.h = imagenPro.h / escalafoto
     
     temporalpicture.Stretch = True
-    temporalpicture.x = listaProfesores.Registros[a].posicion.x / escalafoto
-    temporalpicture.y = listaProfesores.Registros[a].posicion.y / escalafoto
+    temporalpicture.x = listaProfesores.Registros[b].posicion.x / escalafoto
+    temporalpicture.y = listaProfesores.Registros[b].posicion.y / escalafoto
     temporalpicture.tipo = "Profesor"
-    temporalpicture.indice = a
-    temporalpicture.texto = listaProfesores.Registros[a].Nombre & "\n" & listaProfesores.Registros[a].Apellidos & "\n" & listaProfesores.registros[a].Asignatura                                            
+    temporalpicture.indice = b
+    temporalpicture.texto = listaProfesores.Registros[b].Nombre & "\n" & listaProfesores.Registros[b].Apellidos & "\n" & listaProfesores.registros[b].Asignatura                                            
     Object.Attach(temporalpicture, Me, "Obs")
     arrayBox.Add(temporalpicture)
   Next
@@ -389,7 +396,7 @@ Public Sub ButtonReorganizarAlumnos_Click()
       
       'revisar los objetos que sean classmejorpiturebox
       For Each objeto In ScrollView1.Children
-        Print Object.Type(objeto)
+        '  Print Object.Type(objeto)
         If Object.Type(objeto) = "ClassMejorPictureBox" Then 
           objeto.Delete() ' = Null
           
@@ -428,7 +435,7 @@ Public Sub ButtonReorganizarProfesores_Click()
       
       'revisar los objetos que sean classmejorpiturebox
       For Each objeto In ScrollView1.Children
-        Print Object.Type(objeto)
+        ' Print Object.Type(objeto)
         If Object.Type(objeto) = "ClassMejorPictureBox" Then 
           objeto.Delete() ' = Null
           

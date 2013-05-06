@@ -510,15 +510,18 @@
       }
       { RadioButtonProfesorAlfabetico RadioButton
         MoveScaled(36,3,18,2)
+        Visible = False
         Text = ("Orden Alfabetico")
         Value = True
       }
       { RadioButtonProfesorIndicado RadioButton
-        MoveScaled(36.1429,5.8571,19,2)
+        MoveScaled(36,6,19,2)
+        Visible = False
         Text = ("Orden Indicado")
       }
       { Frame7 Frame
         MoveScaled(56,0,23,8)
+        Visible = False
         Text = ("Alumnos")
         { RadioButtonAlumnoAlfabetico RadioButton
           MoveScaled(1,3,24,2)
@@ -540,6 +543,7 @@
       }
       { Label18 Label
         MoveScaled(32,0,17,3)
+        Visible = False
         Font = Font["Bitstream Charter,Bold"]
         Text = ("Profesores")
       }
@@ -720,9 +724,15 @@
     Text = ("Ayuda")
     Picture = Picture["icon:/22/info"]
     { TextLabel5 TextLabel
-      MoveScaled(1,1,81,86)
+      MoveScaled(1,1,85,72)
       Font = Font["-1"]
       Text = ("<h3>Especificaciones para los formatos de Orla:</h3><br>\n<br>\nEl archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n      - o embebidas en ellas.<br>\n<br>\n<br>\n\n<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n\tTexto a sustituir y que se rellenará con datos<br>\n\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n\t       CLASE............................... texto: 1º de ESO<br>\n\t       CURSO ..................... texto: 2012-2013<br>\n\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n<br>\n\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n<br>\n<br>\n<b>Imagenes:</b><br>\n         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>")
+    }
+    { ToolButtonAccesoPaginaWeb ToolButton
+      MoveScaled(14,74,57,12)
+      Text = ("Visite la página del proyecto para más ayuda")
+      Picture = Picture["icono_web.jpg"]
+      Border = True
     }
     Index = 13
     Text = ("Buscar Actualizaciones")

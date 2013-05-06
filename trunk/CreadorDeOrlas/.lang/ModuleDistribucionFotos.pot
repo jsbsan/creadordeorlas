@@ -14,35 +14,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModuleDistribucionFotos.module:270
+#: ModuleDistribucionFotos.module:280
 msgid "Error en Esquema Definido:"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:270
+#: ModuleDistribucionFotos.module:280
 msgid "Falta poner el signo igual (=)"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:278
+#: ModuleDistribucionFotos.module:288
 msgid "El numero total no es igual al numero de personas("
 msgstr ""
 
-#: ModuleDistribucionFotos.module:288
+#: ModuleDistribucionFotos.module:298
 msgid "Una columna se ha definido con 0 personas"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:299
+#: ModuleDistribucionFotos.module:309
 msgid "Error en el Esquema Definido:"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:299
+#: ModuleDistribucionFotos.module:309
 msgid "La suma de los numeros no coincide con el total"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:324
+#: ModuleDistribucionFotos.module:334
 msgid "La plantilla origen esta vacia"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:330
+#: ModuleDistribucionFotos.module:340
 msgid "Se ha producido un error al intentar copiar la plantilla origen:"
 msgstr ""
 

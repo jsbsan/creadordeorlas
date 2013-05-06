@@ -108,18 +108,17 @@
     { RadioButtonAlumnoAlfabetico RadioButton
       MoveScaled(2,3,24,2)
       Text = ("Orden Alfabético")
-      Value = True
     }
     { RadioButtonAlumnoIndicado RadioButton
       MoveScaled(2,5,24,4)
       Text = ("Orden Indicado")
+      Value = True
     }
   }
   { RadioButtonProfesorAlfabetico RadioButton
     MoveScaled(3,69,18,2)
     Font = Font["Bitstream Charter,-1"]
     Text = ("Orden Alfabetico")
-    Value = True
   }
   { RadioButtonProfesorIndicado RadioButton
     MoveScaled(3,72,19,2)
