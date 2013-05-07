@@ -374,27 +374,37 @@ Public Sub IconPanel1_Click()
   
   Print "Opcion elegida: ", IconPanel1.Index 
   ''-------------------------------
-  ''13-Buscar actualilzaciones
+  ''14-Buscar actualizaciones
   ''-------------------------------
-  If IconPanel1.index = 13 Then 
+  If IconPanel1.index = 14 Then 
     ModuleUpdate.comprobar("CreadorDeOrlas", Application.Version, "http://creadordeorlas.blogspot.com.es/2013/03/version.html")
     IconPanel1.index = 0
     IconPanel1_Click()
   Endif
   
   ''-------------------------------
+  ''efectos... opcion 9
+  ''-------------------------------
+  
+  ''-------------------------------
   ''editor
   ''-------------------------------
-  If IconPanel1.index = 9 Then 
-    rellenarDatosOrlas()
-    ToolButtonAutomatica_Click()
-    ButtonEditorOrla_Click()
-    IconPanel1.index = 0
+  If IconPanel1.index = 10 Then 
+    'sistema de mostrar previsualizacion
+    'crear el svg y mostarlo...
+    Print hacerSVGoPNg(False, True)
+    ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), DrawingArea1)
+    
   Endif
+  
+  ''-------------------------------
+  ''opcion 11 crear .svg o .png
+  ''-------------------------------
+  
   ''-------------------------------
   ''salir
   ''-------------------------------
-  If IconPanel1.Index = 11 Then Me.Close
+  If IconPanel1.Index = 12 Then Me.Close
   
   ''-------------------------------
   ''gestor de plantillas
@@ -745,7 +755,7 @@ Public Sub ToolButtonGeneraSVG_Click()
   
 End
 
-Private Sub hacerSVGoPNg(pdf As Boolean)
+Private Sub hacerSVGoPNg(pdf As Boolean, Optional previsualizacion As Boolean) As String
   'borrado de ficheros...
   
   Shell ("rm " & User.Home & "/CreadorOrlas/trabajotmp/imagenes/*.*") Wait
@@ -767,7 +777,7 @@ Private Sub hacerSVGoPNg(pdf As Boolean)
     Copy ModuleGestionOrla.orla.Plantilla To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
   Endif
   
-  ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", codigo, ColorButton1.value, False, pdf, CheckBoxAjustarFotos.Value)
+  Return ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", codigo, ColorButton1.value, False, pdf, CheckBoxAjustarFotos.Value, previsualizacion)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
   

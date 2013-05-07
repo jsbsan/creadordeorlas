@@ -18,7 +18,7 @@ msgstr ""
 msgid "Es necesario que edite la orla"
 msgstr ""
 
-#: ModuleGenerarSVG.module:317
+#: ModuleGenerarSVG.module:324
 msgid "Código de efecto desconocido"
 msgstr ""
 
