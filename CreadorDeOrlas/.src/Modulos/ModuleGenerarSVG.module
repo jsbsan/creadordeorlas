@@ -1,6 +1,6 @@
 ' Gambas module file
 
-Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As Integer, HacerTransparencia As Boolean, convertirPdf As Boolean)
+Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As Integer, HacerTransparencia As Boolean, convertirPdf As Boolean, ajustar As Boolean)
   
   Dim archivo As String
   Dim DirectorioDeTrabajo As String
@@ -32,6 +32,14 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosAlumnos", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/", "*.*") 
   ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosProfesores", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/", "*.*")
   
+  If ajustar = True Then
+    'ajuste de fotos a 83x113....
+    For Each archivo In Dir(DirectorioDeTrabajo, "*.*")  
+      comando = "convert " & DirectorioDeTrabajo & archivo & " -resize 83x113\\! " & DirectorioDeTrabajo & archivo
+      Shell comando Wait
+    Next
+  Endif
+  
   'NOTE: EFECTOS al realizar SVG
   '----------------------------------------------------------------------------
   '  'aplicar efecto transparencia
@@ -50,7 +58,7 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   'Aplicar efectos...
   '----------------------------------------------------------------------------
   For Each archivo In Dir(DirectorioDeTrabajo, "*.*")  
-    Try Kill DirectorioDeTrabajo & Replace(archivo, ".jpg", ".png")
+    ' Try Kill DirectorioDeTrabajo & Replace(archivo, ".jpg", ".png")
     efectos(codigo, DirectorioDeTrabajo & archivo, DirectorioDeTrabajo & Replace(archivo, ".jpg", ".png"), colormarco)
   Next
   
@@ -300,6 +308,14 @@ Public Sub efectos(codigo As Integer, Rutaimagenorigen As String, Rutaimagendest
     Case 4
       '    codigo = 4
       ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, Rutaimagenorigen, Rutaimagendestino)
+    Case 5
+      ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaZigZag, Rutaimagenorigen, Rutaimagendestino)
+    Case 6
+      ModuleGenerarFotos.SuperPonerForma(modulePrincipal.MarcoEspecial, Rutaimagenorigen, Rutaimagendestino, True)
+      
+    Case Else 
+      Message.Info(("Código de efecto desconocido"))
+      
   End Select
   
 End

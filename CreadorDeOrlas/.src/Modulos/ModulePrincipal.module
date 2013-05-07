@@ -6,8 +6,10 @@ Public Rutas As New String[] ''rutas de trabajo
 Public DatosOrla As New ClassDatosOrla
 Public alumno93 As String = "/tmp/Alu93x113.png"
 Public formaElipse As String = "/tmp/elipse.png"
+Public formaZigZag As String = "/tmp/ZigZag.png"
 Public formaCuna As String = "/tmp/formacuna.png"
 Public formaV As String = "/tmp/V.png"
+Public MarcoEspecial As String = "/tmp/marcolapiz.png"
 
 Public Sub iniciarDirectorios()
   

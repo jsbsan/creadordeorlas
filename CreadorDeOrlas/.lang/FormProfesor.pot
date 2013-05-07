@@ -66,7 +66,7 @@ msgstr ""
 msgid "ToolButton2"
 msgstr ""
 
-#: FormProfesor.class:175
+#: FormProfesor.class:176
 msgid "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"
 msgstr ""
 
