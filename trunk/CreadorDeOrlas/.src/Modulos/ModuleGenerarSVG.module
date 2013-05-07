@@ -1,6 +1,6 @@
 ' Gambas module file
 
-Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As Integer, HacerTransparencia As Boolean, convertirPdf As Boolean, ajustar As Boolean)
+Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As Integer, HacerTransparencia As Boolean, convertirPdf As Boolean, ajustar As Boolean, previa As Boolean) As String
   
   Dim archivo As String
   Dim DirectorioDeTrabajo As String
@@ -117,6 +117,13 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   'relleno los datos de la orla...
   Print "----------------------------------------------------------------------------------------------"
   Print "Editando: "; ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")
+  
+  If previa = True Then
+    fpensando.parar = True
+    fpensando.Delete
+    
+    Return ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")
+  Endif
   
   If convertirPdf = False Then 
     

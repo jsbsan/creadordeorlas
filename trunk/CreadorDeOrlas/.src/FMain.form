@@ -1,12 +1,12 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,118,89)
+  MoveScaled(0,0,117,96)
   Icon = Picture["orlaicono.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(0,-1,118,90)
-    Count = 14
+    MoveScaled(0,1,117,95)
+    Count = 15
     Border = True
     Index = 0
     Text = ("Creador de Orlas")
@@ -205,7 +205,7 @@
       Border = Border.Plain
     }
     Index = 5
-    Text = ("Datos Orla")
+    Text = ("Datos Orla Y Organizar")
     Picture = Picture["icon:/22/people"]
     { Frame2 Frame
       MoveScaled(59,49,22,17)
@@ -245,10 +245,10 @@
       }
     }
     { ButtonEditorOrla Button
-      MoveScaled(30,71,28,5)
+      MoveScaled(31,67,40,10)
       Font = Font["Bitstream Charter"]
-      Text = ("Editor Gráfico Orla")
-      Picture = Picture["ojo22.png"]
+      Text = ("Organizar posición de fotos en la Orla")
+      Picture = Picture["icon:/22/grid"]
     }
     { TextLabel6 TextLabel
       MoveScaled(2,80,81,9)
@@ -638,28 +638,13 @@
       }
     }
     Index = 9
-    Text = ("Editor")
-    Picture = Picture["ojo22.png"]
-    Index = 10
-    Text = ("Crear .svg o .png")
-    Picture = Picture["icon:/22/pdf"]
-    { ToolButtonGenerarOrla ToolButton
-      MoveScaled(49,75,38,10)
-      Text = ("Generar Orla en .PNG")
-      Picture = Picture["dibujos/ORLA GENERADOR.png"]
-      Border = True
-    }
-    { PictureBox7 PictureBox
-      MoveScaled(36,75,11,10)
-      Picture = Picture["dibujos/gatojugando.png"]
-      Stretch = True
-    }
-    { ToolButtonGeneraSVG ToolButton
-      MoveScaled(2,75,33,10)
-      ToolTip = ("Crear archivo .svg y editarlo con inkscape")
-      Text = ("Generar Orla en .SVG")
-      Picture = Picture["inkscape-icono.png"]
-      Border = True
+    Text = ("Aplicar Efectos")
+    Picture = Picture["icon:/22/fill"]
+    { TextLabel9 TextLabel
+      MoveScaled(60,50,10,13)
+      Font = Font["Bitstream Charter,-2"]
+      Text = ("Haga click para elegir otro marco")
+      Alignment = Align.Center
     }
     { PictureBoxMarco PictureBox
       MoveScaled(24,7,13.2857,16.2857)
@@ -713,7 +698,7 @@
       Value = &H1FFF1F&
     }
     { CheckBoxAjustarFotos CheckBox
-      MoveScaled(2,69,49,4)
+      MoveScaled(20,82,49,4)
       Text = ("Forzar ajuste de tamaño de fotografias")
       Value = CheckBox.True
     }
@@ -734,6 +719,7 @@
     { PictureBoxEsp PictureBox
       MoveScaled(58,49,13.2857,16.2857)
       Tag = "\"/tmp/marcoEspecial.png\""
+      ToolTip = ("Haga click para cambiar de imagen")
       Picture = Picture["Efectos/marcolapiz.png"]
       Stretch = True
       Border = Border.Plain
@@ -745,10 +731,51 @@
       Picture = Picture["googledriveacceso.png"]
       Border = True
     }
+    Index = 10
+    Text = ("Previsualizar")
+    Picture = Picture["ojo22.png"]
+    { DrawingArea1 DrawingArea
+      MoveScaled(1,19,84,60)
+      Background = &HFFFFFF&
+      Border = Border.Plain
+    }
+    { TextLabel10 TextLabel
+      MoveScaled(3,82,72,9)
+      Font = Font["Bitstream Charter,Italic,+1"]
+      Text = ("Nota: <br>La previsualización puede no ser exacta,<br> genere el .svg o el .png para mejor detalle.")
+      Alignment = Align.Center
+    }
+    { TextLabel11 TextLabel
+      MoveScaled(6,2,69,15)
+      Font = Font["Italic"]
+      Text = ("<h2>Previsualización</h2>\nPara mejorar el resultado del programa, vaya a la opción <BR>\"Generar Orla\", y pulse  el botón \"Generar Orla en .SVG\", <BR>entonces podrá editar la orla mediante Inkscape, ampliando las posibilidades de edición de este programa.")
+      Alignment = Align.Center
+    }
     Index = 11
+    Text = ("Generar Orla")
+    Picture = Picture["icon:/22/pdf"]
+    { ToolButtonGeneraSVG ToolButton
+      MoveScaled(25,14,33,10)
+      ToolTip = ("Crear archivo .svg y editarlo con inkscape")
+      Text = ("Generar Orla en .SVG")
+      Picture = Picture["inkscape-icono.png"]
+      Border = True
+    }
+    { PictureBox7 PictureBox
+      MoveScaled(34,39,11,10)
+      Picture = Picture["dibujos/gatojugando.png"]
+      Stretch = True
+    }
+    { ToolButtonGenerarOrla ToolButton
+      MoveScaled(23,64,38,10)
+      Text = ("Generar Orla en .PNG")
+      Picture = Picture["dibujos/ORLA GENERADOR.png"]
+      Border = True
+    }
+    Index = 12
     Text = ("Salir")
     Picture = Picture["icon:/22/quit"]
-    Index = 12
+    Index = 13
     Text = ("Ayuda")
     Picture = Picture["icon:/22/info"]
     { TextLabel5 TextLabel
@@ -762,7 +789,7 @@
       Picture = Picture["icono_web.jpg"]
       Border = True
     }
-    Index = 13
+    Index = 14
     Text = ("Buscar Actualizaciones")
     Picture = Picture["rayo.png"]
     { TextLabel8 TextLabel

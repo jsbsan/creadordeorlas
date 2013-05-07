@@ -3,7 +3,7 @@
 Title=CreadorDeOrlas
 Startup=FMain
 Icon=orlaicono.png
-Version=0.0.28
+Version=0.0.29
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -22,7 +22,7 @@ Maintainer=Julio Sanchez Berro
 Address=jusabejusabe@gmail.com
 Url=http://jsbsan.blogspot.com.es
 License=General Public License
-PackageName=creadordeorlas-0.0.28
+PackageName=creadordeorlas-0.0.29
 CreateEachDirectory=1
 Packager=1
 Systems=debian
