@@ -15,7 +15,7 @@ Public Sub ponerMarco(dibujoRuta As String, dibujoDestino As String, marco As Bo
     Copy "Editor/trasparente250x348.png" To rutatrabajo & "trasparente250x348.png"
   Endif
   ''NOTE: mejorar haciendo el fichero trnasparente a 93x113
-  comando = "convert " & rutatrabajo & "trasparente250x348.png" & " -resize 93x113 " & rutatrabajo & "trasparente250x348.png"
+  comando = "convert " & rutatrabajo & "trasparente250x348.png" & " -resize 83x113 " & rutatrabajo & "trasparente250x348.png"
   Shell comando Wait
   
   If Exist(rutatrabajo & "t.png") Then
@@ -25,8 +25,9 @@ Public Sub ponerMarco(dibujoRuta As String, dibujoDestino As String, marco As Bo
   Try Copy dibujoRuta To rutatrabajo & "t.png"
   'proceso a repetir por cada registro
   
-  comando = "convert " & rutatrabajo & "t.png" & " -resize 93x113 " & rutatrabajo & "t.png"
-  comando = "convert " & rutatrabajo & "t.png" & " -resize 93x " & rutatrabajo & "t.png"
+  comando = "convert " & rutatrabajo & "t.png" & " -resize 83x113 " & rutatrabajo & "t.png"
+  'ajuste solo una dimentsion
+  'comando = "convert " & rutatrabajo & "t.png" & " -resize 93x " & rutatrabajo & "t.png"
   Shell comando Wait
   
   imagenorigen = rutatrabajo & "t.png"
@@ -149,15 +150,36 @@ Public Sub CrearMarco(origen As String, destino As String, colormarco As String)
   
 End
 
-Public Sub SuperPonerForma(RutaImagenForma As String, RutaImagenOrigen As String, RutaImagenDestino As String) As String
+Public Sub SuperPonerForma(RutaImagenForma As String, RutaImagenOrigen As String, RutaImagenDestino As String, Optional marcoespecial As Boolean) As String
   
   Dim comando As String 
   
-  comando = "convert " & RutaImagenOrigen & " -resize 93x113 /tmp/dibujoReducido.png"
-  comando = "convert " & RutaImagenOrigen & " -resize 93x113 /tmp/dibujoReducido.png"
-  Shell comando Wait
-  comando = "composite -compose Dst_In -gravity center " & RutaImagenForma & " /tmp/dibujoReducido.png -alpha set " & RutaImagenDestino
-  Shell comando Wait 
+  If marcoespecial = True Then 
+    Try Kill "/tmp/dibujoReducido.png"
+    comando = "convert " & RutaImagenOrigen & " -resize 83x113 /tmp/dibujoReducido.png"
+    Shell comando Wait
+    
+    'componercon un marco especial
+    Try Kill "/tmp/marcoespecial.png"
+    comando = "convert " & RutaImagenForma & " -resize 83x113 /tmp/marcoespecial.png"
+    Shell comando Wait
+    comando = "composite -gravity Center /tmp/dibujoReducido.png /tmp/marcoespecial.png " & RutaImagenDestino
+    Shell comando Wait 
+    comando = "composite -gravity Center /tmp/marcoespecial.png " & RutaImagenDestino & " " & RutaImagenDestino
+    Shell comando Wait 
+    
+  Else
+    Try Kill "/tmp/dibujoReducido.png"
+    comando = "convert " & RutaImagenOrigen & " -resize 83x113 /tmp/dibujoReducido.png"
+    Shell comando Wait
+    
+    'comando = "convert " & RutaImagenOrigen & " -resize 93x113 /tmp/dibujoReducido.png"
+    'comando = "composite -gravity Center /tmp/marcoespecial.png /tmp/dibujoReducido.png " & RutaImagenDestino
+    comando = "composite -compose Dst_In -gravity center " & RutaImagenForma & " /tmp/dibujoReducido.png -alpha set " & RutaImagenDestino
+    Shell comando Wait 
+    
+  Endif
+  
   Return RutaImagenDestino
   
 End

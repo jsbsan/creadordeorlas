@@ -219,6 +219,7 @@ Public Sub ToolButtonAjustarFoto_Click()
     
     PictureBoxFoto.Picture = Picture.Load(User.home & "/CreadorOrlas/temporales/FotosAlumnos/" & reg.foto)
     PictureBoxFoto.Refresh()
+    Try Kill modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & reg.foto
   Endif
   
 End
@@ -227,7 +228,7 @@ Public Sub ToolButtonHacerTransparente_Click()
   
   Dim numero As Integer
   Dim ruta As String = User.home & "/CreadorOrlas/temporales/FotosAlumnos/"
-
+  
   If reg.foto = "" Then 
     Message.Info(("Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"))
   Else

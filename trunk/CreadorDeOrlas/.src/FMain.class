@@ -613,10 +613,10 @@ Public Sub rellenarDatosOrlas()
   
   TextBoxOpcional2.text = ModuleGestionOrla.orla.textoopcional02
   
-  If ModuleGestionOrla.orla.escudo01 <> "" Then PictureBoxFondo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo01]
-  If ModuleGestionOrla.orla.escudo02 <> "" Then PictureBoxEscudo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo02]
-  If ModuleGestionOrla.orla.escudo03 <> "" Then PictureBoxLogo.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo03]
-  If ModuleGestionOrla.orla.escudo04 <> "" Then PictureBoxLogo2.Picture = Picture[ruta & ModuleGestionOrla.orla.escudo04]
+  If ModuleGestionOrla.orla.escudo01 <> "" Then PictureBoxFondo.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo01)
+  If ModuleGestionOrla.orla.escudo02 <> "" Then PictureBoxEscudo.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo02)
+  If ModuleGestionOrla.orla.escudo03 <> "" Then PictureBoxLogo.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo03)
+  If ModuleGestionOrla.orla.escudo04 <> "" Then PictureBoxLogo2.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo04)
   
   SpinBoxFilas.value = ModuleGestionOrla.orla.NumeroFilasAlumnos
   
@@ -746,6 +746,9 @@ Public Sub ToolButtonGeneraSVG_Click()
 End
 
 Private Sub hacerSVGoPNg(pdf As Boolean)
+  'borrado de ficheros...
+  
+  Shell ("rm " & User.Home & "/CreadorOrlas/trabajotmp/imagenes/*.*") Wait
   
   If codigo = 0 Then codigo = 1
   ' "/home/uno/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
@@ -764,7 +767,7 @@ Private Sub hacerSVGoPNg(pdf As Boolean)
     Copy ModuleGestionOrla.orla.Plantilla To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
   Endif
   
-  ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", codigo, ColorButton1.value, CheckBoxTransparencia.value, pdf)
+  ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", codigo, ColorButton1.value, False, pdf, CheckBoxAjustarFotos.Value)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
   
@@ -782,7 +785,7 @@ End
 Public Sub RadioButtonEfectoCuna_Click()
   
   If RadioButtonEfectoCuna.Value = True Then 
-    PictureBoxCuna.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    ' PictureBoxCuna.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.alumno93, "/tmp/conversion.png"))
     codigo = 3
   Endif
   
@@ -791,7 +794,7 @@ End
 Public Sub RadioButtonEfectoV_Click()
   
   If RadioButtonEfectoV.Value = True Then 
-    PictureBoxV.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    '  PictureBoxV.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
     codigo = 4
   Endif  
   
@@ -801,7 +804,7 @@ Public Sub RadioButtonEfectoElipse_Click()
   
   If RadioButtonEfectoElipse.Value = True Then 
     
-    PictureBoxElipse.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaElipse, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    ' PictureBoxElipse.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaElipse, ModulePrincipal.alumno93, "/tmp/conversion.png"))
     codigo = 2
   Endif
   
@@ -810,8 +813,6 @@ End
 Public Sub ColorButton1_Change()
   
   PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, "/tmp/destino.png", True, ColorButton1.Value))
-  'borrado de ficheros...
-  Shell ("rm " & User.Home & "/CreadorOrlas/trabajotmp/imagenes/*.*") Wait
   
 End
 
@@ -1089,5 +1090,44 @@ End
 Public Sub ToolButtonAccesoPaginaWeb_Click()
   
   Desktop.Open("http://creadordeorlas.blogspot.com.es/p/presentacion.html")
+  
+End
+
+Public Sub RadioButtonEfectoZig_Click()
+  
+  If RadioButtonEfectoZig.Value = True Then 
+    '  PictureBoxV.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    codigo = 5
+  Endif  
+  
+End
+
+Public Sub RadioButtonEfectoMarcoEspecial_Click()
+  
+  If RadioButtonEfectoMarcoEspecial.Value = True Then 
+    modulePrincipal.MarcoEspecial = PictureBoxEsp.Tag
+    codigo = 6
+  Endif
+  
+End
+
+Public Sub PictureBoxEsp_MouseDown()
+  
+  Dialog.Filter = ["*.png", "*.png"]
+  Dialog.Title = "Elige plantilla de marco"
+  If Dialog.OpenFile() Then 
+    
+  Else
+    
+    modulePrincipal.MarcoEspecial = Dialog.Path
+    PictureBoxEsp.tag = modulePrincipal.MarcoEspecial
+    PictureBoxEsp.Picture = Picture.Load(Dialog.Path)
+  Endif
+  
+End
+
+Public Sub ToolButtonCompartidoNuveMarcos_Click()
+  
+  Desktop.Open("https://drive.google.com/?authuser=0#folders/0B7uxDVszpXK2WWp3eXpqQ3RHTUE")
   
 End

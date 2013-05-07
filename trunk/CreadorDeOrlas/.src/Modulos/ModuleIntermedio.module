@@ -34,8 +34,10 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   '
   Try Copy "Efectos/Alu93x113.png" To "/tmp/Alu93x113.png"
   Try Copy "Efectos/elipse.png" To "/tmp/elipse.png"
+  Try Copy "Efectos/ZigZag.png" To "/tmp/ZigZag.png"
   Try Copy "Efectos/formacuna.png" To "/tmp/formacuna.png"
   Try Copy "Efectos/V.png" To "/tmp/V.png"
+  Try Copy "Efectos/marcolapiz.png" To "/tmp/marcoEspecial.png"
   
   'copia de icono de candado
   Try Copy "CandadoAbierto.png" To "/tmp/CandadoAbierto.png"
@@ -155,7 +157,7 @@ Public Sub rellenarGridviewsAlumnos(rejilla As ClassSuperGridview, Lista As Clas
         
       Else
         
-        rejilla[contadorPosicionFilaGrid, 0].Picture = Picture[modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & regtmp.foto]
+        rejilla[contadorPosicionFilaGrid, 0].Picture = Picture.Load(modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & regtmp.foto)
       Endif
       rejilla.rows[contadorPosicionFilaGrid].height = 35
       
@@ -199,7 +201,7 @@ Public Sub rellenarGridviewsProfesores(rejilla As ClassSuperGridview, Lista As C
         
       Else
         
-        rejilla[contadorPosicionFilaGrid, 0].Picture = Picture[modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & regtmp.foto]
+        rejilla[contadorPosicionFilaGrid, 0].Picture = Picture.Load(modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & regtmp.foto)
       Endif
       rejilla.rows[contadorPosicionFilaGrid].height = 35
       

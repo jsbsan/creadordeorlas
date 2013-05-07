@@ -129,7 +129,7 @@
         Border = True
       }
       { ToolButtonEditar ToolButton
-        MoveScaled(15,0,11,4)
+        MoveScaled(14,0,11,4)
         Text = ("Editar")
         Picture = Picture["icon:/22/edit"]
         Border = True
@@ -689,7 +689,7 @@
       Border = Border.Plain
     }
     { RadioButtonEfectoCuna RadioButton
-      MoveScaled(5,30,19,6)
+      MoveScaled(5,32,19,6)
       Text = ("Cuna")
     }
     { PictureBoxCuna PictureBox
@@ -712,10 +712,38 @@
       MoveScaled(7,16,15,4)
       Value = &H1FFF1F&
     }
-    { CheckBoxTransparencia CheckBox
-      MoveScaled(5,48,72,3)
-      Enabled = False
-      Text = ("Realizar trasparencia de fondos de imagenes de Alumnos y Profesores")
+    { CheckBoxAjustarFotos CheckBox
+      MoveScaled(2,69,49,4)
+      Text = ("Forzar ajuste de tamaño de fotografias")
+      Value = CheckBox.True
+    }
+    { RadioButtonEfectoZig RadioButton
+      MoveScaled(6,55,15,6)
+      Text = ("ZigZag")
+    }
+    { PictureBoxCuna2 PictureBox
+      MoveScaled(24,48,13.2857,16.2857)
+      Picture = Picture["Efectos/webcam_carnet07-05-2013_19-25-46.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { RadioButtonEfectoMarcoEspecial RadioButton
+      MoveScaled(40,55,16,6)
+      Text = ("Marco Esp")
+    }
+    { PictureBoxEsp PictureBox
+      MoveScaled(58,49,13.2857,16.2857)
+      Tag = "\"/tmp/marcoEspecial.png\""
+      Picture = Picture["Efectos/marcolapiz.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { ToolButtonCompartidoNuveMarcos ToolButton
+      MoveScaled(58,66,26,5)
+      Font = Font["Bitstream Charter,Italic,-1"]
+      Text = ("Marcos en la Nube")
+      Picture = Picture["googledriveacceso.png"]
+      Border = True
     }
     Index = 11
     Text = ("Salir")
