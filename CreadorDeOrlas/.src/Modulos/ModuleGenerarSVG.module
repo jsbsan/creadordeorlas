@@ -35,7 +35,7 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   If ajustar = True Then
     'ajuste de fotos a 83x113....
     For Each archivo In Dir(DirectorioDeTrabajo, "*.*")  
-      comando = "convert " & DirectorioDeTrabajo & archivo & " -resize 83x113\\! " & DirectorioDeTrabajo & archivo
+      comando = "convert " & DirectorioDeTrabajo & archivo & " -resize 249x339\\! " & DirectorioDeTrabajo & archivo
       Shell comando Wait
     Next
   Endif

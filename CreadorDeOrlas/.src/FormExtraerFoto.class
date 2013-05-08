@@ -133,6 +133,8 @@ Public Sub ToolButtonAceptar_Click()
   
   TrozoImagen.Save("/tmp/518x364.png")
   comando = "convert /tmp/518x364.png -crop " & Str$(126) & "x" & Str$(175) & "+" & Str$(194) & "+" & Str$(37) & " /tmp/extraido.png"
+  comando = "convert /tmp/518x364.png -crop " & Str$(252) & "x" & Str$(350) & "+" & Str$(138) & "+" & Str$(5) & " /tmp/extraido.png"
+  
   Shell comando Wait 
   resultadofinal = "/tmp/extraido.png"
   Kill ruta
@@ -141,5 +143,11 @@ Public Sub ToolButtonAceptar_Click()
   
 Catch 
   ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Sub AreaDibujo_MouseDown()
+  
+  Print Mouse.x, Mouse.y
   
 End
