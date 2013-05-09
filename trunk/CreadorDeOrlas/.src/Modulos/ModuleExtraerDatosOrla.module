@@ -26,8 +26,8 @@ Private Sub extraeXY(texto As String) As ClassPos
   
   Dim posicion As New ClassPos
   
-  posicion.x = Val(Replace$(comun.Between(texto, "X=\"", "\""), ".", ","))
-  posicion.y = Val(Replace$(comun.Between(texto, "Y=\"", "\""), ".", ","))
+  posicion.x = Val(Replace$(comun.Between(texto, "X=\"", "\""), ".", ",")) 
+  posicion.y = Val(Replace$(comun.Between(texto, "Y=\"", "\""), ".", ",")) - 70 'subo un poco las fotos de profesores
   Return posicion
   
 End

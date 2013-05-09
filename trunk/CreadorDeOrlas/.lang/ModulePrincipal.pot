@@ -14,27 +14,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModulePrincipal.module:58
+#: ModulePrincipal.module:61
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
 msgstr ""
 
-#: ModulePrincipal.module:142
+#: ModulePrincipal.module:151
 msgid "Nombre de archivo incorrecto"
 msgstr ""
 
-#: ModulePrincipal.module:157
+#: ModulePrincipal.module:166
 msgid "Problemas al copiar la plantilla de la orla"
 msgstr ""
 
-#: ModulePrincipal.module:159
+#: ModulePrincipal.module:168
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:197
+#: ModulePrincipal.module:206
 msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 
-#: ModulePrincipal.module:229
+#: ModulePrincipal.module:238
 msgid "error al leer datos del portapapeles"
 msgstr ""
 

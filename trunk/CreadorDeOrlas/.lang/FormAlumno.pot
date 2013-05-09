@@ -14,64 +14,72 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FormAlumno.form:38
+#: FormAlumno.form:39
 msgid "Nombre:"
 msgstr ""
 
-#: FormAlumno.form:47
+#: FormAlumno.form:48
 msgid "<h3>Alumnos</h3>"
 msgstr ""
 
-#: FormAlumno.form:55
+#: FormAlumno.form:56
 msgid "Foto WebCam"
 msgstr ""
 
-#: FormAlumno.form:66
+#: FormAlumno.form:67
 msgid "Apellidos:"
 msgstr ""
 
-#: FormAlumno.form:75
+#: FormAlumno.form:76
 msgid "Pueblo:"
 msgstr ""
 
-#: FormAlumno.form:80
+#: FormAlumno.form:81
 msgid "Provincia:"
 msgstr ""
 
-#: FormAlumno.form:89
+#: FormAlumno.form:90
 msgid "Orden:"
 msgstr ""
 
-#: FormAlumno.form:94
+#: FormAlumno.form:95
 msgid "ValueBox1"
 msgstr ""
 
-#: FormAlumno.form:99
+#: FormAlumno.form:100
 msgid "Aceptar"
 msgstr ""
 
-#: FormAlumno.form:106
+#: FormAlumno.form:107
 msgid "Cancelar"
 msgstr ""
 
-#: FormAlumno.form:113
+#: FormAlumno.form:114
 msgid "(opcional)"
 msgstr ""
 
-#: FormAlumno.form:120
+#: FormAlumno.form:121
 msgid "="
 msgstr ""
 
-#: FormAlumno.form:132
+#: FormAlumno.form:133
 msgid "+"
 msgstr ""
 
-#: FormAlumno.form:138
+#: FormAlumno.form:139
 msgid "Ajustar foto"
 msgstr ""
 
-#: FormAlumno.form:145
+#: FormAlumno.form:146
 msgid "ToolButton2"
+msgstr ""
+
+#: FormAlumno.form:154
+msgid "Una vez editada, vaya a Archivo y seguidamente a Sobreescribir imagen. No guarde la imagen en formato xcf"
+msgstr ""
+
+#: FormAlumno.form:155
+msgid "con Gimp"
 msgstr ""
 
 #: FormAlumno.class:64

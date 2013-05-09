@@ -2,6 +2,19 @@
 
 Private rutatrabajo As String = "/tmp/pruebasFotito/"
 
+Public Sub nohacerlesnada(dibujoRuta As String, dibujoDestino As String)
+  'solo ajusto tamaño...
+  
+  Dim comando As String
+
+  comando = "convert " & dibujoRuta & " -resize 249x339 /tmp/dibujoReducido.png"
+  
+  Shell comando Wait
+  comando = "cp /tmp/dibujoReducido.png " & dibujoDestino 
+  Shell comando Wait
+  
+End
+
 Public Sub ponerMarco(dibujoRuta As String, dibujoDestino As String, marco As Boolean, colormarco As Integer) As String
   
   Dim imagendestino, imagenorigen, texto, comando As String
@@ -25,7 +38,7 @@ Public Sub ponerMarco(dibujoRuta As String, dibujoDestino As String, marco As Bo
   Try Copy dibujoRuta To rutatrabajo & "t.png"
   'proceso a repetir por cada registro
   
-  comando = "convert " & rutatrabajo & "t.png" & " -resize 83x113 " & rutatrabajo & "t.png"
+  comando = "convert " & rutatrabajo & "t.png" & " -resize 249x339 " & rutatrabajo & "t.png"
   'ajuste solo una dimentsion
   'comando = "convert " & rutatrabajo & "t.png" & " -resize 93x " & rutatrabajo & "t.png"
   Shell comando Wait
