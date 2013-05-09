@@ -15,10 +15,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ModuleGenerarSVG.module:15
-msgid "Es necesario que edite la orla"
+msgid "Es necesario que organice las fotos en la orla"
 msgstr ""
 
-#: ModuleGenerarSVG.module:324
+#: ModuleGenerarSVG.module:15
+msgid "Opción: Datos y Organizar Orla"
+msgstr ""
+
+#: ModuleGenerarSVG.module:352
 msgid "Código de efecto desconocido"
 msgstr ""
 

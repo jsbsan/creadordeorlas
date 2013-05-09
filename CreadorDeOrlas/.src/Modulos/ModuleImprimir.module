@@ -5,26 +5,32 @@
 ' Dibujar
 '--------------------------
 
-Public Sub dibujarSVG(fichero As String, AreaDibujo As DrawingArea)
+Public Sub dibujarSVG(ruta As String, AreaDibujo As DrawingArea)
   
+  Dim hbrush As PaintBrush
+  Dim himage As Image
   Dim escalax As Float
-  Dim dra As SvgImage
   
-  dra = New SvgImage
-  AreaDibujo.Cached = True
-  AreaDibujo.Border = 1
-  
-  '  AreaDibujo.Painted = True
-  
-  If Exist(fichero) Then 
-    dra = dra.Load(fichero)
+  If Exist(ruta)
+    himage = Image.Load(ruta)
+    
+    AreaDibujo.Cached = True
+    AreaDibujo.Border = 1
+    '  AreaDibujo.Painted = True
+    
+    Paint.Begin(AreaDibujo)
+    
+    hbrush = Paint.Image(himage)
+    hbrush.Translate(0, 0)
+    escalax = AreaDibujo.W / himage.Width
+    paint.Scale(escalax, escalax)
+    
+    Paint.Brush = hbrush
+    Paint.Rectangle(0, 0, himage.w, himage.h)
+    Paint.Fill()
+    Paint.End
+  Else
+    Return
   Endif
-  
-  Paint.Begin(AreaDibujo)
-  escalax = AreaDibujo.W / dra.Width
-  
-  paint.Scale(escalax, escalax)
-  dra.Paint
-  Paint.End
   
 End

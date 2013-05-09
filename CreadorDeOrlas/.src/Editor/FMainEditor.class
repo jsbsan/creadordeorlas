@@ -28,7 +28,7 @@ End
 
 Public Sub Form_Open()
   
-  '  Me.Maximized = True
+  Me.Maximized = True
   
   ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar("apellidos")
   ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar("apellidos")

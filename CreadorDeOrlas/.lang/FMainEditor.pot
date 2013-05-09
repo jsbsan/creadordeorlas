@@ -14,47 +14,47 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FMainEditor.form:49
+#: FMainEditor.form:56
 msgid "datos"
 msgstr ""
 
-#: FMainEditor.form:58
+#: FMainEditor.form:65
 msgid "coord"
 msgstr ""
 
-#: FMainEditor.form:66
+#: FMainEditor.form:73
 msgid "Dibujar Rejilla"
 msgstr ""
 
-#: FMainEditor.form:73
+#: FMainEditor.form:80
 msgid "Espacio entre fotos"
 msgstr ""
 
-#: FMainEditor.form:77
+#: FMainEditor.form:84
 msgid "Horizontal:"
 msgstr ""
 
-#: FMainEditor.form:83
+#: FMainEditor.form:90
 msgid "Vertical:"
 msgstr ""
 
-#: FMainEditor.form:105
+#: FMainEditor.form:112
 msgid "Definir esquema Alumno:"
 msgstr ""
 
-#: FMainEditor.form:111
+#: FMainEditor.form:118
 msgid "Reorganizar Alumnos"
 msgstr ""
 
-#: FMainEditor.form:122
+#: FMainEditor.form:129
 msgid "Definir esquema Profesores:"
 msgstr ""
 
-#: FMainEditor.form:133
+#: FMainEditor.form:140
 msgid "Reorganizar Profesores"
 msgstr ""
 
-#: FMainEditor.form:139
+#: FMainEditor.form:146
 msgid "Posiciones"
 msgstr ""
 

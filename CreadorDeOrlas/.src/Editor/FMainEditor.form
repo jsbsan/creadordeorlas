@@ -5,6 +5,12 @@
   Tracking = True
   Icon = Picture["icon:/16/edit"]
   AutoResize = True
+  { ToolButtonBloquearPosicion ToolButton
+    MoveScaled(7,5,10,6)
+    Tag = "bloqueada"
+    Picture = Picture["CandadoAbierto.png"]
+    Border = True
+  }
   { ScrollView1 ScrollView
     MoveScaled(25,2,92,71)
     { PictureBoxFONDO PictureBox
@@ -94,12 +100,6 @@
     Font = Font["Bitstream Charter,-1"]
     Text = ("Posiciones")
     Alignment = Align.Center
-  }
-  { ToolButtonBloquearPosicion ToolButton
-    MoveScaled(7,5,10,6)
-    Tag = "bloqueada"
-    Picture = Picture["CandadoAbierto.png"]
-    Border = True
   }
   { Frame7 Frame
     MoveScaled(1,57,23,8)

@@ -5,6 +5,7 @@ Public RutaDatos As String '' ruta donde esta el proyecto
 Public Rutas As New String[] ''rutas de trabajo
 Public DatosOrla As New ClassDatosOrla
 Public alumno93 As String = "/tmp/Alu93x113.png"
+Public profesor93 As String = "/tmp/Pro93x113.png"
 Public formaElipse As String = "/tmp/elipse.png"
 Public formaZigZag As String = "/tmp/ZigZag.png"
 Public formaCuna As String = "/tmp/formacuna.png"
@@ -26,6 +27,8 @@ Public Sub iniciarDirectorios()
   rutas.Add(RutaPrograma & "trabajotmp/exportar")
   rutas.Add(RutaPrograma & "trabajotmp/importar")
   rutas.Add(RutaPrograma & "trabajotmp/imagenes")
+  rutas.Add(RutaPrograma & "trabajotmp/imagenes/alumno")
+  rutas.Add(RutaPrograma & "trabajotmp/imagenes/profesor")
   
   ModuleIntermedio.IniciarLaPrimeraVez(rutas)
   
@@ -58,6 +61,12 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
     Message.Error(("Nombre no valido de archivo, contiene parentesis en su nombre"))
     Return False
   Endif
+  
+  'borrado de datos anteriores...
+  ModuleGestionAlumnos.lista.Registros.Clear
+  ModuleGestionProfesores.lista.Registros.Clear
+  ModuleGestionOrla.orla.vacio
+  
   ' listar contenido del fichero -> para obtener rutas relativas
   nombreRutaAntinua = zip.extraeRutaZip(nombre, NombreCarpetaPrograma)
   

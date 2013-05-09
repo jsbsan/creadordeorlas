@@ -1,6 +1,6 @@
 ' Gambas module file
 
-Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As Integer, HacerTransparencia As Boolean, convertirPdf As Boolean, ajustar As Boolean, previa As Boolean) As String
+Public Sub realizar(RutaplantillaSvg As String, codigoAlumno As Variant[], codigoProfesor As Variant[], colormarco As Integer, HacerTransparencia As Boolean, convertirPdf As Boolean, ajustar As Boolean, previa As Boolean) As String
   
   Dim archivo As String
   Dim DirectorioDeTrabajo As String
@@ -12,12 +12,12 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   DirectorioDeTrabajo = modulePrincipal.RutaPrograma & "trabajotmp/imagenes/"
   
   If ModuleGestionAlumnos.lista.Registros.count <> 0 And ModuleGestionAlumnos.ListaOrdenada.count = 0 Then
-    Message.Info(("Es necesario que edite la orla"))
+    Message.Info(("Es necesario que organice las fotos en la orla") & "\n" & ("Opción: Datos y Organizar Orla"))
     Return 
   Endif
   
   If ModuleGestionProfesores.lista.Registros.count <> 0 And ModuleGestionProfesores.ListaOrdenada.count = 0 Then
-    Message.Info(("Es necesario que edite la orla"))
+    Message.Info(("Es necesario que organice las fotos en la orla") & "\n" & ("Opción: Datos y Organizar Orla"))
     Return
   Endif
   
@@ -29,8 +29,39 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
   Try Copy "Editor/TextTEXTO" To "/tmp/TexTEXTO"
   
   'hacer una copia de trabajo de fotos de profesor y alumnos
-  ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosAlumnos", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/", "*.*") 
-  ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosProfesores", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/", "*.*")
+  
+  'NOTE: EFECTOS al realizar SVG
+  
+  '-----------------------
+  'ALUMNOS
+  '-----------------------
+  ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosAlumnos", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/alumno/", "*.*") 
+  '----------------------------------------------------------------------------
+  'Aplicar efectos...
+  '----------------------------------------------------------------------------
+  For Each archivo In Dir(modulePrincipal.RutaPrograma & "trabajotmp/imagenes/alumno/", "*.*")  
+    ' Try Kill DirectorioDeTrabajo & Replace(archivo, ".jpg", ".png")
+    efectos(codigoAlumno, modulePrincipal.RutaPrograma & "trabajotmp/imagenes/alumno/" & archivo, modulePrincipal.RutaPrograma & "trabajotmp/imagenes/alumno/" & Replace(archivo, ".jpg", ".png"))
+  Next
+  
+  ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "trabajotmp/imagenes/alumno/", DirectorioDeTrabajo, "*.*") 
+  
+  '-----------------------
+  'Profesores
+  '-----------------------
+  
+  ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosProfesores", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/profesor/", "*.*")
+  '----------------------------------------------------------------------------
+  'Aplicar efectos...
+  '----------------------------------------------------------------------------
+  For Each archivo In Dir(modulePrincipal.RutaPrograma & "trabajotmp/imagenes/profesor/", "*.*")  
+    ' Try Kill DirectorioDeTrabajo & Replace(archivo, ".jpg", ".png")
+    efectos(codigoProfesor, modulePrincipal.RutaPrograma & "trabajotmp/imagenes/profesor/" & archivo, modulePrincipal.RutaPrograma & "trabajotmp/imagenes/profesor/" & Replace(archivo, ".jpg", ".png"))
+  Next
+  
+  ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "trabajotmp/imagenes/profesor/", DirectorioDeTrabajo, "*.*") 
+  
+  'Otros ajustes
   
   If ajustar = True Then
     'ajuste de fotos a 83x113....
@@ -40,7 +71,6 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
     Next
   Endif
   
-  'NOTE: EFECTOS al realizar SVG
   '----------------------------------------------------------------------------
   '  'aplicar efecto transparencia
   '----------------------------------------------------------------------------
@@ -53,14 +83,6 @@ Public Sub realizar(RutaplantillaSvg As String, codigo As Integer, colormarco As
     Next
     
   Endif
-  
-  '----------------------------------------------------------------------------
-  'Aplicar efectos...
-  '----------------------------------------------------------------------------
-  For Each archivo In Dir(DirectorioDeTrabajo, "*.*")  
-    ' Try Kill DirectorioDeTrabajo & Replace(archivo, ".jpg", ".png")
-    efectos(codigo, DirectorioDeTrabajo & archivo, DirectorioDeTrabajo & Replace(archivo, ".jpg", ".png"), colormarco)
-  Next
   
   '----------------------------------------------------------------------------
   'insercion de fotos y textos....
@@ -300,12 +322,16 @@ End
 ' efectos
 '-------------------------------------------------------------
 
-Public Sub efectos(codigo As Integer, Rutaimagenorigen As String, Rutaimagendestino As String, colormarco As Integer)
+Public Sub efectos(codigo As Variant[], Rutaimagenorigen As String, Rutaimagendestino As String)
+  'codigo[0]-> tipo de efecto (marco,elp...)
+  'codigo[1]-> color de marco o tipo de fichero de marco...
   
-  Select Case codigo
+  Select Case codigo[0]
+    Case 0
+      ModuleGenerarFotos.nohacerlesnada(Rutaimagenorigen, Rutaimagendestino)
     Case 1
       '    codigo = 1
-      ModuleGenerarFotos.ponerMarco(Rutaimagenorigen, Rutaimagendestino, True, colormarco)
+      ModuleGenerarFotos.ponerMarco(Rutaimagenorigen, Rutaimagendestino, True, codigo[1])
     Case 2
       ' codigo = 2
       ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaElipse, Rutaimagenorigen, Rutaimagendestino)
@@ -316,9 +342,11 @@ Public Sub efectos(codigo As Integer, Rutaimagenorigen As String, Rutaimagendest
       '    codigo = 4
       ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, Rutaimagenorigen, Rutaimagendestino)
     Case 5
+      ' codigo=5 
       ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaZigZag, Rutaimagenorigen, Rutaimagendestino)
     Case 6
-      ModuleGenerarFotos.SuperPonerForma(modulePrincipal.MarcoEspecial, Rutaimagenorigen, Rutaimagendestino, True)
+      'marco especial...
+      ModuleGenerarFotos.SuperPonerForma(codigo[1], Rutaimagenorigen, Rutaimagendestino, True)
       
     Case Else 
       Message.Info(("Código de efecto desconocido"))

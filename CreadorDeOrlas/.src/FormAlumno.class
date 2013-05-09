@@ -238,3 +238,11 @@ Public Sub ToolButtonHacerTransparente_Click()
   Endif
   
 End
+
+Public Sub ToolButtonEditarGimp_Click()
+  
+  Exec ["gimp", User.home & "/CreadorOrlas/temporales/FotosAlumnos/" & reg.Foto] Wait
+  
+  PictureBoxFoto.Picture = Picture.Load(User.home & "/CreadorOrlas/temporales/FotosAlumnos/" & reg.Foto)
+  
+End

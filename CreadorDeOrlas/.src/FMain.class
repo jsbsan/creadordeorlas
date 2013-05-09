@@ -12,6 +12,7 @@ Public Observador2 As Observer
 
 Public Sub Form_Open()
   
+  Dim dato As New Variant[]
   Dim pensando As New FormPensando 
   'comprobar si ya hay una instancia del programa ejecutandose...
   If ModuleUnicaVez.ejecutandoUnicaCopia("CreadorDeOrlas.gambas") <> True Then
@@ -69,6 +70,10 @@ Public Sub Form_Open()
   'guarda en un fichero temporal...
   LabelNombreFichero.text = "/tmp/Base"
   ModulePrincipal.RutaDatos = "/tmp/Base"
+  
+  dato.Add(0)
+  PictureBoxEfectoProfesor.tag = dato
+  PictureBoxEfectoAlumno.tag = dato
   
 End
 
@@ -392,7 +397,7 @@ Public Sub IconPanel1_Click()
   If IconPanel1.index = 10 Then 
     'sistema de mostrar previsualizacion
     'crear el svg y mostarlo...
-    Print hacerSVGoPNg(False, True)
+    ' hacerSVGoPNg(False, True)
     ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), DrawingArea1)
     
   Endif
@@ -777,24 +782,39 @@ Private Sub hacerSVGoPNg(pdf As Boolean, Optional previsualizacion As Boolean) A
     Copy ModuleGestionOrla.orla.Plantilla To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
   Endif
   
-  Return ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", codigo, ColorButton1.value, False, pdf, CheckBoxAjustarFotos.Value, previsualizacion)
+  Return ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", PictureBoxEfectoAlumno.tag, PictureBoxEfectoProfesor.tag, ColorButton1.value, False, pdf, CheckBoxAjustarFotos.Value, previsualizacion)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
   
 End
 
 Public Sub RadioButtonEfecto_Click()
+  'cambiar...
   
-  If RadioButtonEfecto.Value = True Then 
-    PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, "/tmp/destino.png", True, ColorButton1.Value))
-    codigo = 1
-  Endif
+  ColorButton1_Change()
+  
+  'If RadioButtonEfecto.Value = True Then 
+  ' PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, "/tmp/destino.png", True, ColorButton1.Value))
+  codigo = 1
+  'Endif
   
 End
 
 Public Sub RadioButtonEfectoCuna_Click()
   
+  Dim dato As New Variant[]
+  
   If RadioButtonEfectoCuna.Value = True Then 
+    'PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    dato.Add(3)
+    'actualiza tambien el dibujo del profe o alumno, segun este activado...
+    If RadioButtonEfectoAlumno.Value = True Then
+      PictureBoxEfectoAlumno.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+      PictureBoxEfectoAlumno.tag = dato
+    Else
+      PictureBoxEfectoProfesor.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.profesor93, "/tmp/conversion.png"))
+      PictureBoxEfectoProfesor.tag = dato
+    Endif
     ' PictureBoxCuna.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.alumno93, "/tmp/conversion.png"))
     codigo = 3
   Endif
@@ -803,7 +823,19 @@ End
 
 Public Sub RadioButtonEfectoV_Click()
   
+  Dim dato As New Variant[]
+  
   If RadioButtonEfectoV.Value = True Then 
+    ' PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    dato.Add(4)
+    'actualiza tambien el dibujo del profe o alumno, segun este activado...
+    If RadioButtonEfectoAlumno.Value = True Then
+      PictureBoxEfectoAlumno.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+      PictureBoxEfectoAlumno.tag = dato
+    Else
+      PictureBoxEfectoProfesor.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.profesor93, "/tmp/conversion.png"))
+      PictureBoxEfectoProfesor.tag = dato
+    Endif
     '  PictureBoxV.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
     codigo = 4
   Endif  
@@ -812,9 +844,22 @@ End
 
 Public Sub RadioButtonEfectoElipse_Click()
   
+  Dim dato As New Variant[]
+  
   If RadioButtonEfectoElipse.Value = True Then 
-    
-    ' PictureBoxElipse.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaElipse, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    If RadioButtonEfectoAlumno.Value = True Then
+      
+      dato.Add(2) 'codigo=2
+      PictureBoxEfectoAlumno.tag = dato
+      PictureBoxEfectoAlumno.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaElipse, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    Else  
+      
+      dato.Add(2) 'codigo=2
+      PictureBoxEfectoProfesor.tag = dato
+      PictureBoxEfectoProfesor.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaElipse, ModulePrincipal.profesor93, "/tmp/conversion.png"))
+      
+    Endif
+    'codigo siguiente anticuado...
     codigo = 2
   Endif
   
@@ -822,7 +867,24 @@ End
 
 Public Sub ColorButton1_Change()
   
+  Dim dato As New Variant[]
+  
   PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, "/tmp/destino.png", True, ColorButton1.Value))
+  dato.Add(1)
+  dato.Add(ColorButton1.Value)
+  
+  'actualiza tambien el dibujo del profe o alumno, segun este activado...
+  
+  If RadioButtonEfectoAlumno.Value = True Then
+    PictureBoxEfectoAlumno.Picture = PictureBoxMarco.Picture
+    PictureBoxEfectoAlumno.tag = dato
+    
+  Else
+    
+    PictureBoxEfectoProfesor.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.profesor93, "/tmp/destino.png", True, ColorButton1.Value))
+    PictureBoxEfectoProfesor.tag = dato
+    
+  Endif
   
 End
 
@@ -1105,7 +1167,20 @@ End
 
 Public Sub RadioButtonEfectoZig_Click()
   
+  Dim dato As New Variant[]
+  
   If RadioButtonEfectoZig.Value = True Then 
+    '  PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaZigZag, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    dato.Add(5)
+    'actualiza tambien el dibujo del profe o alumno, segun este activado...
+    If RadioButtonEfectoAlumno.Value = True Then
+      PictureBoxEfectoAlumno.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaZigZag, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+      PictureBoxEfectoAlumno.tag = dato
+    Else
+      PictureBoxEfectoProfesor.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaZigZag, ModulePrincipal.profesor93, "/tmp/conversion.png"))
+      PictureBoxEfectoProfesor.tag = dato
+    Endif
+    
     '  PictureBoxV.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
     codigo = 5
   Endif  
@@ -1114,8 +1189,22 @@ End
 
 Public Sub RadioButtonEfectoMarcoEspecial_Click()
   
+  Dim dato As New Variant[]
+  
   If RadioButtonEfectoMarcoEspecial.Value = True Then 
     modulePrincipal.MarcoEspecial = PictureBoxEsp.Tag
+    dato.Add(6)
+    dato.Add(PictureBoxEsp.tag)
+    'actualiza tambien el dibujo del profe o alumno, segun este activado...
+    If RadioButtonEfectoAlumno.Value = True Then
+      PictureBoxEfectoAlumno.Picture = PictureBoxEsp.Picture
+      PictureBoxEfectoAlumno.tag = dato
+    Else
+      PictureBoxEfectoProfesor.Picture = PictureBoxEsp.Picture
+      PictureBoxEfectoProfesor.tag =
+        PictureBoxEfectoProfesor.tag = dato
+    Endif
+    
     codigo = 6
   Endif
   
@@ -1139,5 +1228,43 @@ End
 Public Sub ToolButtonCompartidoNuveMarcos_Click()
   
   Desktop.Open("https://drive.google.com/?authuser=0#folders/0B7uxDVszpXK2WWp3eXpqQ3RHTUE")
+  
+End
+
+Public Sub PictureBoxMarco_MouseDown()
+  
+End
+
+Public Sub PictureBoxElipse_MouseDown()
+  
+End
+
+Public Sub PictureBoxCuna_MouseDown()
+  
+End
+
+Public Sub PictureBoxV_MouseDown()
+  
+End
+
+Public Sub RadioButtonEfectoAlumno_Click()
+  
+  If RadioButtonEfectoAlumno.Value = True Then 
+    
+    PictureBoxEfectoAlumno.Enabled = True
+  Else
+    PictureBoxEfectoAlumno.Enabled = False
+  Endif
+  
+End
+
+Public Sub RadioButtonEfectoProfesor_Click()
+  
+  If RadioButtonEfectoProfesor.value = True Then 
+    PictureBoxEfectoProfesor.Enabled = True
+  Else
+    PictureBoxEfectoProfesor.Enabled = False
+    
+  Endif
   
 End

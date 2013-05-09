@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,56,47)
+  MoveScaled(0,0,56,50)
   Resizable = False
   { PictureBoxFoto PictureBox
     MoveScaled(3,10,12.1429,17)
@@ -52,7 +52,7 @@
     Text = ("ValueBox1")
   }
   { ToolButtonAceptar ToolButton
-    MoveScaled(18,41,15,6)
+    MoveScaled(21,41,15,6)
     Text = ("Aceptar")
     Picture = Picture["icon:/22/apply"]
     Border = True
@@ -79,9 +79,17 @@
     Border = True
   }
   { ToolButtonHacerTransparente ToolButton
-    MoveScaled(6,40,7,5)
+    MoveScaled(6,39,7,5)
     Text = ("ToolButton2")
     Picture = Picture["icono_transparente.png"]
+    Border = True
+  }
+  { ToolButtonEditarGimp ToolButton
+    MoveScaled(1,44,17,5)
+    Font = Font["Bitstream Charter"]
+    ToolTip = ("Una vez editada, vaya a Archivo y seguidamente a Sobreescribir imagen. No guarde la imagen en formato xcf")
+    Text = ("con Gimp")
+    Picture = Picture["gimp-icon32.png"]
     Border = True
   }
 }

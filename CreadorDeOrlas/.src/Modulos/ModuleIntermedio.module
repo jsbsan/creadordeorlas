@@ -33,6 +33,7 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   '
   '
   Try Copy "Efectos/Alu93x113.png" To "/tmp/Alu93x113.png"
+  Try Copy "Editor/Pro.png" To "/tmp/Pro93x113.png"
   Try Copy "Efectos/elipse.png" To "/tmp/elipse.png"
   Try Copy "Efectos/ZigZag.png" To "/tmp/ZigZag.png"
   Try Copy "Efectos/formacuna.png" To "/tmp/formacuna.png"
