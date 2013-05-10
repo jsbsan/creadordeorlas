@@ -78,3 +78,7 @@ msgstr ""
 msgid "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"
 msgstr ""
 
+#: FormProfesor.class:196
+msgid "No se puede editar, debe de asignar una imagen"
+msgstr ""
+

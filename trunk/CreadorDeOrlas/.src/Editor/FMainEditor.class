@@ -548,3 +548,9 @@ End
 Public Sub Frame7_MouseDown()
   
 End
+
+Public Sub ToolButton1_Click()
+  
+  Me.Close()
+  
+End

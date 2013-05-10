@@ -1,9 +1,10 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,119,74)
+  MoveScaled(0,0,119,80)
   Tracking = True
   Icon = Picture["icon:/16/edit"]
+  Maximized = True
   AutoResize = True
   { ToolButtonBloquearPosicion ToolButton
     MoveScaled(7,5,10,6)
@@ -135,5 +136,12 @@
   { CheckBoxBloqueo CheckBox
     MoveScaled(3,5,4,6)
     Value = CheckBox.None
+  }
+  { ToolButton1 ToolButton
+    MoveScaled(2,75,18,5)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Salir del Editor")
+    Picture = Picture["icon:/22/quit"]
+    Border = True
   }
 }
