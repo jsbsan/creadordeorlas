@@ -105,6 +105,15 @@ Geometry=[1534,801,964,210]
 [DebugWindow/Picture.Load(ruta)]
 Geometry=[-7,-8,210,210]
 
+[DebugWindow/PictureBoxEfectoAlumno.tag]
+Geometry=[-7,-8,210,210]
+
+[DebugWindow/PictureBoxEfectoProfesor.tag]
+Geometry=[-7,-8,210,210]
+
+[DebugWindow/PictureBoxEsp.Picture]
+Geometry=[-22,507,210,210]
+
 [DebugWindow/PictureBoxFoto]
 Geometry=[-7,-8,331,743]
 
@@ -122,6 +131,9 @@ Geometry=[-7,-8,210,210]
 
 [DebugWindow/contenidoAordenar]
 Geometry=[-7,-8,777,210]
+
+[DebugWindow/dato]
+Geometry=[-7,-8,210,210]
 
 [DebugWindow/f]
 Geometry=[-7,-8,393,529]
@@ -172,7 +184,8 @@ Geometry=[-7,-8,210,210]
 LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\nA       .\nA       .src\nA       .src/FMain.class\nA       .src/FormAlumno.form\nA       .src/Modulos\nA       .src/Modulos/ModuleImprimir.module\nA       .src/Modulos/ModuleHacerTransparente.module\nA       .src/Modulos/ModuleUtilidadesDisco.module\nA       .src/Modulos/ModuleIntermedio.module\nA       .src/Modulos/ModulePrincipal.module\nA       .src/FormAlumno.class\nA       .src/FormPlantillaOrla.form\nA       .src/FormProfesor.form\nA       .src/FormPlantillaOrla.class\nA       .src/FormProfesor.class\nA       .src/FormEditorGrafico.form\nA       .src/FormEditorGrafico.class\nA       .src/Clases\nA       .src/Clases/Clase de Datos\nA       .src/Clases/Clase de Datos/ClassProfesor.class\nA       .src/Clases/Clase de Datos/ClassPos.class\nA       .src/Clases/Clase de Datos/Alumnos\nA       .src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module\nA       .src/Clases/Clase de Datos/Alumnos/ClassListaAlumnos.class\nA       .src/Clases/Clase de Datos/ClassPersona.class\nA       .src/Clases/Clase de Datos/ClassDatosOrla.class\nA       .src/Clases/Clase de Datos/ClassGestion.class\nA       .src/Clases/Clase de Datos/ClassAlumno.class\nA       .src/Clases/Clase de Datos/Profesores\nA       .src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module\nA       .src/Clases/Clase de Datos/Profesores/ClassListaProfesores.class\nA       .src/Clases/DeTrabajo\nA       .src/Clases/DeTrabajo/ClassSuperGridview.class\nA       .src/Clases/DeTrabajo/ClassZip.class\nA       .src/Clases/Editor\nA       .src/Clases/Editor/ClassMiniMapa.class\nA       .src/Clases/Editor/ClassRectanguloFijo.class\nA       .src/Clases/Editor/ClassPto.class\nA       .src/Clases/Editor/ClassPtoControl.class\nA       .src/Clases/Editor/ClassRectanguloRelleno.class\nA       .src/ModulePruebas.module\nA       .src/FMain.form\nA       gambas360.png\nA       orlaicono.png\nA       .hidden\nA       ojo22.png\nA       icono_fotos_personas.png\nA       .startup\nA       importar.png\nA       icono_transparente.png\nA       EsquemasyNotas\nA       EsquemasyNotas/UrlPlantillas\nA       EsquemasyNotas/Programa\nA       EsquemasyNotas/Programa/Especificaciones Plantilla Orlas.txt\nA       EsquemasyNotas/Programa/EstruturaDeDatos\nA       EsquemasyNotas/Programa/SvgTextoImagen\nA       EsquemasyNotas/Programa/Organizar en filas y Columnas\nA       EsquemasyNotas/Programa/EsquemaGeneralDeLaAplición\nA       EsquemasyNotas/Letras\nA       EsquemasyNotas/imageMagick\nA       EsquemasyNotas/imageMagick/Convertir A3 a A4\nA       EsquemasyNotas/imageMagick/TextoEnImagen\nA       EsquemasyNotas/imageMagick/ImagenOvalada\nA       EsquemasyNotas/imageMagick/Eliminar color en esquina\nA       .directory\nA       .project\nA       inkscape-icono.png\nA       gestorOrlas.png\nA       exportar.png\nA       transparente.png\nA       .icon.png\nA       magicwand\nA       .action\nA       icono_galeria2.jpg\nA       FotoCarnetMyWebCam-3.0.3.tar.gz\nA       camara_icono.png\nA       .lang\nA       dibujos\nA       dibujos/Iconos_Educatronica_01.png\nA       dibujos/gatojugando.png\nA       dibujos/Editor\nA       dibujos/Editor/banderita.png\nA       dibujos/Editor/chinchetaAmarilla.png\nA       dibujos/Editor/barra297.png\nA       dibujos/Editor/barra210.png\nA       dibujos/Editor/barra420.png\nA       dibujos/Editor/chinchetaRoja.png\nA       dibujos/ORLA GENERADOR.png\nA       dibujos/icono_profesor.png\nA       mininopicaros2012.png\nA       Plantillas\nA       Plantillas/orla1\nA       Plantillas/orla1/esquina.png\nA       Plantillas/orla1/Detalles_en_azul_y_negro_marco.svg\nA       Plantillas/orla1/cinta.svg\nA       Plantillas/orla1/borde.png\nA       Plantillas/orla1/ESCUDO01\nA       Plantillas/orla1/ESCUDO02\nA       Plantillas/orla1/adorno.png\nA       Plantillas/orla2\nA       Plantillas/orla2/border.jpg\nA       Plantillas/orla2/cinta.svg\nA       Plantillas/orla2/Antorcha y orla rojaref.svg\nA       Plantillas/orla2/antorcha.jpg\nA       Plantillas/orla2/ESCUDO01\nA       Plantillas/orla2/ESCUDO02"
 
 [OpenFile]
-File[1]=".src/FMain.class:400.70"
+Active=1
+File[1]=".src/FMain.class:782.6"
 File[2]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[3]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[4]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -218,7 +231,7 @@ File[43]=".src/Modulos/ModulePrincipal.module:30.58"
 File[44]=".src/Modulos/ModuleIntermedio.module:40.63"
 File[45]=".src/Editor/ModuleHacerTransparente.module:17.20"
 File[46]="magicwand:0.0"
-File[47]=".src/Modulos/ModuleImprimir.module:21.4"
+File[47]=".src/Modulos/ModuleImprimir.module:35.3"
 File[48]=".src/FormAlumno.form"
 File[49]=".src/FormAlumno.class:239.3"
 File[50]=".src/FormProfesor.form"
@@ -254,13 +267,12 @@ File[79]=".src/Editor/ModuleSistemaOrdenacion.module:124.0"
 File[80]=".src/Modulos/ModuleUnicaVez.module:0.20"
 File[81]=".src/Editor/ModuleDistribucionFotos.module:125.6"
 File[82]=".src/Editor/FMainEditor.form"
-File[83]=".src/Editor/ModuleGenerarFotos.module:13.20"
+File[83]=".src/Editor/ModuleGenerarFotos.module:160.2"
 File[84]="Editor/150x120.png"
 File[85]="icono_fotos_personas1.png"
 File[86]=".src/Modulos/ModuleAsignarYSoltarImagenes.module:72.57"
 File[87]=".src/Modulos/ModuleGenerarPdf.module:5.2"
-Active=88
-File[88]=".src/Modulos/ModuleGenerarSVG.module:46.6"
+File[88]=".src/Modulos/ModuleGenerarSVG.module:64.201"
 File[89]="EsquemasyNotas/Conversion a SVG/Comentarios para añadir informacion a los svg:72.0"
 File[90]="Editor/TextFoto:7.2"
 File[91]="Editor/TextTEXTO:5.42"

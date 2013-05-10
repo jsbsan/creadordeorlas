@@ -11,7 +11,7 @@ Public Sub dibujarSVG(ruta As String, AreaDibujo As DrawingArea)
   Dim himage As Image
   Dim escalax As Float
   
-  If Exist(ruta)
+  If Exist(ruta) Then
     himage = Image.Load(ruta)
     
     AreaDibujo.Cached = True

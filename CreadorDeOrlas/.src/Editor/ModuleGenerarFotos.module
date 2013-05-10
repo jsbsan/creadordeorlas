@@ -6,7 +6,7 @@ Public Sub nohacerlesnada(dibujoRuta As String, dibujoDestino As String)
   'solo ajusto tamaño...
   
   Dim comando As String
-
+  
   comando = "convert " & dibujoRuta & " -resize 249x339 /tmp/dibujoReducido.png"
   
   Shell comando Wait
@@ -157,7 +157,7 @@ Public Sub CrearMarco(origen As String, destino As String, colormarco As String)
   Dim comando As String 
   
   ' Try Kill destino
-  comando = "convert " & origen & " -mattecolor '#" & Hex$(colormarco) & "'  -frame 10x10+5+5  " & destino
+  comando = "convert " & origen & " -mattecolor '#" & Hex$(colormarco) & "'  -frame 30x30+15+15  " & destino
   
   Shell comando Wait
   
