@@ -1272,3 +1272,22 @@ Public Sub RadioButtonEfectoProfesor_Click()
   Endif
   
 End
+
+Public Sub RadioButtonSinEfectos_Click()
+  
+  Dim dato As New Variant[]
+  
+  If RadioButtonSinEfectos.value = True Then 
+    dato.Add(0)
+    
+    If RadioButtonEfectoAlumno.Value = True Then
+      PictureBoxEfectoAlumno.Picture = Picture.Load("Efectos/Alu93x113.png")
+      PictureBoxEfectoAlumno.tag = dato
+    Else
+      PictureBoxEfectoProfesor.Picture = Picture.Load("Editor/Pro.png")
+      PictureBoxEfectoProfesor.tag = dato
+    Endif  
+    
+  Endif
+  
+End

@@ -244,16 +244,10 @@
         Text = ("%")
       }
     }
-    { ButtonEditorOrla Button
-      MoveScaled(31,67,40,10)
-      Font = Font["Bitstream Charter"]
-      Text = ("Organizar posición de fotos en la Orla")
-      Picture = Picture["icon:/22/grid"]
-    }
     { TextLabel6 TextLabel
       MoveScaled(2,80,81,9)
       Font = Font["Bitstream Charter,-1"]
-      Text = ("Cuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Editar Orla\", para ver poder ver como queda el diseño de la misma. Además podrá modificar la disposición de las fotografías para personalizar su orla.")
+      Text = ("<b>Nota:</b><br>\nCuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Organizar posición defotos en la Orla\", para poder ver como queda el diseño de la misma.<br>\nAdemás podrá modificar la disposición de las fotografías para personalizar su orla.")
     }
     { Frame1 Frame
       MoveScaled(1,50,37,17)
@@ -548,6 +542,12 @@
         Text = ("Profesores")
       }
     }
+    { ButtonEditorOrla Button
+      MoveScaled(14,53,57,10)
+      Font = Font["Bitstream Charter"]
+      Text = ("Organizar posición de fotos en la Orla")
+      Picture = Picture["icon:/22/grid"]
+    }
     Index = 6
     Text = ("Guardar")
     Picture = Picture["icon:/22/save"]
@@ -640,6 +640,33 @@
     Index = 9
     Text = ("Aplicar Efectos")
     Picture = Picture["icon:/22/fill"]
+    { Label28 Label
+      MoveScaled(1,6,84,24)
+      Border = Border.Plain
+    }
+    { Frame8 Frame
+      MoveScaled(2,7,83,23)
+      { PictureBoxEfectoProfesor PictureBox
+        MoveScaled(60,1,11,15)
+        Enabled = False
+        Picture = Picture["Editor/Pro.png"]
+        Stretch = True
+      }
+      { PictureBoxEfectoAlumno PictureBox
+        MoveScaled(24,1,12,15)
+        Picture = Picture["Efectos/Alu93x113.png"]
+        Stretch = True
+      }
+      { RadioButtonEfectoAlumno RadioButton
+        MoveScaled(5,0,15,15)
+        Text = ("Alumnos:")
+        Value = True
+      }
+      { RadioButtonEfectoProfesor RadioButton
+        MoveScaled(44,1,16,15)
+        Text = ("Profesores:")
+      }
+    }
     { TextLabel9 TextLabel
       MoveScaled(64,73,10,13)
       Font = Font["Bitstream Charter,-2"]
@@ -647,63 +674,63 @@
       Alignment = Align.Center
     }
     { PictureBoxMarco PictureBox
-      MoveScaled(23,33,13.2857,16.2857)
+      MoveScaled(23,38,13.2857,16.2857)
       Picture = Picture["destino.png"]
       Stretch = True
       Border = Border.Plain
     }
     { RadioButtonEfecto RadioButton
-      MoveScaled(3,36,19,6)
+      MoveScaled(5,41,18,8)
       Text = ("Marco")
       Value = True
     }
     { Label24 Label
-      MoveScaled(1,27,85,5)
+      MoveScaled(-2,-1,85,5)
       Font = Font["Bitstream Charter,Underline,+4"]
       Text = ("Efectos en las Fotos: Marco o Recorte de Formas")
       Alignment = Align.Center
     }
     { RadioButtonEfectoV RadioButton
-      MoveScaled(44,57,15,6)
+      MoveScaled(44,55,17,16)
       Text = ("V")
     }
     { PictureBoxV PictureBox
-      MoveScaled(62,52,13.2857,16.2857)
+      MoveScaled(62,55,13.2857,16.2857)
       Picture = Picture["Efectos/Vconversion.png"]
       Stretch = True
       Border = Border.Plain
     }
     { RadioButtonEfectoCuna RadioButton
-      MoveScaled(4,57,19,6)
+      MoveScaled(4,55,19,16)
       Text = ("Cuna")
     }
     { PictureBoxCuna PictureBox
-      MoveScaled(23,52,13.2857,16.2857)
+      MoveScaled(23,55,13.2857,16.2857)
       Picture = Picture["Efectos/Cunaconversion.png"]
       Stretch = True
       Border = Border.Plain
     }
     { RadioButtonEfectoElipse RadioButton
-      MoveScaled(43,36,19,6)
+      MoveScaled(42,38,20,16)
       Text = ("Elipse")
     }
     { PictureBoxElipse PictureBox
-      MoveScaled(62,33,13.2857,16.2857)
+      MoveScaled(62,38,13.2857,16.2857)
       Picture = Picture["Efectos/Elipseconversion.png"]
       Stretch = True
       Border = Border.Plain
     }
     { ColorButton1 ColorButton
-      MoveScaled(6,42,15,4)
+      MoveScaled(6,49,15,4)
       Value = &H1FFF1F&
     }
     { CheckBoxAjustarFotos CheckBox
-      MoveScaled(28,22,49,4)
+      MoveScaled(22,25,49,4)
       Text = ("Forzar ajuste de tamaño de fotografias")
       Value = CheckBox.True
     }
     { RadioButtonEfectoZig RadioButton
-      MoveScaled(5,78,15,6)
+      MoveScaled(4,72,19,16)
       Text = ("ZigZag")
     }
     { PictureBoxCuna2 PictureBox
@@ -731,29 +758,9 @@
       Picture = Picture["googledriveacceso.png"]
       Border = True
     }
-    { Frame8 Frame
-      MoveScaled(3,4,82,18)
-      Text = ("Aplicar efectos....")
-      { PictureBoxEfectoProfesor PictureBox
-        MoveScaled(61,1,12,16)
-        Enabled = False
-        Picture = Picture["Editor/Pro.png"]
-        Stretch = True
-      }
-      { PictureBoxEfectoAlumno PictureBox
-        MoveScaled(24,3,12,14)
-        Picture = Picture["Efectos/Alu93x113.png"]
-        Stretch = True
-      }
-      { RadioButtonEfectoAlumno RadioButton
-        MoveScaled(5,3,15,13)
-        Text = ("Alumnos:")
-        Value = True
-      }
-      { RadioButtonEfectoProfesor RadioButton
-        MoveScaled(44,2,16,15)
-        Text = ("Profesores:")
-      }
+    { RadioButtonSinEfectos RadioButton
+      MoveScaled(5,32,71,4)
+      Text = ("No aplicar ningún efecto a las fotografías")
     }
     Index = 10
     Text = ("Previsualizar")
@@ -779,7 +786,7 @@
     Text = ("Generar Orla")
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGeneraSVG ToolButton
-      MoveScaled(25,14,33,10)
+      MoveScaled(21,6,38,10)
       ToolTip = ("Crear archivo .svg y editarlo con inkscape")
       Text = ("Generar Orla en .SVG")
       Picture = Picture["inkscape-icono.png"]
@@ -795,6 +802,11 @@
       Text = ("Generar Orla en .PNG")
       Picture = Picture["dibujos/ORLA GENERADOR.png"]
       Border = True
+    }
+    { TextLabel12 TextLabel
+      MoveScaled(15,20,53,16)
+      Text = ("Nota:<br>\nSe creará una copia de trabajo, con las fotografías y el archivo tipo .svg  en la carpeta:<br>\n/tmp/trabajo_orla/trabajo.svg<br>")
+      Alignment = Align.Center
     }
     Index = 12
     Text = ("Salir")

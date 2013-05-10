@@ -145,8 +145,8 @@ Public Sub realizar(RutaplantillaSvg As String, codigoAlumno As Variant[], codig
   Exec ["cp", "/tmp/total.svg", ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg"] Wait
   
   'relleno los datos de la orla...
-  Print "----------------------------------------------------------------------------------------------"
-  Print "Editando: "; ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")
+  ' Print "----------------------------------------------------------------------------------------------"
+  '  Print "Editando: "; ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")
   
   If previa = True Then
     fpensando.parar = True
@@ -156,8 +156,18 @@ Public Sub realizar(RutaplantillaSvg As String, codigoAlumno As Variant[], codig
   Endif
   
   If convertirPdf = False Then 
-    
-    Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")] Wait
+    'realizo copia de los archivos de fotografias y plantillas svg en la carpeta:
+    '\home\usuario\trabajo_orla\trabajo.svg
+    '1) borro el contenido de los archivos...
+    Shell ("rm /tmp/trabajo_orla/*.*") Wait
+    Try Mkdir "/tmp/trabajo_orla/"
+    '2) copio el contenido de las images
+    ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "trabajotmp/imagenes/", "/tmp/trabajo_orla/", "*.png") 
+    ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/", "/tmp/trabajo_orla/", "*.*")
+    '3) copio el archivo .svg 
+    Exec ["cp", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg"), "/tmp/trabajo_orla/trabajo.svg"] Wait
+    '4)edito
+    Exec ["inkscape", "/tmp/trabajo_orla/trabajo.svg"] Wait
   Else
     
     Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg"), "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait

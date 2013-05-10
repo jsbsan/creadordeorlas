@@ -241,8 +241,12 @@ End
 
 Public Sub ToolButtonEditarGimp_Click()
   
-  Exec ["gimp", User.home & "/CreadorOrlas/temporales/FotosAlumnos/" & reg.Foto] Wait
-  
-  PictureBoxFoto.Picture = Picture.Load(User.home & "/CreadorOrlas/temporales/FotosAlumnos/" & reg.Foto)
+  If Exist(User.home & "/CreadorOrlas/temporales/FotosAlumnos/" & reg.Foto) And reg.foto <> "" Then 
+    Exec ["gimp", User.home & "/CreadorOrlas/temporales/FotosAlumnos/" & reg.Foto] Wait
+    
+    PictureBoxFoto.Picture = Picture.Load(User.home & "/CreadorOrlas/temporales/FotosAlumnos/" & reg.Foto)
+  Else
+    Message.Info(("No se puede editar, debe de asignar una imagen"))
+  Endif
   
 End

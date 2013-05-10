@@ -22,7 +22,11 @@ msgstr ""
 msgid "Opción: Datos y Organizar Orla"
 msgstr ""
 
-#: ModuleGenerarSVG.module:360
+#: ModuleGenerarSVG.module:162
+msgid "rm /tmp/trabajo_orla/*.*"
+msgstr ""
+
+#: ModuleGenerarSVG.module:370
 msgid "Código de efecto desconocido"
 msgstr ""
 
