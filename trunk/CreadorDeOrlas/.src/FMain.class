@@ -761,9 +761,11 @@ Public Sub ToolButtonGeneraSVG_Click()
 End
 
 Private Sub hacerSVGoPNg(pdf As Boolean, Optional previsualizacion As Boolean) As String
-  'borrado de ficheros...
   
+  'borrado de ficheros antiguos para evitar problemas de aplicar efectos
   Shell ("rm " & User.Home & "/CreadorOrlas/trabajotmp/imagenes/*.*") Wait
+  Shell ("rm " & User.Home & "/CreadorOrlas/trabajotmp/imagenes/alumno/*.*") Wait
+  Shell ("rm " & User.Home & "/CreadorOrlas/trabajotmp/imagenes/profesor/*.*") Wait
   
   If codigo = 0 Then codigo = 1
   ' "/home/uno/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
@@ -1201,8 +1203,8 @@ Public Sub RadioButtonEfectoMarcoEspecial_Click()
       PictureBoxEfectoAlumno.tag = dato
     Else
       PictureBoxEfectoProfesor.Picture = PictureBoxEsp.Picture
-      PictureBoxEfectoProfesor.tag =
-        PictureBoxEfectoProfesor.tag = dato
+      
+      PictureBoxEfectoProfesor.tag = dato
     Endif
     
     codigo = 6
@@ -1250,9 +1252,10 @@ End
 Public Sub RadioButtonEfectoAlumno_Click()
   
   If RadioButtonEfectoAlumno.Value = True Then 
-    
+    PictureBoxEfectoProfesor.Enabled = False
     PictureBoxEfectoAlumno.Enabled = True
   Else
+    PictureBoxEfectoProfesor.Enabled = True
     PictureBoxEfectoAlumno.Enabled = False
   Endif
   
@@ -1261,10 +1264,11 @@ End
 Public Sub RadioButtonEfectoProfesor_Click()
   
   If RadioButtonEfectoProfesor.value = True Then 
+    PictureBoxEfectoAlumno.Enabled = False
     PictureBoxEfectoProfesor.Enabled = True
   Else
     PictureBoxEfectoProfesor.Enabled = False
-    
+    PictureBoxEfectoAlumno.Enabled = True
   Endif
   
 End

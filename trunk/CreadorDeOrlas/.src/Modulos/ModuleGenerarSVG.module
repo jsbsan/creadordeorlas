@@ -36,6 +36,14 @@ Public Sub realizar(RutaplantillaSvg As String, codigoAlumno As Variant[], codig
   'ALUMNOS
   '-----------------------
   ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosAlumnos", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/alumno/", "*.*") 
+  If ajustar = True Then
+    'ajuste de fotos a 83x113....
+    For Each archivo In Dir(modulePrincipal.RutaPrograma & "trabajotmp/imagenes/alumno/", "*.*")  
+      comando = "convert " & modulePrincipal.RutaPrograma & "trabajotmp/imagenes/alumno/" & archivo & " -resize 249x339\\! " & modulePrincipal.RutaPrograma & "trabajotmp/imagenes/alumno/" & archivo
+      Shell comando Wait
+    Next
+  Endif
+  
   '----------------------------------------------------------------------------
   'Aplicar efectos...
   '----------------------------------------------------------------------------
@@ -51,6 +59,14 @@ Public Sub realizar(RutaplantillaSvg As String, codigoAlumno As Variant[], codig
   '-----------------------
   
   ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosProfesores", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/profesor/", "*.*")
+  If ajustar = True Then
+    'ajuste de fotos a 83x113....
+    For Each archivo In Dir(modulePrincipal.RutaPrograma & "trabajotmp/imagenes/profesor", "*.*")  
+      comando = "convert " & modulePrincipal.RutaPrograma & "trabajotmp/imagenes/profesor/" & archivo & " -resize 249x339\\! " & modulePrincipal.RutaPrograma & "trabajotmp/imagenes/profesor/" & archivo
+      Shell comando Wait
+    Next
+  Endif
+  
   '----------------------------------------------------------------------------
   'Aplicar efectos...
   '----------------------------------------------------------------------------
@@ -62,14 +78,6 @@ Public Sub realizar(RutaplantillaSvg As String, codigoAlumno As Variant[], codig
   ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "trabajotmp/imagenes/profesor/", DirectorioDeTrabajo, "*.*") 
   
   'Otros ajustes
-  
-  If ajustar = True Then
-    'ajuste de fotos a 83x113....
-    For Each archivo In Dir(DirectorioDeTrabajo, "*.*")  
-      comando = "convert " & DirectorioDeTrabajo & archivo & " -resize 249x339\\! " & DirectorioDeTrabajo & archivo
-      Shell comando Wait
-    Next
-  Endif
   
   '----------------------------------------------------------------------------
   '  'aplicar efecto transparencia
