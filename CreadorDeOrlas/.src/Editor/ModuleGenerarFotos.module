@@ -169,7 +169,7 @@ Public Sub SuperPonerForma(RutaImagenForma As String, RutaImagenOrigen As String
   
   If marcoespecial = True Then 
     Try Kill "/tmp/dibujoReducido.png"
-    comando = "convert " & RutaImagenOrigen & " -resize 249x339 /tmp/dibujoReducido.png"
+    comando = "convert " & RutaImagenOrigen & " -resize 200x272 /tmp/dibujoReducido.png"
     Shell comando Wait
     
     'componercon un marco especial
