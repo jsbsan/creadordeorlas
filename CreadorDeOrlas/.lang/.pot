@@ -243,200 +243,200 @@ msgstr ""
 msgid "Texto Opcional(2):"
 msgstr ""
 
-#: FMain.form:669
+#: FMain.form:670
 msgid "Muestra Pueblo"
 msgstr ""
 
-#: FMain.form:676
+#: FMain.form:678
 msgid "Muestra Provincia"
 msgstr ""
 
-#: FMain.form:683
+#: FMain.form:686
 msgid "Muestra Asignatura"
 msgstr ""
 
-#: FMain.form:691 FMainEditor.form:82
+#: FMain.form:694 FMainEditor.form:82
 msgid "Espacio entre fotos"
 msgstr ""
 
-#: FMain.form:695 FMainEditor.form:86
+#: FMain.form:698 FMainEditor.form:86
 msgid "Horizontal:"
 msgstr ""
 
-#: FMain.form:711 FMainEditor.form:92
+#: FMain.form:714 FMainEditor.form:92
 msgid "Vertical:"
 msgstr ""
 
-#: FMain.form:719
+#: FMain.form:722
 msgid "Organización Inicial de Fotos"
 msgstr ""
 
-#: FMain.form:723
+#: FMain.form:726
 msgid "Calcular automaticamente las filas"
 msgstr ""
 
-#: FMain.form:738
+#: FMain.form:741
 msgid "Número de filas:"
 msgstr ""
 
-#: FMain.form:745 FMainEditor.form:172
+#: FMain.form:748 FMainEditor.form:172
 msgid "Orden Alfabetico"
 msgstr ""
 
-#: FMain.form:752 FMainEditor.form:164
+#: FMain.form:755 FMainEditor.form:164
 msgid "Orden Indicado"
 msgstr ""
 
-#: FMain.form:758 FMainEditor.form:155
+#: FMain.form:761 FMainEditor.form:155
 msgid "Alumnos"
 msgstr ""
 
-#: FMain.form:762 FMainEditor.form:159
+#: FMain.form:765 FMainEditor.form:159
 msgid "Orden Alfabético"
 msgstr ""
 
-#: FMain.form:774
+#: FMain.form:777
 msgid "Esquema:"
 msgstr ""
 
-#: FMain.form:779
+#: FMain.form:782
 msgid "Label22"
 msgstr ""
 
-#: FMain.form:786
+#: FMain.form:789
 msgid "Profesores"
 msgstr ""
 
-#: FMain.form:793
+#: FMain.form:796
 msgid "Organizar posición de fotos en la Orla"
 msgstr ""
 
-#: FMain.form:797
+#: FMain.form:800
 msgid "Guardar"
 msgstr ""
 
-#: FMain.form:807
+#: FMain.form:810
 msgid "Nombre fichero de Datos:"
 msgstr ""
 
-#: FMain.form:812
+#: FMain.form:815
 msgid "<h2>Espere por favor, estoy guardando <br>los datos</h2>"
 msgstr ""
 
-#: FMain.form:816
+#: FMain.form:819
 msgid "Guardar como...."
 msgstr ""
 
-#: FMain.form:821
+#: FMain.form:824
 msgid "<h2>Espere por favor, estoy guardando <br> los datos</h2>"
 msgstr ""
 
-#: FMain.form:825
+#: FMain.form:828
 msgid "Gestor de Plantillas"
 msgstr ""
 
-#: FMain.form:831
+#: FMain.form:834
 msgid "Plantillas de Orlas"
 msgstr ""
 
-#: FMain.form:839 FormExtraerFoto.form:68
+#: FMain.form:842 FormExtraerFoto.form:68
 msgid "Haga click para ver mejor la imagen"
 msgstr ""
 
-#: FMain.form:844
+#: FMain.form:847
 msgid ""
 "Nota:<br>\n"
 "Edite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño "
 "de Orla."
 msgstr ""
 
-#: FMain.form:856
+#: FMain.form:859
 msgid "Editar Orla"
 msgstr ""
 
-#: FMain.form:863
+#: FMain.form:866
 msgid "Borrar Orla"
 msgstr ""
 
-#: FMain.form:870
+#: FMain.form:873
 msgid "Definir Orla desde Cero"
 msgstr ""
 
-#: FMain.form:879
+#: FMain.form:882
 msgid "Exportar Orla"
 msgstr ""
 
-#: FMain.form:886
+#: FMain.form:889
 msgid "Añadir plantilla de Orla"
 msgstr ""
 
-#: FMain.form:895
+#: FMain.form:898
 msgid "Compartidos en la Nube"
 msgstr ""
 
-#: FMain.form:901
+#: FMain.form:904
 msgid "Aplicar Efectos"
 msgstr ""
 
-#: FMain.form:940
+#: FMain.form:943
 msgid "Haga click para elegir otro marco"
 msgstr ""
 
-#: FMain.form:953
+#: FMain.form:956
 msgid "Marco"
 msgstr ""
 
-#: FMain.form:960
+#: FMain.form:963
 msgid "Efectos en las Fotos: Marco o Recorte de Formas"
 msgstr ""
 
-#: FMain.form:966
+#: FMain.form:969
 msgid "V"
 msgstr ""
 
-#: FMain.form:978
+#: FMain.form:981
 msgid "Cuna"
 msgstr ""
 
-#: FMain.form:990
+#: FMain.form:993
 msgid "Elipse"
 msgstr ""
 
-#: FMain.form:1007
+#: FMain.form:1010
 msgid "Forzar ajuste de tamaño de fotografias"
 msgstr ""
 
-#: FMain.form:1013
+#: FMain.form:1016
 msgid "ZigZag"
 msgstr ""
 
-#: FMain.form:1025
+#: FMain.form:1028
 msgid "Marco Esp"
 msgstr ""
 
-#: FMain.form:1031
+#: FMain.form:1034
 msgid "Haga click para cambiar de imagen"
 msgstr ""
 
-#: FMain.form:1040
+#: FMain.form:1043
 msgid "Marcos en la Nube"
 msgstr ""
 
-#: FMain.form:1047
+#: FMain.form:1050
 msgid "No aplicar ningún efecto a las fotografías"
 msgstr ""
 
-#: FMain.form:1050
+#: FMain.form:1053
 msgid "Previsualizar"
 msgstr ""
 
-#: FMain.form:1062
+#: FMain.form:1065
 msgid ""
 "Nota: <br>La previsualización puede no ser exacta,<br> genere el .svg o el ."
 "png para mejor detalle."
 msgstr ""
 
-#: FMain.form:1069
+#: FMain.form:1072
 msgid ""
 "<h2>Previsualización</h2>\n"
 "Para mejorar el resultado del programa, vaya a la opción <BR>\"Generar Orla"
@@ -445,23 +445,23 @@ msgid ""
 "programa."
 msgstr ""
 
-#: FMain.form:1073
+#: FMain.form:1076
 msgid "Generar Orla"
 msgstr ""
 
-#: FMain.form:1078
+#: FMain.form:1081
 msgid "Crear archivo .svg y editarlo con inkscape"
 msgstr ""
 
-#: FMain.form:1079
+#: FMain.form:1082
 msgid "Generar Orla en .SVG"
 msgstr ""
 
-#: FMain.form:1092
+#: FMain.form:1095
 msgid "Generar Orla en .PNG"
 msgstr ""
 
-#: FMain.form:1099
+#: FMain.form:1102
 msgid ""
 "Nota:<br>\n"
 "Se creará una copia de trabajo, con las fotografías y el archivo tipo .svg  "
@@ -469,15 +469,15 @@ msgid ""
 "/tmp/trabajo_orla/trabajo.svg<br>"
 msgstr ""
 
-#: FMain.form:1103 FormError.form:24
+#: FMain.form:1106 FormError.form:24
 msgid "Salir"
 msgstr ""
 
-#: FMain.form:1106
+#: FMain.form:1109
 msgid "Ayuda"
 msgstr ""
 
-#: FMain.form:1112
+#: FMain.form:1115
 msgid ""
 "<h3>Especificaciones para los formatos de Orla:</h3><br>\n"
 "<br>\n"
@@ -520,107 +520,107 @@ msgid ""
 "pone una imagen transparente)<br>"
 msgstr ""
 
-#: FMain.form:1117
+#: FMain.form:1120
 msgid "Visite la página del proyecto para más ayuda"
 msgstr ""
 
-#: FMain.form:1122
+#: FMain.form:1125
 msgid "Buscar Actualizaciones"
 msgstr ""
 
-#: FMain.form:1127
+#: FMain.form:1130
 msgid ""
 "<h2>Espere por favor, estoy buscando actualizaciones \n"
 " <br>en internet</h2>"
 msgstr ""
 
-#: FMain.class:244 ModuleAsignarYSoltarImagenes.module:11
+#: FMain.class:246 ModuleAsignarYSoltarImagenes.module:11
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:245 ModuleAsignarYSoltarImagenes.module:12
+#: FMain.class:247 ModuleAsignarYSoltarImagenes.module:12
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:264 ModuleAsignarYSoltarImagenes.module:33
+#: FMain.class:266 ModuleAsignarYSoltarImagenes.module:33
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:350
+#: FMain.class:352
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:362
+#: FMain.class:364
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:362
+#: FMain.class:364
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:362
+#: FMain.class:364
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:362 FormAlumno.form:107 FormElegirFichero.form:30
+#: FMain.class:364 FormAlumno.form:107 FormElegirFichero.form:30
 #: FormExtraerFoto.form:73 FormProfesor.form:95
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:476
+#: FMain.class:478
 msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
 msgstr ""
 
-#: FMain.class:488
+#: FMain.class:490
 msgid "necesita asignar una plantilla a la orla"
 msgstr ""
 
-#: FMain.class:504
+#: FMain.class:506
 msgid "Guardado correctamente"
 msgstr ""
 
-#: FMain.class:506
+#: FMain.class:508
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:518
+#: FMain.class:520
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: FMain.class:518
+#: FMain.class:520
 msgid "si Abre una Orla, se borrarán los datos anteriores!!"
 msgstr ""
 
-#: FMain.class:520
+#: FMain.class:522
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: FMain.class:532
+#: FMain.class:534
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:709
+#: FMain.class:711
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:709
+#: FMain.class:711
 msgid "Si"
 msgstr ""
 
-#: FMain.class:991
+#: FMain.class:993
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:991
+#: FMain.class:993
 msgid "No"
 msgstr ""
 
-#: FMain.class:995
+#: FMain.class:997
 msgid ""
 "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:1030
+#: FMain.class:1032
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
@@ -830,32 +830,32 @@ msgstr ""
 msgid "rm /tmp/trabajo_orla/*.*"
 msgstr ""
 
-#: ModuleGenerarSVG.module:370
+#: ModuleGenerarSVG.module:371
 msgid "Código de efecto desconocido"
 msgstr ""
 
-#: ModulePrincipal.module:61
+#: ModulePrincipal.module:79
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
 msgstr ""
 
-#: ModulePrincipal.module:151
+#: ModulePrincipal.module:169
 msgid "Nombre de archivo incorrecto"
 msgstr ""
 
-#: ModulePrincipal.module:166
+#: ModulePrincipal.module:184
 msgid "Problemas al copiar la plantilla de la orla"
 msgstr ""
 
-#: ModulePrincipal.module:168
+#: ModulePrincipal.module:186
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:206
+#: ModulePrincipal.module:224
 msgid ""
 "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 
-#: ModulePrincipal.module:238
+#: ModulePrincipal.module:256
 msgid "error al leer datos del portapapeles"
 msgstr ""
 

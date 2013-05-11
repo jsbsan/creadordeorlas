@@ -12,6 +12,24 @@ Public formaCuna As String = "/tmp/formacuna.png"
 Public formaV As String = "/tmp/V.png"
 Public MarcoEspecial As String = "/tmp/marcolapiz.png"
 
+Public Sub borradoImagenes()
+  
+  Dim a As Integer
+  Dim temporales As New String[]
+  
+  temporales.add(RutaPrograma & "temporales")
+  temporales.add(RutaPrograma & "temporales/FotosAlumnos")
+  temporales.add(RutaPrograma & "temporales/FotosAlumnosMini")
+  temporales.Add(RutaPrograma & "temporales/FotosProfesores")
+  temporales.add(RutaPrograma & "temporales/FotosProfesoresMini")
+  temporales.Add(RutaPrograma & "temporales/FotosPlantillaOrla")
+  
+  For a = 0 To temporales.Max
+    Shell ("rm " & temporales[a] & "/*.*") Wait
+  Next
+  
+End
+
 Public Sub iniciarDirectorios()
   
   rutas.add(RutaPrograma)
@@ -66,7 +84,7 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   ModuleGestionAlumnos.lista.Registros.Clear
   ModuleGestionProfesores.lista.Registros.Clear
   ModuleGestionOrla.orla.vacio
-  
+  ModulePrincipal.borradoImagenes()
   ' listar contenido del fichero -> para obtener rutas relativas
   nombreRutaAntinua = zip.extraeRutaZip(nombre, NombreCarpetaPrograma)
   

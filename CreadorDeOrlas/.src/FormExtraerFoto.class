@@ -148,6 +148,6 @@ End
 
 Public Sub AreaDibujo_MouseDown()
   
-  Print Mouse.x, Mouse.y
+  '  Print Mouse.x, Mouse.y
   
 End

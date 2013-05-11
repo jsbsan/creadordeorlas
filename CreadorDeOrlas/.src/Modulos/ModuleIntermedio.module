@@ -173,6 +173,7 @@ Public Sub rellenarGridviewsAlumnos(rejilla As ClassSuperGridview, Lista As Clas
   Next
   
   rejilla[contadorPosicionFilaGrid, 0].text = ""
+  rejilla[contadorPosicionFilaGrid, 0].Picture = Picture.Load("/tmp/ZigZag.png")
   rejilla[contadorPosicionFilaGrid, 1].text = ""
   rejilla[contadorPosicionFilaGrid, 2].text = "" 
   rejilla[contadorPosicionFilaGrid, 3].text = ""
@@ -217,6 +218,7 @@ Public Sub rellenarGridviewsProfesores(rejilla As ClassSuperGridview, Lista As C
   Next
   
   rejilla[contadorPosicionFilaGrid, 0].text = ""
+  rejilla[contadorPosicionFilaGrid, 0].Picture = Picture.Load("/tmp/ZigZag.png")
   rejilla[contadorPosicionFilaGrid, 1].text = ""
   rejilla[contadorPosicionFilaGrid, 2].text = "" 
   rejilla[contadorPosicionFilaGrid, 3].text = ""
