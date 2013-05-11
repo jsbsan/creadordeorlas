@@ -394,7 +394,7 @@ Public Sub IconPanel1_Click()
   ''-------------------------------
   
   ''-------------------------------
-  ''editor
+  ''PREVISUALIZAR...
   ''-------------------------------
   If IconPanel1.index = 10 Then 
     'sistema de mostrar previsualizacion
@@ -600,6 +600,8 @@ Public Sub ToolButtonAnnadir_Click()
   
   fregistro.ShowModal()
   ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+  'se ha añadido información, se tiene que redistribuir las foto...
+  ModuleGestionAlumnos.ListaOrdenada.Clear
   
   regtemp = Null
   
@@ -676,6 +678,8 @@ Public Sub ToolButtonAnnadir2_Click()
   
   fregistro.ShowModal()
   ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+  'se ha añadido información, se tiene que redistribuir las foto...
+  ModuleGestionProfesores.ListaOrdenada.clear
   
   regtemp = Null
   
@@ -713,6 +717,9 @@ Public Sub ToolButtonBorrar2_Click()
       'refrescar el gridviews
       ModuleGestionProfesores.BorrarRegistro(GridViewRegistrosProfesores.indice[GridViewRegistrosProfesores.row])
       ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+      'se ha añadido información, se tiene que redistribuir las foto...
+      ModuleGestionProfesores.ListaOrdenada.clear
+      
     Endif
   Endif
   
@@ -728,6 +735,8 @@ Public Sub ToolButtonBorrar_Click()
       'refrescar el gridviews
       ModuleGestionAlumnos.BorrarRegistro(GridViewRegistrosAlumnos.indice[GridViewRegistrosAlumnos.row])
       ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+      'se ha añadido información, se tiene que redistribuir las foto...
+      ModuleGestionAlumnos.ListaOrdenada.clear
     Endif
   Endif
   
@@ -1070,6 +1079,8 @@ Public Sub ToolButtonPegar_Click()
   ModulePrincipal.PegarDatosPortapapelesGridViewsAlumnos()  
   
   ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+  'se ha añadido información, se tiene que redistribuir las foto...
+  ModuleGestionAlumnos.ListaOrdenada.clear
   
 End
 
@@ -1077,6 +1088,8 @@ Public Sub ToolButtonPegar2_Click()
   
   ModulePrincipal.PegarDatosPortapapelesGridViewsProfesores()
   ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+  'se ha añadido información, se tiene que redistribuir las foto...
+  ModuleGestionProfesores.ListaOrdenada.clear
   
 End
 
