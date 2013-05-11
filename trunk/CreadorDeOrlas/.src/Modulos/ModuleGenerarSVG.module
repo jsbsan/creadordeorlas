@@ -164,6 +164,7 @@ Public Sub realizar(RutaplantillaSvg As String, codigoAlumno As Variant[], codig
     '2) copio el contenido de las images
     ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "trabajotmp/imagenes/", "/tmp/trabajo_orla/", "*.png") 
     ModuleUtilidadesDisco.CopiarFicheros(modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/", "/tmp/trabajo_orla/", "*.*")
+    Try Copy modulePrincipal.RutaPrograma & "trabajotmp/transparente.png" To "/tmp/trabajo_orla/transparente.png"
     '3) copio el archivo .svg 
     Exec ["cp", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg"), "/tmp/trabajo_orla/trabajo.svg"] Wait
     '4)edito

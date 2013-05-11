@@ -27,7 +27,7 @@ Public Sub MoverFicheros(origen As String, destino As String) As Boolean
   ' Print "ruta destino: "; destino
   If Exist(origen) Then 
     For Each File In Dir(origen)
-      Print file
+      '   Print file
       Shell "mv " & origen & "/" & file & " " & destino & "/" & file Wait
     Next
   Endif
@@ -98,7 +98,7 @@ Public Sub CopiarFicheros(Directorioorigen As String, Directoriodestino As Strin
   
   If Exist(Directorioorigen) Then 
     For Each File In Dir(Directorioorigen, patron)
-      Print file
+      ' Print file
       Shell "cp " & Directorioorigen & "/" & file & " " & Directoriodestino & "/" & file Wait
     Next
   Endif

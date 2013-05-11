@@ -33,7 +33,7 @@ Public Sub realizar(rutadelprograma As String) ', codigo As Integer, colormarco 
     Copy "Editor/cuadriculaA3.png" To rutadelprograma & "cuadricula.png"
   Endif
   
-  Print "Añado Cuadricula: "; comando
+  '  Print "Añado Cuadricula: "; comando
   comando = "composite " & rutadelprograma & "resultante.png" & " -geometry +0+0 " & rutadelprograma & "cuadricula.png" & " " & rutadelprograma & "resultante.png"
   Shell comando Wait
   
@@ -53,7 +53,7 @@ Public Sub realizar(rutadelprograma As String) ', codigo As Integer, colormarco 
     anadofoto(ModuleGestionProfesores.lista.Registros[a])
   Next
   
-  Print "fin de insertar alumnos en fondo transparente A3"
+  '  Print "fin de insertar alumnos en fondo transparente A3"
   
   comando = "composite " & rutadelprograma & "resultante.png" & " -geometry -40-35 " & rutadelprograma & "plantillatmp.svg" & " " & rutadelprograma & "final.png" 
   Shell comando Wait

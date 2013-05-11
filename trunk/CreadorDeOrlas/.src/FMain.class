@@ -28,7 +28,7 @@ Public Sub Form_Open()
     ModulePrincipal.iniciarDirectorios()
     
     '  ModulePruebas.escribe()
-    Print "hola iniciandome..."
+    '  Print "hola iniciandome..."
     
     'feditor.plantillaActual = User.home & "/Imágenes/Orlas/ORLAplantillasAntonio/ORLAejemplo01/orla.svg"
     
@@ -150,6 +150,8 @@ Public Sub ToolButtonCrear_Click()
       ModuleGestionAlumnos.lista.Registros.Clear()
       ModuleGestionProfesores.lista.Registros.Clear()
       ModuleGestionOrla.orla.vacio()
+      ModulePrincipal.borradoImagenes()
+      
       Me.caption = "Orla: " & ToolButtonCrear.Text
       ModulePrincipal.RutaDatos = ToolButtonCrear.Text
       'aqui
@@ -161,7 +163,7 @@ Public Sub ToolButtonCrear_Click()
         
       Else
         'ha cancelado la operacion...
-        Print "Cancelado Crear"
+        '   Print "Cancelado Crear"
         
       Endif
       
@@ -377,7 +379,7 @@ Public Sub IconPanel1_Click()
   Dim nombresolo As String 'nombre del archivo de la plantilla, sin ruta y sin .svg
   Dim resultado As Boolean
   
-  Print "Opcion elegida: ", IconPanel1.Index 
+  ' Print "Opcion elegida: ", IconPanel1.Index 
   ''-------------------------------
   ''14-Buscar actualizaciones
   ''-------------------------------

@@ -440,18 +440,21 @@
     }
     { CheckBox1 CheckBox
       MoveScaled(6,17,20,3)
+      Visible = False
       Font = Font["Bitstream Charter,-1"]
       Text = ("Muestra Pueblo")
       Value = CheckBox.True
     }
     { CheckBox2 CheckBox
       MoveScaled(28,17,23,3)
+      Visible = False
       Font = Font["Bitstream Charter,-1"]
       Text = ("Muestra Provincia")
       Value = CheckBox.True
     }
     { CheckBox3 CheckBox
       MoveScaled(52,17,27,3)
+      Visible = False
       Font = Font["Bitstream Charter,-1"]
       Text = ("Muestra Asignatura")
       Value = CheckBox.True
@@ -766,7 +769,7 @@
     Text = ("Previsualizar")
     Picture = Picture["ojo22.png"]
     { DrawingArea1 DrawingArea
-      MoveScaled(1,19,84,60)
+      MoveScaled(1,17,84,60)
       Background = &HFFFFFF&
       Border = Border.Plain
     }
@@ -786,7 +789,7 @@
     Text = ("Generar Orla")
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGeneraSVG ToolButton
-      MoveScaled(21,6,38,10)
+      MoveScaled(23,9,38,10)
       ToolTip = ("Crear archivo .svg y editarlo con inkscape")
       Text = ("Generar Orla en .SVG")
       Picture = Picture["inkscape-icono.png"]
