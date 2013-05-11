@@ -52,7 +52,7 @@ Public Sub ToolButtonAceptar_Click()
   Endif
   
   'pasar a convertir la imagen de jpg a png....
-  comando = "convert " & valor.dato & " " & "/tmp/" & ModuleUtilidadesDisco.extraedesdebarra(Mid$(valor.dato, 1, Len(valor.dato) - 3)) & "png"
+  comando = "convert \"" & valor.dato & "\" " & "/tmp/" & ModuleUtilidadesDisco.extraedesdebarra(Mid$(valor.dato, 1, Len(valor.dato) - 3)) & "png"
   Shell comando Wait
   valor.dato = "/tmp/" & ModuleUtilidadesDisco.extraedesdebarra(Mid$(valor.dato, 1, Len(valor.dato) - 3)) & "png"
   
