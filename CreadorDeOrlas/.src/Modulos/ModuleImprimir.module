@@ -5,7 +5,7 @@
 ' Dibujar
 '--------------------------
 
-Public Sub dibujarSVG(ruta As String, AreaDibujo As DrawingArea)
+Public Sub dibujarSVG(ruta As String, AreaDibujo As Object) 'DrawingArea)
   
   Dim hbrush As PaintBrush
   Dim himage As Image
@@ -14,8 +14,10 @@ Public Sub dibujarSVG(ruta As String, AreaDibujo As DrawingArea)
   If Exist(ruta) Then
     himage = Image.Load(ruta)
     
-    AreaDibujo.Cached = True
-    AreaDibujo.Border = 1
+    'Solo si es un area de dibujo...  
+    'AreaDibujo.Cached = True
+    '   AreaDibujo.Border = 1
+    
     '  AreaDibujo.Painted = True
     
     Paint.Begin(AreaDibujo)

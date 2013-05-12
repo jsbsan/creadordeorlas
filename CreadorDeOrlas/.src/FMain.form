@@ -769,7 +769,8 @@
     Text = ("Previsualizar")
     Picture = Picture["ojo22.png"]
     { DrawingArea1 DrawingArea
-      MoveScaled(1,17,84,60)
+      MoveScaled(67,81,17,12)
+      Visible = False
       Background = &HFFFFFF&
       Border = Border.Plain
     }
@@ -784,6 +785,12 @@
       Font = Font["Italic"]
       Text = ("<h2>Previsualización</h2>\nPara mejorar el resultado del programa, vaya a la opción <BR>\"Generar Orla\", y pulse  el botón \"Generar Orla en .SVG\", <BR>entonces podrá editar la orla mediante Inkscape, ampliando las posibilidades de edición de este programa.")
       Alignment = Align.Center
+    }
+    { PictureBoxPrev PictureBox
+      MoveScaled(3,18,80,61)
+      Background = &HFFFFFF&
+      Stretch = True
+      Border = Border.Plain
     }
     Index = 11
     Text = ("Generar Orla")
