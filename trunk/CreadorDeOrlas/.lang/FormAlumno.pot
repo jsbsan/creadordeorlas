@@ -82,15 +82,15 @@ msgstr ""
 msgid "con Gimp"
 msgstr ""
 
-#: FormAlumno.class:64
+#: FormAlumno.class:69
 msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
-#: FormAlumno.class:233
+#: FormAlumno.class:244
 msgid "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"
 msgstr ""
 
-#: FormAlumno.class:249
+#: FormAlumno.class:260
 msgid "No se puede editar, debe de asignar una imagen"
 msgstr ""
 

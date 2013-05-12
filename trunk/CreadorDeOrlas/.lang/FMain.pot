@@ -454,91 +454,91 @@ msgstr ""
 msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
 msgstr ""
 
-#: FMain.class:246
+#: FMain.class:247
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:247
+#: FMain.class:248
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:266
+#: FMain.class:267
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:352
+#: FMain.class:353
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:364
+#: FMain.class:365
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:364
+#: FMain.class:365
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:364
+#: FMain.class:365
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:364
+#: FMain.class:365
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:478
+#: FMain.class:479
 msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
 msgstr ""
 
-#: FMain.class:490
+#: FMain.class:491
 msgid "necesita asignar una plantilla a la orla"
 msgstr ""
 
-#: FMain.class:506
+#: FMain.class:507
 msgid "Guardado correctamente"
 msgstr ""
 
-#: FMain.class:508
+#: FMain.class:509
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:520
+#: FMain.class:521
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: FMain.class:520
+#: FMain.class:521
 msgid "si Abre una Orla, se borrarán los datos anteriores!!"
 msgstr ""
 
-#: FMain.class:522
+#: FMain.class:523
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: FMain.class:534
+#: FMain.class:535
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:715
+#: FMain.class:716
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:715
+#: FMain.class:716
 msgid "Si"
 msgstr ""
 
-#: FMain.class:1002
+#: FMain.class:1007
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:1002
+#: FMain.class:1007
 msgid "No"
 msgstr ""
 
-#: FMain.class:1006
+#: FMain.class:1011
 msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:1041
+#: FMain.class:1046
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 

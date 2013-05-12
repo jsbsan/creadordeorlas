@@ -6,6 +6,7 @@ Public reg As New ClassAlumno
 
 Public Sub Form_Open()
   
+  Dim numeroorden As Integer
   Dim a As Integer 
   
   If modo > -1 Then   
@@ -34,13 +35,17 @@ Public Sub Form_Open()
   If reg.Orden = 0 Then 
     ValueBoxOrden.value = 1
   Else
-    ValueBoxOrden.value = reg.Orden
+    For a = 0 To ModuleGestionAlumnos.Lista.Registros.max
+      numeroorden = Max(numeroorden, ModuleGestionAlumnos.Lista.Registros[a].Orden)
+    Next
+    ValueBoxOrden.value = numeroorden + 1
   Endif
   If modo = -1 Then 
+    numeroorden = 0
     For a = 0 To ModuleGestionAlumnos.Lista.registros.Max
-      ValueBoxOrden.value = Max(ValueBoxOrden.value + 1, ModuleGestionAlumnos.Lista.registros[a].Orden)
+      numeroorden = Max(numeroorden, ModuleGestionAlumnos.Lista.registros[a].Orden)
     Next
-    
+    ValueBoxOrden.value = numeroorden + 1
   Endif
   
 Catch
@@ -121,12 +126,18 @@ End
 
 Public Sub ButtonMasUno_Click()
   
+  Dim numeroorden As Integer = 0
+  Dim a As Integer
+  
   If ModuleGestionAlumnos.Lista.Registros.max = -1 Then 
-    
     Return
   Endif
   If modo = 0 Then Return
-  reg.Orden = ModuleGestionAlumnos.Lista.Registros[ModuleGestionAlumnos.Lista.Registros.max].Orden + 1
+  
+  For a = 0 To ModuleGestionAlumnos.Lista.Registros.max
+    numeroorden = Max(numeroorden, ModuleGestionAlumnos.Lista.Registros[a].Orden)
+  Next
+  reg.Orden = numeroorden + 1
   ValueBoxOrden.Value = reg.Orden
   
 End

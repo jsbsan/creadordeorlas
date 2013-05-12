@@ -8,6 +8,9 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   
   borradoDatosAnteriores(rutaSprograma)
   
+  'añado ruta principal y la de las plantillas de orla (para que la anterior sbrutina no las borrara)
+  rutaSprograma.Add(User.home & "/CreadorOrlas/")
+  rutaSprograma.Add(User.home & "/CreadorOrlas/" & "plantillasOrla")
   'contador para bucle For...Next
   ' User.Home & "/ConstructorDiplomas/"
   'Crear Directorios del trabajo Actual

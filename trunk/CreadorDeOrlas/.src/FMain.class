@@ -151,9 +151,10 @@ Public Sub ToolButtonCrear_Click()
       ModuleGestionProfesores.lista.Registros.Clear()
       ModuleGestionOrla.orla.vacio()
       ModulePrincipal.borradoImagenes()
+      ModuleGestionOrla.orla.Plantilla = User.Home & "/CreadorOrlas/plantillasOrla/Naranja_Floral.svg"
       
-      Me.caption = "Orla: " & ToolButtonCrear.Text
-      ModulePrincipal.RutaDatos = ToolButtonCrear.Text
+      Me.caption = "Orla: " & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".Orla"
+      ModulePrincipal.RutaDatos = DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".Orla"
       'aqui
       IconPanel1.index = 3
       IconPanel1_Click()
@@ -988,6 +989,10 @@ Public Sub ToolButtonEditarOrlas_Click() 'editar orlas
     fp.Show()
     Wait 0.1
     Exec ["inkscape", rutaPlantillasOrla & ListBoxOrla.List[ListBoxOrla.index] & ".svg"] Wait
+    'Nota: actualizar miniatura de orla
+    Try Kill User.Home & "/CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.Index] & ".png"
+    ModuleGestorPlantillas.cargaprevisualizacion(ListBoxOrla, DrawingAreaPlantilla)
+    
     fp.parar = True
     fp.Delete()
   Endif
@@ -1060,6 +1065,8 @@ Public Sub ToolButtonDefinir_Click()
 End
 
 Public Sub ToolButtonImportarOrla_Click()
+  
+  Dialog.Filter = ["*.svg", ".svg"]
   
   If Not Dialog.OpenFile() Then 
     If InStr(Dialog.Path, ".svg") <> 0 Then 

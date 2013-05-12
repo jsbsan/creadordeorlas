@@ -32,8 +32,8 @@ End
 
 Public Sub iniciarDirectorios()
   
-  rutas.add(RutaPrograma)
-  rutas.add(RutaPrograma & "plantillasOrla")
+  ' rutas.add(RutaPrograma)
+  ' rutas.add(RutaPrograma & "plantillasOrla")
   rutas.add(RutaPrograma & "temporales")
   rutas.add(RutaPrograma & "temporales/FotosAlumnos")
   rutas.add(RutaPrograma & "temporales/FotosAlumnosMini")

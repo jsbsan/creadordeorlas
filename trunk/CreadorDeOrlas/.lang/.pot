@@ -534,93 +534,93 @@ msgid ""
 " <br>en internet</h2>"
 msgstr ""
 
-#: FMain.class:246 ModuleAsignarYSoltarImagenes.module:11
+#: FMain.class:247 ModuleAsignarYSoltarImagenes.module:11
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:247 ModuleAsignarYSoltarImagenes.module:12
+#: FMain.class:248 ModuleAsignarYSoltarImagenes.module:12
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:266 ModuleAsignarYSoltarImagenes.module:33
+#: FMain.class:267 ModuleAsignarYSoltarImagenes.module:33
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:352
+#: FMain.class:353
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:364
+#: FMain.class:365
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:364
+#: FMain.class:365
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:364
+#: FMain.class:365
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:364 FormAlumno.form:107 FormElegirFichero.form:30
+#: FMain.class:365 FormAlumno.form:107 FormElegirFichero.form:30
 #: FormExtraerFoto.form:73 FormProfesor.form:95
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:478
+#: FMain.class:479
 msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
 msgstr ""
 
-#: FMain.class:490
+#: FMain.class:491
 msgid "necesita asignar una plantilla a la orla"
 msgstr ""
 
-#: FMain.class:506
+#: FMain.class:507
 msgid "Guardado correctamente"
 msgstr ""
 
-#: FMain.class:508
+#: FMain.class:509
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:520
+#: FMain.class:521
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: FMain.class:520
+#: FMain.class:521
 msgid "si Abre una Orla, se borrarán los datos anteriores!!"
 msgstr ""
 
-#: FMain.class:522
+#: FMain.class:523
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: FMain.class:534
+#: FMain.class:535
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:715
+#: FMain.class:716
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:715
+#: FMain.class:716
 msgid "Si"
 msgstr ""
 
-#: FMain.class:1002
+#: FMain.class:1007
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:1002
+#: FMain.class:1007
 msgid "No"
 msgstr ""
 
-#: FMain.class:1006
+#: FMain.class:1011
 msgid ""
 "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:1041
+#: FMain.class:1046
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
@@ -723,18 +723,18 @@ msgstr ""
 msgid "con Gimp"
 msgstr ""
 
-#: FormAlumno.class:64
+#: FormAlumno.class:69
 msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
-#: FormAlumno.class:233 FormProfesor.class:176
+#: FormAlumno.class:244 FormProfesor.class:190
 msgid ""
 "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo "
 "transparente"
 msgstr ""
 
-#: FormAlumno.class:249 FormProfesor.class:196
+#: FormAlumno.class:260 FormProfesor.class:210
 msgid "No se puede editar, debe de asignar una imagen"
 msgstr ""
 
