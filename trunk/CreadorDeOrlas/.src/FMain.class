@@ -1,5 +1,6 @@
 ' Gambas class file
 
+Public pintura As New Picture 'pintura para previsualizar orla
 Private codigo As Integer
 
 Public listaTiposDeLetra As New ClassDatoLetra[] 'lista de letras que contiene el sistema
@@ -400,9 +401,14 @@ Public Sub IconPanel1_Click()
   If IconPanel1.index = 10 Then 
     'sistema de mostrar previsualizacion
     'crear el svg y mostarlo...
-    ' hacerSVGoPNg(False, True)
-    ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), DrawingArea1)
     
+    'ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), DrawingArea1)
+    Try Kill "/tmp/518x364.png"
+    Copy "518x364.png" To "/tmp/518x364.png"
+    pintura = Picture.load("/tmp/518x364.png")
+    ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), Pintura)
+    Pintura.Save("/tmp/dibujotemporal.png")
+    PictureBoxPrev.Picture = Picture.Load("/tmp/dibujotemporal.png")
   Endif
   
   ''-------------------------------
@@ -991,10 +997,11 @@ Public Sub ToolButtonEditarOrlas_Click() 'editar orlas
     Exec ["inkscape", rutaPlantillasOrla & ListBoxOrla.List[ListBoxOrla.index] & ".svg"] Wait
     'Nota: actualizar miniatura de orla
     Try Kill User.Home & "/CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.Index] & ".png"
-    ModuleGestorPlantillas.cargaprevisualizacion(ListBoxOrla, DrawingAreaPlantilla)
+    ' ModuleGestorPlantillas.cargaprevisualizacion(ListBoxOrla, DrawingAreaPlantilla)
     
     fp.parar = True
     fp.Delete()
+    ModuleGestorPlantillas.cargalistbox(ListBoxOrla)
   Endif
   
 End
@@ -1311,5 +1318,12 @@ Public Sub RadioButtonSinEfectos_Click()
     Endif  
     
   Endif
+  
+End
+
+Public Sub PictureBoxPrev_MouseDown()
+  
+  'abro el archivo para verlo mejor....
+  Exec ["gpicview", "/tmp/dibujotemporal.png"]
   
 End

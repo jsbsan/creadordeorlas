@@ -88,7 +88,7 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   ' listar contenido del fichero -> para obtener rutas relativas
   nombreRutaAntinua = zip.extraeRutaZip(nombre, NombreCarpetaPrograma)
   
-  ModuleIntermedio.borradoDatosAnteriores(rutas.Extract(1, rutas.max))
+  ModuleIntermedio.borradoDatosAnteriores(rutas)
   If nombreRutaAntinua = "" Then 
     Return False ' a fallado la extracion de informacion del fichero
   Endif
