@@ -6,6 +6,7 @@ Public reg As New ClassProfesor
 
 Public Sub Form_Open()
   
+  Dim numeroorden As Integer
   Dim a As Integer
   
   If modo > -1 Then   
@@ -32,14 +33,19 @@ Public Sub Form_Open()
   If reg.Orden = 0 Then 
     ValueBoxOrden.value = 1
   Else
-    ValueBoxOrden.Value = reg.Orden
+    For a = 0 To ModuleGestionAlumnos.Lista.Registros.max
+      numeroorden = Max(numeroorden, ModuleGestionProfesores.Lista.Registros[a].Orden)
+    Next
+    ValueBoxOrden.Value = numeroorden + 1
   Endif
   
   If modo = -1 Then 
+    numeroorden = 0
     For a = 0 To ModuleGestionProfesores.Lista.registros.Max
-      ValueBoxOrden.value = Max(ValueBoxOrden.value + 1, ModuleGestionProfesores.Lista.registros[a].Orden)
+      
+      numeroorden = Max(numeroorden, ModuleGestionProfesores.Lista.registros[a].Orden)
     Next
-    
+    ValueBoxOrden.Value = numeroorden + 1
   Endif
   
   Me.center
@@ -71,12 +77,20 @@ End
 
 Public Sub ButtonMasUno_Click()
   
+  Dim numeroorden As Integer = 0
+  Dim a As Integer
+  
   If ModuleGestionProfesores.Lista.Registros.max = -1 Then 
     
     Return
   Endif
   If modo = 0 Then Return
-  reg.Orden = ModuleGestionProfesores.Lista.Registros[ModuleGestionProfesores.Lista.Registros.max].Orden + 1
+  
+  For a = 0 To ModuleGestionAlumnos.Lista.Registros.max
+    numeroorden = Max(numeroorden, ModuleGestionProfesores.Lista.Registros[a].Orden)
+  Next
+  reg.Orden = numeroorden + 1
+  
   ValueBoxOrden.Value = reg.Orden
   
 End
