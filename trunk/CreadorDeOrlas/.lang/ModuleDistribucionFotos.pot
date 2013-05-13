@@ -38,11 +38,11 @@ msgstr ""
 msgid "La suma de los numeros no coincide con el total"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:334
+#: ModuleDistribucionFotos.module:335
 msgid "La plantilla origen esta vacia"
 msgstr ""
 
-#: ModuleDistribucionFotos.module:340
+#: ModuleDistribucionFotos.module:341
 msgid "Se ha producido un error al intentar copiar la plantilla origen:"
 msgstr ""
 

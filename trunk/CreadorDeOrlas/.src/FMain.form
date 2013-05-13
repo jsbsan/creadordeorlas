@@ -792,6 +792,12 @@
       Stretch = True
       Border = Border.Plain
     }
+    { TextLabelEspere TextLabel
+      MoveScaled(27,34,31,25)
+      Font = Font["Bitstream Charter,+5"]
+      Text = ("Espere unos segundos...")
+      Alignment = Align.Center
+    }
     Index = 11
     Text = ("Generar Orla")
     Picture = Picture["icon:/22/pdf"]
