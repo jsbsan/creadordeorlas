@@ -378,6 +378,7 @@ End
 '--------------------------------------------------------------------------------------------------
 Public Sub IconPanel1_Click()
   
+  Dim comando As String
   Dim nombresolo As String 'nombre del archivo de la plantilla, sin ruta y sin .svg
   Dim resultado As Boolean
   
@@ -406,9 +407,15 @@ Public Sub IconPanel1_Click()
     Try Kill "/tmp/518x364.png"
     Copy "518x364.png" To "/tmp/518x364.png"
     pintura = Picture.load("/tmp/518x364.png")
-    ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), Pintura)
-    Pintura.Save("/tmp/dibujotemporal.png")
-    PictureBoxPrev.Picture = Picture.Load("/tmp/dibujotemporal.png")
+    'Print hacerSVGoPNg(False, True)
+    PictureBoxPrev.Picture = Picture.Load("/tmp/518x364.png")
+    TextLabelEspere.Visible = True
+    
+    Exec ["inkscape", hacerSVGoPNg(False, True), "--export-png", User.home & "/CreadorOrlas/trabajotmp/dibujotemporal.png"] Wait
+    TextLabelEspere.Visible = False
+    'ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), Pintura)
+    'Pintura.Save("/tmp/dibujotemporal.png")
+    PictureBoxPrev.Picture = Picture.Load(User.home & "/CreadorOrlas/trabajotmp/dibujotemporal.png")
   Endif
   
   ''-------------------------------

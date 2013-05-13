@@ -315,6 +315,7 @@ End
 ''----------------- relleno la orla con datos iniciales --------------
 Public Function rellenarOrla(plantillaOrigen As String) As String
   
+  Dim ANCHOLARGO As New Integer[]
   Dim copia As String = User.home & "/CreadorOrlas/trabajotmp/plantillatmp.svg"
   Dim cadena As String
   'copio la plantilla a temporal
@@ -359,12 +360,19 @@ Public Function rellenarOrla(plantillaOrigen As String) As String
     cadena = Replace$(cadena, "ESCUDO01", "transparente.png")
   Else
     cadena = Replace$(cadena, "ESCUDO01", ModuleGestionOrla.orla.escudo01)
+    ANCHOLARGO = AveriguarAnchoLargo(ModuleGestionOrla.orla.escudo01)
+    cadena = Replace$(cadena, "width=\"164\"", "width=\"" & ANCHOLARGO[0] & "\"")
+    cadena = Replace$(cadena, "height=\"205\"", "height=\"" & ANCHOLARGO[1] & "\"")
   Endif
   
   If ModuleGestionOrla.orla.escudo02 = "" Then 
     cadena = Replace$(cadena, "ESCUDO02", "transparente.png")
   Else
     cadena = Replace$(cadena, "ESCUDO02", ModuleGestionOrla.orla.escudo02)
+    ANCHOLARGO = AveriguarAnchoLargo(ModuleGestionOrla.orla.escudo02)
+    cadena = Replace$(cadena, "width=\"116.13364\"", "width=\"" & ANCHOLARGO[0] & "\"")
+    cadena = Replace$(cadena, "height=\"230.65433\"", "height=\"" & ANCHOLARGO[1] & "\"")
+    
   Endif
   
   If ModuleGestionOrla.orla.escudo03 = "" Then 
@@ -383,5 +391,25 @@ Public Function rellenarOrla(plantillaOrigen As String) As String
   Return copia
 Catch
   ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Function AveriguarAnchoLargo(imagen As String) As Integer[]
+  
+  Dim a As Integer
+  Dim comando As String
+  Dim cadena As String
+  Dim arrayDev As String[]
+  Dim arrayInt As New Integer[]
+  
+  comando = "identify -format \"%wx%h\" " & User.home & "/CreadorOrlas/temporales/FotosPlantillaOrla/" & imagen
+  Shell comando To cadena
+  arrayDev = Split(cadena, "x")
+  
+  For a = 0 To arrayDev.Max
+    arrayInt.Add(Val(arrayDev[a]))
+  Next
+  
+  Return arrayInt
   
 End
