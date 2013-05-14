@@ -6201,35 +6201,35 @@
          y="469.72604"
          style="font-size:48px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;font-family:URW Chancery L;-inkscape-font-specification:URW Chancery L Bold Italic">CLASE</tspan></text>
     <image
-       sodipodi:absref="/home/uno/CreadorOrlas/plantillasOrla/ESCUDO02"
+       sodipodi:absref="/home/uno/.CreadorOrlas/plantillasOrla/ESCUDO02"
        xlink:href="ESCUDO02"
        width="116.13364"
        height="230.65433"
-       id="image3929"
+       id="escudo02"
        x="152.5432"
        y="87" />
     <image
-       sodipodi:absref="/home/uno/CreadorOrlas/plantillasOrla/ESCUDO01"
+       sodipodi:absref="/home/uno/.CreadorOrlas/plantillasOrla/ESCUDO01"
        xlink:href="ESCUDO01"
        width="164"
        height="205"
-       id="image3092"
+       id="escudo01"
        x="1166"
        y="89" />
     <image
-       sodipodi:absref="/home/uno/CreadorOrlas/plantillasOrla/ESCUDO03"
+       sodipodi:absref="/home/uno/.CreadorOrlas/plantillasOrla/ESCUDO03"
        xlink:href="ESCUDO03"
        width="116.13364"
        height="230.65433"
-       id="image3929"
+       id="escudo03"
        x="152"
        y="387" />
     <image
-       sodipodi:absref="/home/uno/CreadorOrlas/plantillasOrla/ESCUDO04"
+       sodipodi:absref="/home/uno/.CreadorOrlas/plantillasOrla/ESCUDO04"
        xlink:href="ESCUDO04"
        width="116.13364"
        height="230.65433"
-       id="image3929"
+       id="escudo04"
        x="1166"
        y="387" />
     <text

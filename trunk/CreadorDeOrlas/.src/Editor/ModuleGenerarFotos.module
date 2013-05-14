@@ -79,7 +79,7 @@ Public Sub crearAlumnos(registros As ClassAlumno[], marco As Boolean, colormarco
     'copio la imagen al directorio temporal
     
     If registros[a].Foto <> "" Then 
-      imagenorigen = User.Home & "/CreadorOrlas/temporales/FotosAlumnos/" & registros[a].Foto 
+      imagenorigen = User.Home & "/.CreadorOrlas/temporales/FotosAlumnos/" & registros[a].Foto 
     Else
       If Not Exist(rutatrabajo & "Alu.png") Then 
         Copy "Editor/Alu.png" To rutatrabajo & "Alu.png"
@@ -122,10 +122,10 @@ Public Sub crearAlumnos(registros As ClassAlumno[], marco As Boolean, colormarco
     Shell comando Wait
     
     If Exist(rutatrabajo & "vertical.png") Then 
-      Try Kill User.Home & "/CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
-      Copy rutatrabajo & "vertical.png" To User.Home & "/CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
+      Try Kill User.Home & "/.CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
+      Copy rutatrabajo & "vertical.png" To User.Home & "/.CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
       
-      registros[a].FotoRellena = User.Home & "/CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
+      registros[a].FotoRellena = User.Home & "/.CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
     Else
       Message.Warning(("No ha sido posible crear la foto con los datos"))
     Endif

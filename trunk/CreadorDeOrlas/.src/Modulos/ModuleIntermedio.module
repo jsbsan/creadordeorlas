@@ -9,13 +9,13 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   borradoDatosAnteriores(rutaSprograma)
   
   'añado ruta principal y la de las plantillas de orla (para que la anterior sbrutina no las borrara)
-  rutaSprograma.Add(User.home & "/CreadorOrlas/")
-  rutaSprograma.Add(User.home & "/CreadorOrlas/" & "plantillasOrla")
+  rutaSprograma.Add(User.home & "/.CreadorOrlas/", 0)
+  rutaSprograma.Add(User.home & "/.CreadorOrlas/" & "plantillasOrla", 1)
   'contador para bucle For...Next
   ' User.Home & "/ConstructorDiplomas/"
   'Crear Directorios del trabajo Actual
   For a = 0 To rutaSprograma.count - 1 
-    If Not Exist(rutaSprograma[a]) Then Mkdir rutaSprograma[a]
+    If Not Exist(rutaSprograma[a]) Then Mkdir rutaSprograma[a] 
   Next
   
   copiarPlantillasInternas()
@@ -50,8 +50,8 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   Try Copy "ESCUDO01" To ModulePrincipal.RutaPrograma & "plantillasOrla/ESCUDO01"
   Try Copy "ESCUDO02" To ModulePrincipal.RutaPrograma & "plantillasOrla/ESCUDO02"
   
-Catch
-  ModuleMensajeError.SistemaDescripcionError()
+  'Catch
+  ' ModuleMensajeError.SistemaDescripcionError()
   
 End
 
@@ -75,7 +75,7 @@ Public Sub borradoDatosAnteriores(rutas As String[])
   Dim a As Integer
   
   For a = 0 To rutas.max
-    If rutas[a] = User.home & "/CreadorOrlas/" Or rutas[a] = User.home & "/CreadorOrlas/" & "plantillasOrla" Then 
+    If rutas[a] = User.home & "/.CreadorOrlas/" Or rutas[a] = User.home & "/.CreadorOrlas/" & "plantillasOrla" Then 
       
     Else
       
