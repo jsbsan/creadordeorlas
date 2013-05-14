@@ -315,22 +315,23 @@ End
 ''----------------- relleno la orla con datos iniciales --------------
 Public Function rellenarOrla(plantillaOrigen As String) As String
   
+  Dim ContenidoEscudo As String 'variable que indica que escudos estan en la plantilla
   Dim ANCHOLARGO As New Integer[]
-  Dim copia As String = User.home & "/CreadorOrlas/trabajotmp/plantillatmp.svg"
+  Dim copia As String = User.home & "/.CreadorOrlas/trabajotmp/plantillatmp.svg"
   Dim cadena As String
   'copio la plantilla a temporal
   If Exist(copia) Then 
     Kill copia
   Endif
   
-  If Exist(User.home & "/CreadorOrlas/trabajotmp/transparente.png") Then
+  If Exist(User.home & "/.CreadorOrlas/trabajotmp/transparente.png") Then
   Else
-    Copy "transparente.png" To User.home & "/CreadorOrlas/trabajotmp/transparente.png"
+    Copy "transparente.png" To User.home & "/.CreadorOrlas/trabajotmp/transparente.png"
   Endif
   
   ' Print plantillaOrigen
   '  Print copia
-  ' Print "/home/uno/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
+  ' Print "/home/uno/.CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
   If plantillaOrigen = "" Then 
     Message.Error(("La plantilla origen esta vacia"))
     Return 
@@ -360,34 +361,37 @@ Public Function rellenarOrla(plantillaOrigen As String) As String
     cadena = Replace$(cadena, "ESCUDO01", "transparente.png")
   Else
     cadena = Replace$(cadena, "ESCUDO01", ModuleGestionOrla.orla.escudo01)
-    ANCHOLARGO = AveriguarAnchoLargo(ModuleGestionOrla.orla.escudo01)
-    cadena = Replace$(cadena, "width=\"164\"", "width=\"" & ANCHOLARGO[0] & "\"")
-    cadena = Replace$(cadena, "height=\"205\"", "height=\"" & ANCHOLARGO[1] & "\"")
+    ContenidoEscudo = "1"
   Endif
   
   If ModuleGestionOrla.orla.escudo02 = "" Then 
     cadena = Replace$(cadena, "ESCUDO02", "transparente.png")
   Else
     cadena = Replace$(cadena, "ESCUDO02", ModuleGestionOrla.orla.escudo02)
-    ANCHOLARGO = AveriguarAnchoLargo(ModuleGestionOrla.orla.escudo02)
-    cadena = Replace$(cadena, "width=\"116.13364\"", "width=\"" & ANCHOLARGO[0] & "\"")
-    cadena = Replace$(cadena, "height=\"230.65433\"", "height=\"" & ANCHOLARGO[1] & "\"")
-    
+    ContenidoEscudo &= "2"
   Endif
   
   If ModuleGestionOrla.orla.escudo03 = "" Then 
     cadena = Replace$(cadena, "ESCUDO03", "transparente.png")
   Else
     cadena = Replace$(cadena, "ESCUDO03", ModuleGestionOrla.orla.escudo03)
+    ContenidoEscudo &= "3"
   Endif
   
   If ModuleGestionOrla.orla.escudo04 = "" Then 
     cadena = Replace$(cadena, "ESCUDO04", "transparente.png")
   Else
     cadena = Replace$(cadena, "ESCUDO04", ModuleGestionOrla.orla.escudo04)
+    ContenidoEscudo &= "4"
   Endif
   
   File.Save(copia, cadena)
+  
+  If InStr(ContenidoEscudo, "1") <> 0 Then sustituyeDimensiones(copia, ModuleGestionOrla.orla.escudo01, "escudo01")
+  If InStr(ContenidoEscudo, "2") <> 0 Then sustituyeDimensiones(copia, ModuleGestionOrla.orla.escudo02, "escudo02")
+  If InStr(ContenidoEscudo, "3") <> 0 Then sustituyeDimensiones(copia, ModuleGestionOrla.orla.escudo03, "escudo03")
+  If InStr(ContenidoEscudo, "4") <> 0 Then sustituyeDimensiones(copia, ModuleGestionOrla.orla.escudo04, "escudo04")
+  
   Return copia
 Catch
   ModuleMensajeError.SistemaDescripcionError()
@@ -402,7 +406,7 @@ Public Function AveriguarAnchoLargo(imagen As String) As Integer[]
   Dim arrayDev As String[]
   Dim arrayInt As New Integer[]
   
-  comando = "identify -format \"%wx%h\" " & User.home & "/CreadorOrlas/temporales/FotosPlantillaOrla/" & imagen
+  comando = "identify -format \"%wx%h\" " & User.home & "/.CreadorOrlas/temporales/FotosPlantillaOrla/" & imagen
   Shell comando To cadena
   arrayDev = Split(cadena, "x")
   
@@ -411,5 +415,37 @@ Public Function AveriguarAnchoLargo(imagen As String) As Integer[]
   Next
   
   Return arrayInt
+  
+End
+
+Public Sub sustituyeDimensiones(nombrefichero As String, nombreEscudo As String, etiqueta As String)
+  
+  Dim linea As String
+  Dim comando As String
+  Dim sitio As String
+  Dim numero As Integer
+  Dim dimensionHeight As Integer
+  Dim ANCHOLARGO As New Integer[]
+  'etiqueta es: escudo01, escudo02,escudo03,escudo04
+  'nombrefichero: plantilla .svg
+  
+  comando = "cat " & nombrefichero & " |grep -n 'id=\"" & etiqueta & "\"'|cut -d \":\" -f1"
+  Shell comando To linea
+  
+  If linea <> "" Then 
+    ANCHOLARGO = AveriguarAnchoLargo(ModuleGestionOrla.orla.escudo01)
+    dimensionHeight = ancholargo[1] * 150 / ancholargo[0]
+    
+    numero = Val(linea)
+    'comando = "sed -i '" & Str$(numero - 1) & "/.*/height=\"" & Str$(dimensionHeight) & "\"/' " & nombrefichero
+    Exec ["sed", "-i", "'" & Str$(numero - 1) & "/.*/height=\"" & Str$(dimensionHeight) & "\"/'", nombrefichero] Wait
+    'comando = "sed -i '" & Str$(numero - 2) & "/.*/width=\"" & "150" & "\"/' " & nombrefichero
+    
+    Exec ["sed", "-i", "'" & Str$(numero - 2) & "/.*/width=\"" & "150" & "\"/'", nombrefichero] Wait
+    
+  Else
+    'no he encontrado nada
+    Return 
+  Endif
   
 End

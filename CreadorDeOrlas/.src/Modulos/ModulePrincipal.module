@@ -1,6 +1,6 @@
 ' Gambas module file
 
-Public RutaPrograma As String = User.home & "/CreadorOrlas/" ''ruta donde estan los archivos de datos y de trabajo temporal del programa
+Public RutaPrograma As String = User.home & "/.CreadorOrlas/" ''ruta donde estan los archivos de datos y de trabajo temporal del programa
 Public RutaDatos As String '' ruta donde esta el proyecto
 Public Rutas As New String[] ''rutas de trabajo
 Public DatosOrla As New ClassDatosOrla
@@ -116,7 +116,7 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   Wait 2 'doy tiempo a que se muevan los archivos...
   
   'borrado de todos los archivos descomprimidos:
-  comando = "rm -rf " & User.home & "/CreadorOrlas/trabajotmp/home/"
+  comando = "rm -rf " & User.home & "/.CreadorOrlas/trabajotmp/home/"
   Shell comando Wait
   
   ' ************************************************************************
@@ -190,13 +190,13 @@ End
 
 Public Sub copiarplantillas() As Boolean
   
-  Dim nombredestino As String = User.home & "/CreadorOrlas/temporales/" & ModuleUtilidadesDisco.extraedesdebarra(ModuleGestionOrla.orla.Plantilla)
+  Dim nombredestino As String = User.home & "/.CreadorOrlas/temporales/" & ModuleUtilidadesDisco.extraedesdebarra(ModuleGestionOrla.orla.Plantilla)
   
   If Exist(nombredestino) Then 
     Kill nombredestino
   Endif
   
-  Copy ModuleGestionOrla.orla.Plantilla To User.home & "/CreadorOrlas/temporales/" & ModuleUtilidadesDisco.extraedesdebarra(ModuleGestionOrla.orla.Plantilla)
+  Copy ModuleGestionOrla.orla.Plantilla To User.home & "/.CreadorOrlas/temporales/" & ModuleUtilidadesDisco.extraedesdebarra(ModuleGestionOrla.orla.Plantilla)
   Return True
   
 End
@@ -214,12 +214,12 @@ Public Sub comprimirDatos() As Boolean
   zip.comprimirDatos(rutaprograma & "temporales/FotosProfesoresMini")
   zip.comprimirDatos(rutaprograma & "temporales")
   
-  If Exist(RutaDatos & ".Orla") Then 
+  If Exist(RutaDatos) Then 
     'existe, lo borro para actualizarlo
-    Try Kill RutaDatos & ".Orla"
+    Try Kill RutaDatos
   Endif
   
-  Try Copy "/tmp/temporal.zip" To RutaDatos & ".Orla"
+  Try Copy "/tmp/temporal.zip" To RutaDatos 
   If Error Then 
     Message.Error(("Error al intentar copiar el archivo comprimido temporal al archivo final"))
     Return False

@@ -370,7 +370,7 @@
       }
     }
     { Frame5 Frame
-      MoveScaled(1,0,80,17)
+      MoveScaled(1,0,84,18)
       Font = Font["Bitstream Charter,-1"]
       Text = ("Textos")
       { TextBoxCurso TextBox
@@ -415,7 +415,6 @@
         MoveScaled(56,10,21,2)
         Font = Font["-1"]
         ReadOnly = True
-        Text = ("gsdfgs")
       }
       { Label20 Label
         MoveScaled(-2,14,17,3)
@@ -436,6 +435,12 @@
       { TextBoxOpcional2 TextBox
         MoveScaled(56,14,21,3)
         Font = Font["-1"]
+      }
+      { ToolButtonActualizarPlantilla ToolButton
+        MoveScaled(79,9,4,4)
+        ToolTip = ("Actualizar plantilla a usar")
+        Picture = Picture["icon:/16/refresh"]
+        Border = True
       }
     }
     { CheckBox1 CheckBox
@@ -586,7 +591,7 @@
       Border = Border.Plain
     }
     { DrawingAreaPlantilla DrawingArea
-      MoveScaled(30,7,57,42)
+      MoveScaled(28,7,57,42)
       Background = &HFFFFFF&
       ToolTip = ("Haga click para ver mejor la imagen")
     }
@@ -595,7 +600,7 @@
       Text = ("Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla.")
     }
     { ListBoxOrla ListBox
-      MoveScaled(1,7,28,58)
+      MoveScaled(1,7,26,58)
     }
     { HBox3 VPanel
       MoveScaled(36,60,49,29)

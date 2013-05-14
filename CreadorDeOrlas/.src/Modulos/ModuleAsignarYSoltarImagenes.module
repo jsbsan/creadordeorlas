@@ -13,7 +13,7 @@ Public Sub asignaImagen(PictureBoxElegido As Picturebox, ruta As String) As Stri
   dialogofile.ShowModal()
   
   If dat.dato = "-1" Then
-    PictureBoxElegido.Picture = Picture.Load(User.home & "/CreadorOrlas/temporales/FotosAlumnos/icono_fotos_personas.png")
+    PictureBoxElegido.Picture = Picture.Load(User.home & "/.CreadorOrlas/temporales/FotosAlumnos/icono_fotos_personas.png")
     Return
   Endif
   Return asignaImagen2Paso(dat.dato, PictureBoxElegido, ruta)

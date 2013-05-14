@@ -171,10 +171,10 @@ Public Sub ToolButtonAjustarFoto_Click()
   Dim ajusteFoto As New FormExtraerFoto
   
   If reg.foto <> "" Then 
-    ajusteFoto.ruta = User.home & "/CreadorOrlas/temporales/FotosProfesores/" & reg.foto 
+    ajusteFoto.ruta = User.home & "/.CreadorOrlas/temporales/FotosProfesores/" & reg.foto 
     ajusteFoto.ShowDialog()
     
-    PictureBoxFoto.Picture = Picture.Load(User.home & "/CreadorOrlas/temporales/FotosProfesores/" & reg.foto)
+    PictureBoxFoto.Picture = Picture.Load(User.home & "/.CreadorOrlas/temporales/FotosProfesores/" & reg.foto)
     PictureBoxFoto.Refresh()
     Try Kill modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & reg.foto
   Endif
@@ -184,7 +184,7 @@ End
 Public Sub ToolButtonHacerTransparente_Click()
   
   Dim numero As Integer
-  Dim ruta As String = User.home & "/CreadorOrlas/temporales/FotosProfesores/"
+  Dim ruta As String = User.home & "/.CreadorOrlas/temporales/FotosProfesores/"
   
   If reg.foto = "" Then 
     Message.Info(("Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"))
@@ -201,10 +201,10 @@ Public Sub ToolButtonEditarGimp_Click()
   
   Dim comando As String
   
-  If Exist(User.home & "/CreadorOrlas/temporales/FotosProfesores/" & reg.Foto) And reg.foto <> "" Then 
-    Exec ["gimp", User.home & "/CreadorOrlas/temporales/FotosProfesores/" & reg.Foto] Wait
+  If Exist(User.home & "/.CreadorOrlas/temporales/FotosProfesores/" & reg.Foto) And reg.foto <> "" Then 
+    Exec ["gimp", User.home & "/.CreadorOrlas/temporales/FotosProfesores/" & reg.Foto] Wait
     
-    PictureBoxFoto.Picture = Picture.Load(User.home & "/CreadorOrlas/temporales/FotosProfesores/" & reg.Foto)
+    PictureBoxFoto.Picture = Picture.Load(User.home & "/.CreadorOrlas/temporales/FotosProfesores/" & reg.Foto)
     
   Else
     Message.Info(("No se puede editar, debe de asignar una imagen"))

@@ -1,11 +1,11 @@
 ' Gambas module file
 
-Private rutaPlantillasOrla As String = User.Home & "/CreadorOrlas/plantillasOrla/"
+Private rutaPlantillasOrla As String = User.Home & "/.CreadorOrlas/plantillasOrla/"
 
 Public Sub cargalistbox(lista As ListBox)
   
   Dim file As String
-  'por cada fichero tipo *.svg, existente en /CreadorOrlas/plantillasOrla
+  'por cada fichero tipo *.svg, existente en /.CreadorOrlas/plantillasOrla
   Dim directorio As String = rutaPlantillasOrla 
   
   lista.Clear

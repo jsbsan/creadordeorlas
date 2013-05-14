@@ -152,7 +152,7 @@ Public Sub ToolButtonCrear_Click()
       ModuleGestionProfesores.lista.Registros.Clear()
       ModuleGestionOrla.orla.vacio()
       ModulePrincipal.borradoImagenes()
-      ModuleGestionOrla.orla.Plantilla = User.Home & "/CreadorOrlas/plantillasOrla/Naranja_Floral.svg"
+      ModuleGestionOrla.orla.Plantilla = User.Home & "/.CreadorOrlas/plantillasOrla/Naranja_Floral.svg"
       
       Me.caption = "Orla: " & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".Orla"
       ModulePrincipal.RutaDatos = DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".Orla"
@@ -411,11 +411,11 @@ Public Sub IconPanel1_Click()
     PictureBoxPrev.Picture = Picture.Load("/tmp/518x364.png")
     TextLabelEspere.Visible = True
     
-    Exec ["inkscape", hacerSVGoPNg(False, True), "--export-png", User.home & "/CreadorOrlas/trabajotmp/dibujotemporal.png"] Wait
+    Exec ["inkscape", hacerSVGoPNg(False, True), "--export-png", User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png"] Wait
     TextLabelEspere.Visible = False
     'ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), Pintura)
     'Pintura.Save("/tmp/dibujotemporal.png")
-    PictureBoxPrev.Picture = Picture.Load(User.home & "/CreadorOrlas/trabajotmp/dibujotemporal.png")
+    PictureBoxPrev.Picture = Picture.Load(User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png")
   Endif
   
   ''-------------------------------
@@ -440,7 +440,7 @@ Public Sub IconPanel1_Click()
       ListBoxOrla_Click()
     Else
       'habria que buscar cual plantilla esta usando la clase orla, y elegirla...
-      nombresolo = Replace$(ModuleGestionOrla.orla.plantilla, User.home & "/CreadorOrlas/plantillasOrla/", "")
+      nombresolo = Replace$(ModuleGestionOrla.orla.plantilla, User.home & "/.CreadorOrlas/plantillasOrla/", "")
       nombresolo = Replace$(nombresolo, ".svg", "")
       ListBoxOrla.Index = ListBoxOrla.Find(nombresolo)
       ListBoxOrla_Click()
@@ -536,7 +536,7 @@ Public Sub IconPanel1_Click()
     Dialog.title = ("Indique archivo de datos para abrir...")
     Dialog.Filter = ["*.Orla", ".Orla"]
     If Not Dialog.OpenFile() Then 
-      resultado = ModulePrincipal.AbrirFichero(Dialog.Path, "CreadorOrlas")
+      resultado = ModulePrincipal.AbrirFichero(Dialog.Path, ".CreadorOrlas")
       
       If resultado Then
         resultado = ModulePrincipal.CargarDatos()
@@ -598,7 +598,7 @@ End
 
 Public Sub ComboBoxPlantillaUsar_LostFocus()
   
-  ModuleGestionOrla.orla.Plantilla = User.home & "/CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
+  ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
   ModuleGestionOrla.guardado = False
   
 End
@@ -636,12 +636,12 @@ Public Sub rellenarDatosOrlas()
   ModuleGestorPlantillas.cargaComboBox(ComboBoxPlantillaUsar)
   
   If ModuleGestionOrla.orla.Plantilla <> "" Then 
-    ComboBoxPlantillaUsar.text = Replace$(Replace$(ModuleGestionOrla.orla.Plantilla, User.Home & "/CreadorOrlas/plantillasOrla/", ""), ".svg", "")
+    ComboBoxPlantillaUsar.text = Replace$(Replace$(ModuleGestionOrla.orla.Plantilla, User.Home & "/.CreadorOrlas/plantillasOrla/", ""), ".svg", "")
     activarFotos(ModuleGestionOrla.orla.Plantilla)
   Else
     ComboBoxPlantillaUsar.text = "Naranja_Floral"
-    ModuleGestionOrla.orla.Plantilla = User.home & "/CreadorOrlas/plantillasOrla/Naranja_Floral.svg"
-    activarFotos(User.home & "/CreadorOrlas/plantillasOrla/Naranja_Floral.svg")
+    ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/Naranja_Floral.svg"
+    activarFotos(User.home & "/.CreadorOrlas/plantillasOrla/Naranja_Floral.svg")
   Endif
   
   TextBoxOpcional2.text = ModuleGestionOrla.orla.textoopcional02
@@ -788,12 +788,12 @@ End
 Private Sub hacerSVGoPNg(pdf As Boolean, Optional previsualizacion As Boolean) As String
   
   'borrado de ficheros antiguos para evitar problemas de aplicar efectos
-  Shell ("rm " & User.Home & "/CreadorOrlas/trabajotmp/imagenes/*.*") Wait
-  Shell ("rm " & User.Home & "/CreadorOrlas/trabajotmp/imagenes/alumno/*.*") Wait
-  Shell ("rm " & User.Home & "/CreadorOrlas/trabajotmp/imagenes/profesor/*.*") Wait
+  Shell ("rm " & User.Home & "/.CreadorOrlas/trabajotmp/imagenes/*.*") Wait
+  Shell ("rm " & User.Home & "/.CreadorOrlas/trabajotmp/imagenes/alumno/*.*") Wait
+  Shell ("rm " & User.Home & "/.CreadorOrlas/trabajotmp/imagenes/profesor/*.*") Wait
   
   If codigo = 0 Then codigo = 1
-  ' "/home/uno/CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
+  ' "/home/uno/.CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
   
   If Exist(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg") Then 
     Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
@@ -804,7 +804,7 @@ Private Sub hacerSVGoPNg(pdf As Boolean, Optional previsualizacion As Boolean) A
   Endif
   'ModuleGestionOrla.orla.Plantilla = "" 
   If ModuleGestionOrla.orla.Plantilla = "" Then 
-    Copy User.home & "/CreadorOrlas/plantillasOrla/Naranja_Floral.svg" To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
+    Copy User.home & "/.CreadorOrlas/plantillasOrla/Naranja_Floral.svg" To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
   Else
     Copy ModuleGestionOrla.orla.Plantilla To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
   Endif
@@ -996,14 +996,14 @@ End
 Public Sub ToolButtonEditarOrlas_Click() 'editar orlas
   
   Dim fp As New FormPensando
-  Dim rutaPlantillasOrla As String = User.Home & "/CreadorOrlas/plantillasOrla/"
+  Dim rutaPlantillasOrla As String = User.Home & "/.CreadorOrlas/plantillasOrla/"
   'abririamos el inkscape....
   If ListBoxOrla.index <> -1 Then
     fp.Show()
     Wait 0.1
     Exec ["inkscape", rutaPlantillasOrla & ListBoxOrla.List[ListBoxOrla.index] & ".svg"] Wait
     'Nota: actualizar miniatura de orla
-    Try Kill User.Home & "/CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.Index] & ".png"
+    Try Kill User.Home & "/.CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.Index] & ".png"
     ' ModuleGestorPlantillas.cargaprevisualizacion(ListBoxOrla, DrawingAreaPlantilla)
     
     fp.parar = True
@@ -1021,19 +1021,19 @@ Public Sub ToolButtonBorrarOrla_Click()
   respuesta = Message.Question(("Desea borrar la plantilla: ") & "\n" & ListBoxOrla.List[ListBoxOrla.index], ("Si"), ("No"))
   
   If respuesta = 1 Then
-    If ModuleGestionOrla.orla.Plantilla = User.home & "/CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.index] & ".svg" Then 
+    If ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.index] & ".svg" Then 
       Message.Error(("No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"))
     Else
       
-      Kill User.home & "/CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.index] & ".svg"
-      Kill User.home & "/CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.index] & ".png"
+      Kill User.home & "/.CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.index] & ".svg"
+      Kill User.home & "/.CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.index] & ".png"
       ModuleGestorPlantillas.cargalistbox(ListBoxOrla)
       If ModuleGestionOrla.orla.Plantilla = "" Then 
         ListBoxOrla.Index = 0
         ListBoxOrla_Click()
       Else
         'habria que buscar cual plantilla esta usando la clase orla, y elegirla...
-        nombresolo = Replace$(ModuleGestionOrla.orla.plantilla, User.home & "/CreadorOrlas/plantillasOrla/", "")
+        nombresolo = Replace$(ModuleGestionOrla.orla.plantilla, User.home & "/.CreadorOrlas/plantillasOrla/", "")
         nombresolo = Replace$(nombresolo, ".svg", "")
         ListBoxOrla.Index = ListBoxOrla.Find(nombresolo)
         
@@ -1047,7 +1047,7 @@ End
 Public Sub ToolButtonDefinir_Click()
   
   Dim fp As New FormPensando
-  Dim rutaPlantillasOrla As String = User.Home & "/CreadorOrlas/plantillasOrla/"
+  Dim rutaPlantillasOrla As String = User.Home & "/.CreadorOrlas/plantillasOrla/"
   Dim nombredelaplantilla As String
   
   While True
@@ -1084,7 +1084,7 @@ Public Sub ToolButtonImportarOrla_Click()
   
   If Not Dialog.OpenFile() Then 
     If InStr(Dialog.Path, ".svg") <> 0 Then 
-      Copy Dialog.path To User.Home & "/CreadorOrlas/plantillasOrla/" & ModuleUtilidadesDisco.extraedesdebarra(Dialog.path)
+      Copy Dialog.path To User.Home & "/.CreadorOrlas/plantillasOrla/" & ModuleUtilidadesDisco.extraedesdebarra(Dialog.path)
       ModuleGestorPlantillas.cargalistbox(ListBoxOrla)
     Endif
     
@@ -1171,7 +1171,7 @@ End
 
 Public Sub ComboBoxPlantillaUsar_Leave()
   
-  'activarFotos(ModuleGestionOrla.orla.Plantilla = User.home & "/CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg")
+  'activarFotos(ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg")
   
   'ModuleGestionOrla.guardado = False
   
@@ -1333,4 +1333,26 @@ Public Sub PictureBoxPrev_MouseDown()
   'abro el archivo para verlo mejor....
   Exec ["gpicview", "/tmp/dibujotemporal.png"]
   
+End
+
+Public Sub ComboBoxPlantillaUsar_Change()
+  
+  ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
+  ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub ComboBoxPlantillaUsar_Activate()
+  
+  ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
+  ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub ToolButtonActualizarPlantilla_Click()
+  
+  ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
+  ModuleGestionOrla.guardado = False
+  rellenarDatosOrlas()
+
 End
