@@ -1,3 +1,6 @@
+* Thu May 16 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.43
+-Mejoras en soltar archivos, incluir todas las plantillas y marcos dentro del programa
+
 * Tue May 14 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.41
 - Cambio de directorio de trabajo, pasa a ser .CreadorOrlas
 
