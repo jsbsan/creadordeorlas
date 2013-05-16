@@ -615,7 +615,7 @@
       Border = Border.Plain
     }
     { DrawingAreaPlantilla DrawingArea
-      MoveScaled(28,7,57,42)
+      MoveScaled(28,7,57,41)
       Background = &HFFFFFF&
       ToolTip = ("Haga click para ver mejor la imagen")
     }

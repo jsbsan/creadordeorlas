@@ -442,6 +442,7 @@ Public Sub IconPanel1_Click()
     ModuleGestorPlantillas.cargalistbox(ListBoxOrla)
     If ModuleGestionOrla.orla.Plantilla = "" Then 
       ListBoxOrla.Index = 0
+      ListBoxOrla.Sorted = True
       ListBoxOrla_Click()
     Else
       'habria que buscar cual plantilla esta usando la clase orla, y elegirla...
@@ -1259,6 +1260,7 @@ End
 
 Public Sub PictureBoxEsp_MouseDown()
   
+  Dialog.Path = User.Home & "/Imágenes/Macros/"
   Dialog.Filter = ["*.png", "*.png"]
   Dialog.Title = "Elige plantilla de marco"
   If Dialog.OpenFile() Then 
