@@ -120,6 +120,10 @@
     Index = 3
     Text = ("Datos Alumnos")
     Picture = Picture["icon:/22/people"]
+    { PictureBoxBotonSoltar PictureBox
+      MoveScaled(7,86,8,6)
+      Picture = Picture["drop.png"]
+    }
     { HBox1 HBox
       MoveScaled(1,1,78,5)
       { ToolButtonAnnadir ToolButton
@@ -161,9 +165,21 @@
       Stretch = True
       Border = Border.Plain
     }
+    { TextLabelSueltaFotosAlumnos TextLabel
+      MoveScaled(5,79,68,15)
+      Font = Font["Bitstream Charter,-1"]
+      Drop = True
+      Text = ("<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre debe de tener una coma para separar los apellidos y el nombre.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png")
+      Alignment = Align.Center
+      Border = Border.Plain
+    }
     Index = 4
     Text = ("Datos Profesores")
     Picture = Picture["icon:/22/people"]
+    { PictureBoxBotonSoltar2 PictureBox
+      MoveScaled(5,88,8,6)
+      Picture = Picture["drop.png"]
+    }
     { HBox2 HBox
       MoveScaled(1,1,78,5)
       { ToolButtonAnnadir2 ToolButton
@@ -202,6 +218,14 @@
     { PictureBox6 PictureBox
       MoveScaled(73,81,11,8)
       Picture = Picture["dibujos/icono_profesor.png"]
+      Border = Border.Plain
+    }
+    { TextLabelSueltaFotosProfesores TextLabel
+      MoveScaled(4,78,68,15)
+      Font = Font["Bitstream Charter,-1"]
+      Drop = True
+      Text = ("<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre debe de tener una coma para separar los apellidos y el nombre.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png")
+      Alignment = Align.Center
       Border = Border.Plain
     }
     Index = 5

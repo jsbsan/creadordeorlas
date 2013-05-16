@@ -214,20 +214,21 @@ Public Sub comprimirDatos() As Boolean
   zip.comprimirDatos(rutaprograma & "temporales/FotosProfesoresMini")
   zip.comprimirDatos(rutaprograma & "temporales")
   
-  If Exist(RutaDatos) Then 
+  If Exist(Replace$(RutaDatos, ".Orla", "") & ".Orla") Then 
     'existe, lo borro para actualizarlo
-    Try Kill RutaDatos
+    Try Kill Replace$(RutaDatos, ".Orla", "") & ".Orla"
   Endif
   
-  Try Copy "/tmp/temporal.zip" To RutaDatos 
-  If Error Then 
-    Message.Error(("Error al intentar copiar el archivo comprimido temporal al archivo final"))
-    Return False
-  Endif
+  Copy "/tmp/temporal.zip" To Replace$(RutaDatos, ".Orla", "") & ".Orla"
   ModuleGestionAlumnos.guardado = True
   ModuleGestionOrla.guardado = True
   ModuleGestionProfesores.guardado = True
   Return True
+  
+Catch 'comprimir datos
+  ModuleMensajeError.SistemaDescripcionError() 
+  Message.Error(("Error al intentar copiar el archivo comprimido temporal al archivo final"))
+  Return False
   
 End
 '----------------------------------------------------

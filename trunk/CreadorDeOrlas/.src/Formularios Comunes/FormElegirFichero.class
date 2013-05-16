@@ -33,7 +33,7 @@ Public Sub ToolButtonAceptar_Click()
   
   If InStr(a, "http://") <> 0 Then 
     
-    nombre = "/tmp/1" & "." & Right$(a, 3)
+    nombre = "/tmp/1" & "." & ModuleUtilidadesDisco.extraeExtension(a)
     Try Kill nombre 'borro nombre anterior
     
     Wait 0.1
@@ -52,9 +52,9 @@ Public Sub ToolButtonAceptar_Click()
   Endif
   
   'pasar a convertir la imagen de jpg a png....
-  comando = "convert \"" & valor.dato & "\" " & "/tmp/" & ModuleUtilidadesDisco.extraedesdebarra(Mid$(valor.dato, 1, Len(valor.dato) - 3)) & "png"
+  comando = "convert \"" & valor.dato & "\" " & "\"/tmp/" & ModuleUtilidadesDisco.extraedesdebarra(Mid$(valor.dato, 1, Len(valor.dato) - Len(ModuleUtilidadesDisco.extraeExtension(valor.dato)))) & "png\""
   Shell comando Wait
-  valor.dato = "/tmp/" & ModuleUtilidadesDisco.extraedesdebarra(Mid$(valor.dato, 1, Len(valor.dato) - 3)) & "png"
+  valor.dato = "/tmp/" & ModuleUtilidadesDisco.extraedesdebarra(Mid$(valor.dato, 1, Len(valor.dato) - Len(ModuleUtilidadesDisco.extraeExtension(valor.dato)))) & "png"
   
   Me.Close
   
