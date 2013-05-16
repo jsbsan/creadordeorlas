@@ -30,11 +30,11 @@ msgstr ""
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:224
+#: ModulePrincipal.module:230
 msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 
-#: ModulePrincipal.module:256
+#: ModulePrincipal.module:257
 msgid "error al leer datos del portapapeles"
 msgstr ""
 

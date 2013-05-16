@@ -400,6 +400,7 @@ Public Sub IconPanel1_Click()
   ''PREVISUALIZAR...
   ''-------------------------------
   If IconPanel1.index = 10 Then 
+    PictureBoxPrev.Tooltip = ""
     'sistema de mostrar previsualizacion
     'crear el svg y mostarlo...
     
@@ -415,7 +416,11 @@ Public Sub IconPanel1_Click()
     TextLabelEspere.Visible = False
     'ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), Pintura)
     'Pintura.Save("/tmp/dibujotemporal.png")
-    PictureBoxPrev.Picture = Picture.Load(User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png")
+    If Exist(User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png") Then 
+      PictureBoxPrev.Picture = Picture.Load(User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png")
+      PictureBoxPrev.tag = User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png"
+      PictureBoxPrev.Tooltip = ("Haga click para visualizar a mayor tamaño la previsualización")
+    Endif
   Endif
   
   ''-------------------------------
@@ -539,6 +544,10 @@ Public Sub IconPanel1_Click()
       resultado = ModulePrincipal.AbrirFichero(Dialog.Path, ".CreadorOrlas")
       
       If resultado Then
+        PictureBoxFondo.picture = picture["icono_galeria2.jpg"]
+        PictureBoxEscudo.picture = picture["icono_galeria2.jpg"]
+        PictureBoxLogo.picture = picture["icono_galeria2.jpg"]
+        PictureBoxLogo2.picture = picture["icono_galeria2.jpg"]
         resultado = ModulePrincipal.CargarDatos()
         ModulePrincipal.RutaDatos = Replace(Dialog.Path, ".Orla", "")
         Me.caption = "Orla: " & ModuleUtilidadesDisco.extraedesdebarra(ModulePrincipal.RutaDatos)
@@ -1331,7 +1340,7 @@ End
 Public Sub PictureBoxPrev_MouseDown()
   
   'abro el archivo para verlo mejor....
-  Exec ["gpicview", "/tmp/dibujotemporal.png"]
+  Exec ["gpicview", PictureBoxPrev.tag]
   
 End
 
@@ -1354,5 +1363,43 @@ Public Sub ToolButtonActualizarPlantilla_Click()
   ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
   ModuleGestionOrla.guardado = False
   rellenarDatosOrlas()
+  
+End
 
+'----------------------------------------------------------------------------------------------
+'soltar ficheros para recoger datos de los alumnos o profesores de los nombres del fichero
+'----------------------------------------------------------------------------------------------
+
+Public Sub TextLabelSueltaFotosAlumnos_Drop()
+  
+  Dim resultado As Boolean
+  
+  resultado = ModuleArrastrarYSoltarFicheros.InsertarDatosSoltados(drag, ModuleGestionAlumnos.lista)
+  
+  If resultado = False Then
+    Message.Info(("Ha habido un problema al añadir los datos soltados"))
+  Else
+    ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+    'se ha añadido información, se tiene que redistribuir las foto...
+    ModuleGestionAlumnos.ListaOrdenada.Clear
+    
+  Endif
+  
+End
+
+Public Sub TextLabelSueltaFotosProfesores_drop()
+  
+  Dim resultado As Boolean
+  
+  resultado = ModuleArrastrarYSoltarFicheros.InsertarDatosSoltados(drag, ModuleGestionProfesores.lista)
+  
+  If resultado = False Then
+    Message.Info(("Ha habido un problema al añadir los datos soltados"))
+  Else
+    ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+    'se ha añadido información, se tiene que redistribuir las foto...
+    ModuleGestionProfesores.ListaOrdenada.Clear
+    
+  Endif
+  
 End
