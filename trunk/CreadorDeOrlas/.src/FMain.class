@@ -805,7 +805,7 @@ Public Sub ToolButtonGeneraSVG_Click()
 End
 
 Private Sub hacerSVGoPNg(pdf As Boolean, Optional previsualizacion As Boolean) As String
-
+  
   Dim respuesta As String
   'borrado de ficheros antiguos para evitar problemas de aplicar efectos
   Shell ("rm " & User.Home & "/.CreadorOrlas/trabajotmp/imagenes/*.*") Wait
@@ -1271,7 +1271,7 @@ End
 
 Public Sub PictureBoxEsp_MouseDown()
   
-  Dialog.Path = User.Home & "/Imágenes/Macros/"
+  Dialog.Path = User.Home & "/Imágenes/Marcos/"
   Dialog.Filter = ["*.png", "*.png"]
   Dialog.Title = "Elige plantilla de marco"
   If Dialog.OpenFile() Then 
@@ -1419,6 +1419,6 @@ End
 
 Public Sub ToolButtonAbrirCarpeta_Click()
   
-  Desktop.Open("/tmp/trabajo_orla/trabajo.svg")
+  Exec ["pcmanfm", "/tmp/trabajo_orla/"]
   
 End
