@@ -5,7 +5,7 @@
   Icon = Picture["orlaicono.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(0,1,117,95)
+    MoveScaled(0,0,117,95)
     Count = 15
     Border = True
     Index = 0
@@ -831,26 +831,42 @@
     Text = ("Generar Orla")
     Picture = Picture["icon:/22/pdf"]
     { ToolButtonGeneraSVG ToolButton
-      MoveScaled(23,9,38,10)
+      MoveScaled(14,9,53,10)
       ToolTip = ("Crear archivo .svg y editarlo con inkscape")
-      Text = ("Generar Orla en .SVG")
+      Text = ("Generar Orla en .SVG y abrirla con Inkscape")
       Picture = Picture["inkscape-icono.png"]
       Border = True
     }
     { PictureBox7 PictureBox
-      MoveScaled(34,39,11,10)
+      MoveScaled(37,47,11,10)
       Picture = Picture["dibujos/gatojugando.png"]
       Stretch = True
     }
     { ToolButtonGenerarOrla ToolButton
-      MoveScaled(23,64,38,10)
+      MoveScaled(26,61,38,10)
+      Visible = False
       Text = ("Generar Orla en .PNG")
       Picture = Picture["dibujos/ORLA GENERADOR.png"]
       Border = True
     }
     { TextLabel12 TextLabel
-      MoveScaled(15,20,53,16)
+      MoveScaled(14,21,53,12)
       Text = ("Nota:<br>\nSe creará una copia de trabajo, con las fotografías y el archivo tipo .svg  en la carpeta:<br>\n/tmp/trabajo_orla/trabajo.svg<br>")
+      Alignment = Align.Center
+    }
+    { ToolButtonAbrirCarpeta ToolButton
+      MoveScaled(26,35,33,8)
+      Enabled = False
+      Font = Font["Bitstream Charter,-1"]
+      ToolTip = ("Cuando genere la Orla .SVG, podrá ver los archivos.")
+      Text = ("Abrir Carpeta Temporal")
+      Picture = Picture["carpeta.png"]
+      Border = True
+    }
+    { TextLabel13 TextLabel
+      MoveScaled(5,75,78,18)
+      Font = Font["Underline"]
+      Text = ("Nota:<br>\nDesde INKSCAPE, podrá editar y modificar su orla.<br>\nAdemás podrá exportarla a fichero .png, desde el menú de inkscape:<br>\nArchivo/Exportar mapa de bits<br>")
       Alignment = Align.Center
     }
     Index = 12

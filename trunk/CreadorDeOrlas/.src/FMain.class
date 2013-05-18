@@ -378,6 +378,10 @@ End
 '--------------------------------------------------------------------------------------------------
 Public Sub IconPanel1_Click()
   
+  Dim resultadoFichero As String 'variable que uso para previsualizar la orla
+  
+  Dim fp As New FormPensando
+  
   Dim comando As String
   Dim nombresolo As String 'nombre del archivo de la plantilla, sin ruta y sin .svg
   Dim resultado As Boolean
@@ -411,8 +415,13 @@ Public Sub IconPanel1_Click()
     'Print hacerSVGoPNg(False, True)
     PictureBoxPrev.Picture = Picture.Load("/tmp/518x364.png")
     TextLabelEspere.Visible = True
+    resultadoFichero = hacerSVGoPNg(False, True)
+    fp.Show()
+    Wait 0.5
     
-    Exec ["inkscape", hacerSVGoPNg(False, True), "--export-png", User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png"] Wait
+    Exec ["inkscape", resultadoFichero, "--export-png", User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png"] Wait
+    fp.parar = True
+    fp.Delete()
     TextLabelEspere.Visible = False
     'ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), Pintura)
     'Pintura.Save("/tmp/dibujotemporal.png")
@@ -796,7 +805,8 @@ Public Sub ToolButtonGeneraSVG_Click()
 End
 
 Private Sub hacerSVGoPNg(pdf As Boolean, Optional previsualizacion As Boolean) As String
-  
+
+  Dim respuesta As String
   'borrado de ficheros antiguos para evitar problemas de aplicar efectos
   Shell ("rm " & User.Home & "/.CreadorOrlas/trabajotmp/imagenes/*.*") Wait
   Shell ("rm " & User.Home & "/.CreadorOrlas/trabajotmp/imagenes/alumno/*.*") Wait
@@ -818,8 +828,9 @@ Private Sub hacerSVGoPNg(pdf As Boolean, Optional previsualizacion As Boolean) A
   Else
     Copy ModuleGestionOrla.orla.Plantilla To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
   Endif
-  
-  Return ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", PictureBoxEfectoAlumno.tag, PictureBoxEfectoProfesor.tag, ColorButton1.value, False, pdf, CheckBoxAjustarFotos.Value, previsualizacion)
+  respuesta = ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", PictureBoxEfectoAlumno.tag, PictureBoxEfectoProfesor.tag, ColorButton1.value, False, pdf, CheckBoxAjustarFotos.Value, previsualizacion)
+  ToolButtonAbrirCarpeta.enabled = True
+  Return respuesta
 Catch
   ModuleMensajeError.SistemaDescripcionError()
   
@@ -1403,5 +1414,11 @@ Public Sub TextLabelSueltaFotosProfesores_drop()
     ModuleGestionProfesores.ListaOrdenada.Clear
     
   Endif
+  
+End
+
+Public Sub ToolButtonAbrirCarpeta_Click()
+  
+  Desktop.Open("/tmp/trabajo_orla/trabajo.svg")
   
 End

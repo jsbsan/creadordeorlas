@@ -169,6 +169,7 @@ Public Sub realizar(RutaplantillaSvg As String, codigoAlumno As Variant[], codig
     Exec ["cp", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg"), "/tmp/trabajo_orla/trabajo.svg"] Wait
     '4)edito
     Exec ["inkscape", "/tmp/trabajo_orla/trabajo.svg"] Wait
+    
   Else
     
     Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg"), "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/Orla.png"] Wait
