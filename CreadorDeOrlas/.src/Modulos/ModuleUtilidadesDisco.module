@@ -114,7 +114,10 @@ Public Sub CopiarFicherosInterna(Directorioorigen As String, Directoriodestino A
   If Exist(Directorioorigen) Then 
     For Each File In Dir(Directorioorigen, patron)
       ' Print file
-      If file <> ".svn" Then Try Copy Directorioorigen & "/" & file To Directoriodestino & "/" & file 
+      If file <> ".svn" And InStr(file, "~") = 0 Then
+        Print "copio..." & Directoriodestino & file 
+        Try Copy Directorioorigen & "/" & file To Directoriodestino & file 
+      Endif
     Next
   Endif
   

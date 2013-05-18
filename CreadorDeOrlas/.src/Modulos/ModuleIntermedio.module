@@ -67,7 +67,7 @@ Public Sub copiarPlantillasInternas()
     
   Next
   
-  ModuleUtilidadesDisco.CopiarFicherosInterna("Marcos", User.Home & "/Imágenes/Macros/", "*.*")
+  ModuleUtilidadesDisco.CopiarFicherosInterna("Marcos", User.Home & "/Imágenes/Marcos/", "*.*")
   
 Catch
   ModuleMensajeError.SistemaDescripcionError()
