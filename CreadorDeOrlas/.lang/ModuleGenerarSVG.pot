@@ -26,7 +26,7 @@ msgstr ""
 msgid "rm /tmp/trabajo_orla/*.*"
 msgstr ""
 
-#: ModuleGenerarSVG.module:371
+#: ModuleGenerarSVG.module:372
 msgid "Código de efecto desconocido"
 msgstr ""
 
