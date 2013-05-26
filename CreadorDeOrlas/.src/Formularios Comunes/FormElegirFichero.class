@@ -5,6 +5,7 @@ Public titulo As String
 Public rutaPATH As String
 Public Filtro As String[]
 Public valor As New ClassDato
+Public DirectorioInicial As String
 
 Public Sub ToolButtonCancelar_Click()
   
@@ -19,6 +20,16 @@ Public Sub Form_Open()
   Me.Caption = titulo
   FileChooser1.ReadOnly = True
   ' Print FileChooser1.Dir
+  
+End
+
+Public Sub form_Show()
+  
+  If directorioinicial <> "" Then 
+    
+    FileChooser1.dir = directorioinicial
+    FileChooser1.Refresh
+  Endif
   
 End
 
@@ -88,9 +99,14 @@ Public Sub FileChooser1_Icon(ruta As String)
   
   Dim miniatura As New Picture
   Dim ima As New Image
+  Dim terminacion As String 
   
-  Exec ["convert", ruta, "-resize", "40x40", "/tmp/miniatura.png"] Wait
-  
-  fileChooser1.icon = Picture.Load("/tmp/miniatura.png")
+  terminacion = Upper$(ModuleUtilidadesDisco.extraeExtension(ruta))
+  If terminacion = Upper$("PNG") Or terminacion = Upper$("JPG") Then 
+    
+    Exec ["convert", ruta, "-resize", "40x40", "/tmp/miniatura.png"] Wait
+    
+    fileChooser1.icon = Picture.Load("/tmp/miniatura.png")
+  Endif
   
 End

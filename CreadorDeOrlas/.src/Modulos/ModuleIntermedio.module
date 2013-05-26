@@ -79,8 +79,7 @@ Public Sub borradoDatosAnteriores(rutas As String[])
   Dim a As Integer
   
   For a = 0 To rutas.max
-    If rutas[a] = User.home & "/.CreadorOrlas/" Or rutas[a] = User.home & "/.CreadorOrlas/" & "plantillasOrla" Then 
-      
+    If rutas[a] = User.home & "/.CreadorOrlas/" Or rutas[a] = User.home & "/.CreadorOrlas/" & "plantillasOrla" Or rutas[a] = User.Home & "/Imágenes/" Or rutas[a] = User.home & "/Imágenes/Marcos/" Then 
     Else
       
       ModuleUtilidadesDisco.vaciarDirectorio(rutas[a])

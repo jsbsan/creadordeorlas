@@ -565,15 +565,15 @@ msgid ""
 " <br>en internet</h2>"
 msgstr ""
 
-#: FMain.class:248 ModuleAsignarYSoltarImagenes.module:11
+#: FMain.class:248 ModuleAsignarYSoltarImagenes.module:17
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:249 ModuleAsignarYSoltarImagenes.module:12
+#: FMain.class:249 ModuleAsignarYSoltarImagenes.module:18
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:33
+#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:39
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
@@ -659,7 +659,7 @@ msgstr ""
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
-#: FMain.class:1397
+#: FMain.class:1404
 msgid "Ha habido un problema al añadir los datos soltados"
 msgstr ""
 
