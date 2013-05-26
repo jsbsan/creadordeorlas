@@ -1270,9 +1270,16 @@ Public Sub RadioButtonEfectoMarcoEspecial_Click()
 End
 
 Public Sub PictureBoxEsp_MouseDown()
+
+  Dim respuesta As String
   
-  modulePrincipal.MarcoEspecial = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEsp, "/tmp/")
-  PictureBoxEsp.tag = "/tmp/" & modulePrincipal.MarcoEspecial
+  respuesta = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEsp, "/tmp/", User.Home & "/Imágenes/Marcos/")
+  If respuesta = "OperacionCancelada" Then 
+  Else
+    modulePrincipal.MarcoEspecial = respuesta
+    
+    PictureBoxEsp.tag = "/tmp/" & modulePrincipal.MarcoEspecial
+  Endif
   ' PictureBoxEsp.Picture = Picture.Load(modulePrincipal.MarcoEspecial)
   
   'Dialog.Path = User.Home & "/Imágenes/Marcos/" 

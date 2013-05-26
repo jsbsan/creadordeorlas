@@ -1,20 +1,26 @@
 ' Gambas module file
 
 ' 
-Public Sub asignaImagen(PictureBoxElegido As Picturebox, ruta As String) As String
+Public Sub asignaImagen(PictureBoxElegido As Picturebox, ruta As String, Optional DirectorioInicial As String) As String
   
   Dim dialogofile As New FormElegirFichero
   Dim dat As New ClassDato
   
   dialogofile.valor = dat
   
+  If IsNull(DirectorioInicial) Or If DirectorioInicial = "" Then 
+  Else
+    
+    dialogofile.DirectorioInicial = DirectorioInicial
+  Endif
+  
   dialogofile.Titulo = ("Elija el archivo gráfico")
   dialogofile.Filtro = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
   dialogofile.ShowModal()
   
   If dat.dato = "-1" Then
-    PictureBoxElegido.Picture = Picture.Load(User.home & "/.CreadorOrlas/temporales/FotosAlumnos/icono_fotos_personas.png")
-    Return
+    '   PictureBoxElegido.Picture = Picture.Load("icono_galeria2.jpg")
+    Return "OperacionCancelada"
   Endif
   Return asignaImagen2Paso(dat.dato, PictureBoxElegido, ruta)
   
