@@ -566,7 +566,7 @@ msgstr ""
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
-#: FMain.class:1393
+#: FMain.class:1397
 msgid "Ha habido un problema al añadir los datos soltados"
 msgstr ""
 

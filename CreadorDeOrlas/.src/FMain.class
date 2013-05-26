@@ -1271,17 +1271,21 @@ End
 
 Public Sub PictureBoxEsp_MouseDown()
   
-  Dialog.Path = User.Home & "/Imágenes/Marcos/"
-  Dialog.Filter = ["*.png", "*.png"]
-  Dialog.Title = "Elige plantilla de marco"
-  If Dialog.OpenFile() Then 
-    
-  Else
-    
-    modulePrincipal.MarcoEspecial = Dialog.Path
-    PictureBoxEsp.tag = modulePrincipal.MarcoEspecial
-    PictureBoxEsp.Picture = Picture.Load(Dialog.Path)
-  Endif
+  modulePrincipal.MarcoEspecial = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEsp, "/tmp/")
+  PictureBoxEsp.tag = "/tmp/" & modulePrincipal.MarcoEspecial
+  ' PictureBoxEsp.Picture = Picture.Load(modulePrincipal.MarcoEspecial)
+  
+  'Dialog.Path = User.Home & "/Imágenes/Marcos/" 
+  'Dialog.Filter = ["*.png", "*.png"]
+  'Dialog.Title = "Elige plantilla de marco"
+  'If Dialog.OpenFile() Then 
+  
+  'Else
+  
+  ' modulePrincipal.MarcoEspecial = Dialog.Path
+  ' PictureBoxEsp.tag = modulePrincipal.MarcoEspecial
+  ' PictureBoxEsp.Picture = Picture.Load(Dialog.Path)
+  ' Endif
   
 End
 
