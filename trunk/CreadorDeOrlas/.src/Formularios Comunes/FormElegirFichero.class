@@ -83,3 +83,14 @@ Public Sub TextBoxUrl_KeyPress()
   Endif
   
 End
+
+Public Sub FileChooser1_Icon(ruta As String)
+  
+  Dim miniatura As New Picture
+  Dim ima As New Image
+  
+  Exec ["convert", ruta, "-resize", "40x40", "/tmp/miniatura.png"] Wait
+  
+  fileChooser1.icon = Picture.Load("/tmp/miniatura.png")
+  
+End
