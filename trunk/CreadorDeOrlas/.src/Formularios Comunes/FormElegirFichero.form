@@ -2,6 +2,7 @@
 
 { Form Form
   MoveScaled(0,0,102,70)
+  Resizable = False
   { FileChooser1 FileChooser
     MoveScaled(2,1,97,59)
     ShowPreview = True

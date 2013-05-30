@@ -5,7 +5,7 @@
   Icon = Picture["orlaicono.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(0,0,117,95)
+    MoveScaled(0,1,117,95)
     Count = 15
     Border = True
     Index = 0
@@ -40,8 +40,9 @@
       Alignment = Align.Center
     }
     { PictureBox1 PictureBox
-      MoveScaled(3,30,12,10)
-      Picture = Picture["gambas360.png"]
+      MoveScaled(2,23,12,19)
+      Picture = Picture["logoGambas.png"]
+      Stretch = True
     }
     { Label10 Label
       MoveScaled(7,56,32,6)
@@ -133,7 +134,7 @@
         Border = True
       }
       { ToolButtonEditar ToolButton
-        MoveScaled(14,0,11,4)
+        MoveScaled(14,1,11,4)
         Text = ("Editar")
         Picture = Picture["icon:/22/edit"]
         Border = True
@@ -195,7 +196,7 @@
         Border = True
       }
       { ToolButtonBorrar2 ToolButton
-        MoveScaled(26,0,13,4)
+        MoveScaled(27,0,13,4)
         Text = ("Borrar")
         Picture = Picture["icon:/22/erase"]
         Border = True

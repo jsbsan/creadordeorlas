@@ -14,19 +14,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FormElegirFichero.form:22
+#: FormElegirFichero.form:23
 msgid "Aceptar"
 msgstr ""
 
-#: FormElegirFichero.form:30
+#: FormElegirFichero.form:31
 msgid "Cancelar"
 msgstr ""
 
-#: FormElegirFichero.form:43
+#: FormElegirFichero.form:44
 msgid "Pegar desde Portapapeles"
 msgstr ""
 
-#: FormElegirFichero.form:44
+#: FormElegirFichero.form:45
 msgid "Pegar (Url)"
 msgstr ""
 

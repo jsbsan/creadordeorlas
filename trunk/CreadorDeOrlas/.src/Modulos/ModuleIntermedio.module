@@ -94,7 +94,7 @@ Public Sub IniciarGridViewRegistrosProfesoresores(grid As ClassSuperGridview)
   With grid 
     .header = 3 
     .rows.count = 1000 
-    .columns.count = 5
+    .columns.count = 6
     .columns[0].title = "Foto "
     .Columns[1].title = "Nombre" 
     .Columns[2].title = "Apellidos" 
@@ -102,10 +102,10 @@ Public Sub IniciarGridViewRegistrosProfesoresores(grid As ClassSuperGridview)
     .Columns[4].title = "Asignatura" 
     .Columns[0].width = 50 
     .Columns[1].width = 75 
-    .Columns[2].width = 125 
+    .Columns[2].width = 200 
     .Columns[3].width = 50 
-    .Columns[4].width = 75 
-    
+    .Columns[4].width = 200 
+    .Columns[5].width = 0
     .font.name = "Sans" 
     .font.size = 9 
     .mode = 1
@@ -123,7 +123,7 @@ Public Sub IniciarGridViewRegistrosAlumnos(grid As ClassSuperGridview)
   With grid 
     .header = 3 
     .rows.count = 1000 
-    .columns.count = 6
+    .columns.count = 7
     .columns[0].title = "Foto "
     .Columns[1].title = "Nombre" 
     .Columns[2].title = "Apellidos" 
@@ -131,12 +131,12 @@ Public Sub IniciarGridViewRegistrosAlumnos(grid As ClassSuperGridview)
     .Columns[4].title = "Pueblo" 
     .Columns[5].title = "Provincia" 
     .Columns[0].width = 50 
-    .Columns[1].width = 75 
-    .Columns[2].width = 125 
+    .Columns[1].width = 100 
+    .Columns[2].width = 150
     .Columns[3].width = 50 
     .Columns[4].width = 75 
     .Columns[5].width = 75 
-    
+    .Columns[6].width = 0
     .font.name = "Sans" 
     .font.size = 9 
     .mode = 1
@@ -180,6 +180,7 @@ Public Sub rellenarGridviewsAlumnos(rejilla As ClassSuperGridview, Lista As Clas
     rejilla[contadorPosicionFilaGrid, 3].text = Str$(regtmp.orden)
     rejilla[contadorPosicionFilaGrid, 4].text = regtmp.Pueblo
     rejilla[contadorPosicionFilaGrid, 5].text = regtmp.Provincia
+    rejilla[contadorPosicionFilaGrid, 6].text = regtmp.Id
     rejilla.indice.add(regtmp.id)
     contadorPosicionFilaGrid += 1
   Next
@@ -191,6 +192,7 @@ Public Sub rellenarGridviewsAlumnos(rejilla As ClassSuperGridview, Lista As Clas
   rejilla[contadorPosicionFilaGrid, 3].text = ""
   rejilla[contadorPosicionFilaGrid, 4].text = ""
   rejilla[contadorPosicionFilaGrid, 5].text = ""
+  rejilla[contadorPosicionFilaGrid, 6].text = ""
   
   rejilla.Refresh()
   
@@ -225,6 +227,7 @@ Public Sub rellenarGridviewsProfesores(rejilla As ClassSuperGridview, Lista As C
     rejilla[contadorPosicionFilaGrid, 2].text = regtmp.Apellidos
     rejilla[contadorPosicionFilaGrid, 3].text = Str$(regtmp.orden)
     rejilla[contadorPosicionFilaGrid, 4].text = regtmp.Asignatura
+    rejilla[contadorPosicionFilaGrid, 5].text = regtmp.Id
     rejilla.indice.add(regtmp.id)
     contadorPosicionFilaGrid += 1
   Next
@@ -235,7 +238,7 @@ Public Sub rellenarGridviewsProfesores(rejilla As ClassSuperGridview, Lista As C
   rejilla[contadorPosicionFilaGrid, 2].text = "" 
   rejilla[contadorPosicionFilaGrid, 3].text = ""
   rejilla[contadorPosicionFilaGrid, 4].text = ""
-  
+  rejilla[contadorPosicionFilaGrid, 5].text = ""
   rejilla.Refresh()
   
 End

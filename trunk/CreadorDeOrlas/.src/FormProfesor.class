@@ -30,22 +30,18 @@ Public Sub Form_Open()
   TextBoxApellidos.text = reg.Apellidos
   TextBoxAsignatura.text = reg.Asignatura
   TextBoxNombre.text = reg.Nombre
-  If reg.Orden = 0 Then 
-    ValueBoxOrden.value = 1
-  Else
-    For a = 0 To ModuleGestionAlumnos.Lista.Registros.max
-      numeroorden = Max(numeroorden, ModuleGestionProfesores.Lista.Registros[a].Orden)
-    Next
-    ValueBoxOrden.Value = numeroorden + 1
-  Endif
   
   If modo = -1 Then 
-    numeroorden = 0
-    For a = 0 To ModuleGestionProfesores.Lista.registros.Max
-      
-      numeroorden = Max(numeroorden, ModuleGestionProfesores.Lista.registros[a].Orden)
-    Next
-    ValueBoxOrden.Value = numeroorden + 1
+    If reg.orden = 0 Then 
+      ValueBoxOrden.value = 1
+    Else
+      For a = 0 To ModuleGestionProfesores.Lista.Registros.max
+        numeroorden = Max(numeroorden, ModuleGestionProfesores.Lista.Registros[a].Orden)
+      Next
+      ValueBoxOrden.Value = numeroorden + 1
+    Endif
+  Else
+    ValueBoxOrden.Value = reg.Orden  
   Endif
   
   Me.center
@@ -67,6 +63,7 @@ Public Sub ToolButtonAceptar_Click()
     FMain.GridViewRegistrosProfesores.rows.count += 1
     ModuleGestionProfesores.guardado = False
   Else
+    
     ModuleGestionProfesores.EditarRegistros(reg, modo)
     ModuleGestionProfesores.guardado = False
   Endif
@@ -86,7 +83,7 @@ Public Sub ButtonMasUno_Click()
   Endif
   If modo = 0 Then Return
   
-  For a = 0 To ModuleGestionAlumnos.Lista.Registros.max
+  For a = 0 To ModuleGestionProfesores.Lista.Registros.max
     numeroorden = Max(numeroorden, ModuleGestionProfesores.Lista.Registros[a].Orden)
   Next
   reg.Orden = numeroorden + 1

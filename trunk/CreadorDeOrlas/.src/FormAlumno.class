@@ -32,20 +32,17 @@ Public Sub Form_Open()
   TextBoxProvincia.text = reg.Provincia
   TextBoxPueblo.text = reg.Pueblo
   
-  If reg.Orden = 0 Then 
-    ValueBoxOrden.value = 1
-  Else
-    For a = 0 To ModuleGestionAlumnos.Lista.Registros.max
-      numeroorden = Max(numeroorden, ModuleGestionAlumnos.Lista.Registros[a].Orden)
-    Next
-    ValueBoxOrden.value = numeroorden + 1
-  Endif
   If modo = -1 Then 
-    numeroorden = 0
-    For a = 0 To ModuleGestionAlumnos.Lista.registros.Max
-      numeroorden = Max(numeroorden, ModuleGestionAlumnos.Lista.registros[a].Orden)
-    Next
-    ValueBoxOrden.value = numeroorden + 1
+    If reg.orden = 0 Then 
+      ValueBoxOrden.value = 1
+    Else
+      For a = 0 To ModuleGestionAlumnos.Lista.Registros.max
+        numeroorden = Max(numeroorden, ModuleGestionProfesores.Lista.Registros[a].Orden)
+      Next
+      ValueBoxOrden.Value = numeroorden + 1
+    Endif
+  Else
+    ValueBoxOrden.Value = reg.Orden  
   Endif
   
 Catch
