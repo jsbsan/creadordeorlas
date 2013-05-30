@@ -339,14 +339,15 @@ Public Sub ToolButtonEditar_Click()
   Dim fregistro As New FormAlumno
   
   If GridViewRegistrosAlumnos.indice.Count > GridViewRegistrosAlumnos.row And GridViewRegistrosAlumnos.row > -1 Then 
-    fregistro.modo = GridViewRegistrosAlumnos.indice[GridViewRegistrosAlumnos.row]
+    
+    fregistro.modo = ModuleGestionAlumnos.lista.buscar(Val(GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 6].text))
     fregistro.reg.Foto = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Foto
     
-    fregistro.reg.Nombre = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 1].text
-    fregistro.reg.Apellidos = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 2].text
-    fregistro.reg.Orden = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 3].text
-    fregistro.reg.Pueblo = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 4].text
-    fregistro.reg.Provincia = GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 5].text
+    fregistro.reg.Nombre = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Nombre
+    fregistro.reg.Apellidos = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Apellidos
+    fregistro.reg.Orden = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Orden
+    fregistro.reg.Pueblo = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Pueblo
+    fregistro.reg.Provincia = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Provincia
     
     fregistro.ShowModal()
     ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
@@ -724,13 +725,13 @@ Public Sub ToolButtonEditar2_Click()
   Dim regtemp As New ClassProfesor
   
   If GridViewRegistrosProfesores.indice.Count > GridViewRegistrosProfesores.row And GridViewRegistrosProfesores.row > -1 Then 
-    fregistro.modo = GridViewRegistrosProfesores.indice[GridViewRegistrosProfesores.row]
+    fregistro.modo = ModuleGestionProfesores.lista.buscar(Val(GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 5].text))
     fregistro.reg.Foto = ModuleGestionProfesores.lista.Registros[fregistro.modo].Foto
     
-    fregistro.reg.Nombre = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 1].text
-    fregistro.reg.Apellidos = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 2].text
-    fregistro.reg.Orden = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 3].text
-    fregistro.reg.Asignatura = GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 4].text
+    fregistro.reg.Nombre = ModuleGestionProfesores.lista.Registros[fregistro.modo].Nombre
+    fregistro.reg.Apellidos = ModuleGestionProfesores.lista.Registros[fregistro.modo].Apellidos
+    fregistro.reg.Orden = ModuleGestionProfesores.lista.Registros[fregistro.modo].Orden
+    fregistro.reg.Asignatura = ModuleGestionProfesores.lista.Registros[fregistro.modo].Asignatura
     fregistro.ShowModal()
     ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
   Else
@@ -741,14 +742,16 @@ Public Sub ToolButtonEditar2_Click()
 End
 
 Public Sub ToolButtonBorrar2_Click()
-  
+
+  Dim idProfesor As Integer
   Dim res As Integer
   
   If GridViewRegistrosProfesores.indice.count > GridViewRegistrosProfesores.row Then 
     res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
     If res = 1 Then 
       'refrescar el gridviews
-      ModuleGestionProfesores.BorrarRegistro(GridViewRegistrosProfesores.indice[GridViewRegistrosProfesores.row])
+      idProfesor = ModuleGestionProfesores.lista.buscar(Val(GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 5].text))
+      ModuleGestionProfesores.BorrarRegistro(idProfesor)
       ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
       'se ha añadido información, se tiene que redistribuir las foto...
       ModuleGestionProfesores.ListaOrdenada.clear
@@ -759,14 +762,16 @@ Public Sub ToolButtonBorrar2_Click()
 End
 
 Public Sub ToolButtonBorrar_Click()
-  
+
+  Dim idalumno As Integer
   Dim res As Integer
   
   If GridViewRegistrosAlumnos.indice.count > GridViewRegistrosAlumnos.row Then 
     res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
     If res = 1 Then 
       'refrescar el gridviews
-      ModuleGestionAlumnos.BorrarRegistro(GridViewRegistrosAlumnos.indice[GridViewRegistrosAlumnos.row])
+      idalumno = ModuleGestionAlumnos.lista.buscar(Val(GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 6].text))
+      ModuleGestionAlumnos.BorrarRegistro(idalumno)
       ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
       'se ha añadido información, se tiene que redistribuir las foto...
       ModuleGestionAlumnos.ListaOrdenada.clear
@@ -1270,7 +1275,7 @@ Public Sub RadioButtonEfectoMarcoEspecial_Click()
 End
 
 Public Sub PictureBoxEsp_MouseDown()
-
+  
   Dim respuesta As String
   
   respuesta = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEsp, "/tmp/", User.Home & "/Imágenes/Marcos/")

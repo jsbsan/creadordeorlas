@@ -104,7 +104,7 @@ Public Sub FileChooser1_Icon(ruta As String)
   terminacion = Upper$(ModuleUtilidadesDisco.extraeExtension(ruta))
   If terminacion = Upper$("PNG") Or terminacion = Upper$("JPG") Then 
     
-    Exec ["convert", ruta, "-resize", "40x40", "/tmp/miniatura.png"] Wait
+    Exec ["convert", ruta, "-scale", "40x", "/tmp/miniatura.png"] Wait 
     
     fileChooser1.icon = Picture.Load("/tmp/miniatura.png")
   Endif

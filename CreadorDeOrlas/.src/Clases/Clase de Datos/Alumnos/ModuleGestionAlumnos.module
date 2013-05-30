@@ -34,33 +34,22 @@ Public Sub anadirRegistro(registro As ClassPersona)
   
 End
 
-Public Sub EditarRegistros(reg As ClassAlumno, id As Integer)
+Public Sub EditarRegistros(reg As ClassAlumno, indice As Integer)
   
   Dim listaArrayReg As New ClassAlumno[]
-  Dim indice As Integer
   
-  indice = lista.buscar(id)
-  If indice <> -1 Then 
-    reg.id = indice
-    
-    listaArrayReg.Add(reg)
-    
-    lista.Registros.Delete(indice)
-    lista.Registros.Insert(listaArrayReg, indice)
-    
-  Endif
+  reg.id = indice
+  
+  listaArrayReg.Add(reg)
+  lista.Registros.Delete(indice)
+  lista.Registros.Insert(listaArrayReg, indice)
   
 End
 
-Public Sub BorrarRegistro(id As Integer)
+Public Sub BorrarRegistro(indice As Integer)
   
-  Dim indice As Integer
-  
-  indice = lista.buscar(id)
-  If indice <> -1 Then 
-    lista.registros.Delete(indice)
-    guardado = False
-  Endif
+  lista.registros.Delete(indice)
+  guardado = False
   
 End
 
