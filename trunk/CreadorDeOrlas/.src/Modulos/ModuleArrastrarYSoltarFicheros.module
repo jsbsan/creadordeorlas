@@ -48,10 +48,12 @@ Private Sub annadedatos(nombrefichero As String, ListaDePersona As Object) As Bo
   fichero = Replace(nombrepersona, " ", "_")
   'copiar fotografia al directorio correcto
   If object.type(ListaDePersona) = "ClassListaAlumnos" Then 
-    Print System.Charset
+    
+    Try Kill User.Home & "/.CreadorOrlas/temporales/FotosProfesores/" & fichero
     Copy nombrefichero To User.Home & "/.CreadorOrlas/temporales/FotosAlumnos/" & fichero
     
   Else If Object.Type(ListaDePersona) = "ClassListaProfesores" Then 
+    Try Kill User.Home & "/.CreadorOrlas/temporales/FotosProfesores/" & fichero
     Copy nombrefichero To User.Home & "/.CreadorOrlas/temporales/FotosProfesores/" & fichero
     
   Else
