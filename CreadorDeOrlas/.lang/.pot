@@ -821,7 +821,7 @@ msgstr ""
 msgid "Asignatura:"
 msgstr ""
 
-#: ModuleArrastrarYSoltarFicheros.module:58
+#: ModuleArrastrarYSoltarFicheros.module:60
 msgid "No reconozco la lista de personas recibida"
 msgstr ""
 
