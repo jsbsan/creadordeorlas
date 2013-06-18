@@ -11,8 +11,8 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   'añado ruta principal y la de las plantillas de orla (para que la anterior sbrutina no las borrara)
   rutaSprograma.Add(User.home & "/.CreadorOrlas/", 0)
   rutaSprograma.Add(User.home & "/.CreadorOrlas/" & "plantillasOrla", 1)
-  rutaSprograma.Add(User.Home & "/Imágenes/")
-  rutaSprograma.Add(User.Home & "/Imágenes/Marcos/")
+  ' rutaSprograma.Add(User.Home & "/Imágenes/")
+  rutaSprograma.Add(User.Home & "/.CreadorOrlas/Marcos/")
   'contador para bucle For...Next
   ' User.Home & "/ConstructorDiplomas/"
   'Crear Directorios del trabajo Actual
@@ -67,7 +67,7 @@ Public Sub copiarPlantillasInternas()
     
   Next
   
-  ModuleUtilidadesDisco.CopiarFicherosInterna("Marcos", User.Home & "/Imágenes/Marcos/", "*.*")
+  ModuleUtilidadesDisco.CopiarFicherosInterna("Marcos", User.Home & "/.CreadorOrlas/Marcos/", "*.*")
   
 Catch
   ModuleMensajeError.SistemaDescripcionError()

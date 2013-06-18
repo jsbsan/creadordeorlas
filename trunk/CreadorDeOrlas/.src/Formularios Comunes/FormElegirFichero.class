@@ -26,8 +26,8 @@ End
 Public Sub form_Show()
   
   If directorioinicial <> "" Then 
-    
-    FileChooser1.dir = directorioinicial
+    FileChooser1.ShowHidden = True
+    FileChooser1.Dir = directorioinicial ' Mid$(directorioinicial, 1, Len(directorioinicial) - 1)
     FileChooser1.Refresh
   Endif
   
