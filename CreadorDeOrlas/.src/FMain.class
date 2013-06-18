@@ -742,7 +742,7 @@ Public Sub ToolButtonEditar2_Click()
 End
 
 Public Sub ToolButtonBorrar2_Click()
-
+  
   Dim idProfesor As Integer
   Dim res As Integer
   
@@ -762,7 +762,7 @@ Public Sub ToolButtonBorrar2_Click()
 End
 
 Public Sub ToolButtonBorrar_Click()
-
+  
   Dim idalumno As Integer
   Dim res As Integer
   
@@ -1278,7 +1278,7 @@ Public Sub PictureBoxEsp_MouseDown()
   
   Dim respuesta As String
   
-  respuesta = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEsp, "/tmp/", User.Home & "/Imágenes/Marcos/")
+  respuesta = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEsp, "/tmp/", User.Home & "/.CreadorOrlas/Marcos/")
   If respuesta = "OperacionCancelada" Then 
   Else
     modulePrincipal.MarcoEspecial = respuesta
