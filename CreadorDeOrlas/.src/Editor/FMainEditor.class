@@ -180,14 +180,17 @@ Public Sub capturaUp()
   If Not IsNull(objetoCapturado) Then 
     If objetoCapturado.tipo = "Alumno" Then 
       objetoCapturado.Picture = Picture.Load(ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos" & "/" & listaAlumnos.Registros[objetoCapturado.indice].foto) 'imagenAlumno      
+      'revisar
+      '
       listaAlumnos.Registros[objetoCapturado.indice].posicion.x = objetoCapturado.x * escalafoto
-      listaAlumnos.Registros[objetoCapturado.indice].posicion.y = objetoCapturado.y * escalafoto
+      listaAlumnos.Registros[objetoCapturado.indice].posicion.y = (objetoCapturado.y - 35) * escalafoto 
       
     Else
       If objetoCapturado.tipo = "Profesor" Then 
         objetoCapturado.Picture = Picture.Load(ModulePrincipal.RutaPrograma & "temporales/FotosProfesores" & "/" & listaProfesores.Registros[objetoCapturado.indice].foto) 'imagenPro ' imagenPro
+        'revisar
         listaProfesores.Registros[objetoCapturado.indice].posicion.x = objetoCapturado.x * escalafoto
-        listaProfesores.Registros[objetoCapturado.indice].posicion.y = objetoCapturado.y * escalafoto
+        listaProfesores.Registros[objetoCapturado.indice].posicion.y = (objetoCapturado.y - 35) * escalafoto 
       Endif
     Endif
     LabelCoordenada.x = objetoCapturado.x
@@ -593,7 +596,17 @@ End
 
 Public Sub ToolButton1_Click()
   
-  Me.Close()
+  Dim respuesta As Integer
+  
+  If ModuleGestionOrla.orla.PosicionesDefinidas = False Then 
+    respuesta = Message.Question(("Las imagenes no estan fijadas (no esta el candado cerrado)," & "\n" & " perdera las posiciones cuando vuelva editar" & "\n" & "¿desea salir?"), ("Si, salir"), ("Cancelar"))
+    If respuesta = 1 Then 
+      Me.Close()
+    Endif
+  Else
+    'estan fijada las posiciones....
+    Me.Close()
+  Endif
   
 End
 

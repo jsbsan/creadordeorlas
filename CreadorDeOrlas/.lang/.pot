@@ -593,8 +593,8 @@ msgstr ""
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:367 FormAlumno.form:107 FormElegirFichero.form:31
-#: FormExtraerFoto.form:73 FormProfesor.form:95
+#: FMain.class:367 FMainEditor.class:602 FormAlumno.form:107
+#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:95
 msgid "Cancelar"
 msgstr ""
 
@@ -701,6 +701,10 @@ msgstr ""
 
 #: FMainEditor.form:197
 msgid "Salir del Editor"
+msgstr ""
+
+#: FMainEditor.class:602
+msgid "Si, salir"
 msgstr ""
 
 #: FormAlumno.form:48
@@ -861,19 +865,19 @@ msgstr ""
 msgid "No ha sido posible crear la foto con los datos"
 msgstr ""
 
-#: ModuleGenerarSVG.module:15
+#: ModuleGenerarSVG.module:19
 msgid "Es necesario que organice las fotos en la orla"
 msgstr ""
 
-#: ModuleGenerarSVG.module:15
+#: ModuleGenerarSVG.module:19
 msgid "Opción: Datos y Organizar Orla"
 msgstr ""
 
-#: ModuleGenerarSVG.module:162
+#: ModuleGenerarSVG.module:166
 msgid "rm /tmp/trabajo_orla/*.*"
 msgstr ""
 
-#: ModuleGenerarSVG.module:372
+#: ModuleGenerarSVG.module:378
 msgid "Código de efecto desconocido"
 msgstr ""
 

@@ -12,7 +12,7 @@ Public Sub convertirTransparente(fichero As String, rutaprograma As String) As S
   Dim comando As String
   Dim ficherotransparente As String
   './magicwand 1,1 -t 25 -f image -r outside -c trans rosa.jpeg rosa.png
-  ''NOTE: revisando nombre de fichero transparente
+  '': revisando nombre de fichero transparente
   ''
   
   ficherotransparente = Mid$(fichero, 1, Len(fichero) - Len(ModuleUtilidadesDisco.extraeExtension(fichero))) & "png"

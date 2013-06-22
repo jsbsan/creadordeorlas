@@ -160,7 +160,7 @@ Public Sub rellenarGridviewsAlumnos(rejilla As ClassSuperGridview, Lista As Clas
   rejilla.rows.count = Lista.registros.count + 1
   
   For Each regtmp In Lista.registros
-    'TODO: Añadir pequeña miniatura de imagen. Alumno
+    'Añadir pequeña miniatura de imagen. Alumno
     ' rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
     'aqui escribo icono
     
@@ -209,7 +209,7 @@ Public Sub rellenarGridviewsProfesores(rejilla As ClassSuperGridview, Lista As C
   rejilla.rows.count = Lista.registros.count + 1
   
   For Each regtmp In Lista.registros
-    'TODO: Añadir pequeña miniatura de imagen. Profesor
+    'Añadir pequeña miniatura de imagen. Profesor
     '    rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
     If regtmp.foto <> "" Then 
       If Not Exist(modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & regtmp.foto) Then 

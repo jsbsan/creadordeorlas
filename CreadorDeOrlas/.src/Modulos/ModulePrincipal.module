@@ -120,7 +120,7 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   Shell comando Wait
   
   ' ************************************************************************
-  'TODO: AbrirFichero: he descomprimido el fichero de datos, hay que cargar los datos al programa
+  ' AbrirFichero: he descomprimido el fichero de datos, hay que cargar los datos al programa
   ' ************************************************************************
   RutaDatos = nombre '
   

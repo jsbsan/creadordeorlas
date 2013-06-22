@@ -14,7 +14,7 @@ Public Sub hacerGenerico(tipo As String, registros As Object[], espacioHorizonta
   
   Dim MaximoAncho, maximoAlto, AnchoColumna, centrox, centroy As Integer
   
-  'TODO: Sustituir por  plantilla de la orla actual
+  ' Sustituir por  plantilla de la orla actual
   
   plantillaActual = plantilla 'User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
   'Numero de filas:
@@ -74,11 +74,11 @@ Public Sub hacerGenerico(tipo As String, registros As Object[], espacioHorizonta
   Endif
   
   'ordenar fotos Alfabeticamente o Indicado
-  'TODO: enlace de como Ordenar
+  ' enlace de como Ordenar
   '-> http://jsbsan2.blogspot.com.es/search/label/ordenar
   '-> https://docs.google.com/file/d/0B02Ro2CNt-OOQXFHVThUWjdhQVU/edit?pli=1
   'ORDENACION... Segun sea alfabeticament o indicado
-  'TODO: 0 0rdenacion y colocacion de fotos
+  ' 0 0rdenacion y colocacion de fotos
   'asignar coordenadas a cada foto
   contador = -1
   
@@ -159,7 +159,7 @@ Public Sub hacer(espacioHorizontal As Integer, espacioVertical As Integer, plant
   
   Dim MaximoAncho, maximoAlto, AnchoColumna, centrox, centroy As Integer
   
-  'TODO: Sustituir por  plantilla de la orla actual
+  ' Sustituir por  plantilla de la orla actual
   
   plantillaActual = plantilla 'User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
   'Numero de filas:
@@ -211,11 +211,11 @@ Public Sub hacer(espacioHorizontal As Integer, espacioVertical As Integer, plant
   '  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.y
   
   'ordenar fotos Alfabeticamente o Indicado
-  'TODO: enlace de como Ordenar
+  ': enlace de como Ordenar
   '-> http://jsbsan2.blogspot.com.es/search/label/ordenar
   '-> https://docs.google.com/file/d/0B02Ro2CNt-OOQXFHVThUWjdhQVU/edit?pli=1
   'ORDENACION... Segun sea alfabeticament o indicado
-  'TODO: 0 0rdenacion y colocacion de fotos
+  ' 0 0rdenacion y colocacion de fotos
   'asignar coordenadas a cada foto
   contador = -1
   For a = 0 To nfilas - 1
@@ -345,7 +345,7 @@ Public Function rellenarOrla(plantillaOrigen As String) As String
     Return
   Endif
   'modifico datos...
-  'TODO: Rellenando datos de la orla
+  ' Rellenando datos de la orla
   
   cadena = File.Load(copia)
   
