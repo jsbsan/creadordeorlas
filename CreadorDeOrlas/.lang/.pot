@@ -565,15 +565,15 @@ msgid ""
 " <br>en internet</h2>"
 msgstr ""
 
-#: FMain.class:248 ModuleAsignarYSoltarImagenes.module:17
+#: FMain.class:248
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:249 ModuleAsignarYSoltarImagenes.module:18
+#: FMain.class:249
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:39
+#: FMain.class:268
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 

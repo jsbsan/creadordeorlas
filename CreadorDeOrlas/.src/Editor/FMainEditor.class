@@ -19,10 +19,20 @@ Public imagenfondo As Picture
 Public esquema As String 'para alumnos
 Public esquemaprofesor As String 'para profesor
 
+Public ImagenAncho As Integer
+Public ImagenLargo As Integer
+
 Public espacioancho As Integer
 Public espaciolargo As Integer
 
+Public distanciaSeleccionX As Integer 'distancia entre el x.y de la imagen y donde se ha hecho click
+Public distanciaSeleccionY As Integer
+
 Public Sub _new()
+  
+End
+
+Public Sub form_Show()
   
 End
 
@@ -45,6 +55,7 @@ Public Sub Form_Open()
     
     CheckBoxBloqueo.value = 1
   Else
+    
     ToolButtonBloquearPosicion.tag = "bloqueada"
     ToolButtonBloquearPosicion.Picture = Picture["/tmp/CandadoCerrado.png"]
     CheckBoxBloqueo.value = 0
@@ -168,13 +179,13 @@ Public Sub capturaUp()
   
   If Not IsNull(objetoCapturado) Then 
     If objetoCapturado.tipo = "Alumno" Then 
-      objetoCapturado.Picture = imagenAlumno      
+      objetoCapturado.Picture = Picture.Load(ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos" & "/" & listaAlumnos.Registros[objetoCapturado.indice].foto) 'imagenAlumno      
       listaAlumnos.Registros[objetoCapturado.indice].posicion.x = objetoCapturado.x * escalafoto
       listaAlumnos.Registros[objetoCapturado.indice].posicion.y = objetoCapturado.y * escalafoto
       
     Else
       If objetoCapturado.tipo = "Profesor" Then 
-        objetoCapturado.Picture = imagenPro
+        objetoCapturado.Picture = Picture.Load(ModulePrincipal.RutaPrograma & "temporales/FotosProfesores" & "/" & listaProfesores.Registros[objetoCapturado.indice].foto) 'imagenPro ' imagenPro
         listaProfesores.Registros[objetoCapturado.indice].posicion.x = objetoCapturado.x * escalafoto
         listaProfesores.Registros[objetoCapturado.indice].posicion.y = objetoCapturado.y * escalafoto
       Endif
@@ -193,8 +204,8 @@ End
 Public Sub capturaMoviendo(mousex As Integer, mousey As Integer)
   
   If Not IsNull(objetoCapturado) Then 
-    objetoCapturado.X += (MouseX - objetoCapturado.ScreenX) / escalafoto
-    objetoCapturado.y += (Mousey - objetoCapturado.ScreenY) / escalafoto 
+    objetoCapturado.X += (MouseX + distanciaSeleccionX - objetoCapturado.ScreenX) / escalafoto
+    objetoCapturado.y += (Mousey + distanciaSeleccionY - objetoCapturado.ScreenY) / escalafoto 
     LabelTextoPersona.x = objetoCapturado.x
     LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
     LabelTextoPersona.Visible = True
@@ -211,15 +222,17 @@ Public Sub capturaDown(mouseScreenx As Integer, mouseScreeny As Integer)
   
   Dim objtemp As ClassMejorPictureBox
   
+  Print mouseScreenx, mouseScreeny
   'busco si algun array 
   For Each objtemp In arrayBox
     ' Print "       Objeto:", objtemp.screenX, objtemp.screenY
     '  Print "       scrollX:", ScrollView1.Scrollx
-    If (MousescreenX + 20) >= objtemp.screenX And objtemp.screenX >= (MousescreenX - 20) Then 
-      If (MousescreenY - 20) <= objtemp.ScreenY And (MousescreenY + 20) >= objtemp.screenY Then 
+    If MousescreenX >= (objtemp.screenX) And (objtemp.screenX + 59) >= MousescreenX Then 
+      If MousescreenY >= (objtemp.ScreenY) And (objtemp.screenY + 83) >= mouseScreeny Then 
         objetoCapturado = objtemp
         If objetoCapturado.tipo = "Alumno" Then 
-          objetoCapturado.Picture = imagenAlumnoDes
+          
+          'Print objetoCapturado.Picture.w, objetoCapturado.Picture.h
           LabelTextoPersona.x = objetoCapturado.x
           LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
           LabelTextoPersona.text = objetoCapturado.Texto
@@ -230,10 +243,20 @@ Public Sub capturaDown(mouseScreenx As Integer, mouseScreeny As Integer)
           LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
           LabelCoordenada.Visible = True
           
+          distanciaSeleccionX = - MousescreenX + objtemp.screenX
+          distanciaSeleccionY = - MousescreenY + objtemp.screenY
+          
+          If ModuleGestionOrla.orla.PosicionesDefinidas = True Then
+            Message.Title = "Posiciones Bloqueadas de las Imagenes"
+            Message.Info("Las imagenes no se pueden mover....\n ponga el candado en Abierto (en rojo) para poderlas mover")
+          Else
+            objetoCapturado.Picture = imagenAlumnoDes
+            
+          Endif
           Break
         Else
           If objetoCapturado.tipo = "Profesor" Then 
-            objetoCapturado.Picture = imagenProDes
+            
             LabelTextoPersona.x = objetoCapturado.x
             LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
             LabelTextoPersona.text = objetoCapturado.Texto
@@ -243,6 +266,16 @@ Public Sub capturaDown(mouseScreenx As Integer, mouseScreeny As Integer)
             LabelCoordenada.y = objetoCapturado.y - 20
             LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
             LabelCoordenada.Visible = True
+            
+            distanciaSeleccionX = - MousescreenX + objtemp.screenX
+            distanciaSeleccionY = - MousescreenY + objtemp.screenY
+            
+            If ModuleGestionOrla.orla.PosicionesDefinidas = True Then
+              Message.Title = "Posiciones Bloqueadas de las Imagenes"
+              Message.Info("Las imagenes no se pueden mover....\n ponga el candado en Abierto (en rojo) para poderlas mover")
+            Else
+              objetoCapturado.Picture = imagenProDes
+            Endif
             Break
           Endif
         Endif
@@ -305,6 +338,9 @@ Public Sub UnirImagenes(orladibujopng As String, Optional rejilla As Boolean) As
   fp.Delete()
   Return fichero
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
 End
 
 Public Sub CheckBoxRejilla_Click()
@@ -322,6 +358,9 @@ Public Sub dibujafondo(rejilla As Boolean)
   PictureBoxFONDO.Stretch = True
   PictureBoxFONDO.Picture = imagenfondo
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
 End
 '----------------------------------------------------------------------------
 'DIBUJAR OBJETOS
@@ -333,23 +372,26 @@ Public Sub dibujoObjetos(Optional cadena As String)
   Dim temporalpicture As ClassMejorPictureBox
   
   arrayBox.Clear()
+  '
+  
   '------------------------
   'Para los alumnos
   '------------------------
+  
   For a = 0 To listaAlumnos.Registros.Max
     b = ModuleGestionAlumnos.ListaOrdenada[a]
     temporalpicture = New ClassMejorPictureBox(ScrollView1)
     
-    temporalpicture.Picture = imagenAlumno
+    temporalpicture.Picture = Picture[ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos" & "/" & listaAlumnos.Registros[b].Foto] ' imagenAlumno ' Picture[ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos" & "/" & listaAlumnos.Registros[b].Foto] ' imagenAlumno'aqui se deberia añadir la imagen del alumno con un punto rojo
     temporalpicture.w = imagenAlumno.w / escalafoto
-    temporalpicture.h = imagenAlumno.h / escalafoto
+    temporalpicture.h = imagenAlumno.h / escalafoto 
     
     temporalpicture.Stretch = True
     Object.Attach(temporalpicture, Me, "Obs")
     'comprobar julio
     '
     temporalpicture.x = listaAlumnos.Registros[b].posicion.x / escalafoto 
-    temporalpicture.y = listaAlumnos.Registros[b].posicion.y / escalafoto 
+    temporalpicture.y = listaAlumnos.Registros[b].posicion.y / escalafoto + 35
     '  Print "Foto Editor: "; A, temporalpicture.x, temporalpicture.y
     
     temporalpicture.tipo = "Alumno"
@@ -364,13 +406,13 @@ Public Sub dibujoObjetos(Optional cadena As String)
   For a = 0 To listaProfesores.Registros.Max
     b = ModuleGestionProfesores.ListaOrdenada[a]
     temporalpicture = New ClassMejorPictureBox(ScrollView1)
-    temporalpicture.Picture = imagenPro
+    temporalpicture.Picture = Picture[ModulePrincipal.RutaPrograma & "temporales/FotosProfesores" & "/" & listaProfesores.Registros[b].Foto] ' imagenPro
     temporalpicture.w = imagenPro.w / escalafoto
-    temporalpicture.h = imagenPro.h / escalafoto
+    temporalpicture.h = imagenPro.h / escalafoto 
     
     temporalpicture.Stretch = True
     temporalpicture.x = listaProfesores.Registros[b].posicion.x / escalafoto
-    temporalpicture.y = listaProfesores.Registros[b].posicion.y / escalafoto
+    temporalpicture.y = listaProfesores.Registros[b].posicion.y / escalafoto + 35
     temporalpicture.tipo = "Profesor"
     temporalpicture.indice = b
     temporalpicture.texto = listaProfesores.Registros[b].Nombre & "\n" & listaProfesores.Registros[b].Apellidos & "\n" & listaProfesores.registros[b].Asignatura                                            
@@ -552,5 +594,21 @@ End
 Public Sub ToolButton1_Click()
   
   Me.Close()
+  
+End
+
+Public Sub form_close()
+  
+End
+
+Public Sub ToolButtonBloquearPosicion_Click()
+  
+  If CheckBoxBloqueo.Value = True Then 
+    CheckBoxBloqueo.Value = False
+  Else
+    
+    CheckBoxBloqueo.Value = True 
+  Endif
+  ' CheckBoxBloqueo_Click()
   
 End
