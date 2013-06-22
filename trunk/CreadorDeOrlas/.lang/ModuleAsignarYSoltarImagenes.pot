@@ -14,15 +14,3 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModuleAsignarYSoltarImagenes.module:17
-msgid "Elija el archivo gráfico"
-msgstr ""
-
-#: ModuleAsignarYSoltarImagenes.module:18
-msgid "Ficheros de Imágenes"
-msgstr ""
-
-#: ModuleAsignarYSoltarImagenes.module:39
-msgid "No se ha podido descargarse el archivo"
-msgstr ""
-
