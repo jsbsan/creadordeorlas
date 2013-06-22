@@ -11,7 +11,7 @@ Public Sub realizar(rutadelprograma As String) ', codigo As Integer, colormarco 
   fpensando.Show()
   Wait 0.1
   
-  'NOTE: coger la plantilla actual e introducir datos actuales (colegio, etc...)
+  ' coger la plantilla actual e introducir datos actuales (colegio, etc...)
   ModuleDistribucionFotos.rellenarOrla(rutadelprograma)
   
   'insertar fotos y textos de los alumnos
@@ -139,7 +139,7 @@ Private Sub anadetexto(persona As ClassPersona)
   ' Shell comando Wait
   'para poner transparente la foto, pero hace que no se vea bien el texto...  
   '  ModuleHacerTransparente.convertirTransparente("/tmp/dibujotmp.png", ModulePrincipal.RutaPrograma)
-  ''NOTE: Incluir texto a pie de foto
+  ': Incluir texto a pie de foto
   'atra pagina web a ver como lo hace
   'https://ubuntulife.wordpress.com/2010/11/06/anadiendo-un-titulo-a-una-imagen-con-imagemagick/
   

@@ -14,19 +14,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModuleGenerarSVG.module:15
+#: ModuleGenerarSVG.module:19
 msgid "Es necesario que organice las fotos en la orla"
 msgstr ""
 
-#: ModuleGenerarSVG.module:15
+#: ModuleGenerarSVG.module:19
 msgid "Opción: Datos y Organizar Orla"
 msgstr ""
 
-#: ModuleGenerarSVG.module:162
+#: ModuleGenerarSVG.module:166
 msgid "rm /tmp/trabajo_orla/*.*"
 msgstr ""
 
-#: ModuleGenerarSVG.module:372
+#: ModuleGenerarSVG.module:378
 msgid "Código de efecto desconocido"
 msgstr ""
 

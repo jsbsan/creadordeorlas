@@ -43,7 +43,7 @@ Public Sub Form_Open()
     ModuleIntermedio.IniciarGridViewRegistrosAlumnos(GridViewRegistrosAlumnos)
     ModuleIntermedio.IniciarGridViewRegistrosProfesoresores(GridViewRegistrosProfesores)
     
-    'TODO: abrir un ejemplo inicial de orla
+    ' abrir un ejemplo inicial de orla
     ModuleGestionAlumnos.guardado = True
     ModuleGestionProfesores.guardado = True
     ModuleGestionOrla.guardado = True
@@ -185,7 +185,7 @@ Public Sub botontransparente_Click()
   Dim ruta As String = modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/"
   
   numero = Val(Last.tag)
-  ''TODO: Boton transparente definir...
+  '' Boton transparente definir...
   Select numero
     Case 1
       ModuleGestionOrla.orla.escudo01 = ModuleHacerTransparente.convertirTransparente(ModuleGestionOrla.orla.escudo01, ruta) 'modulePrincipal.RutaPrograma)
@@ -276,7 +276,7 @@ Private Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Pictureb
   copiar = "si"
   
   nombresimple = ModuleUtilidadesDisco.VerificarNombreEtiqueta(Replace(ModuleUtilidadesDisco.extraedesdebarra(PictureBoxElegido.tag), " ", "_"), ["FOTO", "PLANTILLA", "CAMPO"], ["Imagen", "PLA_TILLA", "CA_PO"])
-  ''TODO: MODIFICAR RUTA...
+  '' MODIFICAR RUTA...
   nombrecopia = ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombresimple
   
   While (Exist(nombrecopia))
@@ -318,7 +318,7 @@ Private Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Pictureb
 End
 
 '--------------------------------------------------------------------------------------------------
-''TODO: EDITAR AL HACER CLICK EN LOS GRIDVIEWS
+'' EDITAR AL HACER CLICK EN LOS GRIDVIEWS
 '--------------------------------------------------------------------------------------------------
 
 Public Sub ObservadorGridViewRegistrosAlumnos_DblClick()
@@ -335,7 +335,7 @@ End
 
 Public Sub ToolButtonEditar_Click()
   
-  'TODO: editar alumnos
+  'editar alumnos
   Dim fregistro As New FormAlumno
   
   If GridViewRegistrosAlumnos.indice.Count > GridViewRegistrosAlumnos.row And GridViewRegistrosAlumnos.row > -1 Then 
@@ -375,7 +375,7 @@ Public Sub Form_Close()
 End
 
 '--------------------------------------------------------------------------------------------------
-''TODO:  IconPanel1_Click()
+'':  IconPanel1_Click()
 '--------------------------------------------------------------------------------------------------
 Public Sub IconPanel1_Click()
   
@@ -695,7 +695,7 @@ Public Sub rellenarDatosOrlas()
   ValueBoxEscalaProfesores.value = ModuleGestionOrla.orla.EscalaFotosProfesores
   ValueBoxEscalaAlumnos.value = ModuleGestionOrla.orla.EscalaFotosAlumnos
   
-  'TODO: Aqui ver tipo de letra que se le asigna
+  ' Aqui ver tipo de letra que se le asigna
   'LabelTipoProfesor.Font = ModuleGestionOrla.orla.LetraProfesor
   ' LabelTipoAlumno.font = ModuleGestionOrla.orla.LetraProfesor  
   
