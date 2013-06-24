@@ -573,7 +573,7 @@ msgstr ""
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:268
+#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:39
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
@@ -634,32 +634,32 @@ msgstr ""
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:750
+#: FMain.class:751
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:750
+#: FMain.class:751
 msgid "Si"
 msgstr ""
 
-#: FMain.class:1047
+#: FMain.class:1048
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:1047
+#: FMain.class:1048
 msgid "No"
 msgstr ""
 
-#: FMain.class:1051
+#: FMain.class:1052
 msgid ""
 "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:1086
+#: FMain.class:1087
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
-#: FMain.class:1409
+#: FMain.class:1410
 msgid "Ha habido un problema al añadir los datos soltados"
 msgstr ""
 
@@ -827,6 +827,14 @@ msgstr ""
 
 #: ModuleArrastrarYSoltarFicheros.module:60
 msgid "No reconozco la lista de personas recibida"
+msgstr ""
+
+#: ModuleAsignarYSoltarImagenes.module:17
+msgid "Elija el archivo grÃ¡fico"
+msgstr ""
+
+#: ModuleAsignarYSoltarImagenes.module:18
+msgid "Ficheros de ImÃ¡genes"
 msgstr ""
 
 #: ModuleDistribucionFotos.module:280
