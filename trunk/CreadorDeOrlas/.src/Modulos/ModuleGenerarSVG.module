@@ -276,8 +276,8 @@ Private Sub anadeFotoProfesor() As String
     ''NOTE: 0 Insertando imagenes...
     COEFICIENTE = 2.73
     cadena = File.Load("/tmp/TexFoto")
-    cadena = Replace$(cadena, "COORDENADA_X", Str$(Int(ModuleGestionProfesores.lista.Registros[b].posicion.x / COEFICIENTE) + 40 - (739 - 686)))
-    cadena = Replace$(cadena, "COORDENADA_Y", Str$(Int(ModuleGestionProfesores.lista.Registros[b].posicion.y / COEFICIENTE) + 30))
+    cadena = Replace$(cadena, "COORDENADA_X", Str$(Int(ModuleGestionProfesores.lista.Registros[b].posicion.x / COEFICIENTE) + DESPLAZAMIENTOX - (739 - 686)))
+    cadena = Replace$(cadena, "COORDENADA_Y", Str$(Int(ModuleGestionProfesores.lista.Registros[b].posicion.y / COEFICIENTE) + DESPLAZAMIENTOY))
     cadena = Replace$(cadena, "ID_IMAGEN", "FotoProfesores" & Str$(b))
     cadena = Replace$(cadena, "RUTA_FICHERO_EXT", modulePrincipal.RutaPrograma & "trabajotmp/imagenes/" & Replace(ModuleGestionProfesores.lista.Registros[b].Foto, ".jpg", ".png"))
     cadenaTodasFotos &= cadena

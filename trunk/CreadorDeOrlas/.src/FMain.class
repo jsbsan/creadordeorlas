@@ -348,7 +348,7 @@ Public Sub ToolButtonEditar_Click()
     fregistro.reg.Orden = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Orden
     fregistro.reg.Pueblo = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Pueblo
     fregistro.reg.Provincia = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Provincia
-    
+    fregistro.reg.posicion = ModuleGestionAlumnos.lista.Registros[fregistro.modo].posicion
     fregistro.ShowModal()
     ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
   Else
@@ -732,6 +732,7 @@ Public Sub ToolButtonEditar2_Click()
     fregistro.reg.Apellidos = ModuleGestionProfesores.lista.Registros[fregistro.modo].Apellidos
     fregistro.reg.Orden = ModuleGestionProfesores.lista.Registros[fregistro.modo].Orden
     fregistro.reg.Asignatura = ModuleGestionProfesores.lista.Registros[fregistro.modo].Asignatura
+    fregistro.reg.posicion = ModuleGestionProfesores.lista.Registros[fregistro.modo].posicion
     fregistro.ShowModal()
     ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
   Else

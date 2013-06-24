@@ -1,3 +1,6 @@
+* Mon Jun 24 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.53
+- Se ha repuesto el modulo asignarfoto, que se habia borrado por equivocacion. Rectificado centrado de imagen de profesor, con coeficente. Corregido cuando se editaba un alumno o profesor se perdia su posicion (que se perdia al ser editado)
+
 * Sun Jun 23 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.52
 - Mejorado ajuste de imagenes en coordenadas
 

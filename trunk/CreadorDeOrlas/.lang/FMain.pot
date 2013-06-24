@@ -542,31 +542,31 @@ msgstr ""
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:750
+#: FMain.class:751
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:750
+#: FMain.class:751
 msgid "Si"
 msgstr ""
 
-#: FMain.class:1047
+#: FMain.class:1048
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:1047
+#: FMain.class:1048
 msgid "No"
 msgstr ""
 
-#: FMain.class:1051
+#: FMain.class:1052
 msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:1086
+#: FMain.class:1087
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
-#: FMain.class:1409
+#: FMain.class:1410
 msgid "Ha habido un problema al añadir los datos soltados"
 msgstr ""
 
