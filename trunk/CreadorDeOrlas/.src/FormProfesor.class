@@ -100,13 +100,14 @@ Public Sub ToolButton1_Click()
   Exec [comando] Wait
   '  User.home & "/webcam_carnet.png"
   nombrefinal = modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & Replace(Replace(Replace("webcam_carnet" & Str$(Now()) & ".png", " ", "_"), "/", "-"), ":", "-")
-  
-  Exec ["mv", User.home & "/webcam_carnet.png", nombrefinal] Wait
-  
-  reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal)
-  PictureBoxFoto.tag = reg.foto
-  PictureBoxFoto.picture = Picture[nombrefinal]
-  
+  If Exist(User.home & "/webcam_carnet.png") Then
+    Exec ["mv", User.home & "/webcam_carnet.png", nombrefinal] Wait
+    
+    reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal)
+    PictureBoxFoto.tag = reg.foto
+    PictureBoxFoto.picture = Picture[nombrefinal]
+  Endif
+
 End
 
 Public Sub PictureBoxFoto_MouseDown()

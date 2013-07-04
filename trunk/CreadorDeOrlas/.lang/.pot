@@ -771,13 +771,13 @@ msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
-#: FormAlumno.class:243 FormProfesor.class:187
+#: FormAlumno.class:243 FormProfesor.class:188
 msgid ""
 "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo "
 "transparente"
 msgstr ""
 
-#: FormAlumno.class:259 FormProfesor.class:207
+#: FormAlumno.class:259 FormProfesor.class:208
 msgid "No se puede editar, debe de asignar una imagen"
 msgstr ""
 
