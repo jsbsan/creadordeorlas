@@ -53,7 +53,8 @@ Public Sub ToolButtonAceptar_Click()
     Exec ["wget", a, "-O", nombre] Wait
     'fichero de ruta...
     Wait 0.1
-    fpensando.Delete()
+    '  fpensando.delete()
+    fpensando.Close()
     
     valor.dato = nombre
     

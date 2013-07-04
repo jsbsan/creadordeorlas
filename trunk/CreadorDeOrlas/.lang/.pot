@@ -500,7 +500,7 @@ msgid ""
 "Archivo/Exportar mapa de bits<br>"
 msgstr ""
 
-#: FMain.form:1183 FormError.form:24
+#: FMain.form:1183 FormError.form:25
 msgid "Salir"
 msgstr ""
 
@@ -593,73 +593,73 @@ msgstr ""
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:367 FMainEditor.class:602 FormAlumno.form:107
+#: FMain.class:367 FMainEditor.class:604 FormAlumno.form:107
 #: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:95
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:432
+#: FMain.class:433
 msgid "Haga click para visualizar a mayor tamaño la previsualización"
 msgstr ""
 
-#: FMain.class:508
+#: FMain.class:509
 msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
 msgstr ""
 
-#: FMain.class:520
+#: FMain.class:521
 msgid "necesita asignar una plantilla a la orla"
 msgstr ""
 
-#: FMain.class:536
+#: FMain.class:537
 msgid "Guardado correctamente"
 msgstr ""
 
-#: FMain.class:538
+#: FMain.class:539
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:550
+#: FMain.class:551
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: FMain.class:550
+#: FMain.class:551
 msgid "si Abre una Orla, se borrarán los datos anteriores!!"
 msgstr ""
 
-#: FMain.class:552
+#: FMain.class:553
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: FMain.class:568
+#: FMain.class:569
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:751
+#: FMain.class:752
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:751
+#: FMain.class:752
 msgid "Si"
 msgstr ""
 
-#: FMain.class:1048
+#: FMain.class:1050
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:1048
+#: FMain.class:1050
 msgid "No"
 msgstr ""
 
-#: FMain.class:1052
+#: FMain.class:1054
 msgid ""
 "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:1087
+#: FMain.class:1089
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
-#: FMain.class:1410
+#: FMain.class:1413
 msgid "Ha habido un problema al añadir los datos soltados"
 msgstr ""
 
@@ -703,7 +703,7 @@ msgstr ""
 msgid "Salir del Editor"
 msgstr ""
 
-#: FMainEditor.class:602
+#: FMainEditor.class:604
 msgid "Si, salir"
 msgstr ""
 
@@ -771,13 +771,13 @@ msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
-#: FormAlumno.class:241 FormProfesor.class:187
+#: FormAlumno.class:243 FormProfesor.class:187
 msgid ""
 "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo "
 "transparente"
 msgstr ""
 
-#: FormAlumno.class:257 FormProfesor.class:207
+#: FormAlumno.class:259 FormProfesor.class:207
 msgid "No se puede editar, debe de asignar una imagen"
 msgstr ""
 
@@ -789,12 +789,16 @@ msgstr ""
 msgid "Pegar (Url)"
 msgstr ""
 
-#: FormError.form:13
+#: FormError.form:14
 msgid "Mensaje de Error:"
 msgstr ""
 
-#: FormError.form:19
+#: FormError.form:20
 msgid "Copiar Al portapapeles"
+msgstr ""
+
+#: FormError.form:30
+msgid "Label1"
 msgstr ""
 
 #: FormExtraerFoto.form:42
@@ -807,10 +811,6 @@ msgstr ""
 
 #: FormExtraerFoto.form:54
 msgid "Zoom"
-msgstr ""
-
-#: FormPensando.form:22
-msgid "Pensando..."
 msgstr ""
 
 #: FormPensando.class:7
@@ -885,7 +885,7 @@ msgstr ""
 msgid "rm /tmp/trabajo_orla/*.*"
 msgstr ""
 
-#: ModuleGenerarSVG.module:378
+#: ModuleGenerarSVG.module:379
 msgid "Código de efecto desconocido"
 msgstr ""
 
@@ -893,24 +893,24 @@ msgstr ""
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
 msgstr ""
 
-#: ModulePrincipal.module:169
+#: ModulePrincipal.module:170
 msgid "Nombre de archivo incorrecto"
 msgstr ""
 
-#: ModulePrincipal.module:184
+#: ModulePrincipal.module:185
 msgid "Problemas al copiar la plantilla de la orla"
 msgstr ""
 
-#: ModulePrincipal.module:186
+#: ModulePrincipal.module:187
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:230
+#: ModulePrincipal.module:231
 msgid ""
 "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 
-#: ModulePrincipal.module:257
+#: ModulePrincipal.module:258
 msgid "error al leer datos del portapapeles"
 msgstr ""
 
@@ -918,55 +918,55 @@ msgstr ""
 msgid "Ya se esta ejecutando este programa"
 msgstr ""
 
-#: ModuleUpdate.module:20
+#: ModuleUpdate.module:22
 msgid "No ha sido posible conectarse al servidor"
 msgstr ""
 
-#: ModuleUpdate.module:20
+#: ModuleUpdate.module:22
 msgid "No puedo comprobar si hay nueva versión"
 msgstr ""
 
-#: ModuleUpdate.module:33
+#: ModuleUpdate.module:35
 msgid "El archivo de versión no es para este programa"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:38
 msgid "Existe una nueva versión"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:38
 msgid "Programa:"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:38
 msgid "Versión encontrada:"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:38
 msgid "Mejoras:"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:38
 msgid "Dirección Url de descarga:"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:39
 msgid "Ir a la página de descarga"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:39
 msgid "No actualización"
 msgstr ""
 
-#: ModuleUpdate.module:45
+#: ModuleUpdate.module:47
 msgid "La versión actual:"
 msgstr ""
 
-#: ModuleUpdate.module:45
+#: ModuleUpdate.module:47
 msgid "es igual o superior que la que hay en el servidor"
 msgstr ""
 
-#: ModuleUpdate.module:45
+#: ModuleUpdate.module:47
 msgid "No necesita actualizarla"
 msgstr ""
 

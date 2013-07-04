@@ -27,7 +27,7 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   If Exist(ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas") Then 
   Else
     
-    Try Copy "FotoCarnetMyWebCam.gambas" To ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas"
+    Copy "FotoCarnetMyWebCam.gambas" To ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas"
     Wait 1
   Endif
   
@@ -35,8 +35,6 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   
   'formas y efectos
   
-  '
-  '
   Try Copy "Efectos/Alu93x113.png" To "/tmp/Alu93x113.png"
   Try Copy "Editor/Pro.png" To "/tmp/Pro93x113.png"
   Try Copy "Efectos/elipse.png" To "/tmp/elipse.png"
@@ -52,8 +50,8 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   Try Copy "ESCUDO01" To ModulePrincipal.RutaPrograma & "plantillasOrla/ESCUDO01"
   Try Copy "ESCUDO02" To ModulePrincipal.RutaPrograma & "plantillasOrla/ESCUDO02"
   
-  'Catch
-  ' ModuleMensajeError.SistemaDescripcionError()
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 

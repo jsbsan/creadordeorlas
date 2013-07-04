@@ -75,7 +75,8 @@ Public Sub Form_Open()
   'creo 2 objetos ClassMejorPictureBox (en verdad seria todos los que me pasen como argumento
   dibujoObjetos()
   FormPensando.parar = True
-  FormPensando.Delete
+  FormPensando.delete()
+  FormPensando.Close()
   
   Me.Center
   
@@ -338,7 +339,8 @@ Public Sub UnirImagenes(orladibujopng As String, Optional rejilla As Boolean) As
     fichero = "/tmp" & "/pruebaCombinacion/c0.png"
   Endif
   fp.parar = True
-  fp.Delete()
+  ' fp.Delete()
+  fp.Close()
   Return fichero
   
 Catch

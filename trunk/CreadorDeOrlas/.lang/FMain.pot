@@ -506,67 +506,67 @@ msgstr ""
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:432
+#: FMain.class:433
 msgid "Haga click para visualizar a mayor tamaño la previsualización"
 msgstr ""
 
-#: FMain.class:508
+#: FMain.class:509
 msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
 msgstr ""
 
-#: FMain.class:520
+#: FMain.class:521
 msgid "necesita asignar una plantilla a la orla"
 msgstr ""
 
-#: FMain.class:536
+#: FMain.class:537
 msgid "Guardado correctamente"
 msgstr ""
 
-#: FMain.class:538
+#: FMain.class:539
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:550
+#: FMain.class:551
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: FMain.class:550
+#: FMain.class:551
 msgid "si Abre una Orla, se borrarán los datos anteriores!!"
 msgstr ""
 
-#: FMain.class:552
+#: FMain.class:553
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: FMain.class:568
+#: FMain.class:569
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:751
+#: FMain.class:752
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:751
+#: FMain.class:752
 msgid "Si"
 msgstr ""
 
-#: FMain.class:1048
+#: FMain.class:1050
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:1048
+#: FMain.class:1050
 msgid "No"
 msgstr ""
 
-#: FMain.class:1052
+#: FMain.class:1054
 msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:1087
+#: FMain.class:1089
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
-#: FMain.class:1410
+#: FMain.class:1413
 msgid "Ha habido un problema al añadir los datos soltados"
 msgstr ""
 

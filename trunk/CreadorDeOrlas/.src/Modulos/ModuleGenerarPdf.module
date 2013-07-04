@@ -64,8 +64,8 @@ Public Sub realizar(rutadelprograma As String) ', codigo As Integer, colormarco 
   Exec ["convert", rutadelprograma & "final.png", Mid$(rutadelprograma & "final.png", 1, Len(rutadelprograma & "final.png") - 4) & ".pdf"] Wait
   
   fpensando.parar = True
-  fpensando.Delete
-  
+  '  fpensando.Delete()
+  fpensando.Close()
   Exec ["pcmanfm", rutadelprograma & "final.pdf"]
   
 End

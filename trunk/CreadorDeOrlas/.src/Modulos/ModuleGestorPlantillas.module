@@ -61,13 +61,14 @@ End
 
 Private Sub creaPng(nombre As String)
   
-  Dim f As New FormPensando
+  Dim fp As New FormPensando
   
-  f.Show()
+  fp.Show()
   Wait 0.1
   Exec ["inkscape", nombre & ".svg", "--export-png", nombre & ".png"] Wait
-  f.parar = True
-  f.Delete()
+  fp.parar = True
+  ' fp.delete()
+  fp.Close()
   
 End
 
