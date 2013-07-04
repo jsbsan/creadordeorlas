@@ -1,20 +1,13 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,28,5)
-  Background = &HFFFFFF&
+  MoveScaled(0,0,5,5)
   Icon = Picture["icon:/22/info"]
   Border = False
   { Timer1 #Timer
     #MoveScaled(1,1)
     Enabled = True
     Delay = 100
-  }
-  { Label1 Label
-    MoveScaled(5,0,21,5)
-    Font = Font["Bitstream Charter,Bold,+4"]
-    Text = ("Pensando...")
-    Alignment = Align.Center
   }
   { MovieBox1 MovieBox
     MoveScaled(0,0,7,6)

@@ -58,7 +58,7 @@ Public Sub Form_Open()
     ' 
     ' 
     pensando.parar = True
-    pensando.Delete()
+    pensando.close()
     
   Else
     'como ya hay una instancia de esta aplicacion abierta, salgo
@@ -422,7 +422,8 @@ Public Sub IconPanel1_Click()
     
     Exec ["inkscape", resultadoFichero, "--export-png", User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png"] Wait
     fp.parar = True
-    fp.Delete()
+    ' fp.Delete()
+    fp.Close()
     TextLabelEspere.Visible = False
     'ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), Pintura)
     'Pintura.Save("/tmp/dibujotemporal.png")
@@ -1034,7 +1035,8 @@ Public Sub ToolButtonEditarOrlas_Click() 'editar orlas
     ' ModuleGestorPlantillas.cargaprevisualizacion(ListBoxOrla, DrawingAreaPlantilla)
     
     fp.parar = True
-    fp.Delete()
+    '  fp.delete()
+    fp.Close()
     ModuleGestorPlantillas.cargalistbox(ListBoxOrla)
   Endif
   
@@ -1097,7 +1099,8 @@ Public Sub ToolButtonDefinir_Click()
     Wait 0.1
     Exec ["inkscape", rutaPlantillasOrla & nombredelaplantilla] Wait
     fp.parar = True
-    fp.Delete()
+    '  fp.delete()
+    fp.Close()
   Endif
   
   'recargar listado

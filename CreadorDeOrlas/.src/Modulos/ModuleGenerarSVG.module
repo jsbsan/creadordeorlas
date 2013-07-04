@@ -154,8 +154,8 @@ Public Sub realizar(RutaplantillaSvg As String, codigoAlumno As Variant[], codig
   
   If previa = True Then
     fpensando.parar = True
-    fpensando.Delete
-    
+    '  fpensando.Delete()
+    fpensando.Close()
     Return ModuleDistribucionFotos.rellenarOrla(ModulePrincipal.rutaprograma & "trabajotmp/paso2.svg")
   Endif
   
@@ -183,7 +183,8 @@ Public Sub realizar(RutaplantillaSvg As String, codigoAlumno As Variant[], codig
   Endif
   
   fpensando.parar = True
-  fpensando.Delete
+  '  fpensando.Delete()
+  fpensando.Close()
   
 End
 
