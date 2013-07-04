@@ -74,11 +74,11 @@ msgstr ""
 msgid "con Gimp"
 msgstr ""
 
-#: FormProfesor.class:187
+#: FormProfesor.class:188
 msgid "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"
 msgstr ""
 
-#: FormProfesor.class:207
+#: FormProfesor.class:208
 msgid "No se puede editar, debe de asignar una imagen"
 msgstr ""
 
