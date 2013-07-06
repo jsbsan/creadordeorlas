@@ -26,9 +26,9 @@ Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas
   
   If Exist(ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas") Then 
   Else
-    
-    Copy "FotoCarnetMyWebCam.gambas" To ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas"
-    Wait 1
+    Wait 0.5
+    Copy "FotoFotoCarnetMyWebCam.gambas1" To ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas"
+    Wait 0.5
   Endif
   
   Try Chmod ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
