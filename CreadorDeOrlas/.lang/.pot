@@ -46,7 +46,6 @@ msgid ""
 "inkscape (para editar y crear nuevas plantillas)<br>\n"
 "imagemagick <br>\n"
 "<br>\n"
-"Para empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\"."
 msgstr ""
 
 #: FMain.form:214
