@@ -3,7 +3,7 @@
 Title=CreadorDeOrlas
 Startup=FMain
 Icon=orlaicono.png
-Version=0.0.56
+Version=0.0.57
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
