@@ -1440,5 +1440,7 @@ End
 Public Sub ToolButtonAbrirCarpeta_Click()
   
   Exec ["pcmanfm", "/tmp/trabajo_orla/"]
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
