@@ -1,3 +1,7 @@
+* Wed Aug 07 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.58
+- Annadido gallego y ingles
+- Ademas catch para comprobrar ejecucion en pcmanfm
+
 * Sat Jul 06 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.56
 - Revision de copia archivo foto.gambas espera antes de copiarlo 0.5 seg
 

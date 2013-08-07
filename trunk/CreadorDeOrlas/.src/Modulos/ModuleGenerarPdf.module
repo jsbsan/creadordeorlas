@@ -67,7 +67,9 @@ Public Sub realizar(rutadelprograma As String) ', codigo As Integer, colormarco 
   '  fpensando.Delete()
   fpensando.Close()
   Exec ["pcmanfm", rutadelprograma & "final.pdf"]
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Private Sub anadofoto(persona As ClassPersona)
