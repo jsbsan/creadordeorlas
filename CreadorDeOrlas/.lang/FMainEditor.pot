@@ -82,11 +82,11 @@ msgstr ""
 msgid "Salir del Editor"
 msgstr ""
 
-#: FMainEditor.class:604
+#: FMainEditor.class:610
 msgid "Si, salir"
 msgstr ""
 
-#: FMainEditor.class:604
+#: FMainEditor.class:610
 msgid "Cancelar"
 msgstr ""
 

@@ -1,11 +1,11 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,117,96)
+  MoveScaled(0,0,119,96)
   Icon = Picture["orlaicono.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(0,1,117,95)
+    MoveScaled(0,1,118,95)
     Count = 15
     Border = True
     Index = 0
@@ -616,7 +616,7 @@
       Border = Border.Plain
     }
     { DrawingAreaPlantilla DrawingArea
-      MoveScaled(28,7,57,41)
+      MoveScaled(26,7,53,38)
       Background = &HFFFFFF&
       ToolTip = ("Haga click para ver mejor la imagen")
     }
@@ -625,7 +625,7 @@
       Text = ("Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla.")
     }
     { ListBoxOrla ListBox
-      MoveScaled(1,7,26,58)
+      MoveScaled(0,7,26,58)
     }
     { HBox3 VPanel
       MoveScaled(36,60,49,29)
@@ -799,13 +799,13 @@
     Text = ("Previsualizar")
     Picture = Picture["ojo22.png"]
     { DrawingArea1 DrawingArea
-      MoveScaled(67,81,17,12)
+      MoveScaled(63,81,17,12)
       Visible = False
       Background = &HFFFFFF&
       Border = Border.Plain
     }
     { TextLabel10 TextLabel
-      MoveScaled(3,82,72,9)
+      MoveScaled(0,83,72,9)
       Font = Font["Bitstream Charter,Italic,+1"]
       Text = ("Nota: <br>La previsualización puede no ser exacta,<br> genere el .svg o el .png para mejor detalle.")
       Alignment = Align.Center
@@ -817,13 +817,13 @@
       Alignment = Align.Center
     }
     { PictureBoxPrev PictureBox
-      MoveScaled(3,18,80,61)
+      MoveScaled(0,18,79,60)
       Background = &HFFFFFF&
       Stretch = True
       Border = Border.Plain
     }
     { TextLabelEspere TextLabel
-      MoveScaled(27,34,31,25)
+      MoveScaled(27,35,31,25)
       Font = Font["Bitstream Charter,+5"]
       Text = ("Espere unos segundos...")
       Alignment = Align.Center
