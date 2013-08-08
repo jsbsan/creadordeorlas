@@ -982,9 +982,13 @@ msgid "imagemagick"
 msgstr ""
 
 #: comun.module:28
+msgid "pcmanfm"
+msgstr ""
+
+#: comun.module:33
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: comun.module:28
+#: comun.module:33
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
