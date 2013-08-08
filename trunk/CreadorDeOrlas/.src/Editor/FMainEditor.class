@@ -596,23 +596,28 @@ Public Sub Frame7_MouseDown()
   
 End
 
-Public Sub ToolButton1_Click()
+Public Sub ToolButtonSalirEditor_Click()
+  
+  form_close()
+  
+End
+
+Public Sub form_close()
   
   Dim respuesta As Integer
   
   If ModuleGestionOrla.orla.PosicionesDefinidas = False Then 
     respuesta = Message.Question(("Las imagenes no estan fijadas (no esta el candado cerrado)," & "\n" & " perdera las posiciones cuando vuelva editar" & "\n" & "¿desea salir?"), ("Si, salir"), ("Cancelar"))
     If respuesta = 1 Then 
+      
       Me.Close()
+    Else
+      Stop Event
     Endif
   Else
     'estan fijada las posiciones....
     Me.Close()
   Endif
-  
-End
-
-Public Sub form_close()
   
 End
 
