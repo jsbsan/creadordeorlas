@@ -39,7 +39,7 @@ msgstr "No se ha podido descargar el archivo"
 msgid "No se puede editar un registro vacío"
 msgstr "No se puede editar un registro vacío"
 
-#: FMain.class:367 FMainEditor.class:604 FormAlumno.form:107
+#: FMain.class:367 FMainEditor.class:610 FormAlumno.form:107
 #: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:95
 msgid "Cancelar"
 msgstr "Cancelar"
@@ -192,7 +192,7 @@ msgstr "Crear"
 
 #: FMain.form:288
 msgid ".Orla"
-msgstr ""
+msgstr ".Orla"
 
 #: FMain.form:291
 msgid "Abrir "
@@ -694,7 +694,7 @@ msgstr ""
 "<h2>Espere, se están buscando actualizaciones \n"
 " <br>en Internet</h2>"
 
-#: FMainEditor.class:604
+#: FMainEditor.class:610
 msgid "Si, salir"
 msgstr "Sí, salir"
 
@@ -1008,9 +1008,13 @@ msgid "imagemagick"
 msgstr "imagemagick"
 
 #: comun.module:28
+msgid "pcmanfm"
+msgstr ""
+
+#: comun.module:33
 msgid "Falta los siguientes programas por instarlar:"
 msgstr "Faltan los siguientes programas por instarlar:"
 
-#: comun.module:28
+#: comun.module:33
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr "Instalelos para poder ejecutar el programa correctamente"

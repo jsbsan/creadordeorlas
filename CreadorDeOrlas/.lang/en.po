@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,6 +22,102 @@ msgstr "Create a school photo for your students, classmates, etc...easily."
 #: ClassSuperGridview.class:46
 msgid "Copiado contenido al portapapeles"
 msgstr "Contents copied to the clipboard"
+
+#: FMain.class:248
+msgid "Elija el archivo gráfico"
+msgstr "Select the graphic file"
+
+#: FMain.class:249
+msgid "Ficheros de Imágenes"
+msgstr "Image files"
+
+#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:39
+msgid "No se ha podido descargarse el archivo"
+msgstr "Unable to download the file"
+
+#: FMain.class:355
+msgid "No se puede editar un registro vacío"
+msgstr "Can not edit an empty record"
+
+#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:95
+msgid "Cancelar"
+msgstr "Cancel"
+
+#: FMain.class:367
+msgid "Cerrar"
+msgstr "Close"
+
+#: FMain.class:367
+msgid "Todos cambios no guardados se perderan"
+msgstr "All unsaved changes will be lost"
+
+#: FMain.class:367
+msgid "¿Seguro que desea cerrar?"
+msgstr "Are you sure you want to close?"
+
+#: FMain.class:433
+msgid "Haga click para visualizar a mayor tamaño la previsualización"
+msgstr "Click to view a larger preview"
+
+#: FMain.class:509
+msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
+msgstr "You have to create or open a yearbook to save it"
+
+#: FMain.class:521
+msgid "necesita asignar una plantilla a la orla"
+msgstr "Need to assign a template to the yearbook"
+
+#: FMain.class:537
+msgid "Guardado correctamente"
+msgstr "Saved successfully"
+
+#: FMain.class:539
+msgid "No he podido guardar los datos"
+msgstr "Impossible to save datas"
+
+#: FMain.class:551
+msgid "Los datos anteriores no se guardaron,"
+msgstr "The above data were not saved ,"
+
+#: FMain.class:551
+msgid "si Abre una Orla, se borrarán los datos anteriores!!"
+msgstr "¡If you open a yearbook, preview data will be lost!!"
+
+#: FMain.class:553
+msgid "Indique archivo de datos para abrir..."
+msgstr "Indicate a data file to open ..."
+
+#: FMain.class:569
+msgid "Problemas al abrir el archivo..."
+msgstr "Problems opening the file ..."
+
+#: FMain.class:752
+msgid "Seguro que desea borrar.."
+msgstr "Seguro que desea borrar..."
+
+#: FMain.class:752
+msgid "Si"
+msgstr "Yes"
+
+#: FMain.class:1050
+msgid "Desea borrar la plantilla: "
+msgstr "Do you want to delete the template: "
+
+#: FMain.class:1050
+msgid "No"
+msgstr "Not"
+
+#: FMain.class:1054
+msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
+msgstr "You can not delete this template because it is already in use"
+
+#: FMain.class:1089
+msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
+msgstr "There is a template with that name, enter a different name"
+
+#: FMain.class:1413
+msgid "Ha habido un problema al añadir los datos soltados"
+msgstr "Problems with dropped datas"
 
 #: FMain.form:170
 msgid "Creador de Orlas"
@@ -76,7 +173,7 @@ msgstr "Create"
 
 #: FMain.form:288
 msgid ".Orla"
-msgstr ". Yearbook"
+msgstr ".Orla"
 
 #: FMain.form:291
 msgid "Abrir "
@@ -482,101 +579,9 @@ msgstr "Check for updates"
 msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
 msgstr "<h2>Wait, checking updates</h2>"
 
-#: FMain.class:248
-msgid "Elija el archivo gráfico"
-msgstr "Select the graphic file"
-
-#: FMain.class:249
-msgid "Ficheros de Imágenes"
-msgstr "Image files"
-
-#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:39
-msgid "No se ha podido descargarse el archivo"
-msgstr "Unable to download the file"
-
-#: FMain.class:355
-msgid "No se puede editar un registro vacío"
-msgstr "Can not edit an empty record"
-
-#: FMain.class:367
-msgid "¿Seguro que desea cerrar?"
-msgstr "Are you sure you want to close?"
-
-#: FMain.class:367
-msgid "Todos cambios no guardados se perderan"
-msgstr "All unsaved changes will be lost"
-
-#: FMain.class:367
-msgid "Cerrar"
-msgstr "Close"
-
-#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:95
-msgid "Cancelar"
-msgstr "Cancel"
-
-#: FMain.class:433
-msgid "Haga click para visualizar a mayor tamaño la previsualización"
-msgstr "Click to view a larger preview"
-
-#: FMain.class:509
-msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
-msgstr "You have to create or open a yearbook to save it"
-
-#: FMain.class:521
-msgid "necesita asignar una plantilla a la orla"
-msgstr "Need to assign a template to the yearbook"
-
-#: FMain.class:537
-msgid "Guardado correctamente"
-msgstr "Saved successfully"
-
-#: FMain.class:539
-msgid "No he podido guardar los datos"
-msgstr "Impossible to save datas"
-
-#: FMain.class:551
-msgid "Los datos anteriores no se guardaron,"
-msgstr "The above data were not saved ,"
-
-#: FMain.class:551
-msgid "si Abre una Orla, se borrarán los datos anteriores!!"
-msgstr "¡If you open a yearbook, preview data will be lost!!"
-
-#: FMain.class:553
-msgid "Indique archivo de datos para abrir..."
-msgstr "Indicate a data file to open ..."
-
-#: FMain.class:569
-msgid "Problemas al abrir el archivo..."
-msgstr "Problems opening the file ..."
-
-#: FMain.class:752
-msgid "Seguro que desea borrar.."
-msgstr "Seguro que desea borrar..."
-
-#: FMain.class:752
-msgid "Si"
-msgstr "Yes"
-
-#: FMain.class:1050
-msgid "Desea borrar la plantilla: "
-msgstr "Do you want to delete the template: "
-
-#: FMain.class:1050
-msgid "No"
-msgstr "Not"
-
-#: FMain.class:1054
-msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
-msgstr "You can not delete this template because it is already in use"
-
-#: FMain.class:1089
-msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
-msgstr "There is a template with that name, enter a different name"
-
-#: FMain.class:1413
-msgid "Ha habido un problema al añadir los datos soltados"
-msgstr "Problems with dropped datas"
+#: FMainEditor.class:610
+msgid "Si, salir"
+msgstr "Yes, exit"
 
 #: FMainEditor.form:58
 msgid "datos"
@@ -618,9 +623,17 @@ msgstr "Show teachers"
 msgid "Salir del Editor"
 msgstr "Exiting the editor"
 
-#: FMainEditor.class:604
-msgid "Si, salir"
-msgstr "Yes, exit"
+#: FormAlumno.class:66
+msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
+msgstr "It is the first data you input, it can not be the same as above."
+
+#: FormAlumno.class:243 FormProfesor.class:188
+msgid "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"
+msgstr "You have to choose a photo before trying to make a transparent background"
+
+#: FormAlumno.class:259 FormProfesor.class:208
+msgid "No se puede editar, debe de asignar una imagen"
+msgstr "Can not edit, you must assign a picture"
 
 #: FormAlumno.form:48
 msgid "<h3>Alumnos</h3>"
@@ -677,18 +690,6 @@ msgstr "Once edited, go to File and then to overwrite image. Do not store the im
 #: FormAlumno.form:155 FormProfesor.form:129
 msgid "con Gimp"
 msgstr "with Gimp"
-
-#: FormAlumno.class:66
-msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
-msgstr "It is the first data you input, it can not be the same as above."
-
-#: FormAlumno.class:243 FormProfesor.class:188
-msgid "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"
-msgstr "You have to choose a photo before trying to make a transparent background"
-
-#: FormAlumno.class:259 FormProfesor.class:208
-msgid "No se puede editar, debe de asignar una imagen"
-msgstr "Can not edit, you must assign a picture"
 
 #: FormElegirFichero.form:44
 msgid "Pegar desde Portapapeles"
@@ -839,8 +840,16 @@ msgid "El archivo de versión no es para este programa"
 msgstr "The file version is not for this program"
 
 #: ModuleUpdate.module:38
+msgid "Dirección Url de descarga:"
+msgstr "Download URL:"
+
+#: ModuleUpdate.module:38
 msgid "Existe una nueva versión"
 msgstr "There is a new version"
+
+#: ModuleUpdate.module:38
+msgid "Mejoras:"
+msgstr "Improvements:"
 
 #: ModuleUpdate.module:38
 msgid "Programa:"
@@ -849,14 +858,6 @@ msgstr "Program:"
 #: ModuleUpdate.module:38
 msgid "Versión encontrada:"
 msgstr "Version found:"
-
-#: ModuleUpdate.module:38
-msgid "Mejoras:"
-msgstr "Improvements:"
-
-#: ModuleUpdate.module:38
-msgid "Dirección Url de descarga:"
-msgstr "Download URL:"
 
 #: ModuleUpdate.module:39
 msgid "Ir a la página de descarga"
@@ -871,12 +872,12 @@ msgid "La versión actual:"
 msgstr "The current version:"
 
 #: ModuleUpdate.module:47
-msgid "es igual o superior que la que hay en el servidor"
-msgstr "is equal or greater then the server one"
-
-#: ModuleUpdate.module:47
 msgid "No necesita actualizarla"
 msgstr "You don't need update it"
+
+#: ModuleUpdate.module:47
+msgid "es igual o superior que la que hay en el servidor"
+msgstr "is equal or greater then the server one"
 
 #: comun.module:13
 msgid "zip"
@@ -891,10 +892,14 @@ msgid "imagemagick"
 msgstr "imagemagick"
 
 #: comun.module:28
+msgid "pcmanfm"
+msgstr ""
+
+#: comun.module:33
 msgid "Falta los siguientes programas por instarlar:"
 msgstr "You need this programs:"
 
-#: comun.module:28
+#: comun.module:33
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr "Install them to run the program correctly"
 
