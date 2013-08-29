@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,6 +23,103 @@ msgstr "Cree as orlas dos seus alumnos, compañeiros de promoción, etc.. facilm
 msgid "Copiado contenido al portapapeles"
 msgstr "Contido copiado ao portapapeis"
 
+#: FMain.class:248
+msgid "Elija el archivo gráfico"
+msgstr "Escolla o ficheiro gráfico"
+
+#: FMain.class:249
+msgid "Ficheros de Imágenes"
+msgstr "Ficheiros de imaxe"
+
+#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:39
+msgid "No se ha podido descargarse el archivo"
+msgstr "Non foi posíbel descargar o ficheiro"
+
+#: FMain.class:355
+msgid "No se puede editar un registro vacío"
+msgstr "Non é posíbel editar un rexistro baleiro"
+
+#: FMain.class:367 FMainEditor.class:610 FormAlumno.form:107
+#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:95
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#: FMain.class:367
+msgid "Cerrar"
+msgstr "Pechar"
+
+#: FMain.class:367
+msgid "Todos cambios no guardados se perderan"
+msgstr "Todos os cambios que non tiñan sido gardados perderanse"
+
+#: FMain.class:367
+msgid "¿Seguro que desea cerrar?"
+msgstr "Confirma que quere pechar?"
+
+#: FMain.class:433
+msgid "Haga click para visualizar a mayor tamaño la previsualización"
+msgstr "Prema para ver a maior tamaño a vista previa"
+
+#: FMain.class:509
+msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
+msgstr "Ten que crear ou abrir unha orla, para poder gardalo"
+
+#: FMain.class:521
+msgid "necesita asignar una plantilla a la orla"
+msgstr "é preciso asignar un modelo á orla"
+
+#: FMain.class:537
+msgid "Guardado correctamente"
+msgstr "Gardado correctamente"
+
+#: FMain.class:539
+msgid "No he podido guardar los datos"
+msgstr "Non foi posíbel gardar os datos"
+
+#: FMain.class:551
+msgid "Los datos anteriores no se guardaron,"
+msgstr "Os datos anteriores non foron gardados,"
+
+#: FMain.class:551
+msgid "si Abre una Orla, se borrarán los datos anteriores!!"
+msgstr "se abre unha orla, borraranse os datos anteriores!!"
+
+#: FMain.class:553
+msgid "Indique archivo de datos para abrir..."
+msgstr "Indique un ficheiro de datos que abrir..."
+
+#: FMain.class:569
+msgid "Problemas al abrir el archivo..."
+msgstr "Non foi posíbel abrir o ficheiro..."
+
+#: FMain.class:752
+msgid "Seguro que desea borrar.."
+msgstr "Confirma que quere borrar..."
+
+#: FMain.class:752
+msgid "Si"
+msgstr "Si"
+
+#: FMain.class:1050
+msgid "Desea borrar la plantilla: "
+msgstr "Quere borra o modelo: "
+
+#: FMain.class:1050
+msgid "No"
+msgstr "Non"
+
+#: FMain.class:1054
+msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
+msgstr "Non é posíbel borrar este modelo, xa que é o que está a empregar para esta orla"
+
+#: FMain.class:1089
+msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
+msgstr "Xa existe un modelo con ese nome, escriba un nome distinto"
+
+#: FMain.class:1413
+msgid "Ha habido un problema al añadir los datos soltados"
+msgstr "Non foi posíbel engadir os datos soltados"
+
 #: FMain.form:170
 msgid "Creador de Orlas"
 msgstr "Creador de orlas"
@@ -35,8 +133,26 @@ msgid "http://www.jsbsan.blogspot.com"
 msgstr "http://www.jsbsan.blogspot.com"
 
 #: FMain.form:202
-msgid "<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\n"
-msgstr "<h3>Licenza: GPL, Software Libre</h3><br>\n\nFeito en Gambas3.4 <br>\n\nPara usar este programa, instale:<br>\nzip <br>\ninkscape (para editar e crear novos modelos)<br>\nimagemagick <br>\n<br>\n"
+msgid ""
+"<h3>Licencia: GPL, Softwarelibre</h3><br>\n"
+"\n"
+"Realizado en Gambas3.4 <br>\n"
+"\n"
+"Para usar este programa, instala:<br>\n"
+"zip <br>\n"
+"inkscape (para editar y crear nuevas plantillas)<br>\n"
+"imagemagick <br>\n"
+"<br>\n"
+msgstr ""
+"<h3>Licenza: GPL, Software Libre</h3><br>\n"
+"\n"
+"Feito en Gambas3.4 <br>\n"
+"\n"
+"Para usar este programa, instale:<br>\n"
+"zip <br>\n"
+"inkscape (para editar e crear novos modelos)<br>\n"
+"imagemagick <br>\n"
+"<br>\n"
 
 #: FMain.form:214
 msgid "Crea tus propias plantillas con: "
@@ -76,7 +192,7 @@ msgstr "Crear"
 
 #: FMain.form:288
 msgid ".Orla"
-msgstr ""
+msgstr ".Orla"
 
 #: FMain.form:291
 msgid "Abrir "
@@ -111,8 +227,18 @@ msgid "Copiar"
 msgstr "Copiar"
 
 #: FMain.form:360
-msgid "<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre debe de tener una coma para separar los apellidos y el nombre.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png"
-msgstr "<b>Outro xeito de inserir os datos:<br></b>\nArrastre e solte as fotos, o nome do ficheiro aproveitase para poñer os datos do nome e os apelidos<br>\nO nome debe ter unha coma para separar os apellidos e o nome.<br>\nPor exemplo:<br>\nGomez Gutierrez,Pedro.png"
+msgid ""
+"<b>Otra forma de insertar datos:<br></b>\n"
+"Arrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\n"
+"El nombre debe de tener una coma para separar los apellidos y el nombre.<br>\n"
+"Por ejemplo:<br>\n"
+"Gomez Gutierrez,Pedro.png"
+msgstr ""
+"<b>Outro xeito de inserir os datos:<br></b>\n"
+"Arrastre e solte as fotos, o nome do ficheiro aproveitase para poñer os datos do nome e os apelidos<br>\n"
+"O nome debe ter unha coma para separar os apellidos e o nome.<br>\n"
+"Por exemplo:<br>\n"
+"Gomez Gutierrez,Pedro.png"
 
 #: FMain.form:365
 msgid "Datos Profesores"
@@ -143,8 +269,14 @@ msgid "%"
 msgstr "%"
 
 #: FMain.form:479
-msgid "<b>Nota:</b><br>\nCuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Organizar posición defotos en la Orla\", para poder ver como queda el diseño de la misma.<br>\nAdemás podrá modificar la disposición de las fotografías para personalizar su orla."
-msgstr "<b>Nota:</b><br>\nCando remate de introducir na orla os datos de alumnos e Profesores, prema no botón «Organizar a posición das fotos na orla», para facer unha vista previa do deseño da mesma.<br>\nAdemais poderá modificar a disposición das fotografías para personalizar a súa orla."
+msgid ""
+"<b>Nota:</b><br>\n"
+"Cuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Organizar posición defotos en la Orla\", para poder ver como queda el diseño de la misma.<br>\n"
+"Además podrá modificar la disposición de las fotografías para personalizar su orla."
+msgstr ""
+"<b>Nota:</b><br>\n"
+"Cando remate de introducir na orla os datos de alumnos e Profesores, prema no botón «Organizar a posición das fotos na orla», para facer unha vista previa do deseño da mesma.<br>\n"
+"Ademais poderá modificar a disposición das fotografías para personalizar a súa orla."
 
 #: FMain.form:487
 msgid "Tipos de letra"
@@ -331,8 +463,12 @@ msgid "Haga click para ver mejor la imagen"
 msgstr "Prema para ter unha mellor definición da imaxe"
 
 #: FMain.form:891
-msgid "Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla."
-msgstr "Nota:<br>\nEdite unha orla existente, gárdeo con «Gardar como...» e disporá dun novo modelo de orla."
+msgid ""
+"Nota:<br>\n"
+"Edite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla."
+msgstr ""
+"Nota:<br>\n"
+"Edite unha orla existente, gárdeo con «Gardar como...» e disporá dun novo modelo de orla."
 
 #: FMain.form:903
 msgid "Editar Orla"
@@ -419,8 +555,12 @@ msgid "Nota: <br>La previsualización puede no ser exacta,<br> genere el .svg o 
 msgstr "Nota: <br>A vista previa pode non ser exacta,<br> xere o .svg ou o .png para ter mellor detalle."
 
 #: FMain.form:1117
-msgid "<h2>Previsualización</h2>\nPara mejorar el resultado del programa, vaya a la opción <BR>\"Generar Orla\", y pulse  el botón \"Generar Orla en .SVG\", <BR>entonces podrá editar la orla mediante Inkscape, ampliando las posibilidades de edición de este programa."
-msgstr "<h2>Vista previa</h2>\nPara mellorar o resultado do programa, vaia á opción <BR>«Xerar unha orla», e prema no botón «Xerar unha orla en .SVG», <BR>así poderá editar a orla empregando Inkscape, ampliando as posibilidades de edición deste programa."
+msgid ""
+"<h2>Previsualización</h2>\n"
+"Para mejorar el resultado del programa, vaya a la opción <BR>\"Generar Orla\", y pulse  el botón \"Generar Orla en .SVG\", <BR>entonces podrá editar la orla mediante Inkscape, ampliando las posibilidades de edición de este programa."
+msgstr ""
+"<h2>Vista previa</h2>\n"
+"Para mellorar o resultado do programa, vaia á opción <BR>«Xerar unha orla», e prema no botón «Xerar unha orla en .SVG», <BR>así poderá editar a orla empregando Inkscape, ampliando as posibilidades de edición deste programa."
 
 #: FMain.form:1131
 msgid "Espere unos segundos..."
@@ -443,8 +583,14 @@ msgid "Generar Orla en .PNG"
 msgstr "Xerar unha orla en .PNG"
 
 #: FMain.form:1162
-msgid "Nota:<br>\nSe creará una copia de trabajo, con las fotografías y el archivo tipo .svg  en la carpeta:<br>\n/tmp/trabajo_orla/trabajo.svg<br>"
-msgstr "Nota:<br>\nCrearase unha copia de traballo, coas fotografías e o ficheiro do .svg no cartafol:<br>\n/tmp/trabajo_orla/trabajo.svg<br>"
+msgid ""
+"Nota:<br>\n"
+"Se creará una copia de trabajo, con las fotografías y el archivo tipo .svg  en la carpeta:<br>\n"
+"/tmp/trabajo_orla/trabajo.svg<br>"
+msgstr ""
+"Nota:<br>\n"
+"Crearase unha copia de traballo, coas fotografías e o ficheiro do .svg no cartafol:<br>\n"
+"/tmp/trabajo_orla/trabajo.svg<br>"
 
 #: FMain.form:1170
 msgid "Cuando genere la Orla .SVG, podrá ver los archivos."
@@ -455,8 +601,16 @@ msgid "Abrir Carpeta Temporal"
 msgstr "Abrir o cartafol temporal"
 
 #: FMain.form:1179
-msgid "Nota:<br>\nDesde INKSCAPE, podrá editar y modificar su orla.<br>\nAdemás podrá exportarla a fichero .png, desde el menú de inkscape:<br>\nArchivo/Exportar mapa de bits<br>"
-msgstr "Nota:<br>\nCo INKSCAPE, poderá editar e modificar a súa orla.<br>\nAdemais poderá exportala a un ficheiro .png, desde o menú de inkscape:<br>\nFicheiro/Exportar mapa de bits<br>"
+msgid ""
+"Nota:<br>\n"
+"Desde INKSCAPE, podrá editar y modificar su orla.<br>\n"
+"Además podrá exportarla a fichero .png, desde el menú de inkscape:<br>\n"
+"Archivo/Exportar mapa de bits<br>"
+msgstr ""
+"Nota:<br>\n"
+"Co INKSCAPE, poderá editar e modificar a súa orla.<br>\n"
+"Ademais poderá exportala a un ficheiro .png, desde o menú de inkscape:<br>\n"
+"Ficheiro/Exportar mapa de bits<br>"
 
 #: FMain.form:1183 FormError.form:25
 msgid "Salir"
@@ -467,8 +621,63 @@ msgid "Ayuda"
 msgstr "Axuda"
 
 #: FMain.form:1192
-msgid "<h3>Especificaciones para los formatos de Orla:</h3><br>\n<br>\nEl archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n      - o embebidas en ellas.<br>\n<br>\n<br>\n\n<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n\tTexto a sustituir y que se rellenará con datos<br>\n\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n\t       CLASE............................... texto: 1º de ESO<br>\n\t       CURSO ..................... texto: 2012-2013<br>\n\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n<br>\n\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n<br>\n<br>\n<b>Imagenes:</b><br>\n         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>"
-msgstr "<h3>Especificacións para o formato das orlas:</h3><br>\n<br>\nO ficheiro .svg, conten as imaxes dos marcos e o fondo xa incluídas .<br>\n\t       - mediante ligazón ás imaxes externas (no mesmo directorio onde estea o modelo .svg)<br>\n\t       - ou incrustadas neles.<br>\n<br>\n<br>\n\n<b>Etiquetas de texto, «con aliñamento centrado»</b><br>\n\tTexto a substituír e que se encherá cos datos<br>\n\t       COLEGIO......................... centro ao que corresponde<br>\n\t       CLASE............................. texto: p.ex 1º da ESO<br>\n\t       CURSO............................ texto: p.ex 2013-2014<br>\n\t       TEXTOOPCIONAL01.......... texto opcional<br>\n\t       TEXTOOPCIONAL02.......... texto opcional<br>\n\t                          (NOTA: No modelo .svg, escollese o tamaño e o tipo de letra)<br>\n<br>\n\tTexto para indicar a posición do grupo de imaxes de alumnos e profesores<br>\n\t       ZonaFotosAlumnos.......... este texto só indica as coordenadas da posición no modelo<br>\n\t       ZonaFotosProfesores........ este texto só indica as coordenadas da posición no modelo<br>\n<br>\n<br>\n<b>Imaxes:</b><br>\n\t       ESCUDO01......................  escudo do centro<br>\n\t       ESCUDO02......................  escudo da C. A., cidade, etc<br>\n\t       ESCUDO03......................  imaxe opcional<br>\n\t       ESCUDO03......................  imaxe opcional<br>\n\t                          (NOTA: De non existir algún dos «ESCUDOXX» porase unha imaxe transparente)<br>"
+msgid ""
+"<h3>Especificaciones para los formatos de Orla:</h3><br>\n"
+"<br>\n"
+"El archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n"
+"      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n"
+"      - o embebidas en ellas.<br>\n"
+"<br>\n"
+"<br>\n"
+"\n"
+"<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n"
+"\tTexto a sustituir y que se rellenará con datos<br>\n"
+"\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n"
+"\t       CLASE............................... texto: 1º de ESO<br>\n"
+"\t       CURSO ..................... texto: 2012-2013<br>\n"
+"\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n"
+"                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n"
+"\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n"
+"<br>\n"
+"\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n"
+"\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n"
+"                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n"
+"<br>\n"
+"<br>\n"
+"<b>Imagenes:</b><br>\n"
+"         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n"
+"\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n"
+"         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n"
+"         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>"
+msgstr ""
+"<h3>Especificacións para o formato das orlas:</h3><br>\n"
+"<br>\n"
+"O ficheiro .svg, conten as imaxes dos marcos e o fondo xa incluídas .<br>\n"
+"\t       - mediante ligazón ás imaxes externas (no mesmo directorio onde estea o modelo .svg)<br>\n"
+"\t       - ou incrustadas neles.<br>\n"
+"<br>\n"
+"<br>\n"
+"\n"
+"<b>Etiquetas de texto, «con aliñamento centrado»</b><br>\n"
+"\tTexto a substituír e que se encherá cos datos<br>\n"
+"\t       COLEGIO......................... centro ao que corresponde<br>\n"
+"\t       CLASE............................. texto: p.ex 1º da ESO<br>\n"
+"\t       CURSO............................ texto: p.ex 2013-2014<br>\n"
+"\t       TEXTOOPCIONAL01.......... texto opcional<br>\n"
+"\t       TEXTOOPCIONAL02.......... texto opcional<br>\n"
+"\t                          (NOTA: No modelo .svg, escollese o tamaño e o tipo de letra)<br>\n"
+"<br>\n"
+"\tTexto para indicar a posición do grupo de imaxes de alumnos e profesores<br>\n"
+"\t       ZonaFotosAlumnos.......... este texto só indica as coordenadas da posición no modelo<br>\n"
+"\t       ZonaFotosProfesores........ este texto só indica as coordenadas da posición no modelo<br>\n"
+"<br>\n"
+"<br>\n"
+"<b>Imaxes:</b><br>\n"
+"\t       ESCUDO01......................  escudo do centro<br>\n"
+"\t       ESCUDO02......................  escudo da C. A., cidade, etc<br>\n"
+"\t       ESCUDO03......................  imaxe opcional<br>\n"
+"\t       ESCUDO03......................  imaxe opcional<br>\n"
+"\t                          (NOTA: De non existir algún dos «ESCUDOXX» porase unha imaxe transparente)<br>"
 
 #: FMain.form:1197
 msgid "Visite la página del proyecto para más ayuda"
@@ -479,104 +688,16 @@ msgid "Buscar Actualizaciones"
 msgstr "Buscar actualizacións"
 
 #: FMain.form:1207
-msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
-msgstr "<h2>Agarde, estanse a buscar actualizacións \n <br>na Internet</h2>"
+msgid ""
+"<h2>Espere por favor, estoy buscando actualizaciones \n"
+" <br>en internet</h2>"
+msgstr ""
+"<h2>Agarde, estanse a buscar actualizacións \n"
+" <br>na Internet</h2>"
 
-#: FMain.class:248
-msgid "Elija el archivo gráfico"
-msgstr "Escolla o ficheiro gráfico"
-
-#: FMain.class:249
-msgid "Ficheros de Imágenes"
-msgstr "Ficheiros de imaxe"
-
-#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:39
-msgid "No se ha podido descargarse el archivo"
-msgstr "Non foi posíbel descargar o ficheiro"
-
-#: FMain.class:355
-msgid "No se puede editar un registro vacío"
-msgstr "Non é posíbel editar un rexistro baleiro"
-
-#: FMain.class:367
-msgid "¿Seguro que desea cerrar?"
-msgstr "Confirma que quere pechar?"
-
-#: FMain.class:367
-msgid "Todos cambios no guardados se perderan"
-msgstr "Todos os cambios que non tiñan sido gardados perderanse"
-
-#: FMain.class:367
-msgid "Cerrar"
-msgstr "Pechar"
-
-#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:95
-msgid "Cancelar"
-msgstr "Cancelar"
-
-#: FMain.class:433
-msgid "Haga click para visualizar a mayor tamaño la previsualización"
-msgstr "Prema para ver a maior tamaño a vista previa"
-
-#: FMain.class:509
-msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
-msgstr "Ten que crear ou abrir unha orla, para poder gardalo"
-
-#: FMain.class:521
-msgid "necesita asignar una plantilla a la orla"
-msgstr "é preciso asignar un modelo á orla"
-
-#: FMain.class:537
-msgid "Guardado correctamente"
-msgstr "Gardado correctamente"
-
-#: FMain.class:539
-msgid "No he podido guardar los datos"
-msgstr "Non foi posíbel gardar os datos"
-
-#: FMain.class:551
-msgid "Los datos anteriores no se guardaron,"
-msgstr "Os datos anteriores non foron gardados,"
-
-#: FMain.class:551
-msgid "si Abre una Orla, se borrarán los datos anteriores!!"
-msgstr "se abre unha orla, borraranse os datos anteriores!!"
-
-#: FMain.class:553
-msgid "Indique archivo de datos para abrir..."
-msgstr "Indique un ficheiro de datos que abrir..."
-
-#: FMain.class:569
-msgid "Problemas al abrir el archivo..."
-msgstr "Non foi posíbel abrir o ficheiro..."
-
-#: FMain.class:752
-msgid "Seguro que desea borrar.."
-msgstr "Confirma que quere borrar..."
-
-#: FMain.class:752
-msgid "Si"
-msgstr "Si"
-
-#: FMain.class:1050
-msgid "Desea borrar la plantilla: "
-msgstr "Quere borra o modelo: "
-
-#: FMain.class:1050
-msgid "No"
-msgstr "Non"
-
-#: FMain.class:1054
-msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
-msgstr "Non é posíbel borrar este modelo, xa que é o que está a empregar para esta orla"
-
-#: FMain.class:1089
-msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
-msgstr "Xa existe un modelo con ese nome, escriba un nome distinto"
-
-#: FMain.class:1413
-msgid "Ha habido un problema al añadir los datos soltados"
-msgstr "Non foi posíbel engadir os datos soltados"
+#: FMainEditor.class:610
+msgid "Si, salir"
+msgstr "Si, saír"
 
 #: FMainEditor.form:58
 msgid "datos"
@@ -618,9 +739,17 @@ msgstr "Amosar os profesores"
 msgid "Salir del Editor"
 msgstr "Saír do editor"
 
-#: FMainEditor.class:604
-msgid "Si, salir"
-msgstr "Si, saír"
+#: FormAlumno.class:66
+msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
+msgstr "Tratase do primeiro dato que introduce, non pode igualalo ao anterior"
+
+#: FormAlumno.class:243 FormProfesor.class:188
+msgid "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"
+msgstr "Ten que escoller algunha foto, antes de tentar convertela a  fondo transparente"
+
+#: FormAlumno.class:259 FormProfesor.class:208
+msgid "No se puede editar, debe de asignar una imagen"
+msgstr "Para poder editar debe asignar unha imaxe"
 
 #: FormAlumno.form:48
 msgid "<h3>Alumnos</h3>"
@@ -646,6 +775,7 @@ msgstr "Provincia:"
 msgid "Orden:"
 msgstr "Orde:"
 
+#: FormAlumno.form:100 FormElegirFichero.form:23 FormExtraerFoto.form:60
 #: FormProfesor.form:88
 msgid "Aceptar"
 msgstr "Aceptar"
@@ -677,18 +807,6 @@ msgstr "Unha vez editada, vaia a «Ficheiro» e a seguir  a «Sobrescribir imaxe
 #: FormAlumno.form:155 FormProfesor.form:129
 msgid "con Gimp"
 msgstr "co Gimp"
-
-#: FormAlumno.class:66
-msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
-msgstr "Tratase do primeiro dato que introduce, non pode igualalo ao anterior"
-
-#: FormAlumno.class:243 FormProfesor.class:188
-msgid "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"
-msgstr "Ten que escoller algunha foto, antes de tentar convertela a  fondo transparente"
-
-#: FormAlumno.class:259 FormProfesor.class:208
-msgid "No se puede editar, debe de asignar una imagen"
-msgstr "Para poder editar debe asignar unha imaxe"
 
 #: FormElegirFichero.form:44
 msgid "Pegar desde Portapapeles"
@@ -839,8 +957,16 @@ msgid "El archivo de versión no es para este programa"
 msgstr "O ficheiro de versión non é para este programa"
 
 #: ModuleUpdate.module:38
+msgid "Dirección Url de descarga:"
+msgstr "Enderezo URL de descarga:"
+
+#: ModuleUpdate.module:38
 msgid "Existe una nueva versión"
 msgstr "Existe unha nova versión"
+
+#: ModuleUpdate.module:38
+msgid "Mejoras:"
+msgstr "Melloras:"
 
 #: ModuleUpdate.module:38
 msgid "Programa:"
@@ -849,14 +975,6 @@ msgstr "Programa:"
 #: ModuleUpdate.module:38
 msgid "Versión encontrada:"
 msgstr "Versión atopada:"
-
-#: ModuleUpdate.module:38
-msgid "Mejoras:"
-msgstr "Melloras:"
-
-#: ModuleUpdate.module:38
-msgid "Dirección Url de descarga:"
-msgstr "Enderezo URL de descarga:"
 
 #: ModuleUpdate.module:39
 msgid "Ir a la página de descarga"
@@ -871,12 +989,12 @@ msgid "La versión actual:"
 msgstr "A versión actual:"
 
 #: ModuleUpdate.module:47
-msgid "es igual o superior que la que hay en el servidor"
-msgstr "é igual ou superior á que hai no servidor"
-
-#: ModuleUpdate.module:47
 msgid "No necesita actualizarla"
 msgstr "Non é necesario actualizala"
+
+#: ModuleUpdate.module:47
+msgid "es igual o superior que la que hay en el servidor"
+msgstr "é igual ou superior á que hai no servidor"
 
 #: comun.module:13
 msgid "zip"
@@ -891,10 +1009,13 @@ msgid "imagemagick"
 msgstr "imagemagick"
 
 #: comun.module:28
+msgid "pcmanfm"
+msgstr ""
+
+#: comun.module:33
 msgid "Falta los siguientes programas por instarlar:"
 msgstr "Ten que instalar os seguintes programas:"
 
-#: comun.module:28
+#: comun.module:33
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr "Instáleos para poder executar correctamente o programa "
-
