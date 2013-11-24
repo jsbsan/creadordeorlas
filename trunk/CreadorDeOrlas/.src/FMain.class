@@ -1438,9 +1438,10 @@ Public Sub TextLabelSueltaFotosProfesores_drop()
 End
 
 Public Sub ToolButtonAbrirCarpeta_Click()
+
+  ModuleAbrirResultados.abrir("/tmp/trabajo_orla/")
   
-  Exec ["pcmanfm", "/tmp/trabajo_orla/"]
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End

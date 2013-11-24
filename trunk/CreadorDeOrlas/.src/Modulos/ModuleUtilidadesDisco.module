@@ -21,14 +21,15 @@ End
 Public Sub MoverFicheros(origen As String, destino As String) As Boolean
   
   Dim file As String
-  
+  Dim comando As String
   ' Print "Moviendo..............."
   ' Print "ruta movida: "; origen
   ' Print "ruta destino: "; destino
   If Exist(origen) Then 
     For Each File In Dir(origen)
       '   Print file
-      Shell "mv " & origen & "/" & file & " " & destino & "/" & file Wait
+      comando = "mv \"" & origen & "/" & file & "\" \"" & destino & "/" & file & "\"" 'añadido mejora para aceptar nombre con espacios de directorios 
+      Try Shell comando Wait
     Next
   Endif
   

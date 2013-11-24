@@ -229,13 +229,13 @@ Geometry=[-7,-6,212,345]
 LastCommit="inicial\n---- Esta línea y las siguientes serán ignoradas ----\n\nA       .\nA       .src\nA       .src/FMain.class\nA       .src/FormAlumno.form\nA       .src/Modulos\nA       .src/Modulos/ModuleImprimir.module\nA       .src/Modulos/ModuleHacerTransparente.module\nA       .src/Modulos/ModuleUtilidadesDisco.module\nA       .src/Modulos/ModuleIntermedio.module\nA       .src/Modulos/ModulePrincipal.module\nA       .src/FormAlumno.class\nA       .src/FormPlantillaOrla.form\nA       .src/FormProfesor.form\nA       .src/FormPlantillaOrla.class\nA       .src/FormProfesor.class\nA       .src/FormEditorGrafico.form\nA       .src/FormEditorGrafico.class\nA       .src/Clases\nA       .src/Clases/Clase de Datos\nA       .src/Clases/Clase de Datos/ClassProfesor.class\nA       .src/Clases/Clase de Datos/ClassPos.class\nA       .src/Clases/Clase de Datos/Alumnos\nA       .src/Clases/Clase de Datos/Alumnos/ModuleGestionAlumnos.module\nA       .src/Clases/Clase de Datos/Alumnos/ClassListaAlumnos.class\nA       .src/Clases/Clase de Datos/ClassPersona.class\nA       .src/Clases/Clase de Datos/ClassDatosOrla.class\nA       .src/Clases/Clase de Datos/ClassGestion.class\nA       .src/Clases/Clase de Datos/ClassAlumno.class\nA       .src/Clases/Clase de Datos/Profesores\nA       .src/Clases/Clase de Datos/Profesores/ModuleGestionProfesores.module\nA       .src/Clases/Clase de Datos/Profesores/ClassListaProfesores.class\nA       .src/Clases/DeTrabajo\nA       .src/Clases/DeTrabajo/ClassSuperGridview.class\nA       .src/Clases/DeTrabajo/ClassZip.class\nA       .src/Clases/Editor\nA       .src/Clases/Editor/ClassMiniMapa.class\nA       .src/Clases/Editor/ClassRectanguloFijo.class\nA       .src/Clases/Editor/ClassPto.class\nA       .src/Clases/Editor/ClassPtoControl.class\nA       .src/Clases/Editor/ClassRectanguloRelleno.class\nA       .src/ModulePruebas.module\nA       .src/FMain.form\nA       gambas360.png\nA       orlaicono.png\nA       .hidden\nA       ojo22.png\nA       icono_fotos_personas.png\nA       .startup\nA       importar.png\nA       icono_transparente.png\nA       EsquemasyNotas\nA       EsquemasyNotas/UrlPlantillas\nA       EsquemasyNotas/Programa\nA       EsquemasyNotas/Programa/Especificaciones Plantilla Orlas.txt\nA       EsquemasyNotas/Programa/EstruturaDeDatos\nA       EsquemasyNotas/Programa/SvgTextoImagen\nA       EsquemasyNotas/Programa/Organizar en filas y Columnas\nA       EsquemasyNotas/Programa/EsquemaGeneralDeLaAplición\nA       EsquemasyNotas/Letras\nA       EsquemasyNotas/imageMagick\nA       EsquemasyNotas/imageMagick/Convertir A3 a A4\nA       EsquemasyNotas/imageMagick/TextoEnImagen\nA       EsquemasyNotas/imageMagick/ImagenOvalada\nA       EsquemasyNotas/imageMagick/Eliminar color en esquina\nA       .directory\nA       .project\nA       inkscape-icono.png\nA       gestorOrlas.png\nA       exportar.png\nA       transparente.png\nA       .icon.png\nA       magicwand\nA       .action\nA       icono_galeria2.jpg\nA       FotoCarnetMyWebCam-3.0.3.tar.gz\nA       camara_icono.png\nA       .lang\nA       dibujos\nA       dibujos/Iconos_Educatronica_01.png\nA       dibujos/gatojugando.png\nA       dibujos/Editor\nA       dibujos/Editor/banderita.png\nA       dibujos/Editor/chinchetaAmarilla.png\nA       dibujos/Editor/barra297.png\nA       dibujos/Editor/barra210.png\nA       dibujos/Editor/barra420.png\nA       dibujos/Editor/chinchetaRoja.png\nA       dibujos/ORLA GENERADOR.png\nA       dibujos/icono_profesor.png\nA       mininopicaros2012.png\nA       Plantillas\nA       Plantillas/orla1\nA       Plantillas/orla1/esquina.png\nA       Plantillas/orla1/Detalles_en_azul_y_negro_marco.svg\nA       Plantillas/orla1/cinta.svg\nA       Plantillas/orla1/borde.png\nA       Plantillas/orla1/ESCUDO01\nA       Plantillas/orla1/ESCUDO02\nA       Plantillas/orla1/adorno.png\nA       Plantillas/orla2\nA       Plantillas/orla2/border.jpg\nA       Plantillas/orla2/cinta.svg\nA       Plantillas/orla2/Antorcha y orla rojaref.svg\nA       Plantillas/orla2/antorcha.jpg\nA       Plantillas/orla2/ESCUDO01\nA       Plantillas/orla2/ESCUDO02"
 
 [OpenFile]
-File[1]=".src/FMain.class:24.3"
+File[1]=".src/FMain.class:1442.2"
 File[2]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[3]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[4]="EsquemasyNotas/UrlPlantillas:9.45"
 File[5]="dibujos/ORLA GENERADOR.png"
 File[6]="orlaicono.png"
-File[7]=".src/Modulos/ModuleUtilidadesDisco.module:54.3"
+File[7]=".src/Modulos/ModuleUtilidadesDisco.module:31.28"
 File[8]="gestorOrlas.png"
 File[9]="ojo22.png"
 File[10]="inkscape-icono.png"
@@ -300,7 +300,7 @@ File[68]=".src/Modulos/ModuleUpdate.module:24.15"
 File[69]=".src/Modulos/comun.module:24.7"
 File[70]=".src/Clases/ClassDatoLetra.class:0.19"
 File[71]=".src/Formularios Comunes/FormElegirFichero.form"
-File[72]=".src/Formularios Comunes/FormElegirFichero.class:72.3"
+File[72]=".src/Formularios Comunes/FormElegirFichero.class:52.7"
 File[73]=".src/Clases/Clase de Datos/Datos Orla/ModuleGestionOrla.module:61.66"
 File[74]=".src/Modulos/ModuleExtraerDatosOrla.module:29.117"
 File[75]=".src/Modulos/ModuleMensajeError.module:0.20"
@@ -347,10 +347,12 @@ File[115]="drop.png"
 File[116]=".src/Modulos/ModuleArrastrarYSoltarFicheros.module:50.4"
 File[117]="carpeta.png"
 File[118]="logoGambas.png"
-Active=119
 File[119]=".src/FMain.form"
 File[120]="icoLoading.gif"
-Count=120
+File[121]=".src/Modulos/ModuleAbrirResultados.module:21.3"
+Active=122
+File[122]=".src/Formularios Comunes/FormRutaResultados.form"
+Count=122
 
 [VersionControl]
 RememberPassword=0
