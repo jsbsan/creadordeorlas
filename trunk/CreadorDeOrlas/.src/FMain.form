@@ -1,11 +1,11 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,119,96)
+  MoveScaled(0,0,125,96)
   Icon = Picture["orlaicono.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(0,1,118,95)
+    MoveScaled(0,1,124,95)
     Count = 15
     Border = True
     Index = 0
