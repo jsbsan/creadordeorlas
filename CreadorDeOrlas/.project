@@ -1,17 +1,17 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.4.2
+# Compiled with Gambas 3.5.4
 Title=CreadorDeOrlas
 Startup=FMain
 Icon=orlaicono.png
-Version=0.0.62
+Version=0.0.63
 Component=gb.image
 Component=gb.qt4
+Component=gb.qt4.ext
 Component=gb.form
 Component=gb.desktop
 Component=gb.form.dialog
 Component=gb.net
 Component=gb.net.curl
-Component=gb.qt4.ext
 Description="Crea las orlas de tus alumnos, compañeros de promoción, etc.. fácilmente."
 Authors="Julio Sánchez Berro"
 TabSize=2
