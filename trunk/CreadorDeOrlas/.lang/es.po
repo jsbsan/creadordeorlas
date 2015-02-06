@@ -597,8 +597,8 @@ msgid "Cuando genere la Orla .SVG, podrá ver los archivos."
 msgstr "Cuando genere la orla .SVG, podrá ver los archivos."
 
 #: FMain.form:1171
-msgid "Abrir Carpeta Temporal"
-msgstr "Abrir la carpeta temporal"
+msgid "Abrir o Crear Carpeta donde guardará la orla"
+msgstr ""
 
 #: FMain.form:1179
 msgid ""
@@ -775,7 +775,7 @@ msgid "Orden:"
 msgstr "Orden:"
 
 #: FormAlumno.form:100 FormElegirFichero.form:23 FormExtraerFoto.form:60
-#: FormProfesor.form:88
+#: FormProfesor.form:88 FormRutaResultados.form:19
 msgid "Aceptar"
 msgstr "Aceptar"
 
@@ -850,6 +850,14 @@ msgstr "<h3>Profesores</h3>"
 #: FormProfesor.form:69
 msgid "Asignatura:"
 msgstr "Asignatura:"
+
+#: FormRutaResultados.form:13
+msgid "haga doble click en la ruta que desee guardar los datos"
+msgstr ""
+
+#: FormRutaResultados.form:25
+msgid "Elija ruta donde se guardará la orla, también puede crear un directorio nuevo (pulsando el botón derecho)"
+msgstr ""
 
 #: ModuleArrastrarYSoltarFicheros.module:60
 msgid "No reconozco la lista de personas recibida"
@@ -1018,3 +1026,6 @@ msgstr "Faltan los siguientes programas por instarlar:"
 #: comun.module:33
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr "Instalelos para poder ejecutar el programa correctamente"
+
+#~ msgid "Abrir Carpeta Temporal"
+#~ msgstr "Abrir la carpeta temporal"
