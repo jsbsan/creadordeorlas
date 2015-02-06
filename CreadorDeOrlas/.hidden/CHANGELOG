@@ -1,3 +1,9 @@
+* Fri Feb 06 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.64
+- Añadido traducción al portugués
+
+* Mon Nov 24 2014 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.63
+- Admite nombres con espacios
+
 * Sat Nov 23 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.62
 - Los resultados se guardan en una carpeta creada o elegida por el usuario
 
