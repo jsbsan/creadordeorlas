@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,6 +22,102 @@ msgstr "Cria as orlas dos alunos , companheiros de turma, etc .. .."
 #: ClassSuperGridview.class:46
 msgid "Copiado contenido al portapapeles"
 msgstr "Copiado conteudo ao porta-papéis"
+
+#: FMain.class:248
+msgid "Elija el archivo gráfico"
+msgstr "Escolha o arquivo gráfico"
+
+#: FMain.class:249
+msgid "Ficheros de Imágenes"
+msgstr "Arquivos de Imagens "
+
+#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:39
+msgid "No se ha podido descargarse el archivo"
+msgstr "Não se pôde descaregar o arquivo"
+
+#: FMain.class:355
+msgid "No se puede editar un registro vacío"
+msgstr "Não se pode editar um registo vazio"
+
+#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:96
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#: FMain.class:367
+msgid "Cerrar"
+msgstr "Fechar"
+
+#: FMain.class:367
+msgid "Todos cambios no guardados se perderan"
+msgstr "Perderá todas as mudanças não guardadas"
+
+#: FMain.class:367
+msgid "¿Seguro que desea cerrar?"
+msgstr "?Pretende encerrar?"
+
+#: FMain.class:433
+msgid "Haga click para visualizar a mayor tamaño la previsualización"
+msgstr "Faça click para visualizar em zoom a imagem em pré-visualização"
+
+#: FMain.class:509
+msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
+msgstr "Tem que criar uma Nova ou Abrir uma Orla, para Guardar"
+
+#: FMain.class:521
+msgid "necesita asignar una plantilla a la orla"
+msgstr "precisa de uma planilha alvo para a orla"
+
+#: FMain.class:537
+msgid "Guardado correctamente"
+msgstr "Guardado correctamente"
+
+#: FMain.class:539
+msgid "No he podido guardar los datos"
+msgstr "Não se pôde guardar os dados"
+
+#: FMain.class:551
+msgid "Los datos anteriores no se guardaron,"
+msgstr "Os dados anteriores não se guardaram,"
+
+#: FMain.class:551
+msgid "si Abre una Orla, se borrarán los datos anteriores!!"
+msgstr "sim Abrir uma Orla, apagar-se-ão os dados anteriores!!!"
+
+#: FMain.class:553
+msgid "Indique archivo de datos para abrir..."
+msgstr "Indique o arquivo de dados para abrir...."
+
+#: FMain.class:569
+msgid "Problemas al abrir el archivo..."
+msgstr "Problemas ao abrir arquivo ..."
+
+#: FMain.class:752
+msgid "Seguro que desea borrar.."
+msgstr "Está certo de querer apagar...."
+
+#: FMain.class:752
+msgid "Si"
+msgstr "Sim"
+
+#: FMain.class:1050
+msgid "Desea borrar la plantilla: "
+msgstr "Deseja apagar a planilha"
+
+#: FMain.class:1050
+msgid "No"
+msgstr "No"
+
+#: FMain.class:1054
+msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
+msgstr "Não se pode apagar esta planilha, já que está em uso na orla"
+
+#: FMain.class:1089
+msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
+msgstr "Já existe uma planilha com esse nome, introduza um distinto"
+
+#: FMain.class:1413
+msgid "Ha habido un problema al añadir los datos soltados"
+msgstr "Houve um problema ao adicionar os dados "
 
 #: FMain.form:170
 msgid "Creador de Orlas"
@@ -66,7 +163,7 @@ msgstr "Página WEB do Projecto"
 msgid "Nueva"
 msgstr "Nova"
 
-#: FMain.form:272 FormAlumno.form:39 FormProfesor.form:36
+#: FMain.form:272 FormAlumno.form:40 FormProfesor.form:37
 msgid "Nombre:"
 msgstr "Nome:"
 
@@ -134,7 +231,7 @@ msgstr "Professores:"
 msgid "Alumnos:"
 msgstr "Alunos:"
 
-#: FMain.form:455 FormAlumno.form:95 FormProfesor.form:83
+#: FMain.form:455 FormAlumno.form:96 FormProfesor.form:84
 msgid "ValueBox1"
 msgstr ""
 
@@ -482,101 +579,9 @@ msgstr "Procurar actualizações"
 msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
 msgstr "<h2>Espere por favor, estou a procurar actualizações \n <br>na internet</h2>"
 
-#: FMain.class:248
-msgid "Elija el archivo gráfico"
-msgstr "Escolha o arquivo gráfico"
-
-#: FMain.class:249
-msgid "Ficheros de Imágenes"
-msgstr "Arquivos de Imagens "
-
-#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:39
-msgid "No se ha podido descargarse el archivo"
-msgstr "Não se pôde descaregar o arquivo"
-
-#: FMain.class:355
-msgid "No se puede editar un registro vacío"
-msgstr "Não se pode editar um registo vazio"
-
-#: FMain.class:367
-msgid "¿Seguro que desea cerrar?"
-msgstr "?Pretende encerrar?"
-
-#: FMain.class:367
-msgid "Todos cambios no guardados se perderan"
-msgstr "Perderá todas as mudanças não guardadas"
-
-#: FMain.class:367
-msgid "Cerrar"
-msgstr "Fechar"
-
-#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:95
-msgid "Cancelar"
-msgstr "Cancelar"
-
-#: FMain.class:433
-msgid "Haga click para visualizar a mayor tamaño la previsualización"
-msgstr "Faça click para visualizar em zoom a imagem em pré-visualização"
-
-#: FMain.class:509
-msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
-msgstr "Tem que criar uma Nova ou Abrir uma Orla, para Guardar"
-
-#: FMain.class:521
-msgid "necesita asignar una plantilla a la orla"
-msgstr "precisa de uma planilha alvo para a orla"
-
-#: FMain.class:537
-msgid "Guardado correctamente"
-msgstr "Guardado correctamente"
-
-#: FMain.class:539
-msgid "No he podido guardar los datos"
-msgstr "Não se pôde guardar os dados"
-
-#: FMain.class:551
-msgid "Los datos anteriores no se guardaron,"
-msgstr "Os dados anteriores não se guardaram,"
-
-#: FMain.class:551
-msgid "si Abre una Orla, se borrarán los datos anteriores!!"
-msgstr "sim Abrir uma Orla, apagar-se-ão os dados anteriores!!!"
-
-#: FMain.class:553
-msgid "Indique archivo de datos para abrir..."
-msgstr "Indique o arquivo de dados para abrir...."
-
-#: FMain.class:569
-msgid "Problemas al abrir el archivo..."
-msgstr "Problemas ao abrir arquivo ..."
-
-#: FMain.class:752
-msgid "Seguro que desea borrar.."
-msgstr "Está certo de querer apagar...."
-
-#: FMain.class:752
-msgid "Si"
-msgstr "Sim"
-
-#: FMain.class:1050
-msgid "Desea borrar la plantilla: "
-msgstr "Deseja apagar a planilha"
-
-#: FMain.class:1050
-msgid "No"
-msgstr "No"
-
-#: FMain.class:1054
-msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
-msgstr "Não se pode apagar esta planilha, já que está em uso na orla"
-
-#: FMain.class:1089
-msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
-msgstr "Já existe uma planilha com esse nome, introduza um distinto"
-
-#: FMain.class:1413
-msgid "Ha habido un problema al añadir los datos soltados"
-msgstr "Houve um problema ao adicionar os dados "
+#: FMainEditor.class:610
+msgid "Si, salir"
+msgstr "Sim, saír"
 
 #: FMainEditor.form:58
 msgid "datos"
@@ -618,66 +623,6 @@ msgstr "Mostrar Professores"
 msgid "Salir del Editor"
 msgstr "Saír do Editor"
 
-#: FMainEditor.class:610
-msgid "Si, salir"
-msgstr "Sim, saír"
-
-#: FormAlumno.form:48
-msgid "<h3>Alumnos</h3>"
-msgstr "<h3>Alunos</h3>"
-
-#: FormAlumno.form:56 FormProfesor.form:53
-msgid "Foto WebCam"
-msgstr "Foto WebCam"
-
-#: FormAlumno.form:67 FormProfesor.form:64
-msgid "Apellidos:"
-msgstr "Apelidos:"
-
-#: FormAlumno.form:76
-msgid "Pueblo:"
-msgstr "Cidade, Lugar:"
-
-#: FormAlumno.form:81
-msgid "Provincia:"
-msgstr "Região:"
-
-#: FormAlumno.form:90 FormProfesor.form:78
-msgid "Orden:"
-msgstr "Ordem:"
-
-#: FormProfesor.form:88 FormRutaResultados.form:19
-msgid "Aceptar"
-msgstr "Aceitar"
-
-#: FormAlumno.form:114 FormProfesor.form:102
-msgid "(opcional)"
-msgstr "(opcional)"
-
-#: FormAlumno.form:121
-msgid "="
-msgstr "="
-
-#: FormAlumno.form:133 FormProfesor.form:107
-msgid "+"
-msgstr "+"
-
-#: FormAlumno.form:139 FormProfesor.form:113
-msgid "Ajustar foto"
-msgstr "Ajustar foto"
-
-#: FormAlumno.form:146 FormProfesor.form:120
-msgid "ToolButton2"
-msgstr ""
-
-#: FormAlumno.form:154 FormProfesor.form:128
-msgid "Una vez editada, vaya a Archivo y seguidamente a Sobreescribir imagen. No guarde la imagen en formato xcf"
-msgstr "Uma vez editada, vá a Arquivo e a Sobre-escrever imagem. Não guarde a imagem em formato xcf"
-
-#: FormAlumno.form:155 FormProfesor.form:129
-msgid "con Gimp"
-msgstr "com Gimp"
-
 #: FormAlumno.class:66
 msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr "Trata-se da primeira vez que se introduzem dados, não se pôde igualar ao anterior"
@@ -689,6 +634,66 @@ msgstr "Tem que escolher alguma foto, antes de tentar converter a fundo transpar
 #: FormAlumno.class:259 FormProfesor.class:208
 msgid "No se puede editar, debe de asignar una imagen"
 msgstr "Não se pode editar, deve assinalar uma imagem para uso"
+
+#: FormAlumno.form:32 FormProfesor.form:29
+msgid "Pulse aqui para elegir su fotografia si esta guardada en el disco duro"
+msgstr "Clique aqui para escolher a sua imagem se armazenado no disco rígido"
+
+#: FormAlumno.form:49
+msgid "<h3>Alumnos</h3>"
+msgstr "<h3>Alunos</h3>"
+
+#: FormAlumno.form:57 FormProfesor.form:54
+msgid "Foto WebCam"
+msgstr "Foto WebCam"
+
+#: FormAlumno.form:68 FormProfesor.form:65
+msgid "Apellidos:"
+msgstr "Apelidos:"
+
+#: FormAlumno.form:77
+msgid "Pueblo:"
+msgstr "Cidade, Lugar:"
+
+#: FormAlumno.form:82
+msgid "Provincia:"
+msgstr "Região:"
+
+#: FormAlumno.form:91 FormProfesor.form:79
+msgid "Orden:"
+msgstr "Ordem:"
+
+#: FormProfesor.form:89 FormRutaResultados.form:19
+msgid "Aceptar"
+msgstr "Aceitar"
+
+#: FormAlumno.form:115 FormProfesor.form:103
+msgid "(opcional)"
+msgstr "(opcional)"
+
+#: FormAlumno.form:122
+msgid "="
+msgstr "="
+
+#: FormAlumno.form:134 FormProfesor.form:108
+msgid "+"
+msgstr "+"
+
+#: FormAlumno.form:140 FormProfesor.form:114
+msgid "Ajustar foto"
+msgstr "Ajustar foto"
+
+#: FormAlumno.form:147 FormProfesor.form:121
+msgid "ToolButton2"
+msgstr ""
+
+#: FormAlumno.form:155 FormProfesor.form:129
+msgid "Una vez editada, vaya a Archivo y seguidamente a Sobreescribir imagen. No guarde la imagen en formato xcf"
+msgstr "Uma vez editada, vá a Arquivo e a Sobre-escrever imagem. Não guarde a imagem em formato xcf"
+
+#: FormAlumno.form:156 FormProfesor.form:130
+msgid "con Gimp"
+msgstr "com Gimp"
 
 #: FormElegirFichero.form:44
 msgid "Pegar desde Portapapeles"
@@ -726,11 +731,11 @@ msgstr ""
 msgid "Espere por favor..."
 msgstr "Espere por favor ......"
 
-#: FormProfesor.form:45
+#: FormProfesor.form:46
 msgid "<h3>Profesores</h3>"
 msgstr "<h3>Professores</h3>"
 
-#: FormProfesor.form:69
+#: FormProfesor.form:70
 msgid "Asignatura:"
 msgstr "Assinar:"
 
@@ -847,8 +852,16 @@ msgid "El archivo de versión no es para este programa"
 msgstr "O arquivo de versão não é para este programa"
 
 #: ModuleUpdate.module:38
+msgid "Dirección Url de descarga:"
+msgstr "Direcção Url de descarga:"
+
+#: ModuleUpdate.module:38
 msgid "Existe una nueva versión"
 msgstr "Existe uma nova versão"
+
+#: ModuleUpdate.module:38
+msgid "Mejoras:"
+msgstr "Melhoras:"
 
 #: ModuleUpdate.module:38
 msgid "Programa:"
@@ -857,14 +870,6 @@ msgstr "Programa:"
 #: ModuleUpdate.module:38
 msgid "Versión encontrada:"
 msgstr "Versão encontrada"
-
-#: ModuleUpdate.module:38
-msgid "Mejoras:"
-msgstr "Melhoras:"
-
-#: ModuleUpdate.module:38
-msgid "Dirección Url de descarga:"
-msgstr "Direcção Url de descarga:"
 
 #: ModuleUpdate.module:39
 msgid "Ir a la página de descarga"
@@ -879,12 +884,12 @@ msgid "La versión actual:"
 msgstr "A versão actual: "
 
 #: ModuleUpdate.module:47
-msgid "es igual o superior que la que hay en el servidor"
-msgstr "é igual ou superior que há existente no servidor"
-
-#: ModuleUpdate.module:47
 msgid "No necesita actualizarla"
 msgstr "Não precisa actualizar"
+
+#: ModuleUpdate.module:47
+msgid "es igual o superior que la que hay en el servidor"
+msgstr "é igual ou superior que há existente no servidor"
 
 #: comun.module:13
 msgid "zip"

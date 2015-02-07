@@ -5,7 +5,8 @@
   Resizable = False
   { PictureBoxFoto PictureBox
     MoveScaled(3,10,12.1429,17)
-    Picture = Picture["icono_fotos_personas.png"]
+    ToolTip = ("Pulse aqui para elegir su fotografia si esta guardada en el disco duro")
+    Picture = Picture["cara.png"]
     Stretch = True
     Border = Border.Plain
   }
