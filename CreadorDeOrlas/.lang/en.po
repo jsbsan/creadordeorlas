@@ -39,7 +39,7 @@ msgstr "Unable to download the file"
 msgid "No se puede editar un registro vacío"
 msgstr "Can not edit an empty record"
 
-#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:95
+#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:96
 msgid "Cancelar"
 msgstr "Cancel"
 
@@ -163,7 +163,7 @@ msgstr "Project Web Page"
 msgid "Nueva"
 msgstr "New"
 
-#: FMain.form:272 FormAlumno.form:39 FormProfesor.form:36
+#: FMain.form:272 FormAlumno.form:40 FormProfesor.form:37
 msgid "Nombre:"
 msgstr "Name:"
 
@@ -231,7 +231,7 @@ msgstr "Teachers:"
 msgid "Alumnos:"
 msgstr "Pupils:"
 
-#: FMain.form:455 FormAlumno.form:95 FormProfesor.form:83
+#: FMain.form:455 FormAlumno.form:96 FormProfesor.form:84
 msgid "ValueBox1"
 msgstr "ValueBox1"
 
@@ -548,8 +548,8 @@ msgid "Cuando genere la Orla .SVG, podrá ver los archivos."
 msgstr "When you generate the yearbook in .SVG, you can view the files."
 
 #: FMain.form:1171
-msgid "Abrir Carpeta Temporal"
-msgstr "Open temporal folder"
+msgid "Abrir o Crear Carpeta donde guardará la orla"
+msgstr ""
 
 #: FMain.form:1179
 msgid "Nota:<br>\nDesde INKSCAPE, podrá editar y modificar su orla.<br>\nAdemás podrá exportarla a fichero .png, desde el menú de inkscape:<br>\nArchivo/Exportar mapa de bits<br>"
@@ -635,59 +635,63 @@ msgstr "You have to choose a photo before trying to make a transparent backgroun
 msgid "No se puede editar, debe de asignar una imagen"
 msgstr "Can not edit, you must assign a picture"
 
-#: FormAlumno.form:48
+#: FormAlumno.form:32 FormProfesor.form:29
+msgid "Pulse aqui para elegir su fotografia si esta guardada en el disco duro"
+msgstr "Click here to choose your picture if stored in the hard disk"
+
+#: FormAlumno.form:49
 msgid "<h3>Alumnos</h3>"
 msgstr "<h3>Pupils</h3>"
 
-#: FormAlumno.form:56 FormProfesor.form:53
+#: FormAlumno.form:57 FormProfesor.form:54
 msgid "Foto WebCam"
 msgstr "WebCam Photo"
 
-#: FormAlumno.form:67 FormProfesor.form:64
+#: FormAlumno.form:68 FormProfesor.form:65
 msgid "Apellidos:"
 msgstr "Surname:"
 
-#: FormAlumno.form:76
+#: FormAlumno.form:77
 msgid "Pueblo:"
 msgstr "City:"
 
-#: FormAlumno.form:81
+#: FormAlumno.form:82
 msgid "Provincia:"
 msgstr "State:"
 
-#: FormAlumno.form:90 FormProfesor.form:78
+#: FormAlumno.form:91 FormProfesor.form:79
 msgid "Orden:"
 msgstr "Order:"
 
-#: FormProfesor.form:88
+#: FormProfesor.form:89 FormRutaResultados.form:19
 msgid "Aceptar"
 msgstr "Accept"
 
-#: FormAlumno.form:114 FormProfesor.form:102
+#: FormAlumno.form:115 FormProfesor.form:103
 msgid "(opcional)"
 msgstr "(optional)"
 
-#: FormAlumno.form:121
+#: FormAlumno.form:122
 msgid "="
 msgstr "="
 
-#: FormAlumno.form:133 FormProfesor.form:107
+#: FormAlumno.form:134 FormProfesor.form:108
 msgid "+"
 msgstr "+"
 
-#: FormAlumno.form:139 FormProfesor.form:113
+#: FormAlumno.form:140 FormProfesor.form:114
 msgid "Ajustar foto"
 msgstr "Set photo"
 
-#: FormAlumno.form:146 FormProfesor.form:120
+#: FormAlumno.form:147 FormProfesor.form:121
 msgid "ToolButton2"
 msgstr "ToolButton2"
 
-#: FormAlumno.form:154 FormProfesor.form:128
+#: FormAlumno.form:155 FormProfesor.form:129
 msgid "Una vez editada, vaya a Archivo y seguidamente a Sobreescribir imagen. No guarde la imagen en formato xcf"
 msgstr "Once edited, go to File and then to overwrite image. Do not store the image in xcf format"
 
-#: FormAlumno.form:155 FormProfesor.form:129
+#: FormAlumno.form:156 FormProfesor.form:130
 msgid "con Gimp"
 msgstr "with Gimp"
 
@@ -727,13 +731,21 @@ msgstr "Zoom"
 msgid "Espere por favor..."
 msgstr "Wait..."
 
-#: FormProfesor.form:45
+#: FormProfesor.form:46
 msgid "<h3>Profesores</h3>"
 msgstr "<h3>Teachers</h3>"
 
-#: FormProfesor.form:69
+#: FormProfesor.form:70
 msgid "Asignatura:"
 msgstr "Subject:"
+
+#: FormRutaResultados.form:13
+msgid "haga doble click en la ruta que desee guardar los datos"
+msgstr ""
+
+#: FormRutaResultados.form:25
+msgid "Elija ruta donde se guardará la orla, también puede crear un directorio nuevo (pulsando el botón derecho)"
+msgstr ""
 
 #: ModuleArrastrarYSoltarFicheros.module:60
 msgid "No reconozco la lista de personas recibida"

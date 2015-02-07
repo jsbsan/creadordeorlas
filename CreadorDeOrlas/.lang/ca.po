@@ -39,8 +39,7 @@ msgstr "No s'ha pogut descarregar el fitxer"
 msgid "No se puede editar un registro vacío"
 msgstr "No es pot editar un registre buit"
 
-#: FMain.class:367 FMainEditor.class:610 FormAlumno.form:107
-#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:95
+#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:96
 msgid "Cancelar"
 msgstr "Cancel·lar"
 
@@ -133,16 +132,7 @@ msgid "http://www.jsbsan.blogspot.com"
 msgstr "http://www.jsbsan.blogspot.com"
 
 #: FMain.form:202
-msgid ""
-"<h3>Licencia: GPL, Softwarelibre</h3><br>\n"
-"\n"
-"Realizado en Gambas3.4 <br>\n"
-"\n"
-"Para usar este programa, instala:<br>\n"
-"zip <br>\n"
-"inkscape (para editar y crear nuevas plantillas)<br>\n"
-"imagemagick <br>\n"
-"<br>\n"
+msgid "<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\n"
 msgstr ""
 
 #: FMain.form:214
@@ -173,7 +163,7 @@ msgstr "Pàgina web del projecte"
 msgid "Nueva"
 msgstr "Nova"
 
-#: FMain.form:272 FormAlumno.form:39 FormProfesor.form:36
+#: FMain.form:272 FormAlumno.form:40 FormProfesor.form:37
 msgid "Nombre:"
 msgstr "Nom:"
 
@@ -218,18 +208,8 @@ msgid "Copiar"
 msgstr "Copiar"
 
 #: FMain.form:360
-msgid ""
-"<b>Otra forma de insertar datos:<br></b>\n"
-"Arrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\n"
-"El nombre debe de tener una coma para separar los apellidos y el nombre.<br>\n"
-"Por ejemplo:<br>\n"
-"Gomez Gutierrez,Pedro.png"
-msgstr ""
-"<b>Altra forma d'inserir dades:<br></b>\n"
-"Arrossega i deixa anar les fotos, el nom del fitxer és aprofitat per posar les dades de nom i cognoms<br>\n"
-"El nom deu tenir una coma per separar els cognoms i el nom.<br>\n"
-"Per exemple:<br>\n"
-"Gomez Gutierrez,Pedro.png"
+msgid "<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre debe de tener una coma para separar los apellidos y el nombre.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png"
+msgstr "<b>Altra forma d'inserir dades:<br></b>\nArrossega i deixa anar les fotos, el nom del fitxer és aprofitat per posar les dades de nom i cognoms<br>\nEl nom deu tenir una coma per separar els cognoms i el nom.<br>\nPer exemple:<br>\nGomez Gutierrez,Pedro.png"
 
 #: FMain.form:365
 msgid "Datos Profesores"
@@ -251,7 +231,7 @@ msgstr "Professors:"
 msgid "Alumnos:"
 msgstr "Alumnes:"
 
-#: FMain.form:455 FormAlumno.form:95 FormProfesor.form:83
+#: FMain.form:455 FormAlumno.form:96 FormProfesor.form:84
 msgid "ValueBox1"
 msgstr ""
 
@@ -260,14 +240,8 @@ msgid "%"
 msgstr "%"
 
 #: FMain.form:479
-msgid ""
-"<b>Nota:</b><br>\n"
-"Cuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Organizar posición defotos en la Orla\", para poder ver como queda el diseño de la misma.<br>\n"
-"Además podrá modificar la disposición de las fotografías para personalizar su orla."
-msgstr ""
-"<b>Nota:</b><br>\n"
-"Quan acabis d'introduir en l'orla les dades d'alumnes i professors, prem el botó de «Organitzar la posició de les fotos a l'orla», per fer una vista prèvia del disseny de la mateixa.<br>\n"
-"A més podràs modificar la disposició de les fotografies per a personalitzar-la."
+msgid "<b>Nota:</b><br>\nCuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Organizar posición defotos en la Orla\", para poder ver como queda el diseño de la misma.<br>\nAdemás podrá modificar la disposición de las fotografías para personalizar su orla."
+msgstr "<b>Nota:</b><br>\nQuan acabis d'introduir en l'orla les dades d'alumnes i professors, prem el botó de «Organitzar la posició de les fotos a l'orla», per fer una vista prèvia del disseny de la mateixa.<br>\nA més podràs modificar la disposició de les fotografies per a personalitzar-la."
 
 #: FMain.form:487
 msgid "Tipos de letra"
@@ -454,12 +428,8 @@ msgid "Haga click para ver mejor la imagen"
 msgstr "Clica per veure millor la imatge"
 
 #: FMain.form:891
-msgid ""
-"Nota:<br>\n"
-"Edite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla."
-msgstr ""
-"Nota:<br>\n"
-"Edita una orla existent, desa-la amb «Guardar com ...» i disposaràs d'un nou disseny d'orla."
+msgid "Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla."
+msgstr "Nota:<br>\nEdita una orla existent, desa-la amb «Guardar com ...» i disposaràs d'un nou disseny d'orla."
 
 #: FMain.form:903
 msgid "Editar Orla"
@@ -546,12 +516,8 @@ msgid "Nota: <br>La previsualización puede no ser exacta,<br> genere el .svg o 
 msgstr "Nota: <br>La vista prèvia pot no ser exacta,<br> genera el. svg o el. png per tenir més detall.."
 
 #: FMain.form:1117
-msgid ""
-"<h2>Previsualización</h2>\n"
-"Para mejorar el resultado del programa, vaya a la opción <BR>\"Generar Orla\", y pulse  el botón \"Generar Orla en .SVG\", <BR>entonces podrá editar la orla mediante Inkscape, ampliando las posibilidades de edición de este programa."
-msgstr ""
-"<h2>Vista prèvia</h2>\n"
-"Per millorar el resultat del programa, aneu a l'opció <BR> «Generar una orla», i prem el botó «Generar una orla. SVG», <BR> així podràs editar l'orla mitjançant Inkscape, ampliant les possibilitats d'edició de aquest programa."
+msgid "<h2>Previsualización</h2>\nPara mejorar el resultado del programa, vaya a la opción <BR>\"Generar Orla\", y pulse  el botón \"Generar Orla en .SVG\", <BR>entonces podrá editar la orla mediante Inkscape, ampliando las posibilidades de edición de este programa."
+msgstr "<h2>Vista prèvia</h2>\nPer millorar el resultat del programa, aneu a l'opció <BR> «Generar una orla», i prem el botó «Generar una orla. SVG», <BR> així podràs editar l'orla mitjançant Inkscape, ampliant les possibilitats d'edició de aquest programa."
 
 #: FMain.form:1131
 msgid "Espere unos segundos..."
@@ -574,34 +540,20 @@ msgid "Generar Orla en .PNG"
 msgstr "Generar una orla en .PNG"
 
 #: FMain.form:1162
-msgid ""
-"Nota:<br>\n"
-"Se creará una copia de trabajo, con las fotografías y el archivo tipo .svg  en la carpeta:<br>\n"
-"/tmp/trabajo_orla/trabajo.svg<br>"
-msgstr ""
-"Nota:<br>\n"
-"Es crearà una còpia de treball, amb les fotografies i l'arxiu tipus .svg  a la carpeta:<br>\n"
-"/tmp/treball_orla/treball.svg<br>"
+msgid "Nota:<br>\nSe creará una copia de trabajo, con las fotografías y el archivo tipo .svg  en la carpeta:<br>\n/tmp/trabajo_orla/trabajo.svg<br>"
+msgstr "Nota:<br>\nEs crearà una còpia de treball, amb les fotografies i l'arxiu tipus .svg  a la carpeta:<br>\n/tmp/treball_orla/treball.svg<br>"
 
 #: FMain.form:1170
 msgid "Cuando genere la Orla .SVG, podrá ver los archivos."
 msgstr "Quan generi l'orla .SVG, podràs veure els arxius."
 
 #: FMain.form:1171
-msgid "Abrir Carpeta Temporal"
-msgstr "Obrir la carpeta temporal"
+msgid "Abrir o Crear Carpeta donde guardará la orla"
+msgstr ""
 
 #: FMain.form:1179
-msgid ""
-"Nota:<br>\n"
-"Desde INKSCAPE, podrá editar y modificar su orla.<br>\n"
-"Además podrá exportarla a fichero .png, desde el menú de inkscape:<br>\n"
-"Archivo/Exportar mapa de bits<br>"
-msgstr ""
-"Nota:<br>\n"
-"Des de INKSCAPE, podràs editar i modificar la teva orla.<br>\n"
-"A més podràs exportar-la a un fitxer .png, des del menú de inkscape:<br>\n"
-"Arxiu/Exportar mapa de bits<br>"
+msgid "Nota:<br>\nDesde INKSCAPE, podrá editar y modificar su orla.<br>\nAdemás podrá exportarla a fichero .png, desde el menú de inkscape:<br>\nArchivo/Exportar mapa de bits<br>"
+msgstr "Nota:<br>\nDes de INKSCAPE, podràs editar i modificar la teva orla.<br>\nA més podràs exportar-la a un fitxer .png, des del menú de inkscape:<br>\nArxiu/Exportar mapa de bits<br>"
 
 #: FMain.form:1183 FormError.form:25
 msgid "Salir"
@@ -612,62 +564,8 @@ msgid "Ayuda"
 msgstr "Ajuda"
 
 #: FMain.form:1192
-msgid ""
-"<h3>Especificaciones para los formatos de Orla:</h3><br>\n"
-"<br>\n"
-"El archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n"
-"      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n"
-"      - o embebidas en ellas.<br>\n"
-"<br>\n"
-"<br>\n"
-"\n"
-"<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n"
-"\tTexto a sustituir y que se rellenará con datos<br>\n"
-"\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n"
-"\t       CLASE............................... texto: 1º de ESO<br>\n"
-"\t       CURSO ..................... texto: 2012-2013<br>\n"
-"\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n"
-"                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n"
-"\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n"
-"<br>\n"
-"\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n"
-"\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n"
-"                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n"
-"<br>\n"
-"<br>\n"
-"<b>Imagenes:</b><br>\n"
-"         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n"
-"\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n"
-"         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n"
-"         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>"
-msgstr ""
-"<h3>Especificacions per al format de les orles:</h3><br>\n"
-"<br>\n"
-"L'arxiu .svg, conté les imatges dels marcs i el fons ja incloses .<br>\n"
-"\t       - mitjançant enllaços a imatges externes (en el mateix directori on estigui la plantilla .svg)<br>\n"
-"\t       - o incrustades en elles.<br>\n"
-"<br>\n"
-"<br>\n"
-"\n"
-"<b>Etiquetes de text, «amb alineació centrada»</b><br>\n"
-"\tText a substituir i que s'omplirà amb dades<br>\n"
-"\t       COL·LEGI......................... centre a què correspon<br>\n"
-"\t       CLASSE............................. text: p.ex. 1r d'ESO<br>\n"
-"\t       CURS............................ text: p.ex. 2013-2014<br>\n"
-"\t       TEXTOPCIONAL01.......... text opcional<br>\n"
-"\t       TEXTOPCIONAL02.......... text opcional<br>\n"
-"\t                          (NOTA: A la plantilla .svg, es tria la mida i el tipus de lletra)<br>\n"
-"<br>\n"
-"\tText per indicar la posició del grup d'imatges d'alumnes i professors<br>\n"
-"\t       ZonaFotosAlumnes.......... aquest text només indica les coordenades de la posició en la plantilla<br>\n"
-"\t       ZonaFotosProfessors........ aquest text només indica les coordenades de la posició en la plantilla<br>\n"
-"<br>\n"
-"<br>\n"
-"<b>Imatges:</b><br>\n"
-"\t       ESCUT01......................  escut del centre<br>\n"
-"\t       ESCUT02......................  escut de la C. A., ciutat, etc<br>\n"
-"\t       ESCUT03......................  imatge opcional<br>\n"
-"\t       ESCUT03......................  imatge opcional<br>\t                          (NOTA: Si no hi algun dels «ESCUTSXX», es posarà una imatge transparent)<br>"
+msgid "<h3>Especificaciones para los formatos de Orla:</h3><br>\n<br>\nEl archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n      - o embebidas en ellas.<br>\n<br>\n<br>\n\n<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n\tTexto a sustituir y que se rellenará con datos<br>\n\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n\t       CLASE............................... texto: 1º de ESO<br>\n\t       CURSO ..................... texto: 2012-2013<br>\n\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n<br>\n\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n<br>\n<br>\n<b>Imagenes:</b><br>\n         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>"
+msgstr "<h3>Especificacions per al format de les orles:</h3><br>\n<br>\nL'arxiu .svg, conté les imatges dels marcs i el fons ja incloses .<br>\n\t       - mitjançant enllaços a imatges externes (en el mateix directori on estigui la plantilla .svg)<br>\n\t       - o incrustades en elles.<br>\n<br>\n<br>\n\n<b>Etiquetes de text, «amb alineació centrada»</b><br>\n\tText a substituir i que s'omplirà amb dades<br>\n\t       COL·LEGI......................... centre a què correspon<br>\n\t       CLASSE............................. text: p.ex. 1r d'ESO<br>\n\t       CURS............................ text: p.ex. 2013-2014<br>\n\t       TEXTOPCIONAL01.......... text opcional<br>\n\t       TEXTOPCIONAL02.......... text opcional<br>\n\t                          (NOTA: A la plantilla .svg, es tria la mida i el tipus de lletra)<br>\n<br>\n\tText per indicar la posició del grup d'imatges d'alumnes i professors<br>\n\t       ZonaFotosAlumnes.......... aquest text només indica les coordenades de la posició en la plantilla<br>\n\t       ZonaFotosProfessors........ aquest text només indica les coordenades de la posició en la plantilla<br>\n<br>\n<br>\n<b>Imatges:</b><br>\n\t       ESCUT01......................  escut del centre<br>\n\t       ESCUT02......................  escut de la C. A., ciutat, etc<br>\n\t       ESCUT03......................  imatge opcional<br>\n\t       ESCUT03......................  imatge opcional<br>\t                          (NOTA: Si no hi algun dels «ESCUTSXX», es posarà una imatge transparent)<br>"
 
 #: FMain.form:1197
 msgid "Visite la página del proyecto para más ayuda"
@@ -678,12 +576,8 @@ msgid "Buscar Actualizaciones"
 msgstr "Cercar actualitzacions"
 
 #: FMain.form:1207
-msgid ""
-"<h2>Espere por favor, estoy buscando actualizaciones \n"
-" <br>en internet</h2>"
-msgstr ""
-"<h2>Espera, s'estan buscant actualitzacions \n"
-" <br>a Internet</h2>"
+msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
+msgstr "<h2>Espera, s'estan buscant actualitzacions \n <br>a Internet</h2>"
 
 #: FMainEditor.class:610
 msgid "Si, salir"
@@ -741,60 +635,63 @@ msgstr "Has de triar alguna foto, abans de convertir-la a fons transparent"
 msgid "No se puede editar, debe de asignar una imagen"
 msgstr "No es pot editar, has d'assignar una imatge"
 
-#: FormAlumno.form:48
+#: FormAlumno.form:32 FormProfesor.form:29
+msgid "Pulse aqui para elegir su fotografia si esta guardada en el disco duro"
+msgstr "Premeu aqui per triar el seu fotografia si aquesta guardada en el disc dur"
+
+#: FormAlumno.form:49
 msgid "<h3>Alumnos</h3>"
 msgstr "<h3>Alumnes</h3>"
 
-#: FormAlumno.form:56 FormProfesor.form:53
+#: FormAlumno.form:57 FormProfesor.form:54
 msgid "Foto WebCam"
 msgstr "Foto WebCam"
 
-#: FormAlumno.form:67 FormProfesor.form:64
+#: FormAlumno.form:68 FormProfesor.form:65
 msgid "Apellidos:"
 msgstr "Cognoms:"
 
-#: FormAlumno.form:76
+#: FormAlumno.form:77
 msgid "Pueblo:"
 msgstr "Localitat:"
 
-#: FormAlumno.form:81
+#: FormAlumno.form:82
 msgid "Provincia:"
 msgstr "Província:"
 
-#: FormAlumno.form:90 FormProfesor.form:78
+#: FormAlumno.form:91 FormProfesor.form:79
 msgid "Orden:"
 msgstr "Ordre:"
 
-#: FormAlumno.form:100 FormElegirFichero.form:23 FormExtraerFoto.form:60
-#: FormProfesor.form:88
+#: FormProfesor.form:89 FormRutaResultados.form:19
 msgid "Aceptar"
 msgstr "Acceptar"
 
-#: FormAlumno.form:114 FormProfesor.form:102
+#: FormAlumno.form:115 FormProfesor.form:103
 msgid "(opcional)"
 msgstr "(opcional)"
 
-#: FormAlumno.form:121
+#: FormAlumno.form:122
 msgid "="
 msgstr "="
 
-#: FormAlumno.form:133 FormProfesor.form:107
+#: FormAlumno.form:134 FormProfesor.form:108
 msgid "+"
 msgstr "+"
 
-#: FormAlumno.form:139 FormProfesor.form:113
+#: FormAlumno.form:140 FormProfesor.form:114
 msgid "Ajustar foto"
 msgstr "Ajustar la foto"
 
-#: FormAlumno.form:146 FormProfesor.form:120
+#: FormAlumno.form:147 FormProfesor.form:121
 msgid "ToolButton2"
 msgstr ""
 
-#: FormAlumno.form:154 FormProfesor.form:128
+#: FormAlumno.form:155 FormProfesor.form:129
 msgid "Una vez editada, vaya a Archivo y seguidamente a Sobreescribir imagen. No guarde la imagen en formato xcf"
 msgstr "Un cop editada, vés a «Arxiu» i seguidament a «Sobreescriure imatge». No guardis la imatge en format .xcf"
 
-#: FormAlumno.form:155 FormProfesor.form:129
+#: FormAlumno.form:156 FormProfesor.form:130
 msgid "con Gimp"
 msgstr "amb Gimp"
 
@@ -834,13 +731,21 @@ msgstr "Ampliació"
 msgid "Espere por favor..."
 msgstr "Espera..."
 
-#: FormProfesor.form:45
+#: FormProfesor.form:46
 msgid "<h3>Profesores</h3>"
 msgstr "<h3>Professors</h3>"
 
-#: FormProfesor.form:69
+#: FormProfesor.form:70
 msgid "Asignatura:"
 msgstr "Assignatura:"
+
+#: FormRutaResultados.form:13
+msgid "haga doble click en la ruta que desee guardar los datos"
+msgstr ""
+
+#: FormRutaResultados.form:25
+msgid "Elija ruta donde se guardará la orla, también puede crear un directorio nuevo (pulsando el botón derecho)"
+msgstr ""
 
 #: ModuleArrastrarYSoltarFicheros.module:60
 msgid "No reconozco la lista de personas recibida"
@@ -1009,3 +914,4 @@ msgstr "Falten els següents programes per instarlar:"
 #: comun.module:33
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr "Instal·la'ls per poder executar el programa correctament"
+

@@ -14,63 +14,67 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FormProfesor.form:36
+#: FormProfesor.form:29
+msgid "Pulse aqui para elegir su fotografia si esta guardada en el disco duro"
+msgstr ""
+
+#: FormProfesor.form:37
 msgid "Nombre:"
 msgstr ""
 
-#: FormProfesor.form:45
+#: FormProfesor.form:46
 msgid "<h3>Profesores</h3>"
 msgstr ""
 
-#: FormProfesor.form:53
+#: FormProfesor.form:54
 msgid "Foto WebCam"
 msgstr ""
 
-#: FormProfesor.form:64
+#: FormProfesor.form:65
 msgid "Apellidos:"
 msgstr ""
 
-#: FormProfesor.form:69
+#: FormProfesor.form:70
 msgid "Asignatura:"
 msgstr ""
 
-#: FormProfesor.form:78
+#: FormProfesor.form:79
 msgid "Orden:"
 msgstr ""
 
-#: FormProfesor.form:83
+#: FormProfesor.form:84
 msgid "ValueBox1"
 msgstr ""
 
-#: FormProfesor.form:88
+#: FormProfesor.form:89
 msgid "Aceptar"
 msgstr ""
 
-#: FormProfesor.form:95
+#: FormProfesor.form:96
 msgid "Cancelar"
 msgstr ""
 
-#: FormProfesor.form:102
+#: FormProfesor.form:103
 msgid "(opcional)"
 msgstr ""
 
-#: FormProfesor.form:107
+#: FormProfesor.form:108
 msgid "+"
 msgstr ""
 
-#: FormProfesor.form:113
+#: FormProfesor.form:114
 msgid "Ajustar foto"
 msgstr ""
 
-#: FormProfesor.form:120
+#: FormProfesor.form:121
 msgid "ToolButton2"
 msgstr ""
 
-#: FormProfesor.form:128
+#: FormProfesor.form:129
 msgid "Una vez editada, vaya a Archivo y seguidamente a Sobreescribir imagen. No guarde la imagen en formato xcf"
 msgstr ""
 
-#: FormProfesor.form:129
+#: FormProfesor.form:130
 msgid "con Gimp"
 msgstr ""
 
