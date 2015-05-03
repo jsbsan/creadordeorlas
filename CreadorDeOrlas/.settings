@@ -226,10 +226,10 @@ Geometry=[-7,-8,210,210]
 Geometry=[-7,-6,212,345]
 
 [FCommit]
-LastCommit="Añadido idioma portugués\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .hidden/CHANGELOG\n!       .lang/Ordenar.pot\nM       .lang/es.po\nA       .lang/pt.mo\nA       .lang/pt.po\nA       .lang/pt_BR.mo\nA       .lang/pt_BR.po\nM       .project\nM       .settings\nM       .startup"
+LastCommit="actualizo el numero de version a la 0.65\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .hidden/CHANGELOG\n!       .lang/Ordenar.pot\nM       .project\nM       .startup"
 
 [OpenFile]
-File[1]=".src/FMain.class:649.2"
+File[1]=".src/FMain.class:1420.3"
 File[2]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[3]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[4]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -344,15 +344,16 @@ File[112]="Efectos/webcam_carnet07-05-2013_19-25-46.png"
 File[113]="Efectos/marcolapiz.png"
 File[114]="gimp-icon32.png"
 File[115]="drop.png"
-File[116]=".src/Modulos/ModuleArrastrarYSoltarFicheros.module:50.0"
+Active=116
+File[116]=".src/Modulos/ModuleArrastrarYSoltarFicheros.module:2.0"
 File[117]="carpeta.png"
 File[118]="logoGambas.png"
-Active=119
 File[119]=".src/FMain.form"
 File[120]="icoLoading.gif"
-File[121]=".src/Modulos/ModuleAbrirResultados.module:21.3"
+File[121]=".src/Modulos/ModuleAbrirResultados.module:29.0"
 File[122]=".src/Formularios Comunes/FormRutaResultados.form"
-Count=122
+File[123]="cara.png"
+Count=123
 
 [VersionControl]
 RememberPassword=1

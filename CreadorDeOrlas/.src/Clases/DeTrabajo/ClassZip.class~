@@ -1,0 +1,102 @@
+' Gambas class file
+
+'-----------------------------------------------------
+'.zip(zip)
+'-----------------------------------------------------
+'Comprimir zip archivo.zip /mayo/archivos
+'Descomprimir unzip archivo.zip
+'Ver contenido unzip - v archivo.zip
+
+'NOTA:
+'Debes de tener zip instalado en tu distribucion linux
+'
+
+Public Sub borrarTemporal(Optional RutaFicheroTemporal As String) 
+  
+  Dim ruta As String
+  
+  If RutaFicheroTemporal = "" Then ruta = "/tmp/temporal.zip"
+  
+  If Exist("/tmp/temporal.zip") Then Kill "/tmp/temporal.zip"
+  
+End
+
+Public Sub CrearFicheroAlmacen(RutaNombreConExtension As String, Optional RutaFicheroTemporal As String) As Boolean '' Renombra el fichero temporal.zip al nombre y extension dado
+  'El fichero almacen, es el que va a contener fotos, plantillas, datos, etc... 
+  'puede estar compuesto por varias carpetas y varios ficheros
+  
+  If Exist(RutaNombreConExtension) Then 
+    'existe, lo borro para actualizarlo
+    Try Kill RutaNombreConExtension
+  Endif
+  
+  If RutaNombreConExtension = "" Then 
+    Message.Error("Nombre de archivo incorrecto:" & gb.CrLf & RutaNombreConExtension)
+    Return False
+  Else
+    If RutaFicheroTemporal = "" Then 
+      Try Copy "/tmp/temporal.zip" To RutaNombreConExtension 'copio al nuevo nombre
+      Try Kill "/tmp/temporal.zip" 'borrado del fichero temporal, ya no nos hace falta
+    Else
+      Try Copy RutaFicheroTemporal To RutaNombreConExtension
+      Try Kill RutaFicheroTemporal
+    Endif  
+  Endif
+  
+  Return True 'todo ha ido correpto
+  
+End
+
+Public Sub comprimirDatos(rutaAcomprimir As String, Optional RutaFicheroTemporal As String) As Boolean
+  'rutaAcomprimir: 
+  
+  Dim rutafinalFichero As String
+  
+  If RutaFicheroTemporal = "" Then rutafinalFichero = "/tmp/temporal.zip"
+  
+  If Right$(rutaAcomprimir, 1) = "/" Then rutaAcomprimir = Mid$(rutaAcomprimir, 1, Len(rutaAcomprimir) - 1)
+  
+  Shell "zip " & rutafinalFichero & " " & rutaAcomprimir & "/*" Wait
+  
+End
+
+'--------------------------------------------------------
+Public Sub extraeRutaZip(nombre As String, NombreCarpetaPrograma As String) As String '' Nombre: fichero zip, NombreCarpetaPrograma: nombre carpeta donde se guardan los datos  "GeneradorCarnets"
+  
+  Dim a As Integer
+  Dim pos As Integer 'posicion de la fila donde empieza el nombre
+  Dim pos2 As Integer 'posicion de la fila donde empieza /GeneradorCarnets
+  Dim ContenidoComprimido As String
+  Dim cadena As New String[]
+  Dim nombreUsuarioAntiguo As String
+  Dim letra As String
+  Dim nombreCompleto As String
+  'ver contenido del fichero zip....
+  
+  Shell "unzip -v " & nombre To ContenidoComprimido 'lo que mostraria en pantalla lo paso a una variable
+  Print "******************************************************************************************"
+  Print "Contenido del Fichero:"
+  
+  Print ContenidoComprimido
+  cadena = Split(ContenidoComprimido, "\n")
+  'Print "Cadena 1º fichero:"; cadena[3] 'cadena que me interesa estudiar (es el 1º fichero)
+  Print "******************************************************************************************"
+  For a = Len(cadena[2]) To 1 Step -1 'miro la linea de titulos de columnas
+    letra = Mid$(cadena[2], a, 1)
+    If letra = " " Then 
+      pos = a 'ultima posicion con espacios...
+      Break
+    Endif
+  Next
+  
+  nombreCompleto = Mid$(cadena[3], pos, Len(cadena[3]))
+  
+  'Print "Cadena completa: "; nombreCompleto
+  pos2 = InStr(cadena[3], "/" & NombreCarpetaPrograma & "/") '' NombreCarpetaPrograma, segun la estructura de como se guardan los datos ejemplo "GeneradorCarnets"
+  
+  nombreUsuarioAntiguo = Mid$(cadena[3], pos + 1, pos2 - pos - 1)
+  
+  'Print "Nombre de usuario: "; nombreUsuarioAntiguo 
+  Return nombreUsuarioAntiguo 'Devuelve la ruta del usuario del fichero zip, por ejemplo de  /home/uno/NombreCarpetaProgram/hola , devolveria: /home/uno
+  
+End

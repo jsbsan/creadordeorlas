@@ -1,0 +1,1446 @@
+' Gambas class file
+
+Public pintura As New Picture 'pintura para previsualizar orla
+Private codigo As Integer
+
+Public listaTiposDeLetra As New ClassDatoLetra[] 'lista de letras que contiene el sistema
+
+Public GridViewRegistrosAlumnos As ClassSuperGridview
+Public Observador1 As Observer
+
+Public GridViewRegistrosProfesores As ClassSuperGridview
+Public Observador2 As Observer
+
+Public Sub Form_Open()
+  
+  Dim dato As New Variant[]
+  Dim pensando As New FormPensando 
+  'comprobar si ya hay una instancia del programa ejecutandose...
+  If ModuleUnicaVez.ejecutandoUnicaCopia("CreadorDeOrlas.gambas") <> True Then
+    pensando.Show()
+    Wait 0.5
+    LabelVersion.text = "Versión: Beta " & Application.Version
+    Me.center
+    ModuleUpdate.comprobar("CreadorDeOrlas", Application.Version, "http://creadordeorlas.blogspot.com.es/2013/03/version.html", "no mensaje")
+    
+    ' ModulePruebas.escribe()
+    comun.comprobarEntorno()
+    'inicio el programa: creo directorios y copio archivos...
+    ModulePrincipal.iniciarDirectorios()
+    
+    '  ModulePruebas.escribe()
+    '  Print "hola iniciandome..."
+    
+    'feditor.plantillaActual = User.home & "/Imágenes/Orlas/ORLAplantillasAntonio/ORLAejemplo01/orla.svg"
+    
+    'crear gridview y sus observadores....para  diplomas tematicos, registros alumnos
+    GridViewRegistrosAlumnos = New ClassSuperGridview(IconPanel1[3])
+    Observador1 = New Observer(GridViewRegistrosAlumnos) As "ObservadorGridViewRegistrosAlumnos"
+    
+    GridViewRegistrosProfesores = New ClassSuperGridview(IconPanel1[4])
+    Observador2 = New Observer(GridViewRegistrosProfesores) As "ObservadorGridViewRegistrosProfesores"
+    
+    ModuleIntermedio.IniciarGridViewRegistrosAlumnos(GridViewRegistrosAlumnos)
+    ModuleIntermedio.IniciarGridViewRegistrosProfesoresores(GridViewRegistrosProfesores)
+    
+    ' abrir un ejemplo inicial de orla
+    ModuleGestionAlumnos.guardado = True
+    ModuleGestionProfesores.guardado = True
+    ModuleGestionOrla.guardado = True
+    ModuleGestionAlumnos.lista.Registros.Clear()
+    ModuleGestionProfesores.lista.Registros.Clear()
+    ModuleGestionOrla.orla.vacio()
+    Me.caption = "Orla: Nueva" 
+    ModulePrincipal.RutaDatos = "/tmp/Nueva"
+    'aqui
+    IconPanel1.index = 0
+    IconPanel1_Click()
+    ' 
+    ' 
+    pensando.parar = True
+    pensando.close()
+    
+  Else
+    'como ya hay una instancia de esta aplicacion abierta, salgo
+    ModuleGestionAlumnos.guardado = True
+    ModuleGestionProfesores.guardado = True
+    ModuleGestionOrla.guardado = True
+    Me.Close()
+  Endif
+  'inicialmente se 
+  'guarda en un fichero temporal...
+  LabelNombreFichero.text = "/tmp/Base"
+  ModulePrincipal.RutaDatos = "/tmp/Base"
+  
+  dato.Add(0)
+  PictureBoxEfectoProfesor.tag = dato
+  PictureBoxEfectoAlumno.tag = dato
+  
+End
+
+Public Sub ButtonEditorOrla_Click()
+  
+  Dim esquemaprofesor As String = Str$(ModuleGestionProfesores.lista.Registros.Count) & "=" & Str$(ModuleGestionProfesores.lista.Registros.Count) 
+  Dim feditor As New FMainEditor
+  
+  'asigno nueva posicion de traslado
+  feditor.esquema = LabelEsquema.Text
+  feditor.esquemaprofesor = esquemaprofesor
+  feditor.espacioancho = ValueBoxHorizontal.Value
+  feditor.espaciolargo = ValueBoxVertical.Value
+  feditor.listaProfesores = ModuleGestionProfesores.lista
+  feditor.listaAlumnos = ModuleGestionAlumnos.lista
+  FormPensando.show()
+  Wait 0.2
+  
+  ' feditor.plantillaActual = User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
+  feditor.ShowDialog()
+  
+End
+
+Public Sub Label9_MouseDown()
+  
+  Desktop.Open("http://www.jsbsan.blogspot.com.es/")
+  
+End
+
+Public Sub Label13_MouseDown()
+  
+  Desktop.Open("http://minino.galpon.org/es/descargas")  
+  
+End
+
+Public Sub Label12_MouseDown()
+  
+  Desktop.Open("http://inkscape.org/")
+  
+End
+
+Public Sub ToolButtonTipoLetraAlumno_Click()
+  
+  Dialog.font = LabelTipoAlumno.Font
+  If Not Dialog.selectFont() Then 
+    LabelTipoAlumno.text = Dialog.Font.name 
+    LabelTipoAlumno.font = Dialog.Font
+  Endif
+  
+End
+
+Public Sub ToolButtonTipoLetraProfesor_Click()
+  
+  Dialog.font = LabelTipoProfesor.Font
+  If Not Dialog.selectFont() Then 
+    LabelTipoProfesor.text = Dialog.Font.name
+    LabelTipoProfesor.font = Dialog.Font
+  Endif
+  
+End
+
+Public Sub ToolButtonCrear_Click()
+  
+  Dim respuesta As Integer
+  
+  If TextBoxNombreFicheroNuevo.Text = "" Then
+    Message.Error("Necesita poner un nombre")
+  Else
+    'comprobar que si existe...
+    If Not Exist(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".Orla") Then
+      ModuleGestionAlumnos.guardado = False
+      ModuleGestionProfesores.guardado = False
+      ModuleGestionOrla.guardado = False
+      ModuleGestionAlumnos.lista.Registros.Clear()
+      ModuleGestionProfesores.lista.Registros.Clear()
+      ModuleGestionOrla.orla.vacio()
+      ModulePrincipal.borradoImagenes()
+      ModuleGestionOrla.orla.Plantilla = User.Home & "/.CreadorOrlas/plantillasOrla/Naranja_Floral.svg"
+      
+      Me.caption = "Orla: " & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".Orla"
+      ModulePrincipal.RutaDatos = DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".Orla"
+      'aqui
+      IconPanel1.index = 3
+      IconPanel1_Click()
+    Else
+      respuesta = Message.Question("Existe el fichero:" & gb.CrLf & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & gb.crlf & "¿que desea hacer?", " SobreEscribir ", " Cancelar ")
+      If respuesta = 1 Then 
+        
+      Else
+        'ha cancelado la operacion...
+        '   Print "Cancelado Crear"
+        
+      Endif
+      
+    Endif
+    
+  Endif
+  
+End
+
+Public Sub Label19_MouseDown()
+  
+End
+
+Public Sub botontransparente_Click()
+  
+  Dim numero As Integer
+  Dim ruta As String = modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/"
+  
+  numero = Val(Last.tag)
+  '' Boton transparente definir...
+  Select numero
+    Case 1
+      ModuleGestionOrla.orla.escudo01 = ModuleHacerTransparente.convertirTransparente(ModuleGestionOrla.orla.escudo01, ruta) 'modulePrincipal.RutaPrograma)
+      PictureBoxFondo.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo01)
+      PictureBoxFondo.tag = ModuleGestionOrla.orla.escudo01
+    Case 2
+      ModuleGestionOrla.orla.escudo02 = ModuleHacerTransparente.convertirTransparente(ModuleGestionOrla.orla.escudo02, ruta) 'modulePrincipal.RutaPrograma)
+      PictureBoxEscudo.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo02)
+      PictureBoxEscudo.tag = ModuleGestionOrla.orla.escudo02
+    Case 3
+      ModuleGestionOrla.orla.escudo03 = ModuleHacerTransparente.convertirTransparente(ModuleGestionOrla.orla.escudo03, ruta) 'modulePrincipal.RutaPrograma)
+      PictureBoxLogo.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo03)
+      PictureBoxLogo.tag = ModuleGestionOrla.orla.escudo03
+    Case 4
+      ModuleGestionOrla.orla.escudo04 = ModuleHacerTransparente.convertirTransparente(ModuleGestionOrla.orla.escudo04, ruta) 'modulePrincipal.RutaPrograma)
+      PictureBoxLogo2.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo04)
+      PictureBoxLogo2.tag = ModuleGestionOrla.orla.escudo04
+    Case 5
+      
+  End Select
+  
+End
+
+Public Sub PictureBoxFondo_MouseDown()
+  
+  ModuleGestionOrla.orla.escudo01 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxFondo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+  PictureBoxFondo.tag = ModuleGestionOrla.orla.escudo01
+  
+End
+
+Public Sub PictureBoxEscudo_MouseDown()
+  
+  ModuleGestionOrla.orla.escudo02 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEscudo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+  PictureBoxEscudo.Tag = ModuleGestionOrla.orla.escudo02 
+  
+End
+
+Public Sub PictureBoxLogo_MouseDown()
+  
+  ModuleGestionOrla.orla.escudo03 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxLogo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+  PictureBoxLogo.Tag = ModuleGestionOrla.orla.escudo03
+  
+End
+
+Public Sub PictureBoxLogo2_MouseDown()
+  
+  ModuleGestionOrla.orla.escudo04 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxLogo2, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+  PictureBoxLogo2.Tag = ModuleGestionOrla.orla.escudo04
+  
+End
+
+'------------------------------- Asignar Imagen ---------------------
+Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
+  
+  Dim dialogofile As New FormElegirFichero
+  Dim dat As New ClassDato
+  
+  dialogofile.valor = dat
+  
+  dialogofile.Titulo = ("Elija el archivo gráfico")
+  dialogofile.Filtro = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
+  dialogofile.ShowModal()
+  
+  If dat.dato = "-1" Then Return
+  
+  Return asignaImagen2Paso(dat.dato, PictureBoxElegido)
+  
+End
+
+Private Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebox) As String
+  
+  Dim nombrecopia As String
+  Dim extension As String
+  Dim comparacion As String 'añadido para comprobar si existe un fichero con el mismo nombre y es igual
+  Dim copiar As String
+  Dim comando As String
+  Dim nombresimple As String
+  
+  If Not Exist(ruta) Then
+    Message.Info(("No se ha podido descargarse el archivo")) 
+    Return 
+  Endif
+  
+  PictureBoxElegido.Picture = Picture["importar.png"]
+  Wait 0.1
+  PictureBoxElegido.Picture = Picture[ruta]
+  PictureBoxElegido.tag = ruta
+  copiar = "si"
+  
+  nombresimple = ModuleUtilidadesDisco.VerificarNombreEtiqueta(Replace(ModuleUtilidadesDisco.extraedesdebarra(PictureBoxElegido.tag), " ", "_"), ["FOTO", "PLANTILLA", "CAMPO"], ["Imagen", "PLA_TILLA", "CA_PO"])
+  '' MODIFICAR RUTA...
+  nombrecopia = ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombresimple
+  
+  While (Exist(nombrecopia))
+    'si existe fichero con el mismo nombre, 1º comprobar si es igual...
+    comando = "cmp " & nombrecopia & " " & PictureBoxElegido.tag
+    Shell comando To comparacion
+    If comparacion = "" Then 
+      'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
+      'no hago la copia
+      copiar = "no"
+      
+      Break
+    Endif
+    
+    'para que no machaque nombres de fichros...
+    extension = ModuleUtilidadesDisco.extraeExtension(nombrecopia)
+    If extension <> "" Then 
+      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension) - 1) & "c" & "." & extension
+      copiar = "si"
+    Else
+      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c" 
+      copiar = "si"
+    Endif
+    
+  Wend
+  
+  If copiar = "si" Then 
+    
+    Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
+    PictureBoxElegido.Picture = Picture["importar.png"]
+    Wait 0.1
+    PictureBoxElegido.Picture = Picture[nombrecopia]
+    PictureBoxElegido.tag = nombrecopia
+    
+  Endif
+  
+  Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)
+  
+End
+
+'--------------------------------------------------------------------------------------------------
+'' EDITAR AL HACER CLICK EN LOS GRIDVIEWS
+'--------------------------------------------------------------------------------------------------
+
+Public Sub ObservadorGridViewRegistrosAlumnos_DblClick()
+  
+  ToolButtonEditar_Click()
+  
+End
+
+Public Sub ObservadorGridViewRegistrosProfesores_Dblclick()
+  
+  ToolButtonEditar2_Click()
+  
+End
+
+Public Sub ToolButtonEditar_Click()
+  
+  'editar alumnos
+  Dim fregistro As New FormAlumno
+  
+  If GridViewRegistrosAlumnos.indice.Count > GridViewRegistrosAlumnos.row And GridViewRegistrosAlumnos.row > -1 Then 
+    
+    fregistro.modo = ModuleGestionAlumnos.lista.buscar(Val(GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 6].text))
+    fregistro.reg.Foto = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Foto
+    
+    fregistro.reg.Nombre = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Nombre
+    fregistro.reg.Apellidos = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Apellidos
+    fregistro.reg.Orden = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Orden
+    fregistro.reg.Pueblo = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Pueblo
+    fregistro.reg.Provincia = ModuleGestionAlumnos.lista.Registros[fregistro.modo].Provincia
+    fregistro.reg.posicion = ModuleGestionAlumnos.lista.Registros[fregistro.modo].posicion
+    fregistro.ShowModal()
+    ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+  Else
+    Message.Info(("No se puede editar un registro vacío"))
+  Endif
+  
+End
+
+'------------------------------------------------------
+'Boton Salir
+'-------------------------------------------------------
+Public Sub Form_Close()
+  
+  If ModuleGestionAlumnos.Guardado = False Or ModuleGestionProfesores.guardado = False Or ModuleGestionOrla.guardado = False Then 
+    If Message.Warning(("¿Seguro que desea cerrar?") & "\n" & ("Todos cambios no guardados se perderan"),
+        ("Cerrar"), ("Cancelar")) = 1 Then
+      Me.Close
+    Else
+      Stop Event
+      
+    Endif
+  Endif
+  
+End
+
+'--------------------------------------------------------------------------------------------------
+'':  IconPanel1_Click()
+'--------------------------------------------------------------------------------------------------
+Public Sub IconPanel1_Click()
+  
+  Dim resultadoFichero As String 'variable que uso para previsualizar la orla
+  
+  Dim fp As New FormPensando
+  
+  Dim comando As String
+  Dim nombresolo As String 'nombre del archivo de la plantilla, sin ruta y sin .svg
+  Dim resultado As Boolean
+  
+  ' Print "Opcion elegida: ", IconPanel1.Index 
+  ''-------------------------------
+  ''14-Buscar actualizaciones
+  ''-------------------------------
+  If IconPanel1.index = 14 Then 
+    ModuleUpdate.comprobar("CreadorDeOrlas", Application.Version, "http://creadordeorlas.blogspot.com.es/2013/03/version.html")
+    IconPanel1.index = 0
+    IconPanel1_Click()
+  Endif
+  
+  ''-------------------------------
+  ''efectos... opcion 9
+  ''-------------------------------
+  
+  ''-------------------------------
+  ''PREVISUALIZAR...
+  ''-------------------------------
+  If IconPanel1.index = 10 Then 
+    PictureBoxPrev.Tooltip = ""
+    'sistema de mostrar previsualizacion
+    'crear el svg y mostarlo...
+    
+    'ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), DrawingArea1)
+    Try Kill "/tmp/518x364.png"
+    Copy "518x364.png" To "/tmp/518x364.png"
+    pintura = Picture.load("/tmp/518x364.png")
+    'Print hacerSVGoPNg(False, True)
+    PictureBoxPrev.Picture = Picture.Load("/tmp/518x364.png")
+    TextLabelEspere.Visible = True
+    resultadoFichero = hacerSVGoPNg(False, True)
+    fp.Show()
+    Wait 0.5
+    
+    Exec ["inkscape", resultadoFichero, "--export-png", User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png"] Wait
+    fp.parar = True
+    ' fp.Delete()
+    fp.Close()
+    TextLabelEspere.Visible = False
+    'ModuleImprimir.dibujarSVG(hacerSVGoPNg(False, True), Pintura)
+    'Pintura.Save("/tmp/dibujotemporal.png")
+    If Exist(User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png") Then 
+      PictureBoxPrev.Picture = Picture.Load(User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png")
+      PictureBoxPrev.tag = User.home & "/.CreadorOrlas/trabajotmp/dibujotemporal.png"
+      PictureBoxPrev.Tooltip = ("Haga click para visualizar a mayor tamaño la previsualización")
+    Endif
+  Endif
+  
+  ''-------------------------------
+  ''opcion 11 crear .svg o .png
+  ''-------------------------------
+  
+  ''-------------------------------
+  ''salir
+  ''-------------------------------
+  If IconPanel1.Index = 12 Then Me.Close
+  
+  ''-------------------------------
+  ''gestor de plantillas
+  ''------------------------------- 
+  If IconPanel1.Index = 8 Then 
+    'Gestor de plantillas
+    'Cargar las lista de plantillas que haya.
+    
+    ModuleGestorPlantillas.cargalistbox(ListBoxOrla)
+    If ModuleGestionOrla.orla.Plantilla = "" Then 
+      ListBoxOrla.Index = 0
+      ListBoxOrla.Sorted = True
+      ListBoxOrla_Click()
+    Else
+      'habria que buscar cual plantilla esta usando la clase orla, y elegirla...
+      nombresolo = Replace$(ModuleGestionOrla.orla.plantilla, User.home & "/.CreadorOrlas/plantillasOrla/", "")
+      nombresolo = Replace$(nombresolo, ".svg", "")
+      ListBoxOrla.Index = ListBoxOrla.Find(nombresolo)
+      ListBoxOrla_Click()
+      
+    Endif
+    
+  Endif
+  
+  ''-------------------------------
+  'ver datos de alumnos...
+  ''-------------------------------
+  If IconPanel1.Index = 3 Then 
+    ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+    Return 
+  Endif
+  ''-------------------------------
+  'ver datos de profesores...
+  ''-------------------------------
+  If IconPanel1.Index = 4 Then 
+    ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+    Return 
+  Endif
+  ''-------------------------------
+  'Ver datos de orlas
+  ''-------------------------------
+  If IconPanel1.Index = 5 Then 
+    rellenarDatosOrlas()
+    ToolButtonAutomatica_Click()
+    Return
+  Endif
+  '----------------------------------------------------------------------------------------------
+  '' guardar como....
+  '----------------------------------------------------------------------------------------------
+  ' If Replace(IconPanel1.text, ".", "") = Replace(("Guardar como...."), ".", "") Then
+  If IconPanel1.index = 7 Then 
+    If ModulePrincipal.RutaDatos <> "" Then 
+      Dialog.PATH = User.HOME & "/"
+      Dialog.Title = ("Guardar como....")
+      Dialog.Filter = ["*.Orla", ".Orla"]
+      
+      If Not Dialog.SaveFile() Then 
+        ModulePrincipal.RutaDatos = Replace$(Dialog.Path, ".Orla", "")
+      Else
+        IconPanel1.index = 0
+        IconPanel1_click()
+        Return 'cancelado guardar como...
+      Endif
+    Else
+      Message.Info(("Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"))
+    Endif
+    
+  Endif
+  
+  '----------------------------------------------------------------------------------------------
+  'guardar o guardar como...
+  '----------------------------------------------------------------------------------------------
+  ' If IconPanel1.text = ("Guardar") Or Replace$(IconPanel1.text, ".", "") = Replace$(("Guardar como...."), ".", "") Then 
+  If IconPanel1.index = 7 Or IconPanel1.Index = 6 Then 
+    
+    If ModuleGestionOrla.orla.Plantilla = "" Then 
+      Message.Info(("necesita asignar una plantilla a la orla"))
+      Return 
+    Endif
+    
+    LabelNombreFichero.text = Replace$(ModulePrincipal.RutaDatos, ".Orla", "") & ".Orla"
+    
+    If LabelNombreFichero.text = "/tmp/Base.Orla" Then 
+      'tenemos que pedir nombre, para no machar al fichero que nos sirve de base..
+      IconPanel1.index = 7
+      IconPanel1_click()    
+      
+    Else
+      resultado = ModulePrincipal.GuardarDatos()
+      If resultado Then 
+        ModulePrincipal.RutaDatos = Replace$(ModulePrincipal.RutaDatos, ".Orla", "") 
+        Me.caption = "Orla: " & ModuleUtilidadesDisco.extraedesdebarra(ModulePrincipal.RutaDatos)
+        Message.Info(("Guardado correctamente") & gb.CrLf & ModulePrincipal.RutaDatos & ".Orla")
+      Else
+        Message.Error(("No he podido guardar los datos"))
+      Endif
+      IconPanel1.index = 0
+      IconPanel1_Click()
+    Endif
+  Endif
+  
+  '----------------------------------------------------------------------------------------
+  'Abrir (opcion 2)
+  '----------------------------------------------------------------------------------------
+  If IconPanel1.index = 2 Then
+    If ModuleGestionAlumnos.guardado = False Or ModuleGestionOrla.guardado = False Or ModuleGestionProfesores.guardado = False Then
+      Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si Abre una Orla, se borrarán los datos anteriores!!"))
+    Endif
+    Dialog.title = ("Indique archivo de datos para abrir...")
+    Dialog.Filter = ["*.Orla", ".Orla"]
+    If Not Dialog.OpenFile() Then 
+      resultado = ModulePrincipal.AbrirFichero(Dialog.Path, ".CreadorOrlas")
+      
+      If resultado Then
+        PictureBoxFondo.picture = picture["icono_galeria2.jpg"]
+        PictureBoxEscudo.picture = picture["icono_galeria2.jpg"]
+        PictureBoxLogo.picture = picture["icono_galeria2.jpg"]
+        PictureBoxLogo2.picture = picture["icono_galeria2.jpg"]
+        resultado = ModulePrincipal.CargarDatos()
+        ModulePrincipal.RutaDatos = Replace(Dialog.Path, ".Orla", "")
+        Me.caption = "Orla: " & ModuleUtilidadesDisco.extraedesdebarra(ModulePrincipal.RutaDatos)
+        IconPanel1.index = 3
+        IconPanel1_click()    
+      Else
+        Message.Error(("Problemas al abrir el archivo..."))
+        IconPanel1.Index = 0
+        IconPanel1_Click()
+        Return
+      Endif
+    Else
+      IconPanel1.Index = 0
+      IconPanel1_Click()
+    Endif
+  Endif
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Sub TextBoxColegio_LostFocus()
+  
+  ModuleGestionOrla.orla.colegio = TextBoxColegio.text 
+  ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub TextBox2Clase_LostFocus()
+  
+  ModuleGestionOrla.orla.clase = TextBox2Clase.text 
+  ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub TextBoxCurso_LostFocus()
+  
+  ModuleGestionOrla.orla.curso = TextBoxCurso.text
+  ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub TextBoxOpcional_LostFocus()
+  
+  ModuleGestionOrla.orla.textoopcional01 = TextBoxOpcional.text
+  ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub TextBoxOpcional2_LostFocus()
+  
+  ModuleGestionOrla.orla.textoopcional02 = TextBoxOpcional2.text 
+  ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub ComboBoxPlantillaUsar_LostFocus()
+  
+  ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
+  ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub ToolButtonAnnadir_Click()
+  
+  Dim fregistro As New FormAlumno
+  Dim regtemp As New ClassAlumno
+  
+  fregistro.modo = fregistro.anadir
+  
+  fregistro.reg = regtemp
+  
+  fregistro.ShowModal()
+  ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+  'se ha añadido información, se tiene que redistribuir las foto...
+  ModuleGestionAlumnos.ListaOrdenada.Clear
+  
+  regtemp = Null
+  
+End
+'----------------------------------------------------------------------------
+' Rellenar datos de Orlas
+'----------------------------------------------------------------------------
+
+Public Sub rellenarDatosOrlas()
+  
+  Dim ruta As String = modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/"
+  
+  TextBoxColegio.text = ModuleGestionOrla.orla.colegio
+  TextBox2Clase.text = ModuleGestionOrla.orla.clase
+  TextBoxCurso.text = ModuleGestionOrla.orla.curso
+  TextBoxOpcional.text = ModuleGestionOrla.orla.textoopcional01
+  
+  ModuleGestorPlantillas.cargaComboBox(ComboBoxPlantillaUsar)
+  
+  If ModuleGestionOrla.orla.Plantilla <> "" Then 
+    ComboBoxPlantillaUsar.text = Replace$(Replace$(ModuleGestionOrla.orla.Plantilla, User.Home & "/.CreadorOrlas/plantillasOrla/", ""), ".svg", "")
+    activarFotos(ModuleGestionOrla.orla.Plantilla)
+  Else
+    ComboBoxPlantillaUsar.text = "Naranja_Floral"
+    ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/Naranja_Floral.svg"
+    activarFotos(User.home & "/.CreadorOrlas/plantillasOrla/Naranja_Floral.svg")
+  Endif
+  
+  TextBoxOpcional2.text = ModuleGestionOrla.orla.textoopcional02
+  
+  If ModuleGestionOrla.orla.escudo01 <> "" Then PictureBoxFondo.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo01)
+  If ModuleGestionOrla.orla.escudo02 <> "" Then PictureBoxEscudo.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo02)
+  If ModuleGestionOrla.orla.escudo03 <> "" Then PictureBoxLogo.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo03)
+  If ModuleGestionOrla.orla.escudo04 <> "" Then PictureBoxLogo2.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo04)
+  
+  SpinBoxFilas.value = ModuleGestionOrla.orla.NumeroFilasAlumnos
+  
+  If ModuleGestionOrla.orla.OrdenAlfabeticoAlumnos = True Then 
+    RadioButtonAlumnoAlfabetico.value = True
+    RadioButtonAlumnoIndicado.value = False
+  Else
+    RadioButtonAlumnoAlfabetico.value = False
+    RadioButtonAlumnoIndicado.value = True
+  Endif 
+  
+  If ModuleGestionOrla.orla.OrdenAlfabeticoProfesores = True Then 
+    
+    RadioButtonProfesorAlfabetico.value = True
+    RadioButtonProfesorIndicado.value = False
+  Else
+    RadioButtonProfesorAlfabetico.value = False
+    RadioButtonProfesorIndicado.value = True
+  Endif 
+  
+  ValueBoxHorizontal.value = ModuleGestionOrla.orla.EspacioEntreFotosHorizontal
+  ValueBoxVertical.value = ModuleGestionOrla.orla.EspacioEntreFotosVertical
+  ValueBoxEscalaProfesores.value = ModuleGestionOrla.orla.EscalaFotosProfesores
+  ValueBoxEscalaAlumnos.value = ModuleGestionOrla.orla.EscalaFotosAlumnos
+  
+  ' Aqui ver tipo de letra que se le asigna
+  'LabelTipoProfesor.Font = ModuleGestionOrla.orla.LetraProfesor
+  ' LabelTipoAlumno.font = ModuleGestionOrla.orla.LetraProfesor  
+  
+End
+
+Public Sub ToolButtonAnnadir2_Click()
+  
+  Dim fregistro As New FormProfesor
+  Dim regtemp As New ClassProfesor
+  
+  fregistro.modo = fregistro.anadir
+  
+  fregistro.reg = regtemp
+  
+  fregistro.ShowModal()
+  ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+  'se ha añadido información, se tiene que redistribuir las foto...
+  ModuleGestionProfesores.ListaOrdenada.clear
+  
+  regtemp = Null
+  
+End
+
+Public Sub ToolButtonEditar2_Click()
+  
+  Dim fregistro As New FormProfesor
+  Dim regtemp As New ClassProfesor
+  
+  If GridViewRegistrosProfesores.indice.Count > GridViewRegistrosProfesores.row And GridViewRegistrosProfesores.row > -1 Then 
+    fregistro.modo = ModuleGestionProfesores.lista.buscar(Val(GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 5].text))
+    fregistro.reg.Foto = ModuleGestionProfesores.lista.Registros[fregistro.modo].Foto
+    
+    fregistro.reg.Nombre = ModuleGestionProfesores.lista.Registros[fregistro.modo].Nombre
+    fregistro.reg.Apellidos = ModuleGestionProfesores.lista.Registros[fregistro.modo].Apellidos
+    fregistro.reg.Orden = ModuleGestionProfesores.lista.Registros[fregistro.modo].Orden
+    fregistro.reg.Asignatura = ModuleGestionProfesores.lista.Registros[fregistro.modo].Asignatura
+    fregistro.reg.posicion = ModuleGestionProfesores.lista.Registros[fregistro.modo].posicion
+    fregistro.ShowModal()
+    ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+  Else
+    Message.Info(("No se puede editar un registro vacío"))
+    
+  Endif
+  
+End
+
+Public Sub ToolButtonBorrar2_Click()
+  
+  Dim idProfesor As Integer
+  Dim res As Integer
+  
+  If GridViewRegistrosProfesores.indice.count > GridViewRegistrosProfesores.row Then 
+    res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
+    If res = 1 Then 
+      'refrescar el gridviews
+      idProfesor = ModuleGestionProfesores.lista.buscar(Val(GridViewRegistrosProfesores[GridViewRegistrosProfesores.row, 5].text))
+      ModuleGestionProfesores.BorrarRegistro(idProfesor)
+      ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+      'se ha añadido información, se tiene que redistribuir las foto...
+      ModuleGestionProfesores.ListaOrdenada.clear
+      
+    Endif
+  Endif
+  
+End
+
+Public Sub ToolButtonBorrar_Click()
+  
+  Dim idalumno As Integer
+  Dim res As Integer
+  
+  If GridViewRegistrosAlumnos.indice.count > GridViewRegistrosAlumnos.row Then 
+    res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
+    If res = 1 Then 
+      'refrescar el gridviews
+      idalumno = ModuleGestionAlumnos.lista.buscar(Val(GridViewRegistrosAlumnos[GridViewRegistrosAlumnos.row, 6].text))
+      ModuleGestionAlumnos.BorrarRegistro(idalumno)
+      ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+      'se ha añadido información, se tiene que redistribuir las foto...
+      ModuleGestionAlumnos.ListaOrdenada.clear
+    Endif
+  Endif
+  
+End
+
+Public Sub ToolButtonAutomatica_Click()
+  
+  Dim a As Integer
+  'calcular el numero de filas necesarias para el numero de alumnos
+  SpinBoxFilas.Value = ModuleExtraerDatosOrla.calculoDeFilas(ModuleGestionAlumnos.lista.Registros.Count) 
+  
+  LabelEsquema.text = ModuleSistemaOrdenacion.Esquema(ModuleGestionAlumnos.lista.Registros.Count, SpinBoxFilas.Value)
+  
+  'prueba
+  'For a = 1 To 110
+  '  SpinBoxFilas.Value = Int((a) ^ (1 / 2.5))
+  
+  '  Print a, ModuleSistemaOrdenacion.Esquema(a, SpinBoxFilas.Value)
+  'Next
+  
+End
+
+Public Sub ToolButtonGenerarOrla_Click()
+  
+  hacerSVGoPNg(True)
+  
+End
+
+Public Sub ToolButtonGeneraSVG_Click()
+  
+  hacerSVGoPNg(False)
+  
+End
+
+Private Sub hacerSVGoPNg(pdf As Boolean, Optional previsualizacion As Boolean) As String
+  
+  Dim respuesta As String
+  'borrado de ficheros antiguos para evitar problemas de aplicar efectos
+  Shell ("rm " & User.Home & "/.CreadorOrlas/trabajotmp/imagenes/*.*") Wait
+  Shell ("rm " & User.Home & "/.CreadorOrlas/trabajotmp/imagenes/alumno/*.*") Wait
+  Shell ("rm " & User.Home & "/.CreadorOrlas/trabajotmp/imagenes/profesor/*.*") Wait
+  
+  If codigo = 0 Then codigo = 1
+  ' "/home/uno/.CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
+  
+  If Exist(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg") Then 
+    Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
+  Endif
+  
+  If Exist(ModulePrincipal.RutaPrograma & "trabajotmp/" & "plantillatmp.svg") Then 
+    Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & "plantillatmp.svg"
+  Endif
+  'ModuleGestionOrla.orla.Plantilla = "" 
+  If ModuleGestionOrla.orla.Plantilla = "" Then 
+    Copy User.home & "/.CreadorOrlas/plantillasOrla/Naranja_Floral.svg" To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
+  Else
+    Copy ModuleGestionOrla.orla.Plantilla To ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg"
+  Endif
+  respuesta = ModuleGenerarSVG.realizar(ModulePrincipal.RutaPrograma & "trabajotmp/" & "inicial.svg", PictureBoxEfectoAlumno.tag, PictureBoxEfectoProfesor.tag, ColorButton1.value, False, pdf, CheckBoxAjustarFotos.Value, previsualizacion)
+  ToolButtonAbrirCarpeta.enabled = True
+  Return respuesta
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Sub RadioButtonEfecto_Click()
+  'cambiar...
+  
+  ColorButton1_Change()
+  
+  'If RadioButtonEfecto.Value = True Then 
+  ' PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, "/tmp/destino.png", True, ColorButton1.Value))
+  codigo = 1
+  'Endif
+  
+End
+
+Public Sub RadioButtonEfectoCuna_Click()
+  
+  Dim dato As New Variant[]
+  
+  If RadioButtonEfectoCuna.Value = True Then 
+    'PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    dato.Add(3)
+    'actualiza tambien el dibujo del profe o alumno, segun este activado...
+    If RadioButtonEfectoAlumno.Value = True Then
+      PictureBoxEfectoAlumno.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+      PictureBoxEfectoAlumno.tag = dato
+    Else
+      PictureBoxEfectoProfesor.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.profesor93, "/tmp/conversion.png"))
+      PictureBoxEfectoProfesor.tag = dato
+    Endif
+    ' PictureBoxCuna.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaCuna, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    codigo = 3
+  Endif
+  
+End
+
+Public Sub RadioButtonEfectoV_Click()
+  
+  Dim dato As New Variant[]
+  
+  If RadioButtonEfectoV.Value = True Then 
+    ' PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    dato.Add(4)
+    'actualiza tambien el dibujo del profe o alumno, segun este activado...
+    If RadioButtonEfectoAlumno.Value = True Then
+      PictureBoxEfectoAlumno.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+      PictureBoxEfectoAlumno.tag = dato
+    Else
+      PictureBoxEfectoProfesor.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.profesor93, "/tmp/conversion.png"))
+      PictureBoxEfectoProfesor.tag = dato
+    Endif
+    '  PictureBoxV.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    codigo = 4
+  Endif  
+  
+End
+
+Public Sub RadioButtonEfectoElipse_Click()
+  
+  Dim dato As New Variant[]
+  
+  If RadioButtonEfectoElipse.Value = True Then 
+    If RadioButtonEfectoAlumno.Value = True Then
+      
+      dato.Add(2) 'codigo=2
+      PictureBoxEfectoAlumno.tag = dato
+      PictureBoxEfectoAlumno.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaElipse, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    Else  
+      
+      dato.Add(2) 'codigo=2
+      PictureBoxEfectoProfesor.tag = dato
+      PictureBoxEfectoProfesor.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaElipse, ModulePrincipal.profesor93, "/tmp/conversion.png"))
+      
+    Endif
+    'codigo siguiente anticuado...
+    codigo = 2
+  Endif
+  
+End
+
+Public Sub ColorButton1_Change()
+  
+  Dim dato As New Variant[]
+  
+  PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.alumno93, "/tmp/destino.png", True, ColorButton1.Value))
+  dato.Add(1)
+  dato.Add(ColorButton1.Value)
+  
+  'actualiza tambien el dibujo del profe o alumno, segun este activado...
+  
+  If RadioButtonEfectoAlumno.Value = True Then
+    PictureBoxEfectoAlumno.Picture = PictureBoxMarco.Picture
+    PictureBoxEfectoAlumno.tag = dato
+    
+  Else
+    
+    PictureBoxEfectoProfesor.Picture = Picture.Load(ModuleGenerarFotos.ponerMarco(modulePrincipal.profesor93, "/tmp/destino.png", True, ColorButton1.Value))
+    PictureBoxEfectoProfesor.tag = dato
+    
+  Endif
+  
+End
+
+Public Sub CheckBoxMostrarProfesores_Click()
+  
+End
+
+Public Sub RadioButtonProfesorAlfabetico_Click()
+  
+  If RadioButtonProfesorAlfabetico.Value = True Then
+    ModuleGestionOrla.ordenProfesor = "apellidos"
+  Else
+    ModuleGestionOrla.ordenProfesor = ""
+  Endif
+  
+End
+
+Public Sub RadioButtonProfesorIndicado_Click()
+  
+  If RadioButtonProfesorIndicado.value = False Then
+    
+    ModuleGestionOrla.ordenProfesor = "apellidos"
+    
+  Else
+    
+    ModuleGestionOrla.ordenProfesor = ""
+    
+  Endif
+  
+End
+
+Public Sub RadioButtonAlumnoAlfabetico_Click()
+  
+  If RadioButtonAlumnoAlfabetico.value = True Then
+    
+    ModuleGestionOrla.OrdenAlumno = "apellidos"
+    
+  Else
+    
+    ModuleGestionOrla.OrdenAlumno = ""
+    
+  Endif
+  
+End
+
+Public Sub RadioButtonAlumnoIndicado_Click()
+  
+  If RadioButtonAlumnoIndicado.value = False Then
+    
+    ModuleGestionOrla.OrdenAlumno = "apellidos"
+    
+  Else
+    
+    ModuleGestionOrla.OrdenAlumno = ""
+    
+  Endif
+  
+End
+
+'--------------------------------------------------------------------
+'Gestor de plantillas
+'--------------------------------------------------------------------
+Public Sub ListBoxOrla_Click()
+  
+  ModuleGestorPlantillas.cargaprevisualizacion(ListBoxOrla, DrawingAreaPlantilla)
+  
+End
+
+Public Sub DrawingAreaPlantilla_MouseDown()
+  
+  'abro el archivo para verlo mejor....
+  Exec ["gpicview", DrawingAreaPlantilla.tag]
+  
+End
+
+Public Sub ToolButtonNube_Click()
+  
+  Desktop.Open("https://drive.google.com/folderview?id=0B7uxDVszpXK2MkpIdUlIaFJkNEU&usp=sharing")
+  
+End
+
+Public Sub ToolButtonEditarOrlas_Click() 'editar orlas
+  
+  Dim fp As New FormPensando
+  Dim rutaPlantillasOrla As String = User.Home & "/.CreadorOrlas/plantillasOrla/"
+  'abririamos el inkscape....
+  If ListBoxOrla.index <> -1 Then
+    fp.Show()
+    Wait 0.1
+    Exec ["inkscape", rutaPlantillasOrla & ListBoxOrla.List[ListBoxOrla.index] & ".svg"] Wait
+    'Nota: actualizar miniatura de orla
+    Try Kill User.Home & "/.CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.Index] & ".png"
+    ' ModuleGestorPlantillas.cargaprevisualizacion(ListBoxOrla, DrawingAreaPlantilla)
+    
+    fp.parar = True
+    '  fp.delete()
+    fp.Close()
+    ModuleGestorPlantillas.cargalistbox(ListBoxOrla)
+  Endif
+  
+End
+
+Public Sub ToolButtonBorrarOrla_Click()
+  
+  Dim Nombresolo As String
+  Dim respuesta As Integer
+  
+  respuesta = Message.Question(("Desea borrar la plantilla: ") & "\n" & ListBoxOrla.List[ListBoxOrla.index], ("Si"), ("No"))
+  
+  If respuesta = 1 Then
+    If ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.index] & ".svg" Then 
+      Message.Error(("No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"))
+    Else
+      
+      Kill User.home & "/.CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.index] & ".svg"
+      Kill User.home & "/.CreadorOrlas/plantillasOrla/" & ListBoxOrla.List[ListBoxOrla.index] & ".png"
+      ModuleGestorPlantillas.cargalistbox(ListBoxOrla)
+      If ModuleGestionOrla.orla.Plantilla = "" Then 
+        ListBoxOrla.Index = 0
+        ListBoxOrla_Click()
+      Else
+        'habria que buscar cual plantilla esta usando la clase orla, y elegirla...
+        nombresolo = Replace$(ModuleGestionOrla.orla.plantilla, User.home & "/.CreadorOrlas/plantillasOrla/", "")
+        nombresolo = Replace$(nombresolo, ".svg", "")
+        ListBoxOrla.Index = ListBoxOrla.Find(nombresolo)
+        
+        ListBoxOrla_Click()
+      Endif
+    Endif
+  Endif
+  
+End
+
+Public Sub ToolButtonDefinir_Click()
+  
+  Dim fp As New FormPensando
+  Dim rutaPlantillasOrla As String = User.Home & "/.CreadorOrlas/plantillasOrla/"
+  Dim nombredelaplantilla As String
+  
+  While True
+    nombredelaplantilla = InputBox("Introduce nuevo nombre de la plantilla", "Nombrar Nueva Plantilla", "NuevaPlantilla.svg")
+    If nombredelaplantilla = "" Then 
+      Return
+    Endif
+    
+    If Exist(rutaPlantillasOrla & nombredelaplantilla) Then 
+      Message.Info(("Ya existe una plantilla con ese nombre, introduzca un nombre distinto"))
+    Else
+      Break
+    Endif
+  Wend
+  
+  Copy "Plantillas/orla1/En_Blanco.svg" To rutaPlantillasOrla & nombredelaplantilla
+  
+  If ListBoxOrla.index <> -1 Then
+    fp.Show()
+    Wait 0.1
+    Exec ["inkscape", rutaPlantillasOrla & nombredelaplantilla] Wait
+    fp.parar = True
+    '  fp.delete()
+    fp.Close()
+  Endif
+  
+  'recargar listado
+  ModuleGestorPlantillas.cargalistbox(ListBoxOrla)
+  
+End
+
+Public Sub ToolButtonImportarOrla_Click()
+  
+  Dialog.Filter = ["*.svg", ".svg"]
+  
+  If Not Dialog.OpenFile() Then 
+    If InStr(Dialog.Path, ".svg") <> 0 Then 
+      Copy Dialog.path To User.Home & "/.CreadorOrlas/plantillasOrla/" & ModuleUtilidadesDisco.extraedesdebarra(Dialog.path)
+      ModuleGestorPlantillas.cargalistbox(ListBoxOrla)
+    Endif
+    
+  Endif
+  
+End
+
+''---------------------------------------------------------------
+'' pegar y copiar datos 
+''---------------------------------------------------------------
+Public Sub ToolButtonPegar_Click()
+  
+  ModulePrincipal.PegarDatosPortapapelesGridViewsAlumnos()  
+  
+  ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+  'se ha añadido información, se tiene que redistribuir las foto...
+  ModuleGestionAlumnos.ListaOrdenada.clear
+  
+End
+
+Public Sub ToolButtonPegar2_Click()
+  
+  ModulePrincipal.PegarDatosPortapapelesGridViewsProfesores()
+  ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+  'se ha añadido información, se tiene que redistribuir las foto...
+  ModuleGestionProfesores.ListaOrdenada.clear
+  
+End
+
+Public Sub ToolButtonCopiar_Click()
+  
+  GridViewRegistrosAlumnos.copiaralportapapeles()
+  
+End
+
+Public Sub ToolButtonCopiar2_Click()
+  
+  GridViewRegistrosProfesores.copiaralportapapeles()
+  
+End
+
+Private Sub activarFotos(ruta As String)
+  
+  Dim contenido_plantilla As String
+  
+  contenido_plantilla = Upper$(File.Load(ruta))
+  
+  If InStr(contenido_plantilla, "ESCUDO01") <> 0 Then
+    PictureBoxFondo.visible = True
+    ToolButton1.visible = True
+  Else
+    PictureBoxFondo.visible = False
+    ToolButton1.visible = False
+  Endif
+  
+  If InStr(contenido_plantilla, "ESCUDO02") <> 0 Then
+    PictureBoxEscudo.visible = True
+    ToolButton4.visible = True 
+  Else
+    PictureBoxEscudo.visible = False
+    ToolButton4.visible = False
+  Endif
+  
+  If InStr(contenido_plantilla, "ESCUDO03") <> 0 Then
+    PictureBoxLogo.visible = True
+    ToolButton5.visible = True
+  Else
+    PictureBoxLogo.visible = False
+    ToolButton5.visible = False
+  Endif
+  
+  If InStr(contenido_plantilla, "ESCUDO04") <> 0 Then
+    PictureBoxLogo2.visible = True
+    ToolButton6.visible = True 
+  Else
+    PictureBoxLogo2.visible = False
+    ToolButton6.visible = False
+  Endif  
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Sub ComboBoxPlantillaUsar_Leave()
+  
+  'activarFotos(ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg")
+  
+  'ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub ComboBoxPlantillaUsar_Click()
+  
+End
+
+Public Sub TextBoxColegio_KeyPress()
+  
+End
+
+Public Sub LabelPaginaWebProyecto_MouseDown()
+  
+  Desktop.Open("http://creadordeorlas.blogspot.com.es/p/presentacion.html")
+  
+End
+
+Public Sub PictureBox4_MouseDown()
+  
+  Desktop.Open("http://creadordeorlas.blogspot.com.es/p/presentacion.html")
+  
+End
+
+Public Sub ToolButtonAccesoPaginaWeb_Click()
+  
+  Desktop.Open("http://creadordeorlas.blogspot.com.es/p/presentacion.html")
+  
+End
+
+Public Sub RadioButtonEfectoZig_Click()
+  
+  Dim dato As New Variant[]
+  
+  If RadioButtonEfectoZig.Value = True Then 
+    '  PictureBoxMarco.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaZigZag, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    dato.Add(5)
+    'actualiza tambien el dibujo del profe o alumno, segun este activado...
+    If RadioButtonEfectoAlumno.Value = True Then
+      PictureBoxEfectoAlumno.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaZigZag, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+      PictureBoxEfectoAlumno.tag = dato
+    Else
+      PictureBoxEfectoProfesor.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaZigZag, ModulePrincipal.profesor93, "/tmp/conversion.png"))
+      PictureBoxEfectoProfesor.tag = dato
+    Endif
+    
+    '  PictureBoxV.Picture = Picture.Load(ModuleGenerarFotos.SuperPonerForma(modulePrincipal.formaV, ModulePrincipal.alumno93, "/tmp/conversion.png"))
+    codigo = 5
+  Endif  
+  
+End
+
+Public Sub RadioButtonEfectoMarcoEspecial_Click()
+  
+  Dim dato As New Variant[]
+  
+  If RadioButtonEfectoMarcoEspecial.Value = True Then 
+    modulePrincipal.MarcoEspecial = PictureBoxEsp.Tag
+    dato.Add(6)
+    dato.Add(PictureBoxEsp.tag)
+    'actualiza tambien el dibujo del profe o alumno, segun este activado...
+    If RadioButtonEfectoAlumno.Value = True Then
+      PictureBoxEfectoAlumno.Picture = PictureBoxEsp.Picture
+      PictureBoxEfectoAlumno.tag = dato
+    Else
+      PictureBoxEfectoProfesor.Picture = PictureBoxEsp.Picture
+      
+      PictureBoxEfectoProfesor.tag = dato
+    Endif
+    
+    codigo = 6
+  Endif
+  
+End
+
+Public Sub PictureBoxEsp_MouseDown()
+  
+  Dim respuesta As String
+  
+  respuesta = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEsp, "/tmp/", User.Home & "/.CreadorOrlas/Marcos/")
+  If respuesta = "OperacionCancelada" Then 
+  Else
+    modulePrincipal.MarcoEspecial = respuesta
+    
+    PictureBoxEsp.tag = "/tmp/" & modulePrincipal.MarcoEspecial
+  Endif
+  ' PictureBoxEsp.Picture = Picture.Load(modulePrincipal.MarcoEspecial)
+  
+  'Dialog.Path = User.Home & "/Imágenes/Marcos/" 
+  'Dialog.Filter = ["*.png", "*.png"]
+  'Dialog.Title = "Elige plantilla de marco"
+  'If Dialog.OpenFile() Then 
+  
+  'Else
+  
+  ' modulePrincipal.MarcoEspecial = Dialog.Path
+  ' PictureBoxEsp.tag = modulePrincipal.MarcoEspecial
+  ' PictureBoxEsp.Picture = Picture.Load(Dialog.Path)
+  ' Endif
+  
+End
+
+Public Sub ToolButtonCompartidoNuveMarcos_Click()
+  
+  Desktop.Open("https://drive.google.com/?authuser=0#folders/0B7uxDVszpXK2WWp3eXpqQ3RHTUE")
+  
+End
+
+Public Sub PictureBoxMarco_MouseDown()
+  
+End
+
+Public Sub PictureBoxElipse_MouseDown()
+  
+End
+
+Public Sub PictureBoxCuna_MouseDown()
+  
+End
+
+Public Sub PictureBoxV_MouseDown()
+  
+End
+
+Public Sub RadioButtonEfectoAlumno_Click()
+  
+  If RadioButtonEfectoAlumno.Value = True Then 
+    PictureBoxEfectoProfesor.Enabled = False
+    PictureBoxEfectoAlumno.Enabled = True
+  Else
+    PictureBoxEfectoProfesor.Enabled = True
+    PictureBoxEfectoAlumno.Enabled = False
+  Endif
+  
+End
+
+Public Sub RadioButtonEfectoProfesor_Click()
+  
+  If RadioButtonEfectoProfesor.value = True Then 
+    PictureBoxEfectoAlumno.Enabled = False
+    PictureBoxEfectoProfesor.Enabled = True
+  Else
+    PictureBoxEfectoProfesor.Enabled = False
+    PictureBoxEfectoAlumno.Enabled = True
+  Endif
+  
+End
+
+Public Sub RadioButtonSinEfectos_Click()
+  
+  Dim dato As New Variant[]
+  
+  If RadioButtonSinEfectos.value = True Then 
+    dato.Add(0)
+    
+    If RadioButtonEfectoAlumno.Value = True Then
+      PictureBoxEfectoAlumno.Picture = Picture.Load("Efectos/Alu93x113.png")
+      PictureBoxEfectoAlumno.tag = dato
+    Else
+      PictureBoxEfectoProfesor.Picture = Picture.Load("Editor/Pro.png")
+      PictureBoxEfectoProfesor.tag = dato
+    Endif  
+    
+  Endif
+  
+End
+
+Public Sub PictureBoxPrev_MouseDown()
+  
+  'abro el archivo para verlo mejor....
+  Exec ["gpicview", PictureBoxPrev.tag]
+  
+End
+
+Public Sub ComboBoxPlantillaUsar_Change()
+  
+  ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
+  ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub ComboBoxPlantillaUsar_Activate()
+  
+  ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
+  ModuleGestionOrla.guardado = False
+  
+End
+
+Public Sub ToolButtonActualizarPlantilla_Click()
+  
+  ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & ComboBoxPlantillaUsar.text & ".svg"
+  ModuleGestionOrla.guardado = False
+  rellenarDatosOrlas()
+  
+End
+
+'----------------------------------------------------------------------------------------------
+'soltar ficheros para recoger datos de los alumnos o profesores de los nombres del fichero
+'----------------------------------------------------------------------------------------------
+
+Public Sub TextLabelSueltaFotosAlumnos_Drop()
+  
+  Dim resultado As Boolean
+  
+  resultado = ModuleArrastrarYSoltarFicheros.InsertarDatosSoltados(drag, ModuleGestionAlumnos.lista)
+  
+  If resultado = False Then
+    Message.Info(("Ha habido un problema al añadir los datos soltados"))
+  Else
+    ModuleIntermedio.rellenarGridviewsAlumnos(GridViewRegistrosAlumnos, ModuleGestionAlumnos.lista)
+    'se ha añadido información, se tiene que redistribuir las foto...
+    ModuleGestionAlumnos.ListaOrdenada.Clear
+    
+  Endif
+  
+End
+
+Public Sub TextLabelSueltaFotosProfesores_drop()
+  
+  Dim resultado As Boolean
+  
+  resultado = ModuleArrastrarYSoltarFicheros.InsertarDatosSoltados(drag, ModuleGestionProfesores.lista)
+  
+  If resultado = False Then
+    Message.Info(("Ha habido un problema al añadir los datos soltados"))
+  Else
+    ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+    'se ha añadido información, se tiene que redistribuir las foto...
+    ModuleGestionProfesores.ListaOrdenada.Clear
+    
+  Endif
+  
+End
+
+Public Sub ToolButtonAbrirCarpeta_Click()
+  
+  Exec ["pcmanfm", "/tmp/trabajo_orla/"]
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End

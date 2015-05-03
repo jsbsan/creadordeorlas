@@ -1,0 +1,95 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,56,50)
+  Resizable = False
+  { PictureBoxFoto PictureBox
+    MoveScaled(3,10,12.1429,17)
+    Picture = Picture["icono_fotos_personas.png"]
+    Stretch = True
+    Border = Border.Plain
+  }
+  { Label1 Label
+    MoveScaled(21,8,9,4)
+    Text = ("Nombre:")
+  }
+  { TextBoxNombre TextBox
+    MoveScaled(32,8,21,4)
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(13,1,38,6)
+    Text = ("<h3>Profesores</h3>")
+    Alignment = Align.Center
+    Border = Border.Plain
+  }
+  { ToolButton1 ToolButton
+    MoveScaled(1,28,17,5)
+    Font = Font["Bitstream Charter,-2"]
+    Text = ("Foto WebCam")
+    Picture = Picture["camara_icono.png"]
+    Border = True
+  }
+  { TextBoxApellidos TextBox
+    MoveScaled(32,14,21,4)
+  }
+  { Label2 Label
+    MoveScaled(21,14,9,4)
+    Text = ("Apellidos:")
+  }
+  { Label4 Label
+    MoveScaled(18,21,12,4)
+    Text = ("Asignatura:")
+  }
+  { TextBoxAsignatura TextBox
+    MoveScaled(32,21,21,4)
+  }
+  { Label5 Label
+    MoveScaled(22,29,9,4)
+    Text = ("Orden:")
+  }
+  { ValueBoxOrden ValueBox
+    MoveScaled(32,29,6,4)
+    Text = ("ValueBox1")
+  }
+  { ToolButtonAceptar ToolButton
+    MoveScaled(21,41,15,6)
+    Text = ("Aceptar")
+    Picture = Picture["icon:/22/apply"]
+    Border = True
+  }
+  { ToolButtonCancelar ToolButton
+    MoveScaled(39,41,15,6)
+    Text = ("Cancelar")
+    Picture = Picture["icon:/22/cancel"]
+    Border = True
+  }
+  { Label6 Label
+    MoveScaled(44,29,11,4)
+    Text = ("(opcional)")
+  }
+  { ButtonMasUno Button
+    MoveScaled(39,29,4,4)
+    Text = ("+")
+  }
+  { ToolButtonAjustarFoto ToolButton
+    MoveScaled(1,34,17,5)
+    Font = Font["Bitstream Charter,-2"]
+    Text = ("Ajustar foto")
+    Picture = Picture["editarImagen.png"]
+    Border = True
+  }
+  { ToolButtonHacerTransparente ToolButton
+    MoveScaled(6,39,7,5)
+    Text = ("ToolButton2")
+    Picture = Picture["icono_transparente.png"]
+    Border = True
+  }
+  { ToolButtonEditarGimp ToolButton
+    MoveScaled(1,44,17,5)
+    Font = Font["Bitstream Charter"]
+    ToolTip = ("Una vez editada, vaya a Archivo y seguidamente a Sobreescribir imagen. No guarde la imagen en formato xcf")
+    Text = ("con Gimp")
+    Picture = Picture["gimp-icon32.png"]
+    Border = True
+  }
+}
