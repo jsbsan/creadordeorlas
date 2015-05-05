@@ -168,6 +168,9 @@ Geometry=[-7,-8,210,210]
 [DebugWindow/dialogofile]
 Geometry=[-10,-8,795,691]
 
+[DebugWindow/dirfile]
+Geometry=[32,139,210,210]
+
 [DebugWindow/f]
 Geometry=[-7,-8,393,529]
 
@@ -235,7 +238,7 @@ File[3]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[4]="EsquemasyNotas/UrlPlantillas:9.45"
 File[5]="dibujos/ORLA GENERADOR.png"
 File[6]="orlaicono.png"
-File[7]=".src/Modulos/ModuleUtilidadesDisco.module:31.28"
+File[7]=".src/Modulos/ModuleUtilidadesDisco.module:45.28"
 File[8]="gestorOrlas.png"
 File[9]="ojo22.png"
 File[10]="inkscape-icono.png"
@@ -345,7 +348,7 @@ File[113]="Efectos/marcolapiz.png"
 File[114]="gimp-icon32.png"
 File[115]="drop.png"
 Active=116
-File[116]=".src/Modulos/ModuleArrastrarYSoltarFicheros.module:2.0"
+File[116]=".src/Modulos/ModuleArrastrarYSoltarFicheros.module:40.0"
 File[117]="carpeta.png"
 File[118]="logoGambas.png"
 File[119]=".src/FMain.form"

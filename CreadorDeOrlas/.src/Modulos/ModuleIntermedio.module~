@@ -108,7 +108,7 @@ Public Sub IniciarGridViewRegistrosProfesoresores(grid As ClassSuperGridview)
     .font.size = 9
     .mode = 1
     .w = 485
-    .h = 475
+    .h = 450
     .x = 10
     .y = 40
     .TOOLTIP = "Si haces doble click en una fila, la puedes editar"
@@ -139,7 +139,7 @@ Public Sub IniciarGridViewRegistrosAlumnos(grid As ClassSuperGridview)
     .font.size = 9
     .mode = 1
     .w = 510
-    .h = 475
+    .h = 450
     .x = 10
     .y = 40
     .TOOLTIP = "Si haces doble click en una fila, la puedes editar"

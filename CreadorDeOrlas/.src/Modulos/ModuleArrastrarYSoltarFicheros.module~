@@ -36,9 +36,10 @@ Public Sub InsertarDatosSoltadosCarpeta(carpeta As String, ListaDePersona As Obj
   'por cada fichero de dibujo que haya en la carpeta, añadirlo
 
   InsertarFicherosCarpeta(carpeta, ListaDePersona, "*.png")
-
+  InsertarFicherosCarpeta(carpeta, ListaDePersona, "*.PNG")
   InsertarFicherosCarpeta(carpeta, ListaDePersona, "*.jpg")
-
+  InsertarFicherosCarpeta(carpeta, ListaDePersona, "*.JPG")
+  InsertarFicherosCarpeta(carpeta, ListaDePersona, "*.JPEG")
   InsertarFicherosCarpeta(carpeta, ListaDePersona, "*.jpeg")
   Return True
 
