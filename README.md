@@ -6,7 +6,7 @@ El programa es completamente funcional, y exporta la salida a archivos .svg y .p
 
 Actualmente se corrigen los bug que vayan surgiendo.
 
-Si se solicitan mejoras, y son factibles de realiza, también se añadirán :) 
+Si se solicitan mejoras, y son factibles de realizar, también se añadirán :) 
 
 Blog del proyecto: http://creadordeorlas.blogspot.com.es/
 
