@@ -1,8 +1,14 @@
-# creadordeorlas
-Automatically exported from code.google.com/p/creadordeorlas
+# Creador de orlas
 
-Programa realizado en gambas3, para hacer orlas de estudiantes, enfocados para orlas infantiles o con pequeño numero de alumnos.
+Programa realizado en gambas3, para hacer orlas de estudiantes, enfocados para orlas infantiles o con pequeño número de alumnos (alrededor de 30).
 
 El programa es completamente funcional, y exporta la salida a archivos .svg y .pdf
 
-Actualmente solamente se corrigen bug.
+Actualmente se corrigen los bug que vayan surgiendo.
+
+Si se solicitan mejoras, y son factibles de realiza, también se añadirán :) 
+
+Blog del proyecto: http://creadordeorlas.blogspot.com.es/
+
+Nota:
+Ya la versión alojada en code.google.com/p/creadordeorlas, esta desactualizada.
