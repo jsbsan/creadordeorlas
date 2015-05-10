@@ -808,6 +808,7 @@ End
 Public Sub ToolButtonGeneraSVG_Click()
 
   hacerSVGoPNg(False)
+  Desktop.Open("http://creadordeorlas.blogspot.com.es/")
 
 End
 
@@ -1440,13 +1441,14 @@ End
 Public Sub ToolButtonAbrirCarpeta_Click()
 
   ModuleAbrirResultados.abrir("/tmp/trabajo_orla/")
-
+  Desktop.Open("http://creadordeorlas.blogspot.com.es/")
 Catch
   ModuleMensajeError.SistemaDescripcionError()
 
 End
-
+'-------------------------------------------------------------------
 'agregar una carpeta de fichero de alumnos...
+'-------------------------------------------------------------------
 
 Public Sub ButtonAgregarFotosCarpetaAlumnos_Click()
 
@@ -1467,6 +1469,31 @@ Public Sub ButtonAgregarFotosCarpetaAlumnos_Click()
 
     Endif
 
+  Endif
+
+End
+
+'-------------------------------------------------------------------
+'agregar una carpeta de fichero de profesores
+'-------------------------------------------------------------------
+Public Sub ButtonAgregarFotosCarpetaProfesores_Click()
+
+  Dim resultado As Boolean
+
+  Dialog.Title = ("Seleccione carpeta donde estan las fotografias de los Profesores")
+
+  If Not Dialog.SelectDirectory() Then
+
+    resultado = ModuleArrastrarYSoltarFicheros.InsertarDatosSoltadosCarpeta(Dialog.Path, ModuleGestionProfesores.lista)
+
+    If resultado = False Then
+      Message.Info(("Ha habido un problema al añadir los datos soltados"))
+    Else
+      ModuleIntermedio.rellenarGridviewsProfesores(GridViewRegistrosProfesores, ModuleGestionProfesores.lista)
+      'se ha añadido información, se tiene que redistribuir las foto...
+      ModuleGestionProfesores.ListaOrdenada.Clear
+
+    Endif
   Endif
 
 End

@@ -649,32 +649,32 @@ msgstr ""
 msgid "Si"
 msgstr ""
 
-#: FMain.class:1050
+#: FMain.class:1052
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:1050
+#: FMain.class:1052
 msgid "No"
 msgstr ""
 
-#: FMain.class:1054
+#: FMain.class:1056
 msgid ""
 "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:1089
+#: FMain.class:1091
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
-#: FMain.class:1413
+#: FMain.class:1415
 msgid "Ha habido un problema al añadir los datos soltados"
 msgstr ""
 
-#: FMain.class:1456
+#: FMain.class:1459
 msgid "Seleccione carpeta donde estan las fotografias de los Alumnos"
 msgstr ""
 
-#: FMain.class:1482
+#: FMain.class:1485
 msgid "Seleccione carpeta donde estan las fotografias de los Profesores"
 msgstr ""
 

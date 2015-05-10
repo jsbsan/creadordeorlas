@@ -176,7 +176,7 @@
     }
     { ButtonAgregarFotosCarpetaAlumnos Button
       MoveScaled(10,74,59,4)
-      Text = ("Agregar una carpeta completa")
+      Text = ("Agregar una carpeta completa con fotos de Alumnos")
       Picture = Picture["icon:/16/directory"]
     }
     Index = 4
@@ -233,6 +233,11 @@
       Text = ("<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre debe de tener una coma para separar los apellidos y el nombre.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png")
       Alignment = Align.Center
       Border = Border.Plain
+    }
+    { ButtonAgregarFotosCarpetaProfesores Button
+      MoveScaled(8,73,62,4)
+      Text = ("Agregar una carpeta completa con fotos de Profesores")
+      Picture = Picture["icon:/16/directory"]
     }
     Index = 5
     Text = ("Datos  y Organizar Orla")

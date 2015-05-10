@@ -866,7 +866,7 @@
       Alignment = Align.Center
     }
     { ToolButtonAbrirCarpeta ToolButton
-      MoveScaled(23,35,43,8)
+      MoveScaled(23,34,43,8)
       Enabled = False
       Font = Font["Bitstream Charter,-1"]
       ToolTip = ("Cuando genere la Orla .SVG, podrá ver los archivos.")

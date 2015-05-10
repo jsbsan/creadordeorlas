@@ -807,6 +807,8 @@ End
 
 Public Sub ToolButtonGeneraSVG_Click()
 
+  Desktop.Open("http://creadordeorlas.blogspot.com.es/")
+
   hacerSVGoPNg(False)
 
 End
@@ -1439,6 +1441,7 @@ End
 
 Public Sub ToolButtonAbrirCarpeta_Click()
 
+  Desktop.Open("http://creadordeorlas.blogspot.com.es/")
   ModuleAbrirResultados.abrir("/tmp/trabajo_orla/")
 
 Catch
