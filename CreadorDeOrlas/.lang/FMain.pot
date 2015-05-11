@@ -482,107 +482,107 @@ msgstr ""
 msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
 msgstr ""
 
-#: FMain.class:248
+#: FMain.class:272
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FMain.class:249
+#: FMain.class:273
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FMain.class:268
+#: FMain.class:292
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FMain.class:355
+#: FMain.class:379
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:367
+#: FMain.class:391
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:367
+#: FMain.class:391
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:367
+#: FMain.class:391
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:367
+#: FMain.class:391
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:433
+#: FMain.class:457
 msgid "Haga click para visualizar a mayor tamaño la previsualización"
 msgstr ""
 
-#: FMain.class:509
+#: FMain.class:533
 msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
 msgstr ""
 
-#: FMain.class:521
+#: FMain.class:545
 msgid "necesita asignar una plantilla a la orla"
 msgstr ""
 
-#: FMain.class:537
+#: FMain.class:561
 msgid "Guardado correctamente"
 msgstr ""
 
-#: FMain.class:539
+#: FMain.class:563
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:551
+#: FMain.class:575
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: FMain.class:551
+#: FMain.class:575
 msgid "si Abre una Orla, se borrarán los datos anteriores!!"
 msgstr ""
 
-#: FMain.class:553
+#: FMain.class:577
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: FMain.class:569
+#: FMain.class:593
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:752
+#: FMain.class:778
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:752
+#: FMain.class:778
 msgid "Si"
 msgstr ""
 
-#: FMain.class:1052
+#: FMain.class:1078
 msgid "Desea borrar la plantilla: "
 msgstr ""
 
-#: FMain.class:1052
+#: FMain.class:1078
 msgid "No"
 msgstr ""
 
-#: FMain.class:1056
+#: FMain.class:1082
 msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
 msgstr ""
 
-#: FMain.class:1091
+#: FMain.class:1117
 msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
 msgstr ""
 
-#: FMain.class:1415
+#: FMain.class:1441
 msgid "Ha habido un problema al añadir los datos soltados"
 msgstr ""
 
-#: FMain.class:1459
+#: FMain.class:1485
 msgid "Seleccione carpeta donde estan las fotografias de los Alumnos"
 msgstr ""
 
-#: FMain.class:1485
+#: FMain.class:1511
 msgid "Seleccione carpeta donde estan las fotografias de los Profesores"
 msgstr ""
 

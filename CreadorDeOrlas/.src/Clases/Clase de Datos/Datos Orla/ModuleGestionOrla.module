@@ -5,67 +5,67 @@ Public ordenAlumno As String
 
 Public orla As New ClassDatosOrla
 
-Public rutaFicheroDatos As String 
+Public rutaFicheroDatos As String
 
-Public guardado As Boolean 
+Public guardado As Boolean
 
 '---------------------------------------------
 'Carga de datos desde el fichero "datos"
 '---------------------------------------------
 
 Public Sub CargarDatos(rutaLecturaFichero As String) As Boolean
-  
+
   'rutaLecturaFichero=ModulePrincipal.rutaprograma & "temporales/datosDimplomasTematicos.txt"
-  
+
   Dim contenido As String
   Dim cadenas As New String[]
-  
+
   contenido = file.Load(rutaLecturaFichero)
   cadenas = Split(contenido, "\n")
-  
+
   If cadenas[0] = "version 1" Then
     cadenas.Delete(0) 'borro la primera linea,que solo me sirve para averiguar la version
     Return orla.lecturaDatos(cadenas)
-    
+
   Else
     Message.Error("El fichero no lo puedo leer.\n Versión Desconocida.")
     Return False
   Endif
-  
+
 End
 
 Public Sub rellena(f As Container)
-  
+
   f[5].TextBoxColegio.text = orla.colegio
   f[5].TextBox2Clase.text = orla.clase
   f[5].TextBoxCurso.text = orla.curso
   f[5].TextBoxOpcional.text = orla.textoopcional01
   f[5].ComboBoxPlantillaUsar.text = orla.Plantilla
   f[5].TextBoxOpcional2.text = orla.textoopcional02
-  
-  If orla.escudo01 <> "" Then f[5].PictureBoxFondo
-  If orla.escudo02 <> "" Then f[5].PictureBoxEscudo
-  If orla.escudo03 <> "" Then f[5].PictureBoxLogo
-  If orla.escudo04 <> "" Then f[5].PictureBoxLogo2
-  
+
+  If orla.escudo01 <> "" And orla.escudo01 <> "OperacionCancelada" Then f[5].PictureBoxFondo
+  If orla.escudo02 <> "" And orla.escudo02 <> "OperacionCancelada" Then f[5].PictureBoxEscudo
+  If orla.escudo03 <> "" And orla.escudo03 <> "OperacionCancelada" Then f[5].PictureBoxLogo
+  If orla.escudo04 <> "" And orla.escudo04 <> "OperacionCancelada" Then f[5].PictureBoxLogo2
+
   f[5].SpinBoxFilas.value = orla.NumeroFilasAlumnos
-  
-  If orla.OrdenAlfabetico = True Then 
+
+  If orla.OrdenAlfabetico = True Then
     f[5].RadioButtonAlfa.value = True
     f[5].RadioButtonIndicado.value = False
   Else
     f[5].RadioButtonAlfa.value = False
     f[5].RadioButtonIndicado.value = True
-  Endif 
+  Endif
   f[5].ValueBoxHorizontal.value = orla.EspacioEntreFotosHorizontal
   f[5].ValueBoxVertical.value = orla.EspacioEntreFotosVertical
   f[5].ValueBoxEscalaProfesores.value = orla.EscalaFotosProfesores
   f[5].ValueBoxEscalaAlumnos.value = orla.EscalaFotosAlumnos
-  
+
   ' Aqui procequir
   f[5].LabelTipoProfesor.Font = orla.LetraProfesor
-  f[5].LabelTipoAlumno.font = orla.LetraProfesor  
-  
+  f[5].LabelTipoAlumno.font = orla.LetraProfesor
+
 End
 
 'Public Sub ordenar(cadena As String[], id As Integer[]) As Integer[]

@@ -211,29 +211,54 @@ End
 
 Public Sub PictureBoxFondo_MouseDown()
 
-  ModuleGestionOrla.orla.escudo01 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxFondo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
-  PictureBoxFondo.tag = ModuleGestionOrla.orla.escudo01
+  Dim respuesta As String
+
+  respuesta = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxFondo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+
+  If respuesta <> "OperacionCancelada" Then
+    ModuleGestionOrla.orla.escudo01 = respuesta
+    PictureBoxFondo.tag = ModuleGestionOrla.orla.escudo01
+  Endif
 
 End
 
 Public Sub PictureBoxEscudo_MouseDown()
 
-  ModuleGestionOrla.orla.escudo02 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEscudo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
-  PictureBoxEscudo.Tag = ModuleGestionOrla.orla.escudo02
+  Dim respuesta As String
+
+  respuesta = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxEscudo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+
+  If respuesta <> "OperacionCancelada" Then
+    ModuleGestionOrla.orla.escudo02 = respuesta
+    PictureBoxEscudo.Tag = ModuleGestionOrla.orla.escudo02
+  Endif
 
 End
 
 Public Sub PictureBoxLogo_MouseDown()
 
-  ModuleGestionOrla.orla.escudo03 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxLogo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
-  PictureBoxLogo.Tag = ModuleGestionOrla.orla.escudo03
+  Dim respuesta As String
+
+  respuesta = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxLogo, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+
+  If respuesta <> "OperacionCancelada" Then
+
+    ModuleGestionOrla.orla.escudo03 = respuesta
+    PictureBoxLogo.Tag = ModuleGestionOrla.orla.escudo03
+  Endif
 
 End
 
 Public Sub PictureBoxLogo2_MouseDown()
 
-  ModuleGestionOrla.orla.escudo04 = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxLogo2, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
-  PictureBoxLogo2.Tag = ModuleGestionOrla.orla.escudo04
+  Dim respuesta As String
+
+  respuesta = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxLogo2, modulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/")
+
+  If respuesta <> "OperacionCancelada" Then
+    ModuleGestionOrla.orla.escudo04 = respuesta
+    PictureBoxLogo2.Tag = ModuleGestionOrla.orla.escudo04
+  Endif
 
 End
 
@@ -657,8 +682,10 @@ Public Sub rellenarDatosOrlas()
   ModuleGestorPlantillas.cargaComboBox(ComboBoxPlantillaUsar)
 
   If ModuleGestionOrla.orla.Plantilla <> "" Then
-    ComboBoxPlantillaUsar.text = Replace$(Replace$(ModuleGestionOrla.orla.Plantilla, User.Home & "/.CreadorOrlas/plantillasOrla/", ""), ".svg", "")
-    activarFotos(ModuleGestionOrla.orla.Plantilla)
+    ComboBoxPlantillaUsar.text = File.Name(Replace$(Replace$(ModuleGestionOrla.orla.Plantilla, User.Home & "/.CreadorOrlas/plantillasOrla/", ""), ".svg", ""))
+    '   activarFotos(ModuleGestionOrla.orla.Plantilla)
+    activarFotos(User.home & "/.CreadorOrlas/plantillasOrla/" & File.Name(ModuleGestionOrla.orla.Plantilla))
+
   Else
     ComboBoxPlantillaUsar.text = "Naranja_Floral"
     ModuleGestionOrla.orla.Plantilla = User.home & "/.CreadorOrlas/plantillasOrla/Naranja_Floral.svg"
@@ -667,10 +694,10 @@ Public Sub rellenarDatosOrlas()
 
   TextBoxOpcional2.text = ModuleGestionOrla.orla.textoopcional02
 
-  If ModuleGestionOrla.orla.escudo01 <> "" Then PictureBoxFondo.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo01)
-  If ModuleGestionOrla.orla.escudo02 <> "" Then PictureBoxEscudo.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo02)
-  If ModuleGestionOrla.orla.escudo03 <> "" Then PictureBoxLogo.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo03)
-  If ModuleGestionOrla.orla.escudo04 <> "" Then PictureBoxLogo2.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo04)
+  If ModuleGestionOrla.orla.escudo01 <> "" And ModuleGestionOrla.orla.escudo01 <> "OperacionCancelada" Then PictureBoxFondo.Picture = Picture.Load(ruta & ModuleGestionOrla.orla.escudo01)
+  If ModuleGestionOrla.orla.escudo02 <> "" And ModuleGestionOrla.orla.escudo02 <> "OperacionCancelada" Then PictureBoxEscudo.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo02)
+  If ModuleGestionOrla.orla.escudo03 <> "" And ModuleGestionOrla.orla.escudo03 <> "OperacionCancelada" Then PictureBoxLogo.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo03)
+  If ModuleGestionOrla.orla.escudo04 <> "" And ModuleGestionOrla.orla.escudo04 <> "OperacionCancelada" Then PictureBoxLogo2.Picture = Picture.load(ruta & ModuleGestionOrla.orla.escudo04)
 
   SpinBoxFilas.value = ModuleGestionOrla.orla.NumeroFilasAlumnos
 
@@ -807,8 +834,9 @@ End
 
 Public Sub ToolButtonGeneraSVG_Click()
 
-  hacerSVGoPNg(False)
   Desktop.Open("http://creadordeorlas.blogspot.com.es/")
+
+  hacerSVGoPNg(False)
 
 End
 
@@ -1440,8 +1468,9 @@ End
 
 Public Sub ToolButtonAbrirCarpeta_Click()
 
-  ModuleAbrirResultados.abrir("/tmp/trabajo_orla/")
   Desktop.Open("http://creadordeorlas.blogspot.com.es/")
+  ModuleAbrirResultados.abrir("/tmp/trabajo_orla/")
+
 Catch
   ModuleMensajeError.SistemaDescripcionError()
 

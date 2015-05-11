@@ -1,3 +1,6 @@
+* Mon May 11 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.67
+- en el modulo Gestion de orla, se quita la ruta de la plantilla para dejarla sin ruta y solo el nombre
+
 * Sun May 10 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.66
 - nuevo metodo para añadir alumnos
 

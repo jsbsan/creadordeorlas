@@ -626,7 +626,7 @@
       Border = Border.Plain
     }
     { DrawingAreaPlantilla DrawingArea
-      MoveScaled(26,7,53,38)
+      MoveScaled(28,7,53,38)
       Background = &HFFFFFF&
       ToolTip = ("Haga click para ver mejor la imagen")
     }
@@ -827,7 +827,7 @@
       Alignment = Align.Center
     }
     { PictureBoxPrev PictureBox
-      MoveScaled(0,18,79,60)
+      MoveScaled(4,19,79,60)
       Background = &HFFFFFF&
       Stretch = True
       Border = Border.Plain

@@ -21,7 +21,10 @@ Geometry=[1312,72,210,573]
 Geometry=[1319,78,210,573]
 
 [DebugWindow/ComboBoxPlantillaUsar]
-Geometry=[10,0,233,210]
+Geometry=[10,0,330,589]
+
+[DebugWindow/ComboBoxPlantillaUsar[0]]
+Geometry=[24,29,330,589]
 
 [DebugWindow/ContenidoAOrdenar]
 Geometry=[13,4,301,220]
@@ -232,7 +235,7 @@ Geometry=[-7,-6,212,345]
 LastCommit="actualizo el numero de version a la 0.65\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .hidden/CHANGELOG\n!       .lang/Ordenar.pot\nM       .project\nM       .startup"
 
 [OpenFile]
-File[1]=".src/FMain.class:1420.3"
+File[1]=".src/FMain.class:217.39"
 File[2]="EsquemasyNotas/imageMagick/ImagenOvalada:10.0"
 File[3]="EsquemasyNotas/imageMagick/TextoEnImagen:61.0"
 File[4]="EsquemasyNotas/UrlPlantillas:9.45"
@@ -267,7 +270,7 @@ File[32]=".src/Clases/Clase de Datos/ClassPos.class:11.0"
 File[33]=".src/Clases/Clase de Datos/ClassPersona.class:139.2"
 File[34]=".src/Clases/Clase de Datos/ClassAlumno.class:10.0"
 File[35]=".src/Clases/Clase de Datos/ClassProfesor.class:14.0"
-File[36]=".src/Clases/Clase de Datos/Datos Orla/ClassDatosOrla.class:81.2"
+File[36]=".src/Clases/Clase de Datos/Datos Orla/ClassDatosOrla.class:172.15"
 File[37]=".src/Modulos/ModulePruebas.module:10.7"
 File[38]=".src/Clases/Clase de Datos/Alumnos/ClassListaAlumnos.class:34.2"
 File[39]=".src/Clases/Clase de Datos/Profesores/ClassListaProfesores.class:77.30"
@@ -296,7 +299,7 @@ File[61]="Editor/enblancoA3.png"
 File[62]="Editor/Pro.png"
 File[63]="Editor/ProDes.png"
 File[64]="Editor/temporalFondo.png"
-File[65]=".src/Editor/FMainEditor.class:76.14"
+File[65]=".src/Editor/FMainEditor.class:50.172"
 File[66]=".src/Clases/DeTrabajo/ClassSuperGridview.class:0.19"
 File[67]=".src/Formularios Comunes/FormPensando.class:18.0"
 File[68]=".src/Modulos/ModuleUpdate.module:24.15"
@@ -304,12 +307,13 @@ File[69]=".src/Modulos/comun.module:24.7"
 File[70]=".src/Clases/ClassDatoLetra.class:0.19"
 File[71]=".src/Formularios Comunes/FormElegirFichero.form"
 File[72]=".src/Formularios Comunes/FormElegirFichero.class:52.7"
-File[73]=".src/Clases/Clase de Datos/Datos Orla/ModuleGestionOrla.module:61.66"
-File[74]=".src/Modulos/ModuleExtraerDatosOrla.module:29.117"
-File[75]=".src/Modulos/ModuleMensajeError.module:0.20"
+Active=73
+File[73]=".src/Clases/Clase de Datos/Datos Orla/ModuleGestionOrla.module:47.91"
+File[74]=".src/Modulos/ModuleExtraerDatosOrla.module:10.3"
+File[75]=".src/Modulos/ModuleMensajeError.module:12.3"
 File[76]=".src/Editor/ModuleSistemaOrdenacion.module:124.0"
 File[77]=".src/Modulos/ModuleUnicaVez.module:0.20"
-File[78]=".src/Editor/ModuleDistribucionFotos.module:265.73"
+File[78]=".src/Editor/ModuleDistribucionFotos.module:68.100"
 File[79]=".src/Editor/FMainEditor.form"
 File[80]=".src/Editor/ModuleGenerarFotos.module:40.19"
 File[81]="Editor/150x120.png"
@@ -330,7 +334,7 @@ File[95]="Efectos/Vconversion.png"
 File[96]="CandadoAbierto.png"
 File[97]="CandadoCerrado.png"
 File[98]="destino.png"
-File[99]=".src/Modulos/ModuleGestorPlantillas.module:69.15"
+File[99]=".src/Modulos/ModuleGestorPlantillas.module:30.6"
 File[100]="googledriveacceso.png"
 File[101]="Plantillas/orla1/00En_Blanco.svg:6203.47"
 File[102]="Plantillas/orla1/00En_Blanco.png"
@@ -347,7 +351,6 @@ File[112]="Efectos/webcam_carnet07-05-2013_19-25-46.png"
 File[113]="Efectos/marcolapiz.png"
 File[114]="gimp-icon32.png"
 File[115]="drop.png"
-Active=116
 File[116]=".src/Modulos/ModuleArrastrarYSoltarFicheros.module:40.0"
 File[117]="carpeta.png"
 File[118]="logoGambas.png"
@@ -363,5 +366,7 @@ RememberPassword=1
 User="torredelaquila@gmail.com"
 
 [Watches]
-Count=0
+Count=2
+Watch[1]="ModuleGestionOrla.orla.escudo01"
+Watch[2]="ruta"
 
