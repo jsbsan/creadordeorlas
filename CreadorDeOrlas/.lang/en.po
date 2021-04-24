@@ -1,0 +1,917 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-11-01 04:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .project:1
+msgid "CreadorDeOrlas"
+msgstr "Yearbook creator"
+
+#: .project:2
+msgid "Crea las orlas de tus alumnos, compañeros de promoción, etc.. fácilmente."
+msgstr "Create a school photo for your students, classmates, etc...easily."
+
+#: ClassSuperGridview.class:46
+msgid "Copiado contenido al portapapeles"
+msgstr "Contents copied to the clipboard"
+
+#: FMain.class:248
+msgid "Elija el archivo gráfico"
+msgstr "Select the graphic file"
+
+#: FMain.class:249
+msgid "Ficheros de Imágenes"
+msgstr "Image files"
+
+#: FMain.class:268 ModuleAsignarYSoltarImagenes.module:39
+msgid "No se ha podido descargarse el archivo"
+msgstr "Unable to download the file"
+
+#: FMain.class:355
+msgid "No se puede editar un registro vacío"
+msgstr "Can not edit an empty record"
+
+#: FormElegirFichero.form:31 FormExtraerFoto.form:73 FormProfesor.form:96
+msgid "Cancelar"
+msgstr "Cancel"
+
+#: FMain.class:367
+msgid "Cerrar"
+msgstr "Close"
+
+#: FMain.class:367
+msgid "Todos cambios no guardados se perderan"
+msgstr "All unsaved changes will be lost"
+
+#: FMain.class:367
+msgid "¿Seguro que desea cerrar?"
+msgstr "Are you sure you want to close?"
+
+#: FMain.class:433
+msgid "Haga click para visualizar a mayor tamaño la previsualización"
+msgstr "Click to view a larger preview"
+
+#: FMain.class:509
+msgid "Tienes que crear una Nueva o Abrir una Orla, para Guardarlo"
+msgstr "You have to create or open a yearbook to save it"
+
+#: FMain.class:521
+msgid "necesita asignar una plantilla a la orla"
+msgstr "Need to assign a template to the yearbook"
+
+#: FMain.class:537
+msgid "Guardado correctamente"
+msgstr "Saved successfully"
+
+#: FMain.class:539
+msgid "No he podido guardar los datos"
+msgstr "Impossible to save datas"
+
+#: FMain.class:551
+msgid "Los datos anteriores no se guardaron,"
+msgstr "The above data were not saved ,"
+
+#: FMain.class:551
+msgid "si Abre una Orla, se borrarán los datos anteriores!!"
+msgstr "¡If you open a yearbook, preview data will be lost!!"
+
+#: FMain.class:553
+msgid "Indique archivo de datos para abrir..."
+msgstr "Indicate a data file to open ..."
+
+#: FMain.class:569
+msgid "Problemas al abrir el archivo..."
+msgstr "Problems opening the file ..."
+
+#: FMain.class:752
+msgid "Seguro que desea borrar.."
+msgstr "Seguro que desea borrar..."
+
+#: FMain.class:752
+msgid "Si"
+msgstr "Yes"
+
+#: FMain.class:1050
+msgid "Desea borrar la plantilla: "
+msgstr "Do you want to delete the template: "
+
+#: FMain.class:1050
+msgid "No"
+msgstr "Not"
+
+#: FMain.class:1054
+msgid "No se puede borrar esta plantilla, ya que se esta utilizando en esta orla"
+msgstr "You can not delete this template because it is already in use"
+
+#: FMain.class:1089
+msgid "Ya existe una plantilla con ese nombre, introduzca un nombre distinto"
+msgstr "There is a template with that name, enter a different name"
+
+#: FMain.class:1413
+msgid "Ha habido un problema al añadir los datos soltados"
+msgstr "Problems with dropped datas"
+
+#: FMain.form:170
+msgid "Creador de Orlas"
+msgstr "Yearbook creator"
+
+#: FMain.form:188
+msgid "Autor: Julio Sánchez Berro"
+msgstr "Author: Julio Sánchez Berro"
+
+#: FMain.form:196
+msgid "http://www.jsbsan.blogspot.com"
+msgstr "http://www.jsbsan.blogspot.com"
+
+#: FMain.form:202
+msgid "<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\n"
+msgstr "<h3>Licence: GPL, Software Libre</h3><br>\n\nDeveloped using Gambas3.4 <br>\n\nThis program needs:<br>\nzip <br>\nInkscape (to edit to create new templates)<br>\nImagemagick <br>\n<br>\n"
+
+#: FMain.form:214
+msgid "Crea tus propias plantillas con: "
+msgstr "Create your own templates with : "
+
+#: FMain.form:224
+msgid "Creado especialmente para:"
+msgstr "Created specially for:"
+
+#: FMain.form:237 comun.module:9
+msgid "inkscape"
+msgstr "Inkscape"
+
+#: FMain.form:245
+msgid "minino.galpon.org"
+msgstr "minino.galpon.org"
+
+#: FMain.form:251
+msgid "Label25"
+msgstr "Label25"
+
+#: FMain.form:259
+msgid "Pagina WEB del Proyecto"
+msgstr "Project Web Page"
+
+#: FMain.form:263
+msgid "Nueva"
+msgstr "New"
+
+#: FMain.form:272 FormAlumno.form:40 FormProfesor.form:37
+msgid "Nombre:"
+msgstr "Name:"
+
+#: FMain.form:281
+msgid "Crear"
+msgstr "Create"
+
+#: FMain.form:288
+msgid ".Orla"
+msgstr ".Orla"
+
+#: FMain.form:291
+msgid "Abrir "
+msgstr "Open "
+
+#: FMain.form:296
+msgid "<h2>Espere por favor, estoy leyendo los datos</h2>"
+msgstr "<h2>Wait, reading datas</h2>"
+
+#: FMain.form:300
+msgid "Datos Alumnos"
+msgstr "Pupils data"
+
+#: FMain.form:313
+msgid "Añadir"
+msgstr "Add"
+
+#: FMain.form:320
+msgid "Editar"
+msgstr "Edit"
+
+#: FMain.form:327
+msgid "Borrar"
+msgstr "Delete"
+
+#: FMain.form:335
+msgid "Pegar"
+msgstr "Paste"
+
+#: FMain.form:343
+msgid "Copiar"
+msgstr "Copy"
+
+#: FMain.form:360
+msgid "<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre debe de tener una coma para separar los apellidos y el nombre.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png"
+msgstr "<b>Another way to insert datas:<br></b>\nDrag and drop photos, the file name will be used for the name and surname<br>\nThe name must have a comma between surname and name.<br>\nFor example:<br>\nSmith, Peter.png"
+
+#: FMain.form:365
+msgid "Datos Profesores"
+msgstr "Teachers data"
+
+#: FMain.form:429
+msgid "Datos  y Organizar Orla"
+msgstr "Yearbook datas and layout"
+
+#: FMain.form:437
+msgid "Escala Fotos"
+msgstr "Scale photos"
+
+#: FMain.form:442
+msgid "Profesores:"
+msgstr "Teachers:"
+
+#: FMain.form:449
+msgid "Alumnos:"
+msgstr "Pupils:"
+
+#: FMain.form:455 FormAlumno.form:96 FormProfesor.form:84
+msgid "ValueBox1"
+msgstr "ValueBox1"
+
+#: FMain.form:467
+msgid "%"
+msgstr "%"
+
+#: FMain.form:479
+msgid "<b>Nota:</b><br>\nCuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Organizar posición defotos en la Orla\", para poder ver como queda el diseño de la misma.<br>\nAdemás podrá modificar la disposición de las fotografías para personalizar su orla."
+msgstr "<b>Note:</b><br>\nWhen you finish entering data of students and teachers, click the button «Arrange the position of the photos», to get a preview.<br>\nYou can also change the layout of the photos to customize your yearbook."
+
+#: FMain.form:487
+msgid "Tipos de letra"
+msgstr "Fonts"
+
+#: FMain.form:491
+msgid "TipoProfesor"
+msgstr "TipoProfesor"
+
+#: FMain.form:496
+msgid "TipoAlumno"
+msgstr "TipoAlumno"
+
+#: FMain.form:502
+msgid "Tipo letra Alumnos:"
+msgstr "Fontos for pupils:"
+
+#: FMain.form:509
+msgid "Tipo letra Profesor:"
+msgstr "Fonts for teachers:"
+
+#: FMain.form:515
+msgid "ToolButton4"
+msgstr "ToolButton4"
+
+#: FMain.form:531
+msgid "Imagenes"
+msgstr "Images"
+
+#: FMain.form:535
+msgid "Escudo Colegio"
+msgstr "School shield"
+
+#: FMain.form:557
+msgid "Escudo"
+msgstr "Shield"
+
+#: FMain.form:571
+msgid "Imag. Opc.1"
+msgstr "Imag. Opc. 1"
+
+#: FMain.form:585
+msgid "Imag.Opc.2"
+msgstr "Imag. Opc. 2"
+
+#: FMain.form:625
+msgid "Textos"
+msgstr "Texts"
+
+#: FMain.form:630
+msgid "por ejemplo: 2012-2013"
+msgstr "for example: 2013-2014"
+
+#: FMain.form:636
+msgid "Curso:"
+msgstr "School year:"
+
+#: FMain.form:643
+msgid "Clase:"
+msgstr "Class:"
+
+#: FMain.form:650
+msgid "Colegio:"
+msgstr "College:"
+
+#: FMain.form:662
+msgid "por ejemplo 1º de ESO"
+msgstr "for example 1º de ESO"
+
+#: FMain.form:668
+msgid "Plantilla a usar:"
+msgstr "Template to use: "
+
+#: FMain.form:681
+msgid "Texto Opcional(1):"
+msgstr "Optional text (1): "
+
+#: FMain.form:693
+msgid "Texto Opcional(2):"
+msgstr "Optional text (2): "
+
+#: FMain.form:704
+msgid "Actualizar plantilla a usar"
+msgstr "Upgrade template to use"
+
+#: FMain.form:714
+msgid "Muestra Pueblo"
+msgstr "Show city"
+
+#: FMain.form:722
+msgid "Muestra Provincia"
+msgstr "Show town"
+
+#: FMain.form:730
+msgid "Muestra Asignatura"
+msgstr "Show subject"
+
+#: FMain.form:738 FMainEditor.form:82
+msgid "Espacio entre fotos"
+msgstr "Space between photos"
+
+#: FMain.form:742 FMainEditor.form:86
+msgid "Horizontal:"
+msgstr "Horizontal:"
+
+#: FMain.form:758 FMainEditor.form:92
+msgid "Vertical:"
+msgstr "Vertical:"
+
+#: FMain.form:766
+msgid "Organización Inicial de Fotos"
+msgstr "Initial organization of photos"
+
+#: FMain.form:770
+msgid "Calcular automaticamente las filas"
+msgstr "Automatically calculate the rows"
+
+#: FMain.form:785
+msgid "Número de filas:"
+msgstr "Number of rows:"
+
+#: FMain.form:792 FMainEditor.form:172
+msgid "Orden Alfabetico"
+msgstr "Alphabetic order"
+
+#: FMain.form:799 FMainEditor.form:164
+msgid "Orden Indicado"
+msgstr "Order indicated"
+
+#: FMain.form:805 FMainEditor.form:155
+msgid "Alumnos"
+msgstr "Pupils"
+
+#: FMain.form:809 FMainEditor.form:159
+msgid "Orden Alfabético"
+msgstr "Alphabetical order"
+
+#: FMain.form:821
+msgid "Esquema:"
+msgstr "Scheme :"
+
+#: FMain.form:826
+msgid "Label22"
+msgstr "Label22"
+
+#: FMain.form:833
+msgid "Profesores"
+msgstr "Teachers"
+
+#: FMain.form:840
+msgid "Organizar posición de fotos en la Orla"
+msgstr "Organize photo positions on the yearbook"
+
+#: FMain.form:844
+msgid "Guardar"
+msgstr "Save"
+
+#: FMain.form:854
+msgid "Nombre fichero de Datos:"
+msgstr "Data file name :"
+
+#: FMain.form:859
+msgid "<h2>Espere por favor, estoy guardando <br>los datos</h2>"
+msgstr "<h2>Wait, reading datas</h2>"
+
+#: FMain.form:863
+msgid "Guardar como...."
+msgstr "Save as ...."
+
+#: FMain.form:868
+msgid "<h2>Espere por favor, estoy guardando <br> los datos</h2>"
+msgstr "<h2>Wait, saving datas</h2>"
+
+#: FMain.form:872
+msgid "Gestor de Plantillas"
+msgstr "Templates manager"
+
+#: FMain.form:878
+msgid "Plantillas de Orlas"
+msgstr "Yearbook templates"
+
+#: FMain.form:886 FormExtraerFoto.form:68
+msgid "Haga click para ver mejor la imagen"
+msgstr "Click image for a better view"
+
+#: FMain.form:891
+msgid "Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla."
+msgstr "Note:<br>\nEdit the yearbook, «save it as...» and you will get a new desing."
+
+#: FMain.form:903
+msgid "Editar Orla"
+msgstr "Edit yearbook"
+
+#: FMain.form:910
+msgid "Borrar Orla"
+msgstr "Delete yearbook"
+
+#: FMain.form:917
+msgid "Definir Orla desde Cero"
+msgstr "Define yearbook from scratch"
+
+#: FMain.form:926
+msgid "Exportar Orla"
+msgstr "Export yearbook"
+
+#: FMain.form:933
+msgid "Añadir plantilla de Orla"
+msgstr "Add a yearbook template"
+
+#: FMain.form:942
+msgid "Compartidos en la Nube"
+msgstr "Sharing in the Cloud"
+
+#: FMain.form:948
+msgid "Aplicar Efectos"
+msgstr "Apply effects"
+
+#: FMain.form:987
+msgid "Haga click para elegir otro marco"
+msgstr "Click to choose another frame"
+
+#: FMain.form:1000
+msgid "Marco"
+msgstr "Frame"
+
+#: FMain.form:1007
+msgid "Efectos en las Fotos: Marco o Recorte de Formas"
+msgstr "Effects on photos: frame or forms trim"
+
+#: FMain.form:1013
+msgid "V"
+msgstr "V"
+
+#: FMain.form:1025
+msgid "Cuna"
+msgstr "Cradle"
+
+#: FMain.form:1037
+msgid "Elipse"
+msgstr "Ellipse"
+
+#: FMain.form:1054
+msgid "Forzar ajuste de tamaño de fotografias"
+msgstr "Force sizing photos"
+
+#: FMain.form:1060
+msgid "ZigZag"
+msgstr "ZigZag"
+
+#: FMain.form:1072
+msgid "Marco Esp"
+msgstr "Frame esp."
+
+#: FMain.form:1078
+msgid "Haga click para cambiar de imagen"
+msgstr "Click to change image"
+
+#: FMain.form:1087
+msgid "Marcos en la Nube"
+msgstr "Frames in the «cloud»"
+
+#: FMain.form:1094
+msgid "No aplicar ningún efecto a las fotografías"
+msgstr "Do not apply any effects to photos"
+
+#: FMain.form:1097
+msgid "Previsualizar"
+msgstr "Preview"
+
+#: FMain.form:1110
+msgid "Nota: <br>La previsualización puede no ser exacta,<br> genere el .svg o el .png para mejor detalle."
+msgstr "Note: <br>Preview may not be accurate,<br> generate the .svg or .png to get a more exact preview."
+
+#: FMain.form:1117
+msgid "<h2>Previsualización</h2>\nPara mejorar el resultado del programa, vaya a la opción <BR>\"Generar Orla\", y pulse  el botón \"Generar Orla en .SVG\", <BR>entonces podrá editar la orla mediante Inkscape, ampliando las posibilidades de edición de este programa."
+msgstr "<h2>Preview</h2>\nTo improve the result, go to <BR>«Generate yearbook», and click the button «Generate yearbook in .SVG», <BR>so you can edit the yearbook using Inkscape, expanding the edition possibilities of this program."
+
+#: FMain.form:1131
+msgid "Espere unos segundos..."
+msgstr "Wait a few seconds ..."
+
+#: FMain.form:1135
+msgid "Generar Orla"
+msgstr "Generate a yearbook"
+
+#: FMain.form:1140
+msgid "Crear archivo .svg y editarlo con inkscape"
+msgstr "Create .svg file and edit it with Inkscape"
+
+#: FMain.form:1141
+msgid "Generar Orla en .SVG y abrirla con Inkscape"
+msgstr "Generate yearbook in .SVG and open it with Inkscape"
+
+#: FMain.form:1155
+msgid "Generar Orla en .PNG"
+msgstr "Generate yearbook in .PNG"
+
+#: FMain.form:1162
+msgid "Nota:<br>\nSe creará una copia de trabajo, con las fotografías y el archivo tipo .svg  en la carpeta:<br>\n/tmp/trabajo_orla/trabajo.svg<br>"
+msgstr "Note:<br>\nA copy will be created with photos and .svg file in the folder:<br>\n/tmp/trabajo_orla/trabajo.svg<br>"
+
+#: FMain.form:1170
+msgid "Cuando genere la Orla .SVG, podrá ver los archivos."
+msgstr "When you generate the yearbook in .SVG, you can view the files."
+
+#: FMain.form:1171
+msgid "Abrir o Crear Carpeta donde guardará la orla"
+msgstr ""
+
+#: FMain.form:1179
+msgid "Nota:<br>\nDesde INKSCAPE, podrá editar y modificar su orla.<br>\nAdemás podrá exportarla a fichero .png, desde el menú de inkscape:<br>\nArchivo/Exportar mapa de bits<br>"
+msgstr "Note:<br>\nFrom INKSCAPE you can edit and modify you yearbook.<br>\nYou can also export it to a file .png from Inkscape menu:<br>\nFile/Export bitmaps<br>"
+
+#: FMain.form:1183 FormError.form:25
+msgid "Salir"
+msgstr "Exit"
+
+#: FMain.form:1186
+msgid "Ayuda"
+msgstr "Help"
+
+#: FMain.form:1192
+msgid "<h3>Especificaciones para los formatos de Orla:</h3><br>\n<br>\nEl archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n      - o embebidas en ellas.<br>\n<br>\n<br>\n\n<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n\tTexto a sustituir y que se rellenará con datos<br>\n\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n\t       CLASE............................... texto: 1º de ESO<br>\n\t       CURSO ..................... texto: 2012-2013<br>\n\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n<br>\n\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n<br>\n<br>\n<b>Imagenes:</b><br>\n         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>"
+msgstr "<h3>Specifications for the yearbook format:</h3><br>\n<br>\nThe .svg file have the images of the frames and the background.<br>\n\t       - through links to external images (in the same folder where template .svg is)<br>\n\t       - or embedded on it.<br>\n<br>\n<br>\n\n<b>Text tags, «with centered alignment»</b><br>\n\tText to be replaced with datas<br>\n\t       COLEGIO......................... school<br>\n\t       CLASE............................. couse: i.e. 1º de ESO<br>\n\t       CURSO............................ year school: i.e. 2013-2014<br>\n\t       TEXTOOPCIONAL01.......... optional text<br>\n\t       TEXTOOPCIONAL02.......... optional text<br>\n\t                          (NOTE: In the .svg template, you can choose the size and font)<br>\n<br>\n\tText to show the position of pupils and teachers images<br>\n\t       ZonaFotosAlumnos.......... This text only show the coordinates of the position in the template<br>\n\t       ZonaFotosProfesores........ this text only show the coordinates of the position in the template<br>\n<br>\n<br>\n<b>Images:</b><br>\n\t       ESCUDO01......................  school shield<br>\n\t       ESCUDO02......................  shield of the city<br>\n\t       ESCUDO03......................  optional image<br>\n\t       ESCUDO03......................  optional image<br>\t                          (NOTE: if an image doesn't exist in the template, it will be replaced with a transparent one)<br>"
+
+#: FMain.form:1197
+msgid "Visite la página del proyecto para más ayuda"
+msgstr "Visit the project page for more help"
+
+#: FMain.form:1202
+msgid "Buscar Actualizaciones"
+msgstr "Check for updates"
+
+#: FMain.form:1207
+msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
+msgstr "<h2>Wait, checking updates</h2>"
+
+#: FMainEditor.class:610
+msgid "Si, salir"
+msgstr "Yes, exit"
+
+#: FMainEditor.form:58
+msgid "datos"
+msgstr "datas"
+
+#: FMainEditor.form:67
+msgid "coord"
+msgstr "coord"
+
+#: FMainEditor.form:75
+msgid "Dibujar Rejilla"
+msgstr "Draw a grid"
+
+#: FMainEditor.form:114
+msgid "Definir esquema Alumno:"
+msgstr "Define pupils scheme:"
+
+#: FMainEditor.form:120
+msgid "Reorganizar Alumnos"
+msgstr "Reorganize pupils"
+
+#: FMainEditor.form:131
+msgid "Definir esquema Profesores:"
+msgstr "Define teachers scheme:"
+
+#: FMainEditor.form:142
+msgid "Reorganizar Profesores"
+msgstr "Reorganize teachers"
+
+#: FMainEditor.form:148
+msgid "Posiciones"
+msgstr "Positions"
+
+#: FMainEditor.form:185
+msgid "Mostrar Profesores"
+msgstr "Show teachers"
+
+#: FMainEditor.form:197
+msgid "Salir del Editor"
+msgstr "Exiting the editor"
+
+#: FormAlumno.class:66
+msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
+msgstr "It is the first data you input, it can not be the same as above."
+
+#: FormAlumno.class:243 FormProfesor.class:188
+msgid "Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"
+msgstr "You have to choose a photo before trying to make a transparent background"
+
+#: FormAlumno.class:259 FormProfesor.class:208
+msgid "No se puede editar, debe de asignar una imagen"
+msgstr "Can not edit, you must assign a picture"
+
+#: FormAlumno.form:32 FormProfesor.form:29
+msgid "Pulse aqui para elegir su fotografia si esta guardada en el disco duro"
+msgstr "Click here to choose your picture if stored in the hard disk"
+
+#: FormAlumno.form:49
+msgid "<h3>Alumnos</h3>"
+msgstr "<h3>Pupils</h3>"
+
+#: FormAlumno.form:57 FormProfesor.form:54
+msgid "Foto WebCam"
+msgstr "WebCam Photo"
+
+#: FormAlumno.form:68 FormProfesor.form:65
+msgid "Apellidos:"
+msgstr "Surname:"
+
+#: FormAlumno.form:77
+msgid "Pueblo:"
+msgstr "City:"
+
+#: FormAlumno.form:82
+msgid "Provincia:"
+msgstr "State:"
+
+#: FormAlumno.form:91 FormProfesor.form:79
+msgid "Orden:"
+msgstr "Order:"
+
+#: FormProfesor.form:89 FormRutaResultados.form:19
+msgid "Aceptar"
+msgstr "Accept"
+
+#: FormAlumno.form:115 FormProfesor.form:103
+msgid "(opcional)"
+msgstr "(optional)"
+
+#: FormAlumno.form:122
+msgid "="
+msgstr "="
+
+#: FormAlumno.form:134 FormProfesor.form:108
+msgid "+"
+msgstr "+"
+
+#: FormAlumno.form:140 FormProfesor.form:114
+msgid "Ajustar foto"
+msgstr "Set photo"
+
+#: FormAlumno.form:147 FormProfesor.form:121
+msgid "ToolButton2"
+msgstr "ToolButton2"
+
+#: FormAlumno.form:155 FormProfesor.form:129
+msgid "Una vez editada, vaya a Archivo y seguidamente a Sobreescribir imagen. No guarde la imagen en formato xcf"
+msgstr "Once edited, go to File and then to overwrite image. Do not store the image in xcf format"
+
+#: FormAlumno.form:156 FormProfesor.form:130
+msgid "con Gimp"
+msgstr "with Gimp"
+
+#: FormElegirFichero.form:44
+msgid "Pegar desde Portapapeles"
+msgstr "Paste from Clipboard"
+
+#: FormElegirFichero.form:45
+msgid "Pegar (Url)"
+msgstr "Paste (URL)"
+
+#: FormError.form:14
+msgid "Mensaje de Error:"
+msgstr "Error Message:"
+
+#: FormError.form:20
+msgid "Copiar Al portapapeles"
+msgstr "Copy to clipboard"
+
+#: FormError.form:30
+msgid "Label1"
+msgstr "Label1"
+
+#: FormExtraerFoto.form:42
+msgid "X"
+msgstr "X"
+
+#: FormExtraerFoto.form:48
+msgid "Y"
+msgstr "Y"
+
+#: FormExtraerFoto.form:54
+msgid "Zoom"
+msgstr "Zoom"
+
+#: FormPensando.class:7
+msgid "Espere por favor..."
+msgstr "Wait..."
+
+#: FormProfesor.form:46
+msgid "<h3>Profesores</h3>"
+msgstr "<h3>Teachers</h3>"
+
+#: FormProfesor.form:70
+msgid "Asignatura:"
+msgstr "Subject:"
+
+#: FormRutaResultados.form:13
+msgid "haga doble click en la ruta que desee guardar los datos"
+msgstr ""
+
+#: FormRutaResultados.form:25
+msgid "Elija ruta donde se guardará la orla, también puede crear un directorio nuevo (pulsando el botón derecho)"
+msgstr ""
+
+#: ModuleArrastrarYSoltarFicheros.module:60
+msgid "No reconozco la lista de personas recibida"
+msgstr "Impossible recognize list of people received"
+
+#: ModuleAsignarYSoltarImagenes.module:17
+msgid "Elija el archivo grÃ¡fico"
+msgstr "Choose the graphic file"
+
+#: ModuleAsignarYSoltarImagenes.module:18
+msgid "Ficheros de ImÃ¡genes"
+msgstr "Image files"
+
+#: ModuleDistribucionFotos.module:280
+msgid "Error en Esquema Definido:"
+msgstr "Defined Schema Error:"
+
+#: ModuleDistribucionFotos.module:280
+msgid "Falta poner el signo igual (=)"
+msgstr "Need to put an equal sign (=)"
+
+#: ModuleDistribucionFotos.module:288
+msgid "El numero total no es igual al numero de personas("
+msgstr "The total number is not equal to the number of people"
+
+#: ModuleDistribucionFotos.module:298
+msgid "Una columna se ha definido con 0 personas"
+msgstr "A column defined with 0 people"
+
+#: ModuleDistribucionFotos.module:309
+msgid "Error en el Esquema Definido:"
+msgstr "Error in scheme defined :"
+
+#: ModuleDistribucionFotos.module:309
+msgid "La suma de los numeros no coincide con el total"
+msgstr "The sum of the numbers is not iqual to the total"
+
+#: ModuleDistribucionFotos.module:336
+msgid "La plantilla origen esta vacia"
+msgstr "The template source is empty"
+
+#: ModuleDistribucionFotos.module:342
+msgid "Se ha producido un error al intentar copiar la plantilla origen:"
+msgstr "Error trying to copy the template source:"
+
+#: ModuleGenerarFotos.module:130
+msgid "No ha sido posible crear la foto con los datos"
+msgstr "Unable to create the photo with the data"
+
+#: ModuleGenerarSVG.module:19
+msgid "Es necesario que organice las fotos en la orla"
+msgstr "It is necessary to organize yearbook photos"
+
+#: ModuleGenerarSVG.module:19
+msgid "Opción: Datos y Organizar Orla"
+msgstr "Option: data and layout yearbook"
+
+#: ModuleGenerarSVG.module:166
+msgid "rm /tmp/trabajo_orla/*.*"
+msgstr "rm /tmp/trabajo_orla/*.*"
+
+#: ModuleGenerarSVG.module:379
+msgid "Código de efecto desconocido"
+msgstr "Code unknown effect"
+
+#: ModulePrincipal.module:79
+msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
+msgstr "Invalid file name contains parenthesis in its name"
+
+#: ModulePrincipal.module:170
+msgid "Nombre de archivo incorrecto"
+msgstr "Bad file name"
+
+#: ModulePrincipal.module:185
+msgid "Problemas al copiar la plantilla de la orla"
+msgstr "Problems copying the template of the yearbook"
+
+#: ModulePrincipal.module:187
+msgid "Problemas al comprimir datos"
+msgstr "Problems compressing data"
+
+#: ModulePrincipal.module:231
+msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
+msgstr "Error attempting to copy the compressed file"
+
+#: ModulePrincipal.module:258
+msgid "error al leer datos del portapapeles"
+msgstr "Error reading data from the clipboard"
+
+#: ModuleUnicaVez.module:24
+msgid "Ya se esta ejecutando este programa"
+msgstr "Already running this program"
+
+#: ModuleUpdate.module:22
+msgid "No ha sido posible conectarse al servidor"
+msgstr "Unable to connect to the server"
+
+#: ModuleUpdate.module:22
+msgid "No puedo comprobar si hay nueva versión"
+msgstr "Impossible to check for a new version"
+
+#: ModuleUpdate.module:35
+msgid "El archivo de versión no es para este programa"
+msgstr "The file version is not for this program"
+
+#: ModuleUpdate.module:38
+msgid "Dirección Url de descarga:"
+msgstr "Download URL:"
+
+#: ModuleUpdate.module:38
+msgid "Existe una nueva versión"
+msgstr "There is a new version"
+
+#: ModuleUpdate.module:38
+msgid "Mejoras:"
+msgstr "Improvements:"
+
+#: ModuleUpdate.module:38
+msgid "Programa:"
+msgstr "Program:"
+
+#: ModuleUpdate.module:38
+msgid "Versión encontrada:"
+msgstr "Version found:"
+
+#: ModuleUpdate.module:39
+msgid "Ir a la página de descarga"
+msgstr "Go to download page"
+
+#: ModuleUpdate.module:39
+msgid "No actualización"
+msgstr "No update"
+
+#: ModuleUpdate.module:47
+msgid "La versión actual:"
+msgstr "The current version:"
+
+#: ModuleUpdate.module:47
+msgid "No necesita actualizarla"
+msgstr "You don't need update it"
+
+#: ModuleUpdate.module:47
+msgid "es igual o superior que la que hay en el servidor"
+msgstr "is equal or greater then the server one"
+
+#: comun.module:13
+msgid "zip"
+msgstr "zip"
+
+#: comun.module:18
+msgid "pdftk"
+msgstr "pdftk"
+
+#: comun.module:23
+msgid "imagemagick"
+msgstr "imagemagick"
+
+#: comun.module:28
+msgid "pcmanfm"
+msgstr ""
+
+#: comun.module:33
+msgid "Falta los siguientes programas por instarlar:"
+msgstr "You need this programs:"
+
+#: comun.module:33
+msgid "Instalelos para poder ejecutar el programa correctamente"
+msgstr "Install them to run the program correctly"
+

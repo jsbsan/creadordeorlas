@@ -1,0 +1,556 @@
+' Gambas class file
+
+Property orden As Integer[]
+Private horden As New Integer[]
+
+Property PosicionesDefinidas As Boolean '' true: posicion fija, false: posiciones movibles
+Private hposicionesdefinidas As Boolean
+
+Property Plantilla As String ''tipo de plantilla de orla a usar
+Private hPlantilla As String
+
+Property escudo01 As String  ''fondo de la orla
+Private hescudo01 As String
+
+Property escudo02 As String ''escudo de la orla
+Private hescudo02 As String
+
+Property escudo03 As String ''logo de la orla
+Private hescudo03 As String
+
+Property escudo04 As String ''imagen opcional
+Private hescudo04 As String
+
+Property colegio As String ''colegio/instituto universidad
+Private hcolegio As String
+
+Property clase As String '' 2 de Eso
+Private hclase As String
+
+Property curso As String ''20-12-2013
+Private hcurso As String
+
+Property textoopcional01 As String ''texto opcional
+Private htextoopcional01 As String
+
+Property textoopcional02 As String
+Private htextoopcional02 As String
+
+Property CoordZonaFotosAlumnos As ClassPos  '' se extrae de la plantilla
+Private hCoordZonaFotosAlumnos As New ClassPos
+
+Property CoordZonaFotosProfesores As ClassPos ''se extrae de la plantilla
+Private hCoordZonaFotosProfesores As New ClassPos
+
+Property SistemaColocacionFotos As Integer '' 1= Automática, 2=Personalizada
+Private hSistemaColocacionFotos As Integer
+
+Property NumeroFilasAlumnos As Integer '' indica el numero de filas que introducido por el profesor, se ordenaran los alumnos
+Private hNumeroFilasAlumnos As Integer
+
+Property EspacioEntreFotosVertical As Integer
+Private hEspacioEntreFotosVertical As Integer
+
+Property EspacioEntreFotosHorizontal As Integer
+Private hEspacioEntreFotosHorizontal As Integer
+
+Property LetraAlumno As String
+Private hLetraAlumno As String
+
+Property TamanoLetraAlumno As Integer
+Private hTamanoLetraAlumno As Integer
+
+Property LetraProfesor As String
+Private hLetraProfesor As String
+
+Property TamanoLetraProfesor As Integer
+Private hTamanoLetraProfesor As Integer
+
+Property OrdenAlfabeticoAlumnos As Boolean '' si es true, se ordenan los datos alfabeticamente, si es false se ordenan segun la propiedad Orden
+Private hOrdenAlfabeticoAlumnos As Boolean
+
+Property OrdenAlfabeticoProfesores As Boolean '' si es true, se ordenan los datos alfabeticamente, si es false se ordenan segun la propiedad Orden
+Private hOrdenAlfabeticoProfesores As Boolean
+
+Property EscalaFotosAlumnos As Integer
+Private hEscalaFotosAlumnos As Integer
+Property EscalaFotosProfesores As Integer
+Private hEscalaFotosProfesores As Integer
+
+Public Sub vacio()
+
+  hPlantilla = ""
+  hescudo01 = ""
+  hescudo02 = ""
+  hescudo03 = ""
+  hescudo04 = ""
+  hcolegio = ""
+  hclase = ""
+  hcurso = ""
+  htextoopcional01 = ""
+  htextoopcional02 = ""
+  hCoordZonaFotosAlumnos.vacio()
+  hCoordZonaFotosProfesores.vacio()
+  hSistemaColocacionFotos = 1
+  hNumeroFilasAlumnos = 1
+  hEspacioEntreFotosVertical = 0
+  hEspacioEntreFotosHorizontal = 0
+  hLetraAlumno = ""
+  hLetraProfesor = ""
+
+  hTamanoLetraAlumno = 10
+  hTamanoLetraProfesor = 10
+
+  hOrdenAlfabeticoAlumnos = True
+  hOrdenAlfabeticoProfesores = True
+  hEscalaFotosProfesores = 100
+  hEscalaFotosAlumnos = 100
+
+End
+
+Public Sub _new()
+
+  hEscalaFotosProfesores = 100
+  hEscalaFotosAlumnos = 100
+  hEspacioEntreFotosHorizontal = 10
+  hEspacioEntreFotosVertical = 85
+
+End
+
+Public Sub contenido() As String
+
+  Return Me.Text()
+
+End
+
+Public Sub Text() As String
+
+  Dim a As Integer
+  Dim cadena As String
+
+  cadena = hPlantilla & "\n"
+  cadena &= hescudo01 & "\n"
+  cadena &= hescudo02 & "\n"
+  cadena &= hescudo03 & "\n"
+  cadena &= hescudo04 & "\n"
+  cadena &= hcolegio & "\n"
+  cadena &= hclase & "\n"
+  cadena &= hcurso & "\n"
+  cadena &= htextoopcional01 & "\n"
+  cadena &= htextoopcional02 & "\n"
+  cadena &= hCoordZonaFotosAlumnos.Text()
+  cadena &= hCoordZonaFotosProfesores.Text()
+
+  cadena &= hSistemaColocacionFotos & "\n"
+  cadena &= hNumeroFilasAlumnos & "\n"
+  cadena &= hEspacioEntreFotosHorizontal & "\n"
+  cadena &= hEspacioEntreFotosVertical & "\n"
+
+  cadena &= hLetraAlumno & "\n"
+  cadena &= hLetraProfesor & "\n"
+
+  cadena &= hTamanoLetraAlumno & "\n"
+  cadena &= hTamanoLetraProfesor & "\n"
+
+  cadena &= hOrdenAlfabeticoAlumnos & "\n"
+  cadena &= hOrdenAlfabeticoProfesores & "\n"
+
+  cadena &= hEscalaFotosAlumnos & "\n"
+  cadena &= hEscalaFotosProfesores & "\n"
+  cadena &= hposicionesdefinidas & "\n"
+  cadena &= Str$(horden.max) & "\n" 'longitud del array de orden
+  For a = 0 To horden.max
+    cadena &= Str$(horden[a]) & "\n"
+  Next
+  Return cadena
+
+End
+
+Public Sub lecturaDatos(cadenas As String[]) As Boolean
+
+  Dim a, b As Integer
+
+  hPlantilla = User.home & "/.CreadorOrlas/plantillasOrla/" & File.Name(cadenas[a])
+  a += 1
+  hescudo01 = cadenas[a]
+  a += 1
+  hescudo02 = cadenas[a]
+  a += 1
+  hescudo03 = cadenas[a]
+  a += 1
+  hescudo04 = cadenas[a]
+  a += 1
+  hcolegio = cadenas[a]
+  a += 1
+  hclase = cadenas[a]
+  a += 1
+  hcurso = cadenas[a]
+  a += 1
+  htextoopcional01 = cadenas[a]
+  a += 1
+  htextoopcional02 = cadenas[a]
+  a += 1
+
+  hCoordZonaFotosAlumnos.x = cadenas[a]
+  a += 1
+  hCoordZonaFotosAlumnos.y = cadenas[a]
+  a += 1
+
+  hCoordZonaFotosProfesores.x = cadenas[a]
+  a += 1
+  hCoordZonaFotosProfesores.y = cadenas[a]
+  a += 1
+
+  hSistemaColocacionFotos = cadenas[a]
+  a += 1
+  hNumeroFilasAlumnos = cadenas[a]
+  a += 1
+  hEspacioEntreFotosHorizontal = cadenas[a]
+  a += 1
+  hEspacioEntreFotosVertical = cadenas[a]
+  a += 1
+
+  hLetraAlumno = cadenas[a]
+  a += 1
+  hLetraProfesor = cadenas[a]
+  a += 1
+
+  hTamanoLetraAlumno = cadenas[a]
+  a += 1
+  hTamanoLetraProfesor = cadenas[a]
+  a += 1
+
+  hOrdenAlfabeticoAlumnos = cadenas[a]
+  a += 1
+  hOrdenAlfabeticoProfesores = cadenas[a]
+  a += 1
+
+  hEscalaFotosAlumnos = cadenas[a]
+  a += 1
+  hEscalaFotosProfesores = cadenas[a]
+  a += 1
+  hposicionesdefinidas = cadenas[a]
+  a += 1
+  For b = 0 To Val(cadenas[a])
+    a += 1
+    horden[b] = Val(cadenas[a])
+  Next
+  Return True
+
+End
+
+'----------------------------------------------------
+'PROPIEDADES
+'----------------------------------------------------
+
+Private Function TamanoLetraProfesor_read() As Integer
+
+  Return hTamanoLetraProfesor
+
+End
+
+Private Sub TamanoLetraProfesor_write(Valor As Integer)
+
+  hTamanoLetraProfesor = Valor
+
+End
+
+Private Function LetraProfesor_read() As String
+
+  Return hLetraProfesor
+
+End
+
+Private Sub LetraProfesor_write(Valor As String)
+
+  hLetraProfesor = Valor
+
+End
+
+Private Function LetraAlumno_read() As String
+
+  Return hLetraAlumno
+
+End
+
+Private Sub LetraAlumno_write(Valor As String)
+
+  hLetraAlumno = Valor
+
+End
+
+Private Function EspacioEntreFotosHorizontal_read() As Integer
+
+  Return hEspacioEntreFotosHorizontal
+
+End
+
+Private Sub EspacioEntreFotosHorizontal_write(Valor As Integer)
+
+  hEspacioEntreFotosHorizontal = Valor
+
+End
+
+Private Function EspacioEntreFotosVertical_read() As Integer
+
+  Return hEspacioEntreFotosVertical
+
+End
+
+Private Sub EspacioEntreFotosVertical_write(Valor As Integer)
+
+  hEspacioEntreFotosVertical = Valor
+
+End
+
+Private Function NumeroFilasAlumnos_read() As Integer
+
+  Return hNumeroFilasAlumnos
+
+End
+
+Private Sub NumeroFilasAlumnos_write(Valor As Integer)
+
+  hNumeroFilasAlumnos = Valor
+
+End
+
+Private Function SistemaColocacionFotos_read() As Integer
+
+  Return hSistemaColocacionFotos
+
+End
+
+Private Sub SistemaColocacionFotos_write(Valor As Integer)
+
+  hSistemaColocacionFotos = Valor
+
+End
+
+Private Function CoordZonaFotosProfesores_read() As ClassPos
+
+  Return hCoordZonaFotosProfesores
+
+End
+
+Private Sub CoordZonaFotosProfesores_write(Valor As ClassPos)
+
+  hCoordZonaFotosProfesores = Valor
+
+End
+
+Private Function CoordZonaFotosAlumnos_read() As ClassPos
+
+  Return hCoordZonaFotosAlumnos
+
+End
+
+Private Sub CoordZonaFotosAlumnos_write(Valor As ClassPos)
+
+  hCoordZonaFotosAlumnos = Valor
+
+End
+
+Private Function textoopcional01_read() As String
+
+  Return htextoopcional01
+
+End
+
+Private Sub textoopcional01_write(Valor As String)
+
+  htextoopcional01 = Valor
+
+End
+
+Private Function curso_read() As String
+
+  Return hcurso
+
+End
+
+Private Sub curso_write(Valor As String)
+
+  hcurso = Valor
+
+End
+
+Private Function clase_read() As String
+
+  Return hclase
+
+End
+
+Private Sub clase_write(Valor As String)
+
+  hclase = Valor
+
+End
+
+Private Function colegio_read() As String
+
+  Return hcolegio
+
+End
+
+Private Sub colegio_write(Valor As String)
+
+  hcolegio = Valor
+
+End
+
+Private Function escudo04_read() As String
+
+  Return hescudo04
+
+End
+
+Private Sub escudo04_write(Valor As String)
+
+  hescudo04 = Valor
+
+End
+
+Private Function escudo03_read() As String
+
+  Return hescudo03
+
+End
+
+Private Sub escudo03_write(Valor As String)
+
+  hescudo03 = Valor
+
+End
+
+Private Function escudo02_read() As String
+
+  Return hescudo02
+
+End
+
+Private Sub escudo02_write(Valor As String)
+
+  hescudo02 = Valor
+
+End
+
+Private Function Plantilla_read() As String
+
+  Return hPlantilla
+
+End
+
+Private Sub Plantilla_write(Valor As String)
+
+  hPlantilla = Valor
+
+End
+
+Private Function escudo01_read() As String
+
+  Return hescudo01
+
+End
+
+Private Sub escudo01_write(Valor As String)
+
+  hescudo01 = Valor
+
+End
+
+Private Function TamanoLetraAlumno_read() As Integer
+
+  Return hTamanoLetraAlumno
+
+End
+
+Private Sub TamanoLetraAlumno_write(Valor As Integer)
+
+  hTamanoLetraAlumno = Valor
+
+End
+
+Private Function textoopcional02_read() As String
+
+  Return htextoopcional02
+
+End
+
+Private Sub textoopcional02_write(Valor As String)
+
+  htextoopcional02 = Valor
+
+End
+
+Private Function EscalaFotosProfesores_read() As Integer
+
+  Return hEscalaFotosProfesores
+
+End
+
+Private Sub EscalaFotosProfesores_write(Valor As Integer)
+
+  hEscalaFotosProfesores = Valor
+
+End
+
+Private Function EscalaFotosAlumnos_read() As Integer
+
+  Return hEscalaFotosAlumnos
+
+End
+
+Private Sub EscalaFotosAlumnos_write(Valor As Integer)
+
+  hEscalaFotosAlumnos = Valor
+
+End
+
+Private Function OrdenAlfabeticoAlumnos_Read() As Boolean
+
+  Return hOrdenAlfabeticoAlumnos
+
+End
+
+Private Sub OrdenAlfabeticoAlumnos_Write(Value As Boolean)
+
+  hOrdenAlfabeticoAlumnos = value
+
+End
+
+Private Function OrdenAlfabeticoProfesores_Read() As Boolean
+
+  Return hOrdenAlfabeticoProfesores
+
+End
+
+Private Sub OrdenAlfabeticoProfesores_Write(Value As Boolean)
+
+  hOrdenAlfabeticoProfesores = value
+
+End
+
+Private Function PosicionesDefinidas_Read() As Boolean
+
+  Return hposicionesdefinidas
+
+End
+
+Private Sub PosicionesDefinidas_Write(Value As Boolean)
+
+  hposicionesdefinidas = value
+
+End
+
+Private Function orden_Read() As Integer[]
+
+  Return horden
+
+End
+
+Private Sub orden_Write(Value As Integer[])
+
+  horden = value
+
+End

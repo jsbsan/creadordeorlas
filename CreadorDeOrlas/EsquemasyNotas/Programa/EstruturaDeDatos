@@ -1,0 +1,45 @@
+ESTRUCTURA DE DATOS
+
+
+Datos alumnos:
+  Foto / Nombre / Apellidos / Pueblo / Provincia / x / y / colocado:Si/No
+   tipo de letra y tamaño
+Datos Profesor
+  Foto / Nombre / Apellidos / Asignatura / x / y / colocado:Si/No / 
+  tipo de letra y tamaño
+  
+  
+DATOS ORLA:
+  plantilla que usa .svg
+  
+  Imagen:
+    ESCUDO01 (detalle)
+    ESCUDO02 (escudo colerio)
+    ESCUDO03 (opcional)
+    ESCUDO04 (opcional)
+    
+  textos:
+    COLEGIO................. nombre colegio
+    CURSO................... curso de "educación Infantil 5 años B"
+    curso............... 2012/2013
+    TEXTOOPCIONAL01......... texto opcional
+  
+  Coordenadas: (x,y), centro geometrico donde iran las fotos...
+     Leer textos 
+              "ZonaFotosAlumnos", y obtener sus coordenadas
+              "ZonaFotosProfesores", y obtener sus coordenadas
+     
+
+ 
+  Sistema de colocacion de fotos:
+      SistemaAutomaticoDeColocacionFotos (indicando solo las filas)
+      SistemaManualDeColocacion
+   
+  NumeroFilasAlumnos
+    Espacio entrefotosVertical
+    EspacioEntreFotosHorizontal
+  
+  Orden: si se ordena alfabeticamente o se ordena segun el campo
+  
+  
+  

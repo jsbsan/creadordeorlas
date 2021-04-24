@@ -1,0 +1,57 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,93,66)
+  Resizable = False
+  { SliderX Slider Cambio
+    Name = "SliderX"
+    MoveScaled(12,56,75,5)
+    MinValue = -3000
+    MaxValue = 3000
+  }
+  { SliderZ Slider Cambio
+    Name = "SliderZ"
+    MoveScaled(3,7,4,48)
+    MinValue = -50
+    MaxValue = 50
+    PageStep = 1
+  }
+  { SliderY Slider Cambio
+    Name = "SliderY"
+    MoveScaled(87,4,4,52)
+    MinValue = -3000
+    MaxValue = 3000
+  }
+  { Label1 Label
+    MoveScaled(8,56,4,5)
+    Text = ("X")
+    Alignment = Align.Center
+  }
+  { Label2 Label
+    MoveScaled(87,0,4,5)
+    Text = ("Y")
+    Alignment = Align.Center
+  }
+  { Label3 Label
+    MoveScaled(1,1,10,5)
+    Text = ("Zoom")
+    Alignment = Align.Center
+  }
+  { ToolButtonAceptar ToolButton
+    MoveScaled(59,61,15,4)
+    Text = ("Aceptar")
+    Picture = Picture["icon:/22/ok"]
+    Border = True
+  }
+  { AreaDibujo DrawingArea
+    MoveScaled(12,4,74,52)
+    Background = &HDFDFDF&
+    ToolTip = ("Haga click para ver mejor la imagen")
+  }
+  { ToolButtonCancelar ToolButton
+    MoveScaled(19,61,15,4)
+    Text = ("Cancelar")
+    Picture = Picture["icon:/22/cancel"]
+    Border = True
+  }
+}

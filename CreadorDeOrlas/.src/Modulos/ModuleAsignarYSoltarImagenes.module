@@ -1,0 +1,86 @@
+' Gambas module file
+
+'
+Public Sub asignaImagen(PictureBoxElegido As Picturebox, ruta As String, Optional DirectorioInicial As String) As String
+
+  Dim dialogofile As New FormElegirFichero
+  Dim dat As New ClassDato
+
+  dialogofile.valor = dat
+
+  If IsNull(DirectorioInicial) Or If DirectorioInicial = "" Then
+  Else
+
+    dialogofile.DirectorioInicial = DirectorioInicial
+  Endif
+
+  dialogofile.Titulo = ("Elija el archivo grÃ¡fico")
+  dialogofile.Filtro = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de ImÃ¡genes")]
+  dialogofile.ShowModal()
+
+  If dat.dato = "-1" Then
+    '   PictureBoxElegido.Picture = Picture.Load("icono_galeria2.jpg")
+    Return "OperacionCancelada"
+  Endif
+  Return asignaImagen2Paso(dat.dato, PictureBoxElegido, ruta)
+
+End
+
+Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebox, rutacopia As String) As String
+
+  Dim nombrecopia As String
+  Dim extension As String
+  Dim comparacion As String 'aÃ±adido para comprobar si existe un fichero con el mismo nombre y es igual
+  Dim copiar As String
+  Dim comando As String
+  Dim nombresimple As String
+
+  If Not Exist(ruta) Then
+    Message.Info(("No se ha podido descargarse el archivo"))
+    Return
+  Endif
+
+  PictureBoxElegido.Picture = Picture.Load(ruta)
+  PictureBoxElegido.tag = ruta
+  copiar = "si"
+
+  nombresimple = ModuleUtilidadesDisco.VerificarNombreEtiqueta(Replace(ModuleUtilidadesDisco.extraedesdebarra(PictureBoxElegido.tag), " ", "_"), ["FOTO", "PLANTILLA", "CAMPO"], ["Imagen", "PLA_TILLA", "CA_PO"])
+  nombrecopia = rutacopia & nombresimple
+
+  While (Exist(nombrecopia))
+    'si existe fichero con el mismo nombre, 1Âº comprobar si es igual...
+    comando = "cmp " & nombrecopia & " " & PictureBoxElegido.tag
+    Shell comando To comparacion
+    If comparacion = "" Then
+      'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
+      'no hago la copia
+      copiar = "no"
+
+      Break
+    Endif
+
+    'para que no machaque nombres de fichros...
+    extension = ModuleUtilidadesDisco.extraeExtension(nombrecopia)
+    If extension <> "" Then
+      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension) - 1) & "c" & "." & extension
+      copiar = "si"
+    Else
+      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c"
+      copiar = "si"
+    Endif
+
+  Wend
+
+  If copiar = "si" Then
+
+    Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
+    PictureBoxElegido.Picture = Picture.Load("importar.png")
+    Wait 0.1
+    PictureBoxElegido.Picture = Picture.Load(nombrecopia)
+    PictureBoxElegido.tag = nombrecopia
+
+  Endif
+
+  Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)
+
+End

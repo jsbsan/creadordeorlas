@@ -1,0 +1,22 @@
+' Gambas class file
+
+Public mensaje As String
+
+Public Sub ButtonSalir_Click()
+
+  Me.Close
+
+End
+
+Public Sub Button1_Click()
+
+  Clipboard.Copy("Programa: " & Application.Name & "   version: " & Application.Version & gb.CrLf & " Fecha:" & Str$(Now) & gb.crlf & TextArea1.Text)
+
+End
+
+Public Sub Form_Open()
+
+  LabelDatosPrograma.text = "Programa: " & Application.Name & "   version: " & Application.Version & gb.CrLf & " Fecha:" & Str$(Now)
+  TextArea1.text &= "\n" & mensaje
+
+End

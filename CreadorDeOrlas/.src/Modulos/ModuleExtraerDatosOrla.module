@@ -1,0 +1,43 @@
+' Gambas module file
+
+'
+Public Sub Coordenada(fichero As String, PalabraClave As String) As ClassPos
+
+  Dim texto1 As String
+  Dim contenido As String
+  Dim hastaPalabraClave As Integer
+  Dim hastaAntesPalabraClave As Integer
+
+  contenido = Upper$(File.Load(fichero))
+
+  hastaPalabraClave = InStr(contenido, Upper$(PalabraClave))
+
+  texto1 = Mid$(contenido, 1, hastaPalabraClave)
+
+  hastaAntesPalabraClave = RInStr(texto1, Upper$("sodipodi:role=\"line\""))
+
+  texto1 = Mid$(texto1, hastaAntesPalabraClave, hastaPalabraClave)
+
+  Return extraeXY(texto1)
+
+End
+
+Private Sub extraeXY(texto As String) As ClassPos
+
+  Dim posicion As New ClassPos
+
+  posicion.x = Val(Replace$(comun.Between(texto, "X=\"", "\""), ".", ","))
+  posicion.y = Val(Replace$(comun.Between(texto, "Y=\"", "\""), ".", ",")) - 70 'subo un poco las fotos de profesores
+  Return posicion
+
+End
+
+'----------------------------------------------------------
+' Calculo de filas...
+'----------------------------------------------------------
+
+Public Function calculoDeFilas(numero As Integer) As Integer
+
+  Return Int((numero) ^ (1 / 2.5))
+
+End

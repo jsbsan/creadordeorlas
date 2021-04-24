@@ -1,0 +1,52 @@
+-Organizador automatico de fotos:
+
+Parametros:
+    - numero de alumnos
+- numero de filas
+
+Devuelve:
+- array integer, indicando en cada valor el nº de fotos que caben por fila. Con integer.max, sabemos el numero de fila, que debe de coincidir con el parametro pasado por el usuario
+Calculo:
+
+1º Divide el numero de alumnos  por el numero de fila, quitando la parte decimal:
+obtengo asi el Numero "A"
+(ejemplo fila=1)  
+A
+
+(ejemplo fila=2)  
+2º Si A*numero de filas=Numero de alumnos , (osea la parte decimal es igual a 0, sin realizar redondeos), el reparto es tipo: A+A
+3º Si A*numero de filas=Numero de alumnos+1, el reparto es del tipo: A+(A+1)
+
+(ejemplo filas=3)  
+2º Si A*numero de filas=Numero de alumnos , (osea la parte decimal es igual a 0, sin realizar redondeos), el reparto es tipo: A+A+A
+3º Si A*numero de filas=Numero de alumnos+1, el reparto es del tipo: A+(A+1)+A
+4º Si A*numero de filas=Numero de alumnos+2, el reparto es del tipo: (A+1)+A+(A+1)
+
+(ejemplo filas=4)  
+2º Si A*numero de filas=Numero de alumnos , (osea la parte decimal es igual a 0, sin realizar redondeos), el reparto es tipo: A+A+A+A
+3º Si A*numero de filas=Numero de alumnos+1, el reparto es del tipo: (A+1)+A+A+A
+4º Si A*numero de filas=Numero de alumnos+2, el reparto es del tipo: (A+1)+A+(A+1)+A
+5º Si A*numero de filas=Numero de alumnos+3, el reparto es del tipo: A+(A+1)+(A+1)+(A+1)
+(ejemplo filas=5)
+2º Si A*numero de filas=Numero de alumnos , (osea la parte decimal es igual a 0, sin realizar redondeos), el reparto es tipo: A+A+A+A+A
+3º Si A*numero de filas=Numero de alumnos+1, el reparto es del tipo:    (A+1)+A+A+A+A
+4º Si A*numero de filas=Numero de alumnos+2, el reparto es del tipo:   A+(A+1)+A+(A+1)+A
+5º Si A*numero de filas=Numero de alumnos+3, el reparto es del tipo: (A+1)+A+(A+1)+A+(A+1)
+6º Si A*numero de filas=Numero de alumnos+4, el reparto es del tipo: A+(A+1)+(A+1)+(A+1)+(A+1)
+
+(ejemplo filas=6)
+2º Si A*numero de filas=Numero de alumnos , (osea la parte decimal es igual a 0, sin realizar redondeos), el reparto es tipo: A+A+A+A+A+A
+3º Si A*numero de filas=Numero de alumnos+1, el reparto es del tipo:    (A+1)+A+A+A+A+A
+4º Si A*numero de filas=Numero de alumnos+2, el reparto es del tipo:   A+(A+1)+A+(A+1)+A+A
+5º Si A*numero de filas=Numero de alumnos+3, el reparto es del tipo: (A+1)+A+(A+1)+A+(A+1)+A
+6º Si A*numero de filas=Numero de alumnos+4, el reparto es del tipo: A+(A+1)+(A+1)+(A+1)+(A+1)+A
+7º Si A*numero de filas=Numero de alumnos+5, el reparto es del tipo: A+(A+1)+(A+1)+(A+1)+(A+1)+(A+1)
+
+(ejemplo filas=7)
+2º Si A*numero de filas=Numero de alumnos , (osea la parte decimal es igual a 0, sin realizar redondeos), el reparto es tipo: A+A+A+A+A+A+A
+3º Si A*numero de filas=Numero de alumnos+1, el reparto es del tipo:    (A+1)+A+A+A+A+A+A
+4º Si A*numero de filas=Numero de alumnos+2, el reparto es del tipo:   A+A+(A+1)+A+(A+1)+A+A
+5º Si A*numero de filas=Numero de alumnos+3, el reparto es del tipo: A+(A+1)+A+(A+1)+A+(A+1)+A
+6º Si A*numero de filas=Numero de alumnos+4, el reparto es del tipo: A+(A+1)+A+(A+1)+A+(A+1)+(A+1)
+7º Si A*numero de filas=Numero de alumnos+5, el reparto es del tipo: A+(A+1)+(A+1)+(A+1)+(A+1)+(A+1)+A
+8º Si A*numero de filas=Numero de alumnos+6, el reparto es del tipo: A+(A+1)+(A+1)+(A+1)+(A+1)+(A+1)+(A+1)

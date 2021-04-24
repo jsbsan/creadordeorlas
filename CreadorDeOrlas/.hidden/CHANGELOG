@@ -1,0 +1,162 @@
+* Tue May 12 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.68
+- agregado traduccion ultimos cambios al gallego
+
+* Mon May 11 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.67
+- en el modulo Gestion de orla, se quita la ruta de la plantilla para dejarla sin ruta y solo el nombre
+
+* Sun May 10 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.66
+- nuevo metodo para añadir alumnos
+
+* Sat Feb 07 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.65
+- anadido texto tooltip y foto en los formularios de alumno y profesor
+
+* Fri Feb 06 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.64
+- Añadido traducción al portugués
+
+* Mon Nov 24 2014 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.63
+- Admite nombres con espacios
+
+* Sat Nov 23 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.62
+- Los resultados se guardan en una carpeta creada o elegida por el usuario
+
+* Thu Aug 29 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.61
+- Traducciones
+
+* Thu Aug 08 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.60
+- Ajuste de drawing que salian desplazados
+
+* Thu Aug 08 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.59
+- Annadido castellano y catalan (aunque esta todavia muy incompleta)
+
+* Wed Aug 07 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.58
+- Annadido gallego y ingles
+- Ademas catch para comprobrar ejecucion en pcmanfm
+
+* Sat Jul 06 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.56
+- Revision de copia archivo foto.gambas espera antes de copiarlo 0.5 seg
+
+* Sat Jul 06 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.56
+-Revision de copia archivo foto.gambas
+
+* Thu Jul 04 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.55
+-Comprobacion añadida de foto tomada en el formulario de profesores
+
+* Thu Jul 04 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.54
+-pensando solo icono
+-da mas informacion de un error (programa, version,fecha,descripcion error)
+-si no se captura imagen, no se asigna nada
+-reducido tiempo de update a 4 segundos
+-comprobacion de copia de fichero fotofoto.gambas
+
+* Mon Jun 24 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.53
+- Se ha repuesto el modulo asignarfoto, que se habia borrado por equivocacion. Rectificado centrado de imagen de profesor, con coeficente. Corregido cuando se editaba un alumno o profesor se perdia su posicion (que se perdia al ser editado)
+
+* Sun Jun 23 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.52
+- Mejorado ajuste de imagenes en coordenadas
+
+* Sat Jun 22 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.51
+-Visionado desde el editor de las fotos de los alumnos y profesores
+
+* Tue Jun 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.50
+- Cambio de ruta de la carpeta de Marcos, al directorio .CreadorOrlas
+
+* Thu Jun 13 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.49
+- Colocado un TRY para borrado cuando se arrastran ficheros.
+
+* Thu May 30 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.48
+- Bug corregido de editar y borrar registros
+
+* Sun May 26 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.47
+- Corregido Bug de borrado de marcos al abrir fichero y Muestra de todas las imagenes en el filechoose
+
+* Sun May 26 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.46
+- Previsualizacion de las imagenes en filechoose
+
+* Sat May 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.45
+- Corregido directorio de copia de marcos que fallaba...
+
+* Sat May 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.45
+- Corregido directorio de copia de marcos que fallaba...
+
+* Sat May 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.44
+-Añadido botón de abrir carpeta de trabajo temporal de orlas
+
+* Thu May 16 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.43
+-Mejoras en soltar archivos, incluir todas las plantillas y marcos dentro del programa
+
+* Tue May 14 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.41
+- Cambio de directorio de trabajo, pasa a ser .CreadorOrlas
+
+* Mon May 13 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.40
+-Reajuste de escudo01 y escudo02 a las dimensiones de la imagen
+
+* Sun May 12 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.39
+- Revisado previsualizacion
+
+* Sun May 12 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.38
+- 2
+
+* Sun May 12 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.38
+-Mejoras en el conteo de numero de orden
+
+* Sun May 12 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.38
+-Corregido bug de añadir nuevas plantillas
+
+* Sun May 12 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.36
+-Corregido guardar nueva orla
+
+* Sat May 11 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.35
+-Ajuste mejor de fotos en marcos
+
+* Sat May 11 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.34
+- Corregido Error al leer de cargar fotos desde directorios con acentos
+
+* Sat May 11 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.33
+- Mejoras en la presentacion de regilla y eleminacion de ficheros de fotos de la anterior orla
+
+* Sat May 11 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.32
+-Mejoras en aplicacion de efectos tanto a alumnos y profesores
+
+* Wed May 08 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.30
+- Mejorado x3 la resolucion de imagenes y marcos
+
+* Tue May 07 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.29
+- Mejor organizacion de los menus separo Efectos, Crear Orlas,y creo una previsualizacion dela orla que es mas rapida que verlo en inkscape
+
+* Tue May 07 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.28
+-Arreglo de Bug con captura de images, añadido opcion de imagen de marcos y marcos en la nube
+
+* Mon May 06 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.27
+- Corregidos varios errores de aplicar efectos y ordenar fotos
+
+* Sat May 04 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.26
+- Añadido direccion web del proyecto
+
+* Thu May 02 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.25
+-Revisado salida sin modificar datos
+
+* Mon Apr 29 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.24
+- corregido errores de imagenes de orla
+
+* Sat Apr 27 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.23
+-Corregido error al iniciarse la primera vez
+
+* Wed Apr 24 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.22
+-Añadido hacer transparente fondo de imagenes
+-Sustituido codigo interno de iconpanel
+
+* Tue Apr 23 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.21
+- Añadido Pegar y Copiar del portapapeles, añadido convertir a .png
+
+* Sun Apr 21 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.20
+-Indicado correctamente version de gambas3.4
+
+* Sun Apr 21 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.19
+-Guarda,Abre, Nuevo opciones
+
+* Thu Apr 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.18
+-Mejoras en el editor de fotos,(mayor margen de movimiento), añadido update en menu
+
+* Thu Apr 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.17
+- Lanzamiento inicial
+

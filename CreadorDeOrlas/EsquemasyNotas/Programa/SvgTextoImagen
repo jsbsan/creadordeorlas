@@ -1,0 +1,37 @@
+Imagen:
+
+    <image
+       y="299.29074" '' coordenada y
+       x="530.71429" '' coordenada x
+       id="image3479" ''codigo segun imagen
+       xlink:href="file:///C:/Otros%20Julio/20111125090132-20091218104129-redaccion.jpg" '' ruta
+       height="229" 'largo
+       width="350"   'ancho
+  />
+  
+
+  
+Texto
+
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="530.69812"
+       y="442.58881"
+       id="text3001"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3003"
+         x="530.69812"
+         y="442.58881">apellidos2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="529.61932"
+       y="505.63684"
+       id="text3463"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3465"
+         x="529.61932"
+         y="505.63684">apellidos</tspan></text>

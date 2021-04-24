@@ -1,0 +1,16 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,5,5)
+  Icon = Picture["icon:/22/info"]
+  Border = False
+  { Timer1 #Timer
+    #MoveScaled(1,1)
+    Enabled = True
+    Delay = 100
+  }
+  { MovieBox1 MovieBox
+    MoveScaled(0,0,7,6)
+    Animation = Animation.Load("icoLoading.gif")
+  }
+}

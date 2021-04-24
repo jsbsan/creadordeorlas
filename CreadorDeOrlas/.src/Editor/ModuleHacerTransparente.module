@@ -1,0 +1,26 @@
+' Gambas module file
+
+Public Sub copiarScriptTransparente(rutaprograma As String)
+
+  If Not Exist(rutaprograma & "magicwand") Then Copy "magicwand" To rutaprograma & "magicwand"
+  Chmod rutaprograma & "magicwand" To "rwx------"
+
+End
+
+Public Sub convertirTransparente(fichero As String, rutaprograma As String) As String
+
+  Dim comando As String
+  Dim ficherotransparente As String
+  './magicwand 1,1 -t 25 -f image -r outside -c trans rosa.jpeg rosa.png
+  '': revisando nombre de fichero transparente
+  ''
+
+  ficherotransparente = Mid$(fichero, 1, Len(fichero) - Len(ModuleUtilidadesDisco.extraeExtension(fichero))) & "png"
+
+  comando = ModulePrincipal.rutaprograma & "./magicwand 1,1 -t 25 -f image -r outside -c trans " & rutaprograma & fichero & " " & rutaprograma & ficherotransparente
+  Shell comando Wait
+
+  ficherotransparente = ModuleUtilidadesDisco.extraedesdebarra(rutaprograma & ficherotransparente)
+  Return ficherotransparente
+
+End

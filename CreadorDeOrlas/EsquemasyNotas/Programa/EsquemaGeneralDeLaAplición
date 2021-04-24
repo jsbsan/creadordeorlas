@@ -1,0 +1,188 @@
+Estructura Orla:
+
+Nota:
+url: http://www.rpublica.net/imagemagick/
+
+Carpeta Programa
+user.home & "/ConstructorOrla/"
+user.home & "/ConstructorOrla/PlantillasOrlas/"  -> todas las plantillas existentes de orlas 
+user.home & "/ConstructorOrla/PlantillasOrlas/listadeplantillas.txt"  -> lista de las plantillas existentes de orlas 
+
+Por cada plantilla que haya
+user.home & "/ConstructorOrla/PlantillasOrlas/nombrePlantilla/Fotos/*.png *.jpg..."  ->  sus fotos
+user.home & "/ConstructorOrla/Temporal/"
+user.home & "/ConstructorOrla/Trabajotmp/"  
+Proyecto Actual:
+user.home & "/ConstructorOrla/Temporal/FotosAlumnos/"
+user.home & "/ConstructorOrla/Temporal/FotosProfesores/"
+user.home & "/ConstructorOrla/Temporal/FotosAlumnosMini/"
+user.home & "/ConstructorOrla/Temporal/FotosProfesoresMini/" --> convert input.jpg -thumbnail 75x100 output.jpg 
+user.home & "/ConstructorOrla/Temporal/FotosPlantillaOrla/"
+Ficheros Proyecto Actual:
+user.home & "/ConstructorOrla/Temporal/plantillaOrla01.svg"
+user.home & "/ConstructorOrla/Temporal/datosAlumnos.txt"
+user.home & "/ConstructorOrla/Temporal/datosProfesores.txt"
+user.home & "/ConstructorOrla/Temporal/datosOrla.txt"
+
+En la carpeta Trabajotmp:
+-se guardan el PDF generado de la orla
+-los archivos temporales importados/exportados
+-archivos de conversion transitorios.
+
+Esquema:
+Crear proyecto Orla:
+- Pedir nombre
+- Comprobar que no hay datos modificados y se pueda abrir otro archivo sin perder datos del proyecto anterior
+- Limpiar datos anteriores (listas de alumnos, profesores, datos orlas)
+- Limpiar SuperGridviews
+
+
+Abrir proyecto Orla:
+- Pedir nombre
+- Comprobar que no hay datos modificados y se pueda abrir otro archivo sin perder datos del proyecto anterior
+- Limpiar datos anteriores (listas de alumnos, profesores, datos orlas)
+- Limpiar SuperGridviews
+
+Guardar/Guardar como...
+- Realizar copia de la plantilla que usa y de sus fotos 
+- Comprimir carpetas 
+Datos Grupo:
+3 pestañas:
+Orla: 
+- Colegio ( "COLEGIO" ) -> Nº Sr. de la Paz
+- Curso ( "CURSO" ) ´-> 2º de bachiyerato
+- curso ( "curso" ) -> año 2009-2008
+- TextoExtra ( "CAMPOEXTRA01" ) 
+- TextoExtra ( "CAMPOEXTRA02" ) 
+- Tamaño de letras de Alumnos/Profesor y tipo de letra
+- ¿añadir profesores? Si / No
+- ¿ovalar? 
+- Ordenar Alfabeteicamente por 
+Alumnos:
+ Por Apellidos
+ Por un indice  
+Asignatura
+- Plantilla a usar (elegir mediante un combobox) -> el combobox de plantillas disponibles, 
+ se carga  al inicio y cada vez que se genere un cambio (añade, borre, importa, exporta)  una plantilla
+- Tamaño (A4 / A3)
+- Numero de filas de alumnos (comprobar si hay alumnos) -> sistema de "auto" ordenar -> da coordenas x,y de cada registro (alumno/profesor)
+- espacio minimo entre fotos:
+horizontal
+vertical
+- BOTON EDITAR / ORGANIZACION AUTOMATICA
+- Previsualizar Orla
+Alumnos
+- BOTONES 
+AÑADIR -> llamar formulario "FormAlumno"
+EDITAR -> llamar formulario "FormAlumno"
+BORRAR -> leer Id del cursor y borrar dato. -> lista.RegistroAlumno
+PEGAR -> desde el portapapeles
+COPIAR -> desde el portapapeles
+- Campos:
+id
+foto
+nombre
+apellidos
+ciudad
+provincia
+grupo -> 0,1,2 (opcion para poner distintos marcos a los alumnos)
+x
+y
+indice de ordenacion (si no es alfabetico)-> para ordenación "automatizada" o crear una previa para antes de editar
+- Realizar miniatura de foto, para mostrar en supergridview
+Profesores
+- BOTONES 
+AÑADIR -> llamar formulario "FormProfesor"
+EDITAR -> llamar formulario "FormProfesor"
+BORRAR -> leer Id del cursor y borrar dato. -> lista.RegistroProfesor
+PEGAR -> desde el portapapeles
+COPIAR -> desde el portapapeles
+- Campos:
+id
+foto
+nombre
+apellidos
+asignatura
+grupo -> 0,1,2
+x
+y
+- Realizar miniatura de foto, para mostrar en supergridview
+Gestión Plantillas Orla
+- previsualizar
+- Editar -> "FormOrla" 
+-> cambio de imagenes 
+fondo
+fondo marco
+4 esquinas
+2 fotos escudo pueblo/ autonomia
+- Marcos distintos segun "grupo" -> mejor definir en plantilla
+grupo0
+grupo1
+grupo2
+-> "cancelar"
+-> "guardar"
+-> "guardar como..."
+- Borrar
+- Iniciar
+- Importar
+- Exportar
+---------------------------------------------------------------------  
+INICIAR PROGRAMA:
+- Crear/Copiar Carpetas Iniciales y Datos de plantillas
+- Definir gridviews de ALUMNOS / PROFESORES
+- Definir gridviews de Plantillas de Orlas existentes
+- Carga de combobox de Plantillas en "Datos Grupos" <- este procedimiento se ejecuta cuando hay modificacion en las plantillas de las orlas (añade, borre, importa, exporta)
+
+-Carga de datos de un gridviews de alumnos
+-Carga de datos de un gridviews de profesores
+-Carga de datos de un gridviews plantillas de orlas
+
+---------------------------------------------------------------------
+EDITOR:
+- Carga Lista de fotos (alumnos y profesores)
+- Carga fondo de la orla (FondoMarco, FondoEscudo, Marcos)
+¿?¿?- Carga posicion de textos -> para organizar tambien donde van los texto "Colegio", "Curso", "curso"
+
+- Pendiente de la colocación de las fotos/Rectangulos con textos
+- Si da a cancelar no se guardan los datos
+- Si da a Guardar, se guardan los datos de las posiciones en cada Lista
+
+-Comprobar translacion de coordenadas de la "chincheta" con la presentación de imagen
+Varios:
+minimapa
+zoom -
+zoom +
+regla 
+rejilla (lineas verticales y horizontales de guia)
+Arbol donde se pueda ver los elementos que componen la orla:
+textos
+imagenes 
+imagenes alumnos
+imagenes profesor
+
+Generar Previsualizacion 
+Mediante rectangulos y nombres (no fotos de alumnos/profesores)
+---------------------------------------------------------------------
+Generar PDF:
+1) Crear imagen fondo: (con la plantilla)
+marcofondo
+fondo
+escudo1
+escudo2
+    sustituir "etiquetas" por datos reales
+
+2) Crear imagenes de:
+fotos alumnos + nombre + apellido + ciudad + provincia
+fotos profesores + nombre + apellido +  asignatura
+Transparente (si lo necesita), eliminar el color de fondo (solo deja foto y letras)
+Si lo necesita:
+Acerlas Elipticas
+Poner marcos segun grupo a cada una de ellas
+3) Por cada imagen, leer su posicion...
+  mediante comando de imagemagick, colocarla en la imagen de Fondo (http://www.rpublica.net/imagemagick/compuestas.html#append)
+composite -geometry WxH±x±y inputfuente inputdestino output
+
+4) Una vez termnado el proceso, se genera el pdf
+            -> barra de progreso para todos los pasos, para que se vea que tarda un buen rato....
+
+---------------------------------------------------------------------

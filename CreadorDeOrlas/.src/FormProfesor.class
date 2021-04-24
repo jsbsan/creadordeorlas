@@ -1,0 +1,211 @@
+' Gambas class file
+
+Public modo As Integer  'modo añadir=-1, editar=nº de id
+Public anadir As Integer = -1
+Public reg As New ClassProfesor
+
+Public Sub Form_Open()
+
+  Dim numeroorden As Integer
+  Dim a As Integer
+
+  If modo > -1 Then
+    If reg.foto <> "" And Exist(modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & reg.foto) Then
+      PictureBoxFoto.Tag = Replace$(reg.foto, " ", "_")
+      PictureBoxFoto.Picture = Picture.Load(modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & reg.foto)
+    Else
+      If Not Exist(modulePrincipal.RutaPrograma & "temporales/FotosProfesores/icono_fotos_personas.png") Then
+        Copy "icono_fotos_personas.png" To modulePrincipal.RutaPrograma & "temporales/FotosProfesores/icono_fotos_personas.png"
+      Endif
+      PictureBoxFoto.Picture = Picture[modulePrincipal.RutaPrograma & "temporales/FotosProfesores/icono_fotos_personas.png"]
+      PictureBoxFoto.Tag = "icono_fotos_personas.png"
+
+    Endif
+  Else
+    Try Copy "icono_fotos_personas.png" To modulePrincipal.RutaPrograma & "temporales/FotosProfesores/icono_fotos_personas.png"
+    PictureBoxFoto.Picture = Picture[modulePrincipal.RutaPrograma & "temporales/FotosProfesores/icono_fotos_personas.png"]
+    PictureBoxFoto.tag = "icono_fotos_personas.png"
+  Endif
+
+  TextBoxApellidos.text = reg.Apellidos
+  TextBoxAsignatura.text = reg.Asignatura
+  TextBoxNombre.text = reg.Nombre
+
+  If modo = -1 Then
+    If reg.orden = 0 Then
+      ValueBoxOrden.value = 1
+    Else
+      For a = 0 To ModuleGestionProfesores.Lista.Registros.max
+        numeroorden = Max(numeroorden, ModuleGestionProfesores.Lista.Registros[a].Orden)
+      Next
+      ValueBoxOrden.Value = numeroorden + 1
+    Endif
+  Else
+    ValueBoxOrden.Value = reg.Orden
+  Endif
+
+  Me.center
+
+End
+
+Public Sub ToolButtonAceptar_Click()
+
+  reg.Foto = Replace(PictureBoxFoto.tag, " ", "_")
+  reg.Nombre = TextBoxNombre.Text
+  reg.Apellidos = TextBoxApellidos.Text
+
+  reg.Asignatura = TextBoxAsignatura.text
+  reg.Orden = ValueBoxOrden.value
+
+  If modo = anadir Then
+    'si estoy añadiendo paso a añadir datos
+    ModuleGestionProfesores.anadirRegistro(reg)
+    FMain.GridViewRegistrosProfesores.rows.count += 1
+    ModuleGestionProfesores.guardado = False
+  Else
+
+    ModuleGestionProfesores.EditarRegistros(reg, modo)
+    ModuleGestionProfesores.guardado = False
+  Endif
+
+  Me.Close
+
+End
+
+Public Sub ButtonMasUno_Click()
+
+  Dim numeroorden As Integer = 0
+  Dim a As Integer
+
+  If ModuleGestionProfesores.Lista.Registros.max = -1 Then
+
+    Return
+  Endif
+  If modo = 0 Then Return
+
+  For a = 0 To ModuleGestionProfesores.Lista.Registros.max
+    numeroorden = Max(numeroorden, ModuleGestionProfesores.Lista.Registros[a].Orden)
+  Next
+  reg.Orden = numeroorden + 1
+
+  ValueBoxOrden.Value = reg.Orden
+
+End
+
+Public Sub ToolButton1_Click()
+
+  Dim comando As String = ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas"
+  Dim nombrefinal As String
+
+  Exec [comando] Wait
+  '  User.home & "/webcam_carnet.png"
+  nombrefinal = modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & Replace(Replace(Replace("webcam_carnet" & Str$(Now()) & ".png", " ", "_"), "/", "-"), ":", "-")
+  If Exist(User.home & "/webcam_carnet.png") Then
+    Exec ["mv", User.home & "/webcam_carnet.png", nombrefinal] Wait
+
+    reg.foto = ModuleIntermedio.extraedesdebarra(nombrefinal)
+    PictureBoxFoto.tag = reg.foto
+    PictureBoxFoto.picture = Picture[nombrefinal]
+  Endif
+
+End
+
+Public Sub PictureBoxFoto_MouseDown()
+
+  reg.foto = ModuleAsignarYSoltarImagenes.asignaImagen(PictureBoxFoto, modulePrincipal.RutaPrograma & "temporales/FotosProfesores/")
+  PictureBoxFoto.tag = reg.foto
+
+End
+
+Public Sub ToolButtonCancelar_Click()
+
+  Me.Close
+
+End
+
+Public Sub TextBoxNombre_KeyPress()
+
+  If Key.code = Key.enter Or Key.Code = Key.Return Then
+    TextBoxApellidos.SetFocus
+  Endif
+
+End
+
+Public Sub TextBoxApellidos_KeyPress()
+
+  If Key.code = Key.enter Or Key.Code = Key.Return Then
+    TextBoxAsignatura.SetFocus
+  Endif
+
+End
+
+Public Sub TextBoxAsignatura_KeyPress()
+
+  If Key.code = Key.enter Or Key.Code = Key.Return Then
+    ValueBoxOrden.SetFocus
+  Endif
+
+End
+
+Public Sub ValueBoxOrden_KeyPress()
+
+  If Key.code = Key.enter Or Key.Code = Key.Return Then
+    ToolButtonAceptar.SetFocus
+  Endif
+
+End
+
+Public Sub ToolButtonAceptar_KeyPress()
+
+  If Key.code = Key.enter Or Key.Code = Key.Return Then
+
+    ToolButtonAceptar_Click()
+  Endif
+
+End
+
+Public Sub ToolButtonAjustarFoto_Click()
+
+  Dim ajusteFoto As New FormExtraerFoto
+
+  If reg.foto <> "" Then
+    ajusteFoto.ruta = User.home & "/.CreadorOrlas/temporales/FotosProfesores/" & reg.foto
+    ajusteFoto.ShowDialog()
+
+    PictureBoxFoto.Picture = Picture.Load(User.home & "/.CreadorOrlas/temporales/FotosProfesores/" & reg.foto)
+    PictureBoxFoto.Refresh()
+    Try Kill modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & reg.foto
+  Endif
+
+End
+
+Public Sub ToolButtonHacerTransparente_Click()
+
+  Dim numero As Integer
+  Dim ruta As String = User.home & "/.CreadorOrlas/temporales/FotosProfesores/"
+
+  If reg.foto = "" Then
+    Message.Info(("Tienes que elegir alguna foto, antes de intentar convertirla a  fondo transparente"))
+  Else
+
+    reg.Foto = ModuleHacerTransparente.convertirTransparente(reg.foto, ruta)
+    PictureBoxFoto.tag = reg.foto
+    PictureBoxFoto.Picture = Picture.Load(ruta & reg.foto)
+  Endif
+
+End
+
+Public Sub ToolButtonEditarGimp_Click()
+
+  Dim comando As String
+
+  If Exist(User.home & "/.CreadorOrlas/temporales/FotosProfesores/" & reg.Foto) And reg.foto <> "" Then
+    Exec ["gimp", User.home & "/.CreadorOrlas/temporales/FotosProfesores/" & reg.Foto] Wait
+
+    PictureBoxFoto.Picture = Picture.Load(User.home & "/.CreadorOrlas/temporales/FotosProfesores/" & reg.Foto)
+
+  Else
+    Message.Info(("No se puede editar, debe de asignar una imagen"))
+  Endif
+
+End

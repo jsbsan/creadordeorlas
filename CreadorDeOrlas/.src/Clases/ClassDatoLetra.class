@@ -1,0 +1,30 @@
+' Gambas class file
+
+Property nombre As String ''nombre que usa el tipo de letra
+Private hnombre As String
+Property ruta As String ''ruta del fichero y nombre con extension
+Private hruta As String
+
+Private Function ruta_read() As String
+
+  Return hruta
+
+End
+
+Private Sub ruta_write(Valor As String)
+
+  hruta = Valor
+
+End
+
+Private Function nombre_read() As String
+
+  Return hnombre
+
+End
+
+Private Sub nombre_write(Valor As String)
+
+  hnombre = Valor
+
+End

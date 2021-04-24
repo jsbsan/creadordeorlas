@@ -1,0 +1,172 @@
+' Gambas module file
+
+Public Sub InsertarDatosSoltados(datos As Variant, ListaDePersona As Object) As Boolean
+
+  Dim resultado As Boolean
+  Dim a As Integer
+  Dim cadena As New String[]
+  Dim subcadena As New String[]
+
+  'solo procesar las lista de ficheros (solo texto)
+
+  If Drag.type = 1 Then
+    cadena = Split(Drag.Data, "\n")
+
+    Print "ficheros:"
+    For a = 0 To cadena.count - 2
+
+      subcadena = Split(cadena[a], "\r")
+
+      'Print "solo fichero...", subcadena[0]
+
+      resultado = annadedatos(Replace(subcadena[0], "file://", ""), ListaDePersona)
+      If resultado = False Then Return False
+    Next
+  Else
+
+    Return False
+  Endif
+
+  Return True
+
+End
+
+Public Sub InsertarDatosSoltadosCarpeta(carpeta As String, ListaDePersona As Object) As Boolean
+
+  'por cada fichero de dibujo que haya en la carpeta, añadirlo
+
+  InsertarFicherosCarpeta(carpeta, ListaDePersona, "*.png")
+
+  InsertarFicherosCarpeta(carpeta, ListaDePersona, "*.jpg")
+
+  InsertarFicherosCarpeta(carpeta, ListaDePersona, "*.jpeg")
+  Return True
+
+End
+
+Private Sub InsertarFicherosCarpeta(carpeta As String, ListaDePersona As Object, tipo As String)
+
+  Dim dirfile As String[]
+  Dim nombrefichero As String
+  Dim resultado As Boolean
+
+  dirfile = Dir(carpeta, tipo)
+  For Each nombrefichero In dirfile
+    resultado = annadedatos(carpeta & "/" & nombrefichero, ListaDePersona)
+  Next
+
+End
+
+Private Sub annadedatos(nombrefichero As String, ListaDePersona As Object) As Boolean
+
+  Dim comando As String
+  Dim nombrepersona As String
+  Dim cadena As New String[]
+  Dim regAlumno As New ClassAlumno
+  Dim regProfesor As New ClassProfesor
+  Dim reg As New ClassPersona
+  Dim fichero As String
+
+  nombrefichero = URLDecode(nombrefichero)
+
+  nombrepersona = ModuleUtilidadesDisco.extraedesdebarra(nombrefichero)
+
+  fichero = Replace(nombrepersona, " ", "_")
+  'copiar fotografia al directorio correcto
+  If object.type(ListaDePersona) = "ClassListaAlumnos" Then
+
+    Try Kill User.Home & "/.CreadorOrlas/temporales/FotosAlumnos/" & fichero
+    Copy nombrefichero To User.Home & "/.CreadorOrlas/temporales/FotosAlumnos/" & fichero
+
+  Else If Object.Type(ListaDePersona) = "ClassListaProfesores" Then
+    Try Kill User.Home & "/.CreadorOrlas/temporales/FotosProfesores/" & fichero
+    Copy nombrefichero To User.Home & "/.CreadorOrlas/temporales/FotosProfesores/" & fichero
+
+  Else
+    Message.Info(("No reconozco la lista de personas recibida"))
+    Return False
+  Endif
+
+  reg.Foto = fichero
+
+  'extraigo extension...
+  nombrepersona = Mid$(nombrepersona, 1, Len(nombrepersona) - 4)
+
+  cadena = Split(nombrepersona, ",")
+  reg.Apellidos = cadena[0]
+  If cadena.count > 1 Then
+    reg.Nombre = cadena[1]
+  Endif
+  ' reg.Orden = ValueBoxOrden.value
+
+  If object.type(ListaDePersona) = "ClassListaAlumnos" Then
+
+    'si estoy añadiendo paso a añadir datos
+    regAlumno.Apellidos = reg.Apellidos
+    regAlumno.Nombre = reg.Nombre
+    regAlumno.Foto = reg.Foto
+
+    ModuleGestionAlumnos.anadirRegistro(regAlumno)
+    FMain.GridViewRegistrosAlumnos.rows.count += 1
+    ModuleGestionAlumnos.guardado = False
+  Else If Object.Type(ListaDePersona) = "ClassListaProfesores" Then
+    regProfesor.Apellidos = reg.Apellidos
+    regProfesor.Nombre = reg.Nombre
+    regProfesor.Foto = reg.Foto
+
+    ModuleGestionProfesores.anadirRegistro(regProfesor)
+    FMain.GridViewRegistrosProfesores.rows.count += 1
+    ModuleGestionProfesores.guardado = False
+  Else
+    Message.Info(("No reconozco la lista de personas recibida"))
+    Return False
+  Endif
+
+  Return True
+
+End
+
+'----------------------------------------------------------------------
+'http://www.gambas-es.org/viewtopic.php?f=1&t=2054&postdays=0&postorder=asc&start=10
+'----------------------------------------------------------------------
+'
+Private Function URLDecode(txt As String) As String
+  ''' Descodifica los caracteres hexadecimales en las URI's recorriendo la cadena dada
+  ''' Params: txt la URI a descodificar
+  ''' Return: la URI descodificada
+
+  Dim txt_len As Integer
+  Dim i As Integer
+  Dim ch As String
+  Dim digits As String
+  Dim resultado As String
+
+  resultado = ""
+  txt_len = Len(txt)
+  i = 1
+  Do While i <= txt_len
+    ' Examinar el siguiente caracter
+    ch = Mid$(txt, i, 1)
+    If ch = "+" Then
+      ' Convertir a espacio
+      resultado = resultado & " "
+    Else If ch <> "%" Then
+      ' Normal, no cambiar
+      resultado = resultado & ch
+    Else If i > txt_len - 2 Then
+      resultado = resultado & ch
+    Else
+      ' Obtener los siguientes caracteres hex.
+      digits = Mid$(txt, i + 1, 2)
+      ' Debug digits
+      ' aquí convertimos el valor hexadecimal a entero y
+      ' se lo pasamos a Chr que devuelve el carácter correcto.
+      resultado = resultado & Chr$(CInt(Val("&" & digits)))
+      i = i + 2
+    Endif
+    i = i + 1
+  Loop
+
+  Return resultado
+
+End

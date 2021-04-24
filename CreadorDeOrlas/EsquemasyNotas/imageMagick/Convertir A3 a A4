@@ -1,0 +1,16 @@
+
+http://linproject.blogspot.com.es/2012/09/scaling-pdf-file-from-a3-to-a4.html
+
+ Scaling a pdf file from A3 to A4
+This is just a quick tip for converting a pdf file from one pagesize to another.
+By using the command convert this is easily achieved.
+
+This is the quickest way I've found to do this:
+
+
+convert -page a3 infile.pdf -page a4 outfile.pdf
+
+The outfile.pdf should now be sized as an A4 page.
+The command is as follows: convert [input file options] infile.pdf [output file options] outfile.pdf
+
+Of course it is possible to convert to and from other sizes as well.

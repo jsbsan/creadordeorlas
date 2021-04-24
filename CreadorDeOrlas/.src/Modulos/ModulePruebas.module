@@ -1,0 +1,33 @@
+' Gambas module file
+
+Private alumno As New ClassAlumno
+Private profesor As New ClassProfesor
+
+Public Sub escribe()
+
+  alumno.Nombre = "Julio"
+  alumno.Apellidos = "Sanchez"
+  alumno.Provincia = "Cadiz"
+  Print alumno.Text()
+
+  profesor.Nombre = "Don Angel"
+  profesor.apellidos = "Benitez"
+  profesor.Asignatura = "Matemáticas"
+  Print profesor.Text()
+
+  ModuleGestionAlumnos.anadirRegistro(alumno)
+  ModuleGestionProfesores.anadirRegistro(profesor)
+
+  profesor = New ClassProfesor
+  profesor.Nombre = "Don Manuel"
+  profesor.apellidos = "Benitez"
+  profesor.Asignatura = "Lengua"
+  Print profesor.Text()
+
+  ModuleGestionProfesores.anadirRegistro(profesor)
+  Print ModuleGestionAlumnos.lista.Registros[0].Id
+  Print ModuleGestionProfesores.lista.Registros[0].Id
+  Print ModuleGestionProfesores.lista.Registros[1].Id
+  Print "-----------------------"
+
+End

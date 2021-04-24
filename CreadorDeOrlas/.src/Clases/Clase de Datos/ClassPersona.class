@@ -1,0 +1,164 @@
+' Gambas class file
+
+Property FotoRellena As String
+
+Private hfotorellena As String
+
+Property Foto As String ''nombre del fichero que continee la foto
+Private hFoto As String
+Property Nombre As String ''Nombre del señor
+Private hNombre As String
+Property Apellidos As String 'apellidos del señor
+Private hApellidos As String
+Property posicion As ClassPos ''posicion XY donde esta
+Private hposicion As New ClassPos
+Property colocado As Boolean '' si esta colocado en la página
+Private hcolocado As Boolean
+Property Id As Integer
+Private hId As Integer
+Property Tag As String
+Private hTag As String
+Property Orden As Integer
+Private hOrden As Integer
+
+'subrutinas
+Public Sub vacio()
+
+  hfoto = ""
+  hNombre = ""
+  hApellidos = ""
+  hposicion.vacio()
+  hcolocado = False
+  hid = 0
+  htag = ""
+  horden = 0
+
+End
+
+Public Sub Text() As String
+
+  Dim cadena As String
+
+  cadena = Me.Foto & "\n"
+  cadena &= Me.Nombre & "\n"
+  cadena &= Me.Apellidos & "\n"
+  cadena &= Me.posicion.Text()
+  cadena &= Me.colocado & "\n"
+  cadena &= Me.id & "\n"
+  cadena &= Me.Tag & "\n"
+  cadena &= Me.Orden & "\n"
+  Return cadena
+
+End
+
+'----------------------------------------------------
+'PROPIEDADES
+'----------------------------------------------------
+
+Private Function Tag_read() As String
+
+  Return hTag
+
+End
+
+Private Sub Tag_write(Valor As String)
+
+  hTag = Valor
+
+End
+
+Private Function Id_read() As Integer
+
+  Return hId
+
+End
+
+Private Sub Id_write(Valor As Integer)
+
+  hId = Valor
+
+End
+
+Private Function colocado_read() As Boolean
+
+  Return hcolocado
+
+End
+
+Private Sub colocado_write(Valor As Boolean)
+
+  hcolocado = Valor
+
+End
+
+Private Function posicion_read() As ClassPos
+
+  Return hposicion
+
+End
+
+Private Sub posicion_write(Valor As ClassPos)
+
+  hposicion = Valor
+
+End
+
+Private Function Apellidos_read() As String
+
+  Return hApellidos
+
+End
+
+Private Sub Apellidos_write(Valor As String)
+
+  hApellidos = Valor
+
+End
+
+Private Function Nombre_read() As String
+
+  Return hNombre
+
+End
+
+Private Sub Nombre_write(Valor As String)
+
+  hNombre = Valor
+
+End
+
+Private Function Foto_read() As String
+
+  Return hFoto
+
+End
+
+Private Sub Foto_write(Valor As String)
+
+  hFoto = Valor
+
+End
+
+Private Function Orden_read() As Integer
+
+  Return hOrden
+
+End
+
+Private Sub Orden_write(Valor As Integer)
+
+  hOrden = Valor
+
+End
+
+Private Function FotoRellena_Read() As String
+
+  Return hfotorellena
+
+End
+
+Private Sub FotoRellena_Write(Value As String)
+
+  hfotorellena = Value
+
+End

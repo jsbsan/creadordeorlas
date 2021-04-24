@@ -1,0 +1,274 @@
+' Gambas module file
+
+Public Sub IniciarLaPrimeraVez(rutaSprograma As String[]) ''Pasar lista de rutas a crear...siendo la 0 la ruta del programa
+
+  Dim a As Integer
+
+  'borrar datos anteriores
+
+  borradoDatosAnteriores(rutaSprograma)
+
+  'añado ruta principal y la de las plantillas de orla (para que la anterior sbrutina no las borrara)
+  rutaSprograma.Add(User.home & "/.CreadorOrlas/", 0)
+  rutaSprograma.Add(User.home & "/.CreadorOrlas/" & "plantillasOrla", 1)
+  ' rutaSprograma.Add(User.Home & "/Imágenes/")
+  rutaSprograma.Add(User.Home & "/.CreadorOrlas/Marcos/")
+  'contador para bucle For...Next
+  ' User.Home & "/ConstructorDiplomas/"
+  'Crear Directorios del trabajo Actual
+  For a = 0 To rutaSprograma.count - 1
+    If Not Exist(rutaSprograma[a]) Then Mkdir rutaSprograma[a]
+  Next
+
+  copiarPlantillasInternas()
+
+  ModuleHacerTransparente.copiarScriptTransparente(ModulePrincipal.RutaPrograma)
+
+  If Exist(ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas") Then
+  Else
+    Wait 0.5
+    Copy "FotoFotoCarnetMyWebCam.gambas1" To ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas"
+    Wait 0.5
+  Endif
+
+  Try Chmod ModulePrincipal.RutaPrograma & "FotoFotoCarnetMyWebCam.gambas" To "rwxr-x---" 'doy permisos de ejecucion al programa de fotocarnets...
+
+  'formas y efectos
+
+  Try Copy "Efectos/Alu93x113.png" To "/tmp/Alu93x113.png"
+  Try Copy "Editor/Pro.png" To "/tmp/Pro93x113.png"
+  Try Copy "Efectos/elipse.png" To "/tmp/elipse.png"
+  Try Copy "Efectos/ZigZag.png" To "/tmp/ZigZag.png"
+  Try Copy "Efectos/formacuna.png" To "/tmp/formacuna.png"
+  Try Copy "Efectos/V.png" To "/tmp/V.png"
+  Try Copy "Efectos/marcolapiz.png" To "/tmp/marcoEspecial.png"
+
+  'copia de icono de candado
+  Try Copy "CandadoAbierto.png" To "/tmp/CandadoAbierto.png"
+  Try Copy "CandadoCerrado.png" To "/tmp/CandadoCerrado.png"
+  'compia escudos
+  Try Copy "ESCUDO01" To ModulePrincipal.RutaPrograma & "plantillasOrla/ESCUDO01"
+  Try Copy "ESCUDO02" To ModulePrincipal.RutaPrograma & "plantillasOrla/ESCUDO02"
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub copiarPlantillasInternas()
+
+  Dim a As Integer
+
+  For a = 1 To 2 'orlas que tengo en plantillas
+    '  Try Mkdir ModulePrincipal.RutaPrograma & "plantillasOrla/orla" & Str$(a)
+    ModuleUtilidadesDisco.CopiarFicherosInterna("Plantillas/orla" & Str$(a), ModulePrincipal.RutaPrograma & "plantillasOrla/", "*.*")
+
+  Next
+
+  ModuleUtilidadesDisco.CopiarFicherosInterna("Marcos", User.Home & "/.CreadorOrlas/Marcos/", "*.*")
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub borradoDatosAnteriores(rutas As String[])
+
+  Dim a As Integer
+
+  For a = 0 To rutas.max
+    If rutas[a] = User.home & "/.CreadorOrlas/" Or rutas[a] = User.home & "/.CreadorOrlas/" & "plantillasOrla" Or rutas[a] = User.Home & "/Imágenes/" Or rutas[a] = User.home & "/Imágenes/Marcos/" Then
+    Else
+
+      ModuleUtilidadesDisco.vaciarDirectorio(rutas[a])
+    Endif
+
+  Next
+
+End
+
+Public Sub IniciarGridViewRegistrosProfesoresores(grid As ClassSuperGridview)
+
+  With grid
+    .header = 3
+    .rows.count = 1000
+    .columns.count = 6
+    .columns[0].title = "Foto "
+    .Columns[1].title = "Nombre"
+    .Columns[2].title = "Apellidos"
+    .Columns[3].title = "Orden"
+    .Columns[4].title = "Asignatura"
+    .Columns[0].width = 50
+    .Columns[1].width = 75
+    .Columns[2].width = 200
+    .Columns[3].width = 50
+    .Columns[4].width = 200
+    .Columns[5].width = 0
+    .font.name = "Sans"
+    .font.size = 9
+    .mode = 1
+    .w = 485
+    .h = 475
+    .x = 10
+    .y = 40
+    .TOOLTIP = "Si haces doble click en una fila, la puedes editar"
+  End With
+
+End
+
+Public Sub IniciarGridViewRegistrosAlumnos(grid As ClassSuperGridview)
+
+  With grid
+    .header = 3
+    .rows.count = 1000
+    .columns.count = 7
+    .columns[0].title = "Foto "
+    .Columns[1].title = "Nombre"
+    .Columns[2].title = "Apellidos"
+    .Columns[3].title = "Orden"
+    .Columns[4].title = "Pueblo"
+    .Columns[5].title = "Provincia"
+    .Columns[0].width = 50
+    .Columns[1].width = 100
+    .Columns[2].width = 150
+    .Columns[3].width = 50
+    .Columns[4].width = 75
+    .Columns[5].width = 75
+    .Columns[6].width = 0
+    .font.name = "Sans"
+    .font.size = 9
+    .mode = 1
+    .w = 510
+    .h = 475
+    .x = 10
+    .y = 40
+    .TOOLTIP = "Si haces doble click en una fila, la puedes editar"
+  End With
+
+End
+
+Public Sub rellenarGridviewsAlumnos(rejilla As ClassSuperGridview, Lista As ClassListaAlumnos)
+
+  Dim regtmp As ClassAlumno
+  Dim contadorPosicionFilaGrid As Integer
+
+  'limpiar la rejilla de datos
+  rejilla.indice.Clear()
+  contadorPosicionFilaGrid = 0
+  rejilla.rows.count = Lista.registros.count + 1
+
+  For Each regtmp In Lista.registros
+    'Añadir pequeña miniatura de imagen. Alumno
+    ' rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
+    'aqui escribo icono
+
+    If regtmp.foto <> "" Then
+      If Not Exist(modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & regtmp.foto) Then
+        rejilla[contadorPosicionFilaGrid, 0].picture = reduce(modulePrincipal.RutaPrograma & "temporales/FotosAlumnos/" & regtmp.foto, modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & regtmp.foto)
+
+      Else
+
+        rejilla[contadorPosicionFilaGrid, 0].Picture = Picture.Load(modulePrincipal.RutaPrograma & "temporales/FotosAlumnosMini/" & regtmp.foto)
+      Endif
+      rejilla.rows[contadorPosicionFilaGrid].height = 35
+
+    Endif
+    rejilla[contadorPosicionFilaGrid, 1].text = regtmp.nombre
+    rejilla[contadorPosicionFilaGrid, 2].text = regtmp.Apellidos
+    rejilla[contadorPosicionFilaGrid, 3].text = Str$(regtmp.orden)
+    rejilla[contadorPosicionFilaGrid, 4].text = regtmp.Pueblo
+    rejilla[contadorPosicionFilaGrid, 5].text = regtmp.Provincia
+    rejilla[contadorPosicionFilaGrid, 6].text = regtmp.Id
+    rejilla.indice.add(regtmp.id)
+    contadorPosicionFilaGrid += 1
+  Next
+
+  rejilla[contadorPosicionFilaGrid, 0].text = ""
+  rejilla[contadorPosicionFilaGrid, 0].Picture = Picture.Load("/tmp/ZigZag.png")
+  rejilla[contadorPosicionFilaGrid, 1].text = ""
+  rejilla[contadorPosicionFilaGrid, 2].text = ""
+  rejilla[contadorPosicionFilaGrid, 3].text = ""
+  rejilla[contadorPosicionFilaGrid, 4].text = ""
+  rejilla[contadorPosicionFilaGrid, 5].text = ""
+  rejilla[contadorPosicionFilaGrid, 6].text = ""
+
+  rejilla.Refresh()
+
+End
+
+Public Sub rellenarGridviewsProfesores(rejilla As ClassSuperGridview, Lista As ClassListaProfesores)
+
+  Dim regtmp As ClassProfesor
+  Dim contadorPosicionFilaGrid As Integer
+
+  'limpiar la rejilla de datos
+  rejilla.indice.Clear()
+  contadorPosicionFilaGrid = 0
+  rejilla.rows.count = Lista.registros.count + 1
+
+  For Each regtmp In Lista.registros
+    'Añadir pequeña miniatura de imagen. Profesor
+    '    rejilla[contadorPosicionFilaGrid, 0].text = regtmp.foto
+    If regtmp.foto <> "" Then
+      If Not Exist(modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & regtmp.foto) Then
+        rejilla[contadorPosicionFilaGrid, 0].picture = reduce(modulePrincipal.RutaPrograma & "temporales/FotosProfesores/" & regtmp.foto, modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & regtmp.foto)
+
+      Else
+
+        rejilla[contadorPosicionFilaGrid, 0].Picture = Picture.Load(modulePrincipal.RutaPrograma & "temporales/FotosProfesoresMini/" & regtmp.foto)
+      Endif
+      rejilla.rows[contadorPosicionFilaGrid].height = 35
+
+    Endif
+
+    rejilla[contadorPosicionFilaGrid, 1].text = regtmp.nombre
+    rejilla[contadorPosicionFilaGrid, 2].text = regtmp.Apellidos
+    rejilla[contadorPosicionFilaGrid, 3].text = Str$(regtmp.orden)
+    rejilla[contadorPosicionFilaGrid, 4].text = regtmp.Asignatura
+    rejilla[contadorPosicionFilaGrid, 5].text = regtmp.Id
+    rejilla.indice.add(regtmp.id)
+    contadorPosicionFilaGrid += 1
+  Next
+
+  rejilla[contadorPosicionFilaGrid, 0].text = ""
+  rejilla[contadorPosicionFilaGrid, 0].Picture = Picture.Load("/tmp/ZigZag.png")
+  rejilla[contadorPosicionFilaGrid, 1].text = ""
+  rejilla[contadorPosicionFilaGrid, 2].text = ""
+  rejilla[contadorPosicionFilaGrid, 3].text = ""
+  rejilla[contadorPosicionFilaGrid, 4].text = ""
+  rejilla[contadorPosicionFilaGrid, 5].text = ""
+  rejilla.Refresh()
+
+End
+
+Public Sub extraedesdebarra(ruta As String) As String
+
+  Dim a As Integer
+  Dim letra As String
+  Dim cadena As String
+
+  For a = Len(ruta) To 1 Step -1
+    letra = Mid$(ruta, a, 1)
+    If letra = "/" Then
+      Return cadena
+    Else
+      cadena = letra & cadena
+    Endif
+
+  Next
+
+End
+
+Private Function reduce(ruta As String, rutafin As String) As Picture
+
+  Dim dibujo As New Picture
+  Dim comando As String
+  'crea una minuatura de la imagen dada y la pasa al Fotos...Mini
+  comando = "convert " & ruta & " -resize 30x40  " & rutafin
+  Shell comando Wait
+
+  dibujo = Picture[rutafin]
+
+  Return dibujo
+
+End

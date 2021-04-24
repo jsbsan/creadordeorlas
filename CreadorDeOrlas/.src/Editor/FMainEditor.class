@@ -1,0 +1,634 @@
+' Gambas class file
+
+Public listaAlumnos As New ClassListaAlumnos
+Public listaProfesores As New ClassListaProfesores
+
+Public plantillaActual As String 'plantilla actual a la que tendriamos que cargar
+Public arrayBox As New ClassMejorPictureBox[]
+Public objetoCapturado As ClassMejorPictureBox
+
+Public imagenAlumno As Picture = Picture["Editor/Alu.png"]
+Public imagenAlumnoDes As Picture = Picture["Editor/AluDes.png"]
+Public imagenAlumnoMarco As New Picture
+
+Public imagenPro As Picture = Picture["Editor/Pro.png"]
+Public imagenProDes As Picture = Picture["Editor/ProDes.png"]
+Public escalafoto As Integer = 4
+Public coeficienteEscala As Float = 0.65
+Public imagenfondo As Picture
+Public esquema As String 'para alumnos
+Public esquemaprofesor As String 'para profesor
+
+Public ImagenAncho As Integer
+Public ImagenLargo As Integer
+
+Public espacioancho As Integer
+Public espaciolargo As Integer
+
+Public distanciaSeleccionX As Integer 'distancia entre el x.y de la imagen y donde se ha hecho click
+Public distanciaSeleccionY As Integer
+
+Public Sub _new()
+
+End
+
+Public Sub form_Show()
+
+End
+
+Public Sub Form_Open()
+
+  Me.Maximized = True
+
+  ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar("apellidos")
+  ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar("apellidos")
+
+  If ModuleGestionOrla.orla.PosicionesDefinidas = False Then
+    'aplicar ordenacion de registros , en el principio lo ordena todo segun los apellidos
+    ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar("apellidos")
+    ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar("apellidos")
+
+    ModuleDistribucionFotos.hacerGenerico("alumno", ModuleGestionAlumnos.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla)
+    ModuleDistribucionFotos.hacerGenerico("profesor", ModuleGestionProfesores.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla, esquemaprofesor)
+    ToolButtonBloquearPosicion.tag = "Desbloqueada"
+    ToolButtonBloquearPosicion.Picture = Picture["/tmp/CandadoAbierto.png"]
+
+    CheckBoxBloqueo.value = 1
+  Else
+
+    ToolButtonBloquearPosicion.tag = "bloqueada"
+    ToolButtonBloquearPosicion.Picture = Picture["/tmp/CandadoCerrado.png"]
+    CheckBoxBloqueo.value = 0
+  Endif
+
+  TextBoxEsquema.text = esquema
+  TextBoxEsquema2.text = esquemaprofesor
+  ValueBoxHorizontal.Value = espacioancho
+  ValueBoxVertical.Value = espaciolargo
+
+  LabelTextoPersona.Visible = False
+  'uno las dos imagenes del fondo y de la rejilla-reglas
+
+  'cargo el fondo...
+  dibujafondo(True)
+
+  'creo 2 objetos ClassMejorPictureBox (en verdad seria todos los que me pasen como argumento
+  dibujoObjetos()
+  FormPensando.parar = True
+  FormPensando.delete()
+  FormPensando.Close()
+
+  Me.Center
+
+End
+
+Public Sub Form_Resize()
+
+  ScrollView1.w = Me.w - ScrollView1.x - 5
+  ScrollView1.h = Me.h - ScrollView1.y - 5
+
+End
+
+Public Sub Obs_MouseDown()
+
+  ' Print "Evento en Obs.....mousedoww"
+  capturaDown(Mouse.ScreenX, Mouse.screeny)
+
+End
+
+Public Sub Obs_MouseUp()
+
+  ' Print "....up"
+  capturaUp()
+
+End
+
+Public Sub obs_MouseMove()
+
+  '  Print "Evento en Obs...mousemove"
+  If CheckBoxBloqueo.Value = False Then
+  Else
+    capturaMoviendo(Mouse.screenx, Mouse.screeny)
+  Endif
+
+End
+
+Public Sub PictureBoxFONDO_MouseDown()
+
+  ' Print "Evento producido en PictureBoxFondo.... mousedown"
+  capturaDown(Mouse.screenX, Mouse.screenY)
+
+End
+
+Public Sub PictureBoxFONDO_MouseMove()
+
+  ' Print "Evento producido en PictureBoxFondo.... mousemove"
+  If CheckBoxBloqueo.Value = False Then
+  Else
+    capturaMoviendo(Mouse.screenx, Mouse.screeny)
+
+  Endif
+
+End
+
+Public Sub PictureBoxFONDO_MouseUp()
+
+  ' Print "Evento producido en PictureBoxFondo....UP"
+  '  Print "Evento producidoen PictureBoxFondo...mouseup"
+  capturaUp()
+
+End
+
+Public Sub ScrollView1_Scroll()
+
+  '  Print "Evento producido en ScrollView1....scroll"
+  'ScrollView1.EnsureVisible(0, 0, imagenfondo.w, imagenfondo.h)
+  PictureBoxFONDo.setfocus()
+
+End
+
+Public Sub ScrollView1_MouseUp()
+
+  ' Print "Evento producido en ScrollView1....mouseUp"
+  capturaUp()
+
+End
+
+Public Sub ScrollView1_MouseDown()
+
+  '  Print "Evento producido en ScrollView1.....MOuseDown"
+  capturaDown(Mouse.screenX, Mouse.screenY)
+
+End
+
+Public Sub ScrollView1_MouseMove()
+
+  '  Print "Evento producido en ScrollView1....mouseMove"
+  If CheckBoxBloqueo.Value = False Then
+  Else
+    capturaMoviendo(Mouse.screenX, Mouse.screenY)
+  Endif
+
+End
+
+'------------------------------------------------------------------------
+' up, down, y move
+'------------------------------------------------------------------------
+
+Public Sub capturaUp()
+  'suelta el boton...
+
+  If Not IsNull(objetoCapturado) Then
+    If objetoCapturado.tipo = "Alumno" Then
+      objetoCapturado.Picture = Picture.Load(ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos" & "/" & listaAlumnos.Registros[objetoCapturado.indice].foto) 'imagenAlumno
+      'revisar
+      '
+      listaAlumnos.Registros[objetoCapturado.indice].posicion.x = objetoCapturado.x * escalafoto
+      listaAlumnos.Registros[objetoCapturado.indice].posicion.y = (objetoCapturado.y - 35) * escalafoto
+
+    Else
+      If objetoCapturado.tipo = "Profesor" Then
+        objetoCapturado.Picture = Picture.Load(ModulePrincipal.RutaPrograma & "temporales/FotosProfesores" & "/" & listaProfesores.Registros[objetoCapturado.indice].foto) 'imagenPro ' imagenPro
+        'revisar
+        listaProfesores.Registros[objetoCapturado.indice].posicion.x = objetoCapturado.x * escalafoto
+        listaProfesores.Registros[objetoCapturado.indice].posicion.y = (objetoCapturado.y - 35) * escalafoto
+      Endif
+    Endif
+    LabelCoordenada.x = objetoCapturado.x
+    LabelCoordenada.y = objetoCapturado.y - 20
+    LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
+    LabelTextoPersona.Visible = False
+    LabelCoordenada.Visible = False
+    objetoCapturado = Null
+
+  Endif
+
+End
+
+Public Sub capturaMoviendo(mousex As Integer, mousey As Integer)
+
+  If Not IsNull(objetoCapturado) Then
+    objetoCapturado.X += (MouseX + distanciaSeleccionX - objetoCapturado.ScreenX) / escalafoto
+    objetoCapturado.y += (Mousey + distanciaSeleccionY - objetoCapturado.ScreenY) / escalafoto
+    LabelTextoPersona.x = objetoCapturado.x
+    LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
+    LabelTextoPersona.Visible = True
+
+    LabelCoordenada.x = objetoCapturado.x
+    LabelCoordenada.y = objetoCapturado.y - 20
+    LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
+    LabelCoordenada.Visible = True
+  Endif
+
+End
+
+Public Sub capturaDown(mouseScreenx As Integer, mouseScreeny As Integer)
+
+  Dim objtemp As ClassMejorPictureBox
+
+  Print mouseScreenx, mouseScreeny
+  'busco si algun array
+  For Each objtemp In arrayBox
+    ' Print "       Objeto:", objtemp.screenX, objtemp.screenY
+    '  Print "       scrollX:", ScrollView1.Scrollx
+    If MousescreenX >= (objtemp.screenX) And (objtemp.screenX + 59) >= MousescreenX Then
+      If MousescreenY >= (objtemp.ScreenY) And (objtemp.screenY + 83) >= mouseScreeny Then
+        objetoCapturado = objtemp
+        If objetoCapturado.tipo = "Alumno" Then
+
+          'Print objetoCapturado.Picture.w, objetoCapturado.Picture.h
+          LabelTextoPersona.x = objetoCapturado.x
+          LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
+          LabelTextoPersona.text = objetoCapturado.Texto
+          LabelTextoPersona.Visible = True
+
+          LabelCoordenada.x = objetoCapturado.x
+          LabelCoordenada.y = objetoCapturado.y - 20
+          LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
+          LabelCoordenada.Visible = True
+
+          distanciaSeleccionX = - MousescreenX + objtemp.screenX
+          distanciaSeleccionY = - MousescreenY + objtemp.screenY
+
+          If ModuleGestionOrla.orla.PosicionesDefinidas = True Then
+            Message.Title = "Posiciones Bloqueadas de las Imagenes"
+            Message.Info("Las imagenes no se pueden mover....\n ponga el candado en Abierto (en rojo) para poderlas mover")
+          Else
+            objetoCapturado.Picture = imagenAlumnoDes
+
+          Endif
+          Break
+        Else
+          If objetoCapturado.tipo = "Profesor" Then
+
+            LabelTextoPersona.x = objetoCapturado.x
+            LabelTextoPersona.y = objetoCapturado.y + imagenPro.h / escalafoto
+            LabelTextoPersona.text = objetoCapturado.Texto
+            LabelTextoPersona.Visible = True
+
+            LabelCoordenada.x = objetoCapturado.x
+            LabelCoordenada.y = objetoCapturado.y - 20
+            LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
+            LabelCoordenada.Visible = True
+
+            distanciaSeleccionX = - MousescreenX + objtemp.screenX
+            distanciaSeleccionY = - MousescreenY + objtemp.screenY
+
+            If ModuleGestionOrla.orla.PosicionesDefinidas = True Then
+              Message.Title = "Posiciones Bloqueadas de las Imagenes"
+              Message.Info("Las imagenes no se pueden mover....\n ponga el candado en Abierto (en rojo) para poderlas mover")
+            Else
+              objetoCapturado.Picture = imagenProDes
+            Endif
+            Break
+          Endif
+        Endif
+        Break
+      Endif
+    Endif
+
+  Next
+
+End
+
+Public Sub UnirImagenes(orladibujopng As String, Optional rejilla As Boolean) As String
+
+  Dim fp As New FormPensando
+  Dim fichero As String
+
+  'copio ficheros muestras a un directorio temporal
+  fp.Show()
+  Wait 0.5
+  Try Mkdir "/tmp" & "/pruebaCombinacion"
+
+  Try Copy "Editor/enblancoA3.png" To "/tmp" & "/pruebaCombinacion/enblancoA3.png"
+
+  'copio imagenes de la orla
+  If ModuleGestionOrla.orla.escudo01 <> "" Then
+    Try Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo01
+    Try Copy ModulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/" & ModuleGestionOrla.orla.escudo01 To ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo01
+  Endif
+
+  If ModuleGestionOrla.orla.escudo02 <> "" Then
+    Try Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo02
+    Try Copy ModulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/" & ModuleGestionOrla.orla.escudo02 To ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo02
+  Endif
+
+  If ModuleGestionOrla.orla.escudo03 <> "" Then
+    Try Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo03
+    Try Copy ModulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/" & ModuleGestionOrla.orla.escudo03 To ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo03
+  Endif
+
+  If ModuleGestionOrla.orla.escudo04 <> "" Then
+    Try Kill ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo04
+    Try Copy ModulePrincipal.RutaPrograma & "temporales/FotosPlantillaOrla/" & ModuleGestionOrla.orla.escudo04 To ModulePrincipal.RutaPrograma & "trabajotmp/" & ModuleGestionOrla.orla.escudo04
+  Endif
+
+  'crear la representacion del fondo..
+  Exec ["inkscape", ModuleDistribucionFotos.rellenarOrla(ModuleGestionOrla.orla.Plantilla), "--export-png", "/tmp" & "/pruebaCombinacion/temporalFondo.png"] Wait
+
+  'Try Copy "Editor/temporalFondo.png" To "/tmp" & "/pruebaCombinacion/temporalFondo.png"
+
+  Try Copy "Editor/cuadriculaA3.png" To "/tmp" & "/pruebaCombinacion/cuadriculaA3.png"
+
+  Exec ["composite", "/tmp" & "/pruebaCombinacion/temporalFondo.png", "-geometry", "+40+35", "/tmp" & "/pruebaCombinacion/enblancoA3.png", "/tmp" & "/pruebaCombinacion/c0.png"] Wait
+  If rejilla Then
+    Exec ["composite", "/tmp" & "/pruebaCombinacion/c0.png", "/tmp" & "/pruebaCombinacion/cuadriculaA3.png", "/tmp" & "/pruebaCombinacion/c2.png"] Wait
+    fichero = "/tmp" & "/pruebaCombinacion/c2.png"
+  Else
+    fichero = "/tmp" & "/pruebaCombinacion/c0.png"
+  Endif
+  fp.parar = True
+  ' fp.Delete()
+  fp.Close()
+  Return fichero
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub CheckBoxRejilla_Click()
+
+  dibujafondo(CheckBoxRejilla.Value)
+
+End
+
+Public Sub dibujafondo(rejilla As Boolean)
+
+  Imagenfondo = Picture.Load(UnirImagenes("hola", rejilla))
+
+  PictureBoxFONDO.h = imagenfondo.H * coeficienteEscala
+  PictureBoxFONDO.w = imagenfondo.w * coeficienteEscala
+  PictureBoxFONDO.Stretch = True
+  PictureBoxFONDO.Picture = imagenfondo
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+'----------------------------------------------------------------------------
+'DIBUJAR OBJETOS
+'----------------------------------------------------------------------------
+
+Public Sub dibujoObjetos(Optional cadena As String)
+
+  Dim a, b As Integer
+  Dim temporalpicture As ClassMejorPictureBox
+
+  arrayBox.Clear()
+  '
+
+  '------------------------
+  'Para los alumnos
+  '------------------------
+
+  For a = 0 To listaAlumnos.Registros.Max
+    b = ModuleGestionAlumnos.ListaOrdenada[a]
+    temporalpicture = New ClassMejorPictureBox(ScrollView1)
+
+    temporalpicture.Picture = Picture[ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos" & "/" & listaAlumnos.Registros[b].Foto] ' imagenAlumno ' Picture[ModulePrincipal.RutaPrograma & "temporales/FotosAlumnos" & "/" & listaAlumnos.Registros[b].Foto] ' imagenAlumno'aqui se deberia añadir la imagen del alumno con un punto rojo
+    temporalpicture.w = imagenAlumno.w / escalafoto
+    temporalpicture.h = imagenAlumno.h / escalafoto
+
+    temporalpicture.Stretch = True
+    Object.Attach(temporalpicture, Me, "Obs")
+    'comprobar julio
+    '
+    temporalpicture.x = listaAlumnos.Registros[b].posicion.x / escalafoto
+    temporalpicture.y = listaAlumnos.Registros[b].posicion.y / escalafoto + 35
+    '  Print "Foto Editor: "; A, temporalpicture.x, temporalpicture.y
+
+    temporalpicture.tipo = "Alumno"
+    temporalpicture.indice = b
+    temporalpicture.texto = listaAlumnos.Registros[b].Nombre & "\n" & listaAlumnos.Registros[b].Apellidos
+    arrayBox.Add(temporalpicture)
+
+  Next
+  '------------------------
+  'para los profesores
+  '------------------------
+  For a = 0 To listaProfesores.Registros.Max
+    b = ModuleGestionProfesores.ListaOrdenada[a]
+    temporalpicture = New ClassMejorPictureBox(ScrollView1)
+    temporalpicture.Picture = Picture[ModulePrincipal.RutaPrograma & "temporales/FotosProfesores" & "/" & listaProfesores.Registros[b].Foto] ' imagenPro
+    temporalpicture.w = imagenPro.w / escalafoto
+    temporalpicture.h = imagenPro.h / escalafoto
+
+    temporalpicture.Stretch = True
+    temporalpicture.x = listaProfesores.Registros[b].posicion.x / escalafoto
+    temporalpicture.y = listaProfesores.Registros[b].posicion.y / escalafoto + 35
+    temporalpicture.tipo = "Profesor"
+    temporalpicture.indice = b
+    temporalpicture.texto = listaProfesores.Registros[b].Nombre & "\n" & listaProfesores.Registros[b].Apellidos & "\n" & listaProfesores.registros[b].Asignatura
+    Object.Attach(temporalpicture, Me, "Obs")
+    arrayBox.Add(temporalpicture)
+  Next
+
+End
+
+Public Sub ButtonReorganizarAlumnos_Click()
+
+  Dim objeto As Object
+  'aplicar ordenacion de registros
+  ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar(ModuleGestionOrla.ordenAlumno)
+  ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar(ModuleGestionOrla.ordenProfesor)
+
+  If TextBoxEsquema.text <> "" Then
+    If ModuleDistribucionFotos.comprobarEsquema(TextBoxEsquema.text, listaAlumnos.Registros.Count) Then
+
+      ModuleDistribucionFotos.hacerGenerico("alumno", ModuleGestionAlumnos.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla, TextBoxEsquema.text)
+
+      'ModuleDistribucionFotos.hacer(ValueBoxHorizontal.Value, ValueBoxVertical.value, ModuleGestionOrla.orla.Plantilla, TextBoxEsquema.text)
+
+      'revisar los objetos que sean classmejorpiturebox
+      For Each objeto In ScrollView1.Children
+        '  Print Object.Type(objeto)
+        If Object.Type(objeto) = "ClassMejorPictureBox" Then
+          objeto.Delete() ' = Null
+
+        Endif
+      Next
+      '
+      ' If CheckBoxMostraFotos.value = True Then
+      'modifico foto Alumno generica poniendole un marco...
+
+      '  imagenAlumnoMarco = New Picture
+      ' imagenAlumnoMarco = Picture[ModuleGenerarFotos.ponerMarco("Editor/Alu.png", RadioButtonMarco.value, ColorButton1.Value)]
+      'Endif
+
+      dibujoObjetos("alumnos")
+    Endif
+  Endif
+
+End
+
+'-------------------------------------------------------------------
+'organizar profesores
+'-------------------------------------------------------------------
+Public Sub ButtonReorganizarProfesores_Click()
+
+  Dim objeto As Object
+  'aplicar ordenacion de registros
+  ModuleGestionAlumnos.ListaOrdenada = ModuleGestionAlumnos.Ordenar(ModuleGestionOrla.ordenAlumno)
+  ModuleGestionProfesores.ListaOrdenada = ModuleGestionProfesores.Ordenar(ModuleGestionOrla.ordenProfesor)
+
+  If TextBoxEsquema2.text <> "" Then
+    If ModuleDistribucionFotos.comprobarEsquema(TextBoxEsquema2.text, listaProfesores.Registros.Count) Then
+
+      ModuleDistribucionFotos.hacerGenerico("profesores", ModuleGestionProfesores.lista.Registros, ValueBoxHorizontal.value, ValueBoxVertical.Value, ModuleGestionOrla.orla.Plantilla, TextBoxEsquema2.text)
+
+      'ModuleDistribucionFotos.hacer(ValueBoxHorizontal.Value, ValueBoxVertical.value, ModuleGestionOrla.orla.Plantilla, TextBoxEsquema.text)
+
+      'revisar los objetos que sean classmejorpiturebox
+      For Each objeto In ScrollView1.Children
+        ' Print Object.Type(objeto)
+        If Object.Type(objeto) = "ClassMejorPictureBox" Then
+          objeto.Delete() ' = Null
+
+        Endif
+      Next
+      '
+
+      dibujoObjetos("profesores")
+    Endif
+  Endif
+
+End
+
+Public Sub TextBoxEsquema_KeyPress()
+
+  If Key.Code = Key.enter Or Key.code = Key.Return Then
+    ButtonReorganizarAlumnos_Click()
+  Endif
+
+End
+
+Public Sub TextBoxEsquema2_KeyPress()
+
+  If Key.Code = Key.enter Or Key.code = Key.Return Then
+    ButtonReorganizarProfesores_Click()
+  Endif
+
+End
+
+Public Sub RadioButtonMarco_Click()
+
+End
+
+Public Sub CheckBoxBloqueo_Click()
+
+  If CheckBoxBloqueo.Value = True Then
+    ToolButtonBloquearPosicion.tag = "Desbloqueada"
+    ToolButtonBloquearPosicion.Picture = Picture["/tmp/CandadoAbierto.png"]
+    ModuleGestionOrla.orla.PosicionesDefinidas = False
+
+  Else
+    ToolButtonBloquearPosicion.tag = "bloqueada"
+    ToolButtonBloquearPosicion.Picture = Picture["/tmp/CandadoCerrado.png"]
+    ModuleGestionOrla.orla.PosicionesDefinidas = True
+
+  Endif
+
+End
+
+'------------------------------------
+' Elegir Orden alfabeticamente o definido
+'------------------------------------
+
+Public Sub RadioButtonProfesorAlfabetico_Click()
+
+  If RadioButtonProfesorAlfabetico.Value = True Then
+
+    ModuleGestionOrla.ordenProfesor = "apellidos"
+
+  Else
+
+    ModuleGestionOrla.ordenProfesor = ""
+
+  Endif
+
+End
+
+Public Sub RadioButtonProfesorIndicado_Click()
+
+  If RadioButtonProfesorIndicado.value = False Then
+
+    ModuleGestionOrla.ordenProfesor = "apellidos"
+
+  Else
+
+    ModuleGestionOrla.ordenProfesor = ""
+
+  Endif
+
+End
+
+Public Sub RadioButtonAlumnoAlfabetico_Click()
+
+  If RadioButtonAlumnoAlfabetico.value = True Then
+
+    ModuleGestionOrla.OrdenAlumno = "apellidos"
+
+  Else
+
+    ModuleGestionOrla.OrdenAlumno = ""
+
+  Endif
+
+End
+
+Public Sub RadioButtonAlumnoIndicado_Click()
+
+  If RadioButtonAlumnoIndicado.value = False Then
+
+    ModuleGestionOrla.OrdenAlumno = "apellidos"
+
+  Else
+
+    ModuleGestionOrla.OrdenAlumno = ""
+
+  Endif
+
+End
+
+Public Sub Frame7_MouseDown()
+
+End
+
+Public Sub ToolButtonSalirEditor_Click()
+
+  form_close()
+
+End
+
+Public Sub form_close()
+
+  Dim respuesta As Integer
+
+  If ModuleGestionOrla.orla.PosicionesDefinidas = False Then
+    respuesta = Message.Question(("Las imagenes no estan fijadas (no esta el candado cerrado)," & "\n" & " perdera las posiciones cuando vuelva editar" & "\n" & "¿desea salir?"), ("Si, salir"), ("Cancelar"))
+    If respuesta = 1 Then
+
+      Me.Close()
+    Else
+      Stop Event
+    Endif
+  Else
+    'estan fijada las posiciones....
+    Me.Close()
+  Endif
+
+End
+
+Public Sub ToolButtonBloquearPosicion_Click()
+
+  If CheckBoxBloqueo.Value = True Then
+    CheckBoxBloqueo.Value = False
+  Else
+
+    CheckBoxBloqueo.Value = True
+  Endif
+  ' CheckBoxBloqueo_Click()
+
+End

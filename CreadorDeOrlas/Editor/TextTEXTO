@@ -1,0 +1,18 @@
+   <text
+       x="COORDENADA_X_FRASE1"
+       y="COORDENADA_Y_FRASE1"
+       font-size="10"
+       id="textID_IMAGEN_TEXTO11"
+       style="font-size:10px;fill:#000000;text-anchor:middle;text-align:center">FRASE1</text>
+<text
+       x="COORDENADA_X_FRASE2"
+       y="COORDENADA_Y_FRASE2"
+       font-size="10"
+       id="textID_IMAGEN_TEXTO21"
+       style="font-size:10px;fill:#000000;text-anchor:middle;text-align:center">FRASE2</text>
+<text
+       x="COORDENADA_X_FRASE3"
+       y="COORDENADA_Y_FRASE3"
+       font-size="10"
+       id="textID_IMAGEN_TEXTO31"
+       style="font-size:10px;fill:#000000;text-anchor:middle;text-align:center">FRASE3</text>

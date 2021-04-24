@@ -1,0 +1,907 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,125,96)
+  Icon = Picture["orlaicono.png"]
+  Resizable = False
+  { IconPanel1 IconPanel
+    MoveScaled(0,1,124,95)
+    Count = 15
+    Border = True
+    Index = 0
+    Text = ("Creador de Orlas")
+    Picture = Picture["orlaicono.png"]
+    { PictureBox4 PictureBox
+      MoveScaled(1,1,27,16)
+      Picture = Picture["dibujos/ORLA GENERADOR.png"]
+      Stretch = True
+    }
+    { Label7 Label
+      MoveScaled(32,1,41,8)
+      Font = Font["URW Chancery L,Italic,+6"]
+      Alignment = Align.Center
+      Text = ("Creador de Orlas")
+    }
+    { Label8 Label
+      MoveScaled(31,8,45,5)
+      Alignment = Align.Center
+      Text = ("Autor: Julio Sánchez Berro")
+    }
+    { Label9 Label
+      MoveScaled(33,20,45,4)
+      Font = Font["Underline"]
+      Foreground = &H007FFF&
+      Alignment = Align.Center
+      Text = ("http://www.jsbsan.blogspot.com")
+    }
+    { TextLabel1 TextLabel
+      MoveScaled(17,21,48,38)
+      Text = ("<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\n")
+      Alignment = Align.Center
+    }
+    { PictureBox1 PictureBox
+      MoveScaled(2,23,12,19)
+      Picture = Picture["logoGambas.png"]
+      Stretch = True
+    }
+    { Label10 Label
+      MoveScaled(7,56,32,6)
+      Text = ("Crea tus propias plantillas con: ")
+    }
+    { PictureBox2 PictureBox
+      MoveScaled(39,56,9,9)
+      Picture = Picture["inkscape-icono.png"]
+    }
+    { Label11 Label
+      MoveScaled(6,70,32,6)
+      Text = ("Creado especialmente para:")
+    }
+    { PictureBox3 PictureBox
+      MoveScaled(34,63,21,15)
+      Picture = Picture["mininopicaros2012.png"]
+      Stretch = True
+    }
+    { Label12 Label
+      MoveScaled(44,56,45,4)
+      Font = Font["Underline"]
+      Foreground = &H007FFF&
+      Alignment = Align.Center
+      Text = ("inkscape")
+    }
+    { Label13 Label
+      MoveScaled(44,70,45,4)
+      Font = Font["Underline"]
+      Foreground = &H007FFF&
+      Alignment = Align.Center
+      Text = ("minino.galpon.org")
+    }
+    { LabelVersion Label
+      MoveScaled(33,12,41,4)
+      Alignment = Align.Center
+      Text = ("Label25")
+    }
+    { LabelPaginaWebProyecto Label
+      MoveScaled(1,18,27,4)
+      Font = Font["Underline"]
+      Foreground = &H007FFF&
+      Alignment = Align.Center
+      Text = ("Pagina WEB del Proyecto")
+    }
+    Index = 1
+    Text = ("Nueva")
+    Picture = Picture["icon:/22/new"]
+    { DirChooserElegirDirectorioCrearGrupo DirChooser
+      MoveScaled(2,1,82,80)
+    }
+    { Label14 Label
+      MoveScaled(1,83,11,5)
+      Text = ("Nombre:")
+    }
+    { TextBoxNombreFicheroNuevo TextBox
+      MoveScaled(12,83,31,5)
+    }
+    { ToolButtonCrear ToolButton
+      MoveScaled(62,82,13,6)
+      Text = ("Crear")
+      Picture = Picture["icon:/22/wizard"]
+      Border = True
+    }
+    { Label15 Label
+      MoveScaled(45,83,6,5)
+      Text = (".Orla")
+    }
+    Index = 2
+    Text = ("Abrir ")
+    Picture = Picture["icon:/22/open"]
+    { TextLabel2 TextLabel
+      MoveScaled(17,16,47,36)
+      Text = ("<h2>Espere por favor, estoy leyendo los datos</h2>")
+      Alignment = Align.Center
+    }
+    Index = 3
+    Text = ("Datos Alumnos")
+    Picture = Picture["icon:/22/people"]
+    { PictureBoxBotonSoltar PictureBox
+      MoveScaled(7,86,8,6)
+      Picture = Picture["drop.png"]
+    }
+    { HBox1 HBox
+      MoveScaled(1,1,78,5)
+      { ToolButtonAnnadir ToolButton
+        MoveScaled(1,0,12,4)
+        Text = ("Añadir")
+        Picture = Picture["icon:/22/add"]
+        Border = True
+      }
+      { ToolButtonEditar ToolButton
+        MoveScaled(14,1,11,4)
+        Text = ("Editar")
+        Picture = Picture["icon:/22/edit"]
+        Border = True
+      }
+      { ToolButtonBorrar ToolButton
+        MoveScaled(26,0,13,4)
+        Text = ("Borrar")
+        Picture = Picture["icon:/22/erase"]
+        Border = True
+      }
+      { ToolButtonPegar ToolButton
+        MoveScaled(40,0,12,4)
+        Tag = "Pegar el contenido del Portapapeles a la rejilla.\nLos datos deben de estar separados por tabuladores o\nestar en distintas columnas (hoja de cálculo).\nEmpiezo a pegar los datos desde la columna Nombre"
+        Text = ("Pegar")
+        Picture = Picture["icon:/22/paste"]
+        Border = True
+      }
+      { ToolButtonCopiar ToolButton
+        MoveScaled(54,0,13,4)
+        Tag = "Copiar todo la rejilla de datos  actuales\nal portapapeles. \nÚselo para llevar los datos que ha introducido \nen este programa a otros programas\n(hojas de cálculo, procesadores de textos, etc)"
+        Text = ("Copiar")
+        Picture = Picture["icon:/22/copy"]
+        Border = True
+      }
+    }
+    { PictureBox5 PictureBox
+      MoveScaled(76,81,7,8)
+      Picture = Picture["dibujos/Iconos_Educatronica_01.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { TextLabelSueltaFotosAlumnos TextLabel
+      MoveScaled(5,79,68,15)
+      Font = Font["Bitstream Charter,-1"]
+      Drop = True
+      Border = Border.Plain
+      Text = ("<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre debe de tener una coma para separar los apellidos y el nombre.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png")
+      Alignment = Align.Center
+    }
+    { ButtonAgregarFotosCarpetaAlumnos Button
+      MoveScaled(10,74,59,4)
+      Text = ("Agregar una carpeta completa con fotos de Alumnos")
+      Picture = Picture["icon:/16/directory"]
+    }
+    Index = 4
+    Text = ("Datos Profesores")
+    Picture = Picture["icon:/22/people"]
+    { PictureBoxBotonSoltar2 PictureBox
+      MoveScaled(5,88,8,6)
+      Picture = Picture["drop.png"]
+    }
+    { HBox2 HBox
+      MoveScaled(1,1,78,5)
+      { ToolButtonAnnadir2 ToolButton
+        MoveScaled(1,0,12,4)
+        Text = ("Añadir")
+        Picture = Picture["icon:/22/add"]
+        Border = True
+      }
+      { ToolButtonEditar2 ToolButton
+        MoveScaled(15,0,11,4)
+        Text = ("Editar")
+        Picture = Picture["icon:/22/edit"]
+        Border = True
+      }
+      { ToolButtonBorrar2 ToolButton
+        MoveScaled(27,0,13,4)
+        Text = ("Borrar")
+        Picture = Picture["icon:/22/erase"]
+        Border = True
+      }
+      { ToolButtonPegar2 ToolButton
+        MoveScaled(40,0,12,4)
+        Tag = "Pegar el contenido del Portapapeles a la rejilla.\nLos datos deben de estar separados por tabuladores o\nestar en distintas columnas (hoja de cálculo).\nEmpiezo a pegar los datos desde la columna Nombre"
+        Text = ("Pegar")
+        Picture = Picture["icon:/22/paste"]
+        Border = True
+      }
+      { ToolButtonCopiar2 ToolButton
+        MoveScaled(54,0,13,4)
+        Tag = "Copiar todo la rejilla de datos  actuales\nal portapapeles. \nÚselo para llevar los datos que ha introducido \nen este programa a otros programas\n(hojas de cálculo, procesadores de textos, etc)"
+        Text = ("Copiar")
+        Picture = Picture["icon:/22/copy"]
+        Border = True
+      }
+    }
+    { PictureBox6 PictureBox
+      MoveScaled(73,81,11,8)
+      Picture = Picture["dibujos/icono_profesor.png"]
+      Border = Border.Plain
+    }
+    { TextLabelSueltaFotosProfesores TextLabel
+      MoveScaled(4,78,68,15)
+      Font = Font["Bitstream Charter,-1"]
+      Drop = True
+      Border = Border.Plain
+      Text = ("<b>Otra forma de insertar datos:<br></b>\nArrastre y suelte las fotos, el nombre del archivo es aprovechado para poner los datos de nombre y apellidos<br>\nEl nombre debe de tener una coma para separar los apellidos y el nombre.<br>\nPor ejemplo:<br>\nGomez Gutierrez,Pedro.png")
+      Alignment = Align.Center
+    }
+    { ButtonAgregarFotosCarpetaProfesores Button
+      MoveScaled(8,73,62,4)
+      Text = ("Agregar una carpeta completa con fotos de Profesores")
+      Picture = Picture["icon:/16/directory"]
+    }
+    Index = 5
+    Text = ("Datos  y Organizar Orla")
+    Picture = Picture["icon:/22/people"]
+    { Frame2 Frame
+      MoveScaled(59,49,22,17)
+      Visible = False
+      Enabled = False
+      Font = Font["Bitstream Charter,Bold,-1"]
+      Text = ("Escala Fotos")
+      { Label25 Label
+        MoveScaled(-2,4,14,4)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Profesores:")
+      }
+      { Label26 Label
+        MoveScaled(0,11,12,4)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Alumnos:")
+      }
+      { ValueBoxEscalaProfesores ValueBox
+        MoveScaled(13,4,5,4)
+        Text = ("ValueBox1")
+      }
+      { ValueBoxEscalaAlumnos ValueBox
+        MoveScaled(13,11,5,4)
+        Text = ("ValueBox1")
+      }
+      { Label22 Label
+        MoveScaled(18,4,3,4)
+        Text = ("%")
+      }
+      { Label23 Label
+        MoveScaled(18,11,4,4)
+        Text = ("%")
+      }
+    }
+    { TextLabel6 TextLabel
+      MoveScaled(2,80,81,9)
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("<b>Nota:</b><br>\nCuando termine de introducir los datos de la Orla, de Alumnos y Profesores, pulse en el botón de \"Organizar posición defotos en la Orla\", para poder ver como queda el diseño de la misma.<br>\nAdemás podrá modificar la disposición de las fotografías para personalizar su orla.")
+    }
+    { Frame1 Frame
+      MoveScaled(1,50,37,17)
+      Visible = False
+      Enabled = False
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("Tipos de letra")
+      { LabelTipoProfesor Label
+        MoveScaled(23,12,23,3)
+        Text = ("TipoProfesor")
+      }
+      { LabelTipoAlumno Label
+        MoveScaled(23,5,19,3)
+        Text = ("TipoAlumno")
+      }
+      { Label34 Label
+        MoveScaled(4,4,18,5)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Tipo letra Alumnos:")
+      }
+      { Label33 Label
+        MoveScaled(4,11,18,5)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Tipo letra Profesor:")
+      }
+      { ToolButtonTipoLetraProfesor ToolButton
+        MoveScaled(0,11,5,5)
+        Text = ("ToolButton4")
+        Picture = Picture["icon:/22/font"]
+        Border = True
+      }
+      { ToolButtonTipoLetraAlumno ToolButton
+        MoveScaled(0,4,5,5)
+        Text = ("ToolButton4")
+        Picture = Picture["icon:/22/font"]
+        Border = True
+      }
+    }
+    { Frame4 Frame
+      MoveScaled(1,21,80,19)
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("Imagenes")
+      { Label1 Label
+        MoveScaled(1,2,14,3)
+        Alignment = Align.Center
+        Text = ("Escudo Colegio")
+      }
+      { PictureBoxFondo PictureBox
+        MoveScaled(1,5,16,13)
+        Tag = "FONDO"
+        Picture = Picture["icono_galeria2.jpg"]
+        Stretch = True
+        Border = Border.Plain
+      }
+      { PictureBoxEscudo PictureBox
+        MoveScaled(21,5,16,13)
+        Tag = "ESCUDO"
+        Picture = Picture["icono_galeria2.jpg"]
+        Stretch = True
+        Border = Border.Plain
+      }
+      { Label2 Label
+        MoveScaled(21,2,9,3)
+        Alignment = Align.Center
+        Text = ("Escudo")
+      }
+      { PictureBoxLogo PictureBox
+        MoveScaled(43,5,16,13)
+        Tag = "LOGO"
+        Picture = Picture["icono_galeria2.jpg"]
+        Stretch = True
+        Border = Border.Plain
+      }
+      { Label3 Label
+        MoveScaled(43,2,9,3)
+        Alignment = Align.Center
+        Text = ("Imag. Opc.1")
+      }
+      { PictureBoxLogo2 PictureBox
+        MoveScaled(61,5,16,13)
+        Tag = "OPCIONAL"
+        Picture = Picture["icono_galeria2.jpg"]
+        Stretch = True
+        Border = Border.Plain
+      }
+      { Label5 Label
+        MoveScaled(61,2,9,3)
+        Alignment = Align.Center
+        Text = ("Imag.Opc.2")
+      }
+      { ToolButton1 ToolButton botontransparente
+        Name = "ToolButton1"
+        MoveScaled(15,1,5,4)
+        Tag = "1"
+        Picture = Picture["icono_transparente.png"]
+        Border = True
+      }
+      { ToolButton4 ToolButton botontransparente
+        Name = "ToolButton4"
+        MoveScaled(31,1,5,4)
+        Tag = "2"
+        Picture = Picture["icono_transparente.png"]
+        Border = True
+      }
+      { ToolButton5 ToolButton botontransparente
+        Name = "ToolButton5"
+        MoveScaled(54,1,5,4)
+        Tag = "3"
+        Picture = Picture["icono_transparente.png"]
+        Border = True
+      }
+      { ToolButton6 ToolButton botontransparente
+        Name = "ToolButton6"
+        MoveScaled(72,1,5,4)
+        Tag = "4"
+        Picture = Picture["icono_transparente.png"]
+        Border = True
+      }
+    }
+    { Frame5 Frame
+      MoveScaled(1,0,84,18)
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("Textos")
+      { TextBoxCurso TextBox
+        MoveScaled(11,10,29,3)
+        Font = Font["-1"]
+        ToolTip = ("por ejemplo: 2012-2013")
+      }
+      { Label30 Label
+        MoveScaled(0,10,10,3)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Curso:")
+      }
+      { Label31 Label
+        MoveScaled(1,6,9,3)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Clase:")
+      }
+      { Label32 Label
+        MoveScaled(0,2,10,3)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Colegio:")
+      }
+      { TextBoxColegio TextBox
+        MoveScaled(11,2,65,3)
+        Font = Font["-1"]
+      }
+      { TextBox2Clase TextBox
+        MoveScaled(11,6,65,3)
+        Font = Font["-1"]
+        ToolTip = ("por ejemplo 1º de ESO")
+      }
+      { Label29 Label
+        MoveScaled(43,10,13,3)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Plantilla a usar:")
+      }
+      { ComboBoxPlantillaUsar ComboBox
+        MoveScaled(56,10,21,2)
+        Font = Font["-1"]
+        ReadOnly = True
+      }
+      { Label20 Label
+        MoveScaled(-2,14,17,3)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Texto Opcional(1):")
+      }
+      { TextBoxOpcional TextBox
+        MoveScaled(15,14,25,3)
+        Font = Font["-1"]
+      }
+      { Label21 Label
+        MoveScaled(41,14,15,3)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Texto Opcional(2):")
+      }
+      { TextBoxOpcional2 TextBox
+        MoveScaled(56,14,21,3)
+        Font = Font["-1"]
+      }
+      { ToolButtonActualizarPlantilla ToolButton
+        MoveScaled(79,9,4,4)
+        ToolTip = ("Actualizar plantilla a usar")
+        Picture = Picture["icon:/16/refresh"]
+        Border = True
+      }
+    }
+    { CheckBox1 CheckBox
+      MoveScaled(6,17,20,3)
+      Visible = False
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("Muestra Pueblo")
+      Value = CheckBox.True
+    }
+    { CheckBox2 CheckBox
+      MoveScaled(28,17,23,3)
+      Visible = False
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("Muestra Provincia")
+      Value = CheckBox.True
+    }
+    { CheckBox3 CheckBox
+      MoveScaled(52,17,27,3)
+      Visible = False
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("Muestra Asignatura")
+      Value = CheckBox.True
+    }
+    { Frame6 Frame
+      MoveScaled(40,49,17,17)
+      Visible = False
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("Espacio entre fotos")
+      { Label6 Label
+        MoveScaled(0,5,10,3)
+        Alignment = Align.Right
+        Text = ("Horizontal:")
+      }
+      { ValueBoxVertical ValueBox
+        MoveScaled(11,12,5,3)
+        Text = ("ValueBox1")
+      }
+      { ValueBoxHorizontal ValueBox
+        MoveScaled(11,5,5,3)
+        Text = ("ValueBox1")
+      }
+      { Label19 Label
+        MoveScaled(0,12,10,3)
+        Alignment = Align.Right
+        Text = ("Vertical:")
+      }
+    }
+    { Frame3 Frame
+      MoveScaled(1,40,79,9)
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("Organización Inicial de Fotos")
+      { ToolButtonAutomatica ToolButton
+        MoveScaled(20,3,4,3)
+        ToolTip = ("Calcular automaticamente las filas")
+        Picture = Picture["icon:/16/exec"]
+        Border = True
+      }
+      { SpinBoxFilas SpinBox
+        MoveScaled(15,3,5,3)
+        Enabled = False
+        Font = Font["Bitstream Charter,-1"]
+        MinValue = 1
+        Value = 1
+      }
+      { Label27 Label
+        MoveScaled(1,3,14,3)
+        Font = Font["Bitstream Charter,-1"]
+        Alignment = Align.Right
+        Text = ("Número de filas:")
+      }
+      { RadioButtonProfesorAlfabetico RadioButton
+        MoveScaled(36,3,18,2)
+        Visible = False
+        Text = ("Orden Alfabetico")
+        Value = True
+      }
+      { RadioButtonProfesorIndicado RadioButton
+        MoveScaled(36,6,19,2)
+        Visible = False
+        Text = ("Orden Indicado")
+      }
+      { Frame7 Frame
+        MoveScaled(56,0,23,8)
+        Visible = False
+        Text = ("Alumnos")
+        { RadioButtonAlumnoAlfabetico RadioButton
+          MoveScaled(1,3,24,2)
+          Text = ("Orden Alfabético")
+          Value = True
+        }
+        { RadioButtonAlumnoIndicado RadioButton
+          MoveScaled(1,5,24,4)
+          Text = ("Orden Indicado")
+        }
+      }
+      { Label4 Label
+        MoveScaled(3,6,8,3)
+        Text = ("Esquema:")
+      }
+      { LabelEsquema Label
+        MoveScaled(11,6,17,3)
+        Text = ("Label22")
+      }
+      { Label18 Label
+        MoveScaled(32,0,17,3)
+        Visible = False
+        Font = Font["Bitstream Charter,Bold"]
+        Text = ("Profesores")
+      }
+    }
+    { ButtonEditorOrla Button
+      MoveScaled(14,53,57,10)
+      Font = Font["Bitstream Charter"]
+      Text = ("Organizar posición de fotos en la Orla")
+      Picture = Picture["icon:/22/grid"]
+    }
+    Index = 6
+    Text = ("Guardar")
+    Picture = Picture["icon:/22/save"]
+    { LabelNombreFichero Label
+      MoveScaled(33,49,41,4)
+    }
+    { Label17 Label
+      MoveScaled(28,44,36,4)
+      Font = Font["Bitstream Charter,Bold,+1"]
+      Text = ("Nombre fichero de Datos:")
+    }
+    { TextLabel3 TextLabel
+      MoveScaled(23,16,37,26)
+      Text = ("<h2>Espere por favor, estoy guardando <br>los datos</h2>")
+      Alignment = Align.Center
+    }
+    Index = 7
+    Text = ("Guardar como....")
+    Picture = Picture["icon:/22/save-as"]
+    { TextLabel7 TextLabel
+      MoveScaled(29,23,37,26)
+      Text = ("<h2>Espere por favor, estoy guardando <br> los datos</h2>")
+      Alignment = Align.Center
+    }
+    Index = 8
+    Text = ("Gestor de Plantillas")
+    Picture = Picture["gestorOrlas.png"]
+    { Label16 Label
+      MoveScaled(24,1,33,5)
+      Font = Font["Bold,Italic,+2"]
+      Alignment = Align.Center
+      Border = Border.Plain
+      Text = ("Plantillas de Orlas")
+    }
+    { DrawingAreaPlantilla DrawingArea
+      MoveScaled(28,7,53,38)
+      Background = &HFFFFFF&
+      ToolTip = ("Haga click para ver mejor la imagen")
+    }
+    { TextLabel4 TextLabel
+      MoveScaled(2,69,33,18)
+      Text = ("Nota:<br>\nEdite una Orla, luego lo \"guardas como...\", asi obtendras un nuevo diseño de Orla.")
+    }
+    { ListBoxOrla ListBox
+      MoveScaled(0,7,26,58)
+    }
+    { HBox3 VPanel
+      MoveScaled(36,60,49,29)
+      { ToolButtonEditarOrlas ToolButton
+        MoveScaled(4,0,34,4)
+        Text = ("Editar Orla")
+        Picture = Picture["icon:/22/edit"]
+        Border = True
+      }
+      { ToolButtonBorrarOrla ToolButton
+        MoveScaled(4,4,34,4)
+        Text = ("Borrar Orla")
+        Picture = Picture["icon:/22/erase"]
+        Border = True
+      }
+      { ToolButtonDefinir ToolButton
+        MoveScaled(4,8,34,4)
+        Text = ("Definir Orla desde Cero")
+        Picture = Picture["icon:/22/add"]
+        Border = True
+      }
+      { ToolButtonExportarOrla ToolButton
+        MoveScaled(4,12,34,4)
+        Visible = False
+        Enabled = False
+        Text = ("Exportar Orla")
+        Picture = Picture["exportar.png"]
+        Border = True
+      }
+      { ToolButtonImportarOrla ToolButton
+        MoveScaled(4,16,34,4)
+        Text = ("Añadir plantilla de Orla")
+        Picture = Picture["importar.png"]
+        Border = True
+      }
+      { ToolButtonNube ToolButton
+        MoveScaled(4,21,34,7)
+        Font = Font["Bitstream Charter,Italic,-1"]
+        Tag = "Se accede a una direccion web, donde hay material compartido, debe de tener cuenta en google"
+        Text = ("Compartidos en la Nube")
+        Picture = Picture["googledriveacceso.png"]
+        Border = True
+      }
+    }
+    Index = 9
+    Text = ("Aplicar Efectos")
+    Picture = Picture["icon:/22/fill"]
+    { Label28 Label
+      MoveScaled(1,6,84,24)
+      Border = Border.Plain
+    }
+    { Frame8 Frame
+      MoveScaled(2,7,83,23)
+      { PictureBoxEfectoProfesor PictureBox
+        MoveScaled(60,1,11,15)
+        Enabled = False
+        Picture = Picture["Editor/Pro.png"]
+        Stretch = True
+      }
+      { PictureBoxEfectoAlumno PictureBox
+        MoveScaled(24,1,12,15)
+        Picture = Picture["Efectos/Alu93x113.png"]
+        Stretch = True
+      }
+      { RadioButtonEfectoAlumno RadioButton
+        MoveScaled(5,0,15,15)
+        Text = ("Alumnos:")
+        Value = True
+      }
+      { RadioButtonEfectoProfesor RadioButton
+        MoveScaled(44,1,16,15)
+        Text = ("Profesores:")
+      }
+    }
+    { TextLabel9 TextLabel
+      MoveScaled(64,73,10,13)
+      Font = Font["Bitstream Charter,-2"]
+      Text = ("Haga click para elegir otro marco")
+      Alignment = Align.Center
+    }
+    { PictureBoxMarco PictureBox
+      MoveScaled(23,38,13.2857,16.2857)
+      Picture = Picture["destino.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { RadioButtonEfecto RadioButton
+      MoveScaled(5,41,18,8)
+      Text = ("Marco")
+      Value = True
+    }
+    { Label24 Label
+      MoveScaled(-2,-1,85,5)
+      Font = Font["Bitstream Charter,Underline,+4"]
+      Alignment = Align.Center
+      Text = ("Efectos en las Fotos: Marco o Recorte de Formas")
+    }
+    { RadioButtonEfectoV RadioButton
+      MoveScaled(44,55,17,16)
+      Text = ("V")
+    }
+    { PictureBoxV PictureBox
+      MoveScaled(62,55,13.2857,16.2857)
+      Picture = Picture["Efectos/Vconversion.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { RadioButtonEfectoCuna RadioButton
+      MoveScaled(4,55,19,16)
+      Text = ("Cuna")
+    }
+    { PictureBoxCuna PictureBox
+      MoveScaled(23,55,13.2857,16.2857)
+      Picture = Picture["Efectos/Cunaconversion.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { RadioButtonEfectoElipse RadioButton
+      MoveScaled(42,38,20,16)
+      Text = ("Elipse")
+    }
+    { PictureBoxElipse PictureBox
+      MoveScaled(62,38,13.2857,16.2857)
+      Picture = Picture["Efectos/Elipseconversion.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { ColorButton1 ColorButton
+      MoveScaled(6,49,15,4)
+      Value = &H1FFF1F&
+    }
+    { CheckBoxAjustarFotos CheckBox
+      MoveScaled(22,25,49,4)
+      Text = ("Forzar ajuste de tamaño de fotografias")
+      Value = CheckBox.True
+    }
+    { RadioButtonEfectoZig RadioButton
+      MoveScaled(4,72,19,16)
+      Text = ("ZigZag")
+    }
+    { PictureBoxCuna2 PictureBox
+      MoveScaled(23,72,13.2857,16.2857)
+      Picture = Picture["Efectos/webcam_carnet07-05-2013_19-25-46.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { RadioButtonEfectoMarcoEspecial RadioButton
+      MoveScaled(44,78,16,6)
+      Text = ("Marco Esp")
+    }
+    { PictureBoxEsp PictureBox
+      MoveScaled(62,72,13.2857,16.2857)
+      Tag = "\"/tmp/marcoEspecial.png\""
+      ToolTip = ("Haga click para cambiar de imagen")
+      Picture = Picture["Efectos/marcolapiz.png"]
+      Stretch = True
+      Border = Border.Plain
+    }
+    { ToolButtonCompartidoNuveMarcos ToolButton
+      MoveScaled(54,89,26,5)
+      Font = Font["Bitstream Charter,Italic,-1"]
+      Text = ("Marcos en la Nube")
+      Picture = Picture["googledriveacceso.png"]
+      Border = True
+    }
+    { RadioButtonSinEfectos RadioButton
+      MoveScaled(5,32,71,4)
+      Text = ("No aplicar ningún efecto a las fotografías")
+    }
+    Index = 10
+    Text = ("Previsualizar")
+    Picture = Picture["ojo22.png"]
+    { DrawingArea1 DrawingArea
+      MoveScaled(63,81,17,12)
+      Visible = False
+      Background = &HFFFFFF&
+      Border = Border.Plain
+    }
+    { TextLabel10 TextLabel
+      MoveScaled(0,83,72,9)
+      Font = Font["Bitstream Charter,Italic,+1"]
+      Text = ("Nota: <br>La previsualización puede no ser exacta,<br> genere el .svg o el .png para mejor detalle.")
+      Alignment = Align.Center
+    }
+    { TextLabel11 TextLabel
+      MoveScaled(6,2,69,15)
+      Font = Font["Italic"]
+      Text = ("<h2>Previsualización</h2>\nPara mejorar el resultado del programa, vaya a la opción <BR>\"Generar Orla\", y pulse  el botón \"Generar Orla en .SVG\", <BR>entonces podrá editar la orla mediante Inkscape, ampliando las posibilidades de edición de este programa.")
+      Alignment = Align.Center
+    }
+    { PictureBoxPrev PictureBox
+      MoveScaled(4,19,79,60)
+      Background = &HFFFFFF&
+      Stretch = True
+      Border = Border.Plain
+    }
+    { TextLabelEspere TextLabel
+      MoveScaled(27,35,31,25)
+      Font = Font["Bitstream Charter,+5"]
+      Text = ("Espere unos segundos") & "..."
+      Alignment = Align.Center
+    }
+    Index = 11
+    Text = ("Generar Orla")
+    Picture = Picture["icon:/22/pdf"]
+    { ToolButtonGeneraSVG ToolButton
+      MoveScaled(14,9,53,10)
+      ToolTip = ("Crear archivo .svg y editarlo con inkscape")
+      Text = ("Generar Orla en .SVG y abrirla con Inkscape")
+      Picture = Picture["inkscape-icono.png"]
+      Border = True
+    }
+    { PictureBox7 PictureBox
+      MoveScaled(37,47,11,10)
+      Picture = Picture["dibujos/gatojugando.png"]
+      Stretch = True
+    }
+    { ToolButtonGenerarOrla ToolButton
+      MoveScaled(27,61,38,10)
+      Visible = False
+      Text = ("Generar Orla en .PNG")
+      Picture = Picture["dibujos/ORLA GENERADOR.png"]
+      Border = True
+    }
+    { TextLabel12 TextLabel
+      MoveScaled(14,21,53,12)
+      Text = ("Nota:<br>\nSe creará una copia de trabajo, con las fotografías y el archivo tipo .svg  en la carpeta:<br>\n/tmp/trabajo_orla/trabajo.svg<br>")
+      Alignment = Align.Center
+    }
+    { ToolButtonAbrirCarpeta ToolButton
+      MoveScaled(23,34,43,8)
+      Font = Font["Bitstream Charter,-1"]
+      ToolTip = ("Cuando genere la Orla .SVG, podrá ver los archivos.")
+      Text = ("Abrir o Crear Carpeta donde guardará la orla")
+      Picture = Picture["carpeta.png"]
+    }
+    { TextLabel13 TextLabel
+      MoveScaled(5,75,78,18)
+      Font = Font["Underline"]
+      Text = ("Nota:<br>\nDesde INKSCAPE, podrá editar y modificar su orla.<br>\nAdemás podrá exportarla a fichero .png, desde el menú de inkscape:<br>\nArchivo/Exportar mapa de bits<br>")
+      Alignment = Align.Center
+    }
+    Index = 12
+    Text = ("Salir")
+    Picture = Picture["icon:/22/quit"]
+    Index = 13
+    Text = ("Ayuda")
+    Picture = Picture["icon:/22/info"]
+    { TextLabel5 TextLabel
+      MoveScaled(1,1,85,72)
+      Font = Font["-1"]
+      Text = ("<h3>Especificaciones para los formatos de Orla:</h3><br>\n<br>\nEl archivo .svg, contiene las imagenes de los marcos y el fondo ya incluidas .<br>\n      - mediante enlaces a imagenes externas (en el mismo directorio donde este la plantilla .svg)<br>\n      - o embebidas en ellas.<br>\n<br>\n<br>\n\n<b>Etiquetas de Texto, \"con alineacion centrado\"</b><br>\n\tTexto a sustituir y que se rellenará con datos<br>\n\t       COLEGIO .......................... indica el colegio donde estan los niños<br>\n\t       CLASE............................... texto: 1º de ESO<br>\n\t       CURSO ..................... texto: 2012-2013<br>\n\t       TEXTOOPCIONAL01........... texto opcional, por si quiere indicar algo<br>\n                          TEXTOOPCIONAL02................... texto opcional, por si quiere indicar algo\n\t(en la plantilla .svg, se elige el tamaño y el tipo de letra)<br>\n<br>\n\tTexto para indicar posicion del grupo de imagenes de alumnos y profesores<br>\n\t\tZonaFotosAlumnos .................. este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla              <br>\n                ZonaFotosProfesores ............... este texto solo sirve para leer las coordenadas donde esta puesto en la plantilla<br>\n<br>\n<br>\n<b>Imagenes:</b><br>\n         ESCUDO01......................  escudo del colegio (si no existe se pone una imagen transparente)<br>\n\t ESCUDO02......................  escudo de la Comunidad Autonoma (si no existe se pone una imagen transparente)<br>\n         ESCUDO03......................  imagen opcional (si no existe se pone una imagen transparente)<br>\n         ESCUDO04......................  imagen opcional (si no existe se pone una imagen transparente)<br>")
+    }
+    { ToolButtonAccesoPaginaWeb ToolButton
+      MoveScaled(14,74,57,12)
+      Text = ("Visite la página del proyecto para más ayuda")
+      Picture = Picture["icono_web.jpg"]
+      Border = True
+    }
+    Index = 14
+    Text = ("Buscar Actualizaciones")
+    Picture = Picture["rayo.png"]
+    { TextLabel8 TextLabel
+      MoveScaled(25,29,37,26)
+      Text = ("<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>")
+      Alignment = Align.Center
+    }
+    Index = 0
+  }
+}

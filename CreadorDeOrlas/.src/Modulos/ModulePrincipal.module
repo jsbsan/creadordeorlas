@@ -1,0 +1,326 @@
+' Gambas module file
+
+Public RutaPrograma As String = User.home & "/.CreadorOrlas/" ''ruta donde estan los archivos de datos y de trabajo temporal del programa
+Public RutaDatos As String '' ruta donde esta el proyecto
+Public Rutas As New String[] ''rutas de trabajo
+Public DatosOrla As New ClassDatosOrla
+Public alumno93 As String = "/tmp/Alu93x113.png"
+Public profesor93 As String = "/tmp/Pro93x113.png"
+Public formaElipse As String = "/tmp/elipse.png"
+Public formaZigZag As String = "/tmp/ZigZag.png"
+Public formaCuna As String = "/tmp/formacuna.png"
+Public formaV As String = "/tmp/V.png"
+Public MarcoEspecial As String = "/tmp/marcolapiz.png"
+
+Public Sub borradoImagenes()
+
+  Dim a As Integer
+  Dim temporales As New String[]
+
+  temporales.add(RutaPrograma & "temporales")
+  temporales.add(RutaPrograma & "temporales/FotosAlumnos")
+  temporales.add(RutaPrograma & "temporales/FotosAlumnosMini")
+  temporales.Add(RutaPrograma & "temporales/FotosProfesores")
+  temporales.add(RutaPrograma & "temporales/FotosProfesoresMini")
+  temporales.Add(RutaPrograma & "temporales/FotosPlantillaOrla")
+
+  For a = 0 To temporales.Max
+    Shell ("rm " & temporales[a] & "/*.*") Wait
+  Next
+
+End
+
+Public Sub iniciarDirectorios()
+
+  ' rutas.add(RutaPrograma)
+  ' rutas.add(RutaPrograma & "plantillasOrla")
+  rutas.add(RutaPrograma & "temporales")
+  rutas.add(RutaPrograma & "temporales/FotosAlumnos")
+  rutas.add(RutaPrograma & "temporales/FotosAlumnosMini")
+  rutas.Add(RutaPrograma & "temporales/FotosProfesores")
+  rutas.add(RutaPrograma & "temporales/FotosProfesoresMini")
+  rutas.Add(RutaPrograma & "temporales/FotosPlantillaOrla")
+  rutas.Add(RutaPrograma & "trabajotmp")
+  rutas.Add(RutaPrograma & "trabajotmp/pdf")
+  rutas.Add(RutaPrograma & "trabajotmp/exportar")
+  rutas.Add(RutaPrograma & "trabajotmp/importar")
+  rutas.Add(RutaPrograma & "trabajotmp/imagenes")
+  rutas.Add(RutaPrograma & "trabajotmp/imagenes/alumno")
+  rutas.Add(RutaPrograma & "trabajotmp/imagenes/profesor")
+
+  ModuleIntermedio.IniciarLaPrimeraVez(rutas)
+
+  ModuleGestionAlumnos.guardado = True
+  ModuleGestionProfesores.guardado = True
+  ModuleGestionOrla.guardado = True
+
+  ModuleGestionAlumnos.lista.Registros.Clear()
+  ModuleGestionProfesores.lista.Registros.Clear()
+
+End
+
+Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Boolean
+  ' NombreCarpetaPrograma:  "GeneradorCarnets", depende de la estructura donde se almacena la informacion: /home/uno/GeneradorCarnets/datos
+
+  Dim comando As String
+  Dim zip As New ClassZip
+  Dim borrasubruta As String
+  Dim rutaDescomprimida As String
+
+  Dim nombreRutaAntinua As String
+  Dim fpensando As New FormPensando
+
+  fpensando.Show
+  Wait 0.2
+  'Operaciones a realizar
+  '
+  '
+  If InStr(nombre, "(") <> 0 Or InStr(nombre, ")") <> 0 Then
+    Message.Error(("Nombre no valido de archivo, contiene parentesis en su nombre"))
+    Return False
+  Endif
+
+  'borrado de datos anteriores...
+  ModuleGestionAlumnos.lista.Registros.Clear
+  ModuleGestionProfesores.lista.Registros.Clear
+  ModuleGestionOrla.orla.vacio
+  ModulePrincipal.borradoImagenes()
+  ' listar contenido del fichero -> para obtener rutas relativas
+  nombreRutaAntinua = zip.extraeRutaZip(nombre, NombreCarpetaPrograma)
+
+  ModuleIntermedio.borradoDatosAnteriores(rutas)
+  If nombreRutaAntinua = "" Then
+    Return False ' a fallado la extracion de informacion del fichero
+  Endif
+
+  Shell "rm -r " & User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/home/" Wait
+  ' extraer en algun lugar temporal...
+  Shell "cd " & User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/" & " && unzip \"" & nombre & "\"" Wait
+  'borro los datos temporales que haya
+  ModuleIntermedio.BorradoDatosAnteriores(rutas.Extract(1, rutas.max))
+  Wait 0.5
+  rutaDescomprimida = User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/" & nombreRutaAntinua & "/" & NombreCarpetaPrograma & "/temporales/"
+  ' copiar ficheros desde ruta descomprimida hasta la ruta relativa
+
+  ModuleUtilidadesDisco.CopiarFicheros(rutaDescomprimida, rutaprograma & "temporales", "*.txt")
+  ModuleUtilidadesDisco.CopiarFicheros(rutaDescomprimida, rutaprograma & "temporales", "*.svg")
+
+  ModuleUtilidadesDisco.CopiarFicheros(rutaDescomprimida, rutaprograma & "plantillasOrla", "*.svg")
+
+  mueve(rutaDescomprimida, "FotosAlumnos", RutaPrograma)
+  mueve(rutaDescomprimida, "FotosAlumnosMini", RutaPrograma)
+  mueve(rutaDescomprimida, "FotosProfesores", RutaPrograma)
+  mueve(rutaDescomprimida, "FotosProfesoresMini", RutaPrograma)
+  mueve(rutaDescomprimida, "FotosPlantillaOrla", RutaPrograma)
+
+  Wait 2 'doy tiempo a que se muevan los archivos...
+
+  'borrado de todos los archivos descomprimidos:
+  comando = "rm -rf " & User.home & "/.CreadorOrlas/trabajotmp/home/"
+  Shell comando Wait
+
+  ' ************************************************************************
+  ' AbrirFichero: he descomprimido el fichero de datos, hay que cargar los datos al programa
+  ' ************************************************************************
+  RutaDatos = nombre '
+
+  fpensando.parar = True
+  '  fpensando.Delete()
+  fpensando.Close()
+
+  Return True
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub mueve(rutaDescomprimida As String, variable As String, rutaprograma As String)
+
+  ModuleUtilidadesDisco.MoverFicheros(rutaDescomprimida & variable & "/", RutaPrograma & "temporales/" & variable)
+  ModuleUtilidadesDisco.MoverFicheros(rutaprograma & "temporales/" & variable & "/", rutaprograma & "temporales/" & variable)
+
+End
+
+Public Sub CargarDatos() As Boolean ''fichero de datos a cargar
+
+  Dim resultado As Boolean
+
+  resultado = ModuleGestionAlumnos.CargarDatos(RutaPrograma & "temporales" & "/datosALumnos.txt")
+  resultado = ModuleGestionProfesores.CargarDatos(RutaPrograma & "temporales" & "/datosProfesores.txt")
+  resultado = ModuleGestionOrla.CargarDatos(RutaPrograma & "temporales" & "/datosOrla.txt")
+  'Try Copy "transparente.png" To rutaprograma & "temporales/FotosPlantillasTematica/transparente.png"
+  'Try Copy "transparente.png" To rutaprograma & "temporales/FotosRegistros/transparente.png"
+
+  Return resultado
+
+End
+' ---------------------------------------------------
+' Guardar Datos
+' ---------------------------------------------------
+
+Public Sub guardarDatos() As Boolean
+
+  Dim contenidoAlumnos As String
+  Dim contenidoProfesores As String
+  Dim contenidoOrlas As String
+
+  Dim resultado As Boolean
+  'creo fichero de datos...
+  If RutaDatos = "" Then
+    Message.Error(("Nombre de archivo incorrecto"))
+    Return False
+  Endif
+
+  contenidoAlumnos = "version 1" & "\n" & ModuleGestionAlumnos.Lista.contenido()
+  File.Save(rutaprograma & "temporales/datosALumnos.txt", contenidoAlumnos)
+
+  contenidoProfesores = "version 1" & "\n" & ModuleGestionProfesores.Lista.contenido()
+  File.Save(rutaprograma & "temporales/datosProfesores.txt", contenidoProfesores)
+
+  contenidoOrlas = "version 1" & "\n" & ModuleGestionOrla.orla.contenido()
+  File.Save(rutaprograma & "temporales/datosOrla.txt", contenidoOrlas)
+
+  'copia de plantillas...
+  resultado = copiarplantillas()
+  If resultado = False Then Message.Error(("Problemas al copiar la plantilla de la orla"))
+  resultado = comprimirDatos()
+  If resultado = False Then Message.Error(("Problemas al comprimir datos"))
+  Return resultado
+
+End
+
+Public Sub copiarplantillas() As Boolean
+
+  Dim nombredestino As String = User.home & "/.CreadorOrlas/temporales/" & ModuleUtilidadesDisco.extraedesdebarra(ModuleGestionOrla.orla.Plantilla)
+
+  If Exist(nombredestino) Then
+    Kill nombredestino
+  Endif
+
+  Copy ModuleGestionOrla.orla.Plantilla To User.home & "/.CreadorOrlas/temporales/" & ModuleUtilidadesDisco.extraedesdebarra(ModuleGestionOrla.orla.Plantilla)
+  Return True
+
+End
+
+Public Sub comprimirDatos() As Boolean
+
+  Dim zip As New ClassZip
+
+  If Exist("/tmp/temporal.zip") Then Kill "/tmp/temporal.zip"
+
+  zip.comprimirDatos(rutaprograma & "temporales/FotosAlumnos")
+  zip.comprimirDatos(rutaprograma & "temporales/FotosAlumnosMini")
+  zip.comprimirDatos(rutaprograma & "temporales/FotosPlantillaOrla")
+  zip.comprimirDatos(rutaprograma & "temporales/FotosProfesores")
+  zip.comprimirDatos(rutaprograma & "temporales/FotosProfesoresMini")
+  zip.comprimirDatos(rutaprograma & "temporales")
+
+  If Exist(Replace$(RutaDatos, ".Orla", "") & ".Orla") Then
+    'existe, lo borro para actualizarlo
+    Try Kill Replace$(RutaDatos, ".Orla", "") & ".Orla"
+  Endif
+
+  Copy "/tmp/temporal.zip" To Replace$(RutaDatos, ".Orla", "") & ".Orla"
+  ModuleGestionAlumnos.guardado = True
+  ModuleGestionOrla.guardado = True
+  ModuleGestionProfesores.guardado = True
+  Return True
+
+Catch 'comprimir datos
+  ModuleMensajeError.SistemaDescripcionError()
+  Message.Error(("Error al intentar copiar el archivo comprimido temporal al archivo final"))
+  Return False
+
+End
+'----------------------------------------------------
+' Pegar datos desde el portapapeles al gridviews de alumnos
+'----------------------------------------------------
+
+Public Sub PegarDatosPortapapelesGridViewsAlumnos() As Boolean
+
+  Dim portapapeles As String
+  Dim lineas As New String[]
+  Dim columnas As New String[]
+  Dim regtmp As New ClassAlumno
+  Dim finlinea As String
+  Dim fincolumna As String
+  Dim a As Integer
+  'es añadir datos
+  'por cada linea leida, asignar a un reg temporal y añadirlo
+  finlinea = "\n" ' retorno de carro (separa las filas)
+  fincolumna = "\t" 'tabulador (separa las colunmas)
+
+  Try portapapeles = Clipboard.paste()
+  Try lineas = Split(portapapeles, finlinea)
+  Try columnas = Split(lineas[0], fincolumna)
+
+  If Error Then
+    Message.Error(("error al leer datos del portapapeles"))
+    Return False
+  Endif
+
+  For a = 0 To lineas.count - 2
+    'intento leer toda la informacion del portapapeles, si hay algun error, sigue ejecutandose
+    regtmp = New ClassAlumno
+    regtmp.vacio() 'creo el registro completamente vacio
+
+    Try columnas = Split(lineas[a], fincolumna)
+
+    Try regtmp.Nombre = columnas[0]
+    Try regtmp.Apellidos = columnas[1]
+    Try regtmp.orden = Val(columnas[2])
+    Try regtmp.Pueblo = columnas[3]
+    Try regtmp.Provincia = columnas[4]
+
+    'añado registro
+    ModuleGestionAlumnos.anadirRegistro(regtmp)
+
+  Next
+  Return True
+
+End
+
+'----------------------------------------------------
+' Pegar datos desde el portapapeles al gridviews de profesores
+'----------------------------------------------------
+Public Sub PegarDatosPortapapelesGridViewsProfesores() As Boolean
+
+  Dim portapapeles As String
+  Dim lineas As New String[]
+  Dim columnas As New String[]
+  Dim regtmp As New ClassProfesor
+  Dim finlinea As String
+  Dim fincolumna As String
+  Dim a As Integer
+  'es añadir datos
+  'por cada linea leida, asignar a un reg temporal y añadirlo
+  finlinea = "\n" ' retorno de carro (separa las filas)
+  fincolumna = "\t" 'tabulador (separa las colunmas)
+
+  Try portapapeles = Clipboard.paste()
+  Try lineas = Split(portapapeles, finlinea)
+  Try columnas = Split(lineas[0], fincolumna)
+
+  If Error Then
+    Message.Error(("error al leer datos del portapapeles"))
+    Return False
+  Endif
+
+  For a = 0 To lineas.count - 2
+    'intento leer toda la informacion del portapapeles, si hay algun error, sigue ejecutandose
+    regtmp = New ClassProfesor
+    regtmp.vacio() 'creo el registro completamente vacio
+
+    Try columnas = Split(lineas[a], fincolumna)
+
+    Try regtmp.Nombre = columnas[0]
+    Try regtmp.Apellidos = columnas[1]
+    Try regtmp.orden = Val(columnas[2])
+    Try regtmp.Asignatura = columnas[3]
+
+    'añado registro
+    ModuleGestionProfesores.anadirRegistro(regtmp)
+  Next
+  Return True
+
+End

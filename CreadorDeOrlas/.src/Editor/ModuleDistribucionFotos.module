@@ -1,0 +1,451 @@
+' Gambas module file
+
+'tipo: Profesores o Alumnos.. para coordenadas...
+Public Sub hacerGenerico(tipo As String, registros As Object[], espacioHorizontal As Integer, espacioVertical As Integer, plantilla As String, Optional esquema As String)
+
+  Dim FilaAncho As New Integer[]
+  Dim traslado As Integer
+  Dim pos As ClassPos
+  Dim a, b, contador As Integer
+  Dim maximo, nfilas, h, w, pcx, pcy, anchoFoto, altoFoto As Integer
+  Dim plantillaActual, distribucion As String
+
+  Dim numerosColumna As New String[]
+
+  Dim MaximoAncho, maximoAlto, AnchoColumna, centrox, centroy As Integer
+
+  ' Sustituir por  plantilla de la orla actual
+
+  plantillaActual = plantilla 'User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
+  'Numero de filas:
+
+  nfilas = ModuleExtraerDatosOrla.calculoDeFilas(registros.Count)
+  If nfilas = 0 Then
+    Return
+  Endif
+
+  If esquema = "" Then
+    distribucion = ModuleSistemaOrdenacion.Esquema(registros.Count, nfilas)
+  Else
+    distribucion = Esquema
+    nfilas = Split(distribucion, "+").count
+  Endif
+
+  anchofoto = 250
+  altofoto = 345
+
+  ' espacioHorizontal = ValueBoxHorizontal.Value
+  'espacioVertical = ValueBoxVertical.Value
+
+  'calculo:
+  '1º) H= nº de filas * altoFoto + (nº de filas -1)* espacioVertical
+  H = nfilas * altofoto + (nfilas - 1) * espacioVertical
+  '2º) W= Maxima valor de la columna 3+4+4=5 -> 3+4+4 -> maximo es 4 -> H= nº de FotosPorColumna x AnchoDeFoto + (nº de fotosPorColumna-1) *espacioHorizontal
+
+  distribucion = Mid(distribucion, 1, InStr(distribucion, "=") - 1)
+  numerosColumna = Split(distribucion, "+")
+
+  For a = 0 To numerosColumna.Max
+    maximo = Max(maximo, Val(numerosColumna[a]))
+  Next
+
+  H = maximo * anchoFoto + (maximo - 1) * espacioHorizontal
+  '3º) Pcx=W/2
+  pcx = w / 2
+  '4º) Pcy=H/2
+  pcy = h / 2
+  'Se extrae CentroX y CentroY donde van las Fotos en la Orla
+  'extraigo coordenada de la orla donde van los Alumnos y Profesores
+
+  If Upper$(tipo) = "PROFESOR" Or Upper$(tipo) = "PROFESORES" Then
+    'CentroX y CentroY
+    ModuleGestionOrla.orla.CoordZonaFotosProfesores = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosProfesores")
+    'Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.x
+    'Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.y
+    centrox = ModuleGestionOrla.orla.CoordZonaFotosProfesores.x
+    centroy = ModuleGestionOrla.orla.CoordZonaFotosProfesores.y
+  Else
+
+    ModuleGestionOrla.orla.CoordZonaFotosAlumnos = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosAlumnos")
+    'Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.x
+    'Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.y
+    centrox = ModuleGestionOrla.orla.CoordZonaFotosAlumnos.x
+    centroy = ModuleGestionOrla.orla.CoordZonaFotosAlumnos.y
+  Endif
+
+  'ordenar fotos Alfabeticamente o Indicado
+  ' enlace de como Ordenar
+  '-> http://jsbsan2.blogspot.com.es/search/label/ordenar
+  '-> https://docs.google.com/file/d/0B02Ro2CNt-OOQXFHVThUWjdhQVU/edit?pli=1
+  'ORDENACION... Segun sea alfabeticament o indicado
+  ' 0 0rdenacion y colocacion de fotos
+  'asignar coordenadas a cada foto
+  contador = -1
+
+  For a = 0 To nfilas - 1
+    For b = 0 To Val(numerosColumna[a]) - 1
+      'ASIGNA COORDENADAS
+      pos = New ClassPos
+      pos.x = b * (anchoFoto + espacioHorizontal)
+      pos.y = a * (altoFoto + espacioVertical)
+      contador += 1
+      If Upper$(tipo) = "PROFESOR" Or Upper$(tipo) = "PROFESORES" Then
+        registros[ModuleGestionProfesores.ListaOrdenada[contador]].posicion = pos
+      Else
+        registros[ModuleGestionAlumnos.ListaOrdenada[contador]].posicion = pos
+      Endif
+
+      '  Print "foto nº: "; contador, pos.x, pos.y
+    Next
+    AnchoColumna = Val(numerosColumna[a]) * (anchoFoto + espacioHorizontal) - espacioHorizontal
+    FilaAncho.add(AnchoColumna / 2)
+    MaximoAncho = Max(MaximoAncho, AnchoColumna)
+
+  Next
+
+  maximoAlto = (nfilas) * (altoFoto + espacioVertical) - espacioVertical
+
+  pcx = MaximoAncho / 2
+  pcy = maximoAlto / 2
+  ' Print "Centro: ", pcx, pcy
+
+  contador = -1
+  For a = 0 To nfilas - 1
+    For b = 0 To Val(numerosColumna[a]) - 1
+      traslado = pcx - FilaAncho[a]
+      contador += 1
+      'ASIGNA COORDENADAS
+
+      If Upper$(tipo) = "PROFESOR" Or Upper$(tipo) = "PROFESORES" Then
+        'registros[contador].posicion.x += traslado
+        registros[ModuleGestionProfesores.ListaOrdenada[contador]].posicion.x += traslado
+      Else
+        registros[ModuleGestionAlumnos.ListaOrdenada[contador]].posicion.x += traslado
+      Endif
+    Next
+  Next
+
+  'transladar fotos a las coordenadas de la orla...
+  '
+
+  ''Se repite para todas las fotos.....
+  '     Traslado:
+  '     7º) xTras=Xdato+CentroX-pcx
+  '     8º) yTras=Ydato+CentroY-pcy
+
+  For a = 0 To contador
+    If Upper$(tipo) = "PROFESOR" Or Upper$(tipo) = "PROFESORES" Then
+      registros[ModuleGestionProfesores.ListaOrdenada[a]].posicion.x += (centrox * 2.74 - pcx)
+      registros[ModuleGestionProfesores.ListaOrdenada[a]].posicion.y += (centroy * 2.74 - pcy)
+    Else
+      registros[ModuleGestionAlumnos.ListaOrdenada[a]].posicion.x += (centrox * 2.74 - pcx)
+      registros[ModuleGestionAlumnos.ListaOrdenada[a]].posicion.y += (centroy * 2.74 - pcy)
+    Endif
+
+  Next
+
+End
+
+Public Sub hacer(espacioHorizontal As Integer, espacioVertical As Integer, plantilla As String, Optional esquema As String)
+
+  Dim FilaAncho As New Integer[]
+  Dim traslado As Integer
+  Dim pos As ClassPos
+  Dim a, b, contador As Integer
+  Dim maximo, nfilas, h, w, pcx, pcy, anchoFoto, altoFoto As Integer
+  Dim plantillaActual, distribucion As String
+
+  Dim numerosColumna As New String[]
+
+  Dim MaximoAncho, maximoAlto, AnchoColumna, centrox, centroy As Integer
+
+  ' Sustituir por  plantilla de la orla actual
+
+  plantillaActual = plantilla 'User.home & "/temporal.orla/Detalles_en_azul_y_negro_marco.svg"
+  'Numero de filas:
+
+  nfilas = ModuleExtraerDatosOrla.calculoDeFilas(ModuleGestionAlumnos.lista.Registros.Count)
+  If nfilas = 0 Then
+    Return
+  Endif
+
+  If esquema = "" Then
+    distribucion = ModuleSistemaOrdenacion.Esquema(ModuleGestionAlumnos.lista.Registros.Count, nfilas)
+  Else
+    distribucion = Esquema
+    nfilas = Split(distribucion, "+").count
+  Endif
+
+  anchofoto = 250
+  altofoto = 345
+
+  ' espacioHorizontal = ValueBoxHorizontal.Value
+  'espacioVertical = ValueBoxVertical.Value
+
+  'calculo:
+  '1º) H= nº de filas * altoFoto + (nº de filas -1)* espacioVertical
+  H = nfilas * altofoto + (nfilas - 1) * espacioVertical
+  '2º) W= Maxima valor de la columna 3+4+4=5 -> 3+4+4 -> maximo es 4 -> H= nº de FotosPorColumna x AnchoDeFoto + (nº de fotosPorColumna-1) *espacioHorizontal
+
+  distribucion = Mid(distribucion, 1, InStr(distribucion, "=") - 1)
+  numerosColumna = Split(distribucion, "+")
+
+  For a = 0 To numerosColumna.Max
+    maximo = Max(maximo, Val(numerosColumna[a]))
+  Next
+
+  H = maximo * anchoFoto + (maximo - 1) * espacioHorizontal
+  '3º) Pcx=W/2
+  pcx = w / 2
+  '4º) Pcy=H/2
+  pcy = h / 2
+  'Se extrae CentroX y CentroY donde van las Fotos en la Orla
+  'extraigo coordenada de la orla donde van los Alumnos y Profesores
+  'CentroX y CentroY
+  ModuleGestionOrla.orla.CoordZonaFotosProfesores = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosProfesores")
+  '  Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.x
+  '  Print ModuleGestionOrla.orla.CoordZonaFotosProfesores.y
+
+  ModuleGestionOrla.orla.CoordZonaFotosAlumnos = ModuleExtraerDatosOrla.Coordenada(plantillaActual, "ZonaFotosAlumnos")
+  '  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.x
+  '  Print ModuleGestionOrla.orla.CoordZonaFotosAlumnos.y
+
+  'ordenar fotos Alfabeticamente o Indicado
+  ': enlace de como Ordenar
+  '-> http://jsbsan2.blogspot.com.es/search/label/ordenar
+  '-> https://docs.google.com/file/d/0B02Ro2CNt-OOQXFHVThUWjdhQVU/edit?pli=1
+  'ORDENACION... Segun sea alfabeticament o indicado
+  ' 0 0rdenacion y colocacion de fotos
+  'asignar coordenadas a cada foto
+  contador = -1
+  For a = 0 To nfilas - 1
+    For b = 0 To Val(numerosColumna[a]) - 1
+      'ASIGNA COORDENADAS
+      pos = New ClassPos
+      pos.x = b * (anchoFoto + espacioHorizontal)
+      pos.y = a * (altoFoto + espacioVertical)
+      contador += 1
+      ModuleGestionAlumnos.lista.Registros[contador].posicion = pos
+      '  Print "foto nº: "; contador, pos.x, pos.y
+    Next
+    AnchoColumna = Val(numerosColumna[a]) * (anchoFoto + espacioHorizontal) - espacioHorizontal
+    FilaAncho.add(AnchoColumna / 2)
+    MaximoAncho = Max(MaximoAncho, AnchoColumna)
+
+  Next
+
+  maximoAlto = (nfilas) * (altoFoto + espacioVertical) - espacioVertical
+
+  pcx = MaximoAncho / 2
+  pcy = maximoAlto / 2
+  ' Print "Centro: ", pcx, pcy
+
+  contador = -1
+  For a = 0 To nfilas - 1
+    For b = 0 To Val(numerosColumna[a]) - 1
+      traslado = pcx - FilaAncho[a]
+      contador += 1
+      'ASIGNA COORDENADAS
+      ModuleGestionAlumnos.lista.Registros[contador].posicion.x += traslado
+    Next
+  Next
+
+  centrox = ModuleGestionOrla.orla.CoordZonaFotosAlumnos.x
+  centroy = ModuleGestionOrla.orla.CoordZonaFotosAlumnos.y
+  'transladar fotos a las coordenadas de la orla...
+  '
+
+  ''Se repite para todas las fotos.....
+  '     Traslado:
+  '     7º) xTras=Xdato+CentroX-pcx
+  '     8º) yTras=Ydato+CentroY-pcy
+  '
+  For a = 0 To contador
+
+    ModuleGestionAlumnos.lista.Registros[a].posicion.x += (centrox * 2.74 - pcx)
+    ModuleGestionAlumnos.lista.Registros[a].posicion.y += (centroy * 2.74 - pcy)
+
+  Next
+
+End
+
+Public Sub comprobarEsquema(esquema As String, total As Integer) As Boolean
+
+  Dim numerosColumna As New String[]
+  Dim numerototal As Integer
+  Dim suma, a As Integer
+  'tiene que tener un =
+  'la suma de los numeros separados por +, debe de ser igual al ultimo...
+  If InStr(esquema, "=") = 0 Then
+    Message.Error(("Error en Esquema Definido:") & "\n" & ("Falta poner el signo igual (=)"))
+    Return False
+  Endif
+
+  'extraigo numero detras del igual...
+  numerototal = Val(Mid(esquema, InStr(esquema, "=") + 1, Len(esquema)))
+
+  If numerototal <> total Then
+    Message.Error(("Error en Esquema Definido:") & "\n" & ("El numero total no es igual al numero de personas(") & Str$(total) & ")")
+    Return False
+  Endif
+
+  'extraigo numeros delante del igual...
+  esquema = Mid(esquema, 1, InStr(esquema, "=") - 1)
+  numerosColumna = Split(esquema, "+")
+
+  For a = 0 To numerosColumna.Max
+    If numerosColumna[a] = "" Then
+      Message.Error(("Error en Esquema Definido:") & "\n" & ("Una columna se ha definido con 0 personas"))
+      Return False
+    Endif
+
+    suma += Val(numerosColumna[a])
+
+  Next
+
+  If suma = numerototal Then
+    Return True
+  Else
+    Message.Error(("Error en el Esquema Definido:") & "\n" & ("La suma de los numeros no coincide con el total"))
+    Return False
+  Endif
+
+End
+
+''----------------- relleno la orla con datos iniciales --------------
+Public Function rellenarOrla(plantillaOrigen As String) As String
+
+  Dim ContenidoEscudo As String 'variable que indica que escudos estan en la plantilla
+  Dim ANCHOLARGO As New Integer[]
+  Dim copia As String = User.home & "/.CreadorOrlas/trabajotmp/plantillatmp.svg"
+  Dim cadena As String
+  'copio la plantilla a temporal
+  If Exist(copia) Then
+    Kill copia
+  Endif
+
+  If Exist(User.home & "/.CreadorOrlas/trabajotmp/transparente.png") Then
+  Else
+    Copy "transparente.png" To User.home & "/.CreadorOrlas/trabajotmp/transparente.png"
+  Endif
+
+  ' Print plantillaOrigen
+  '  Print copia
+  ' Print "/home/uno/.CreadorOrlas/plantillasOrla/orla2/Naranja_Floral.svg"
+  If plantillaOrigen = "" Then
+    Message.Error(("La plantilla origen esta vacia"))
+    Return
+  Endif
+  Try Copy plantillaOrigen To copia
+
+  If Error Then
+    Message.Info(("Se ha producido un error al intentar copiar la plantilla origen:") & "\n" & plantillaOrigen)
+    ModuleMensajeError.SistemaDescripcionError()
+
+    Return
+  Endif
+  'modifico datos...
+  ' Rellenando datos de la orla
+
+  cadena = File.Load(copia)
+
+  cadena = Replace$(cadena, "ZONAFOTOSALUMNOS", "")
+  cadena = Replace$(cadena, "ZONAFOTOSPROFESORES", "")
+  cadena = Replace$(cadena, "COLEGIO", ModuleGestionOrla.orla.colegio)
+  cadena = Replace$(cadena, "CURSO", ModuleGestionOrla.orla.curso)
+  cadena = Replace$(cadena, "CLASE", ModuleGestionOrla.orla.clase)
+  cadena = Replace$(cadena, "TEXTOOPCIONAL01", ModuleGestionOrla.orla.textoopcional01)
+  cadena = Replace$(cadena, "TEXTOOPCIONAL02", ModuleGestionOrla.orla.textoopcional02)
+
+  If ModuleGestionOrla.orla.escudo01 = "" Then
+    cadena = Replace$(cadena, "ESCUDO01", "transparente.png")
+  Else
+    cadena = Replace$(cadena, "ESCUDO01", ModuleGestionOrla.orla.escudo01)
+    ContenidoEscudo = "1"
+  Endif
+
+  If ModuleGestionOrla.orla.escudo02 = "" Then
+    cadena = Replace$(cadena, "ESCUDO02", "transparente.png")
+  Else
+    cadena = Replace$(cadena, "ESCUDO02", ModuleGestionOrla.orla.escudo02)
+    ContenidoEscudo &= "2"
+  Endif
+
+  If ModuleGestionOrla.orla.escudo03 = "" Then
+    cadena = Replace$(cadena, "ESCUDO03", "transparente.png")
+  Else
+    cadena = Replace$(cadena, "ESCUDO03", ModuleGestionOrla.orla.escudo03)
+    ContenidoEscudo &= "3"
+  Endif
+
+  If ModuleGestionOrla.orla.escudo04 = "" Then
+    cadena = Replace$(cadena, "ESCUDO04", "transparente.png")
+  Else
+    cadena = Replace$(cadena, "ESCUDO04", ModuleGestionOrla.orla.escudo04)
+    ContenidoEscudo &= "4"
+  Endif
+
+  File.Save(copia, cadena)
+
+  If InStr(ContenidoEscudo, "1") <> 0 Then sustituyeDimensiones(copia, ModuleGestionOrla.orla.escudo01, "escudo01")
+  If InStr(ContenidoEscudo, "2") <> 0 Then sustituyeDimensiones(copia, ModuleGestionOrla.orla.escudo02, "escudo02")
+  If InStr(ContenidoEscudo, "3") <> 0 Then sustituyeDimensiones(copia, ModuleGestionOrla.orla.escudo03, "escudo03")
+  If InStr(ContenidoEscudo, "4") <> 0 Then sustituyeDimensiones(copia, ModuleGestionOrla.orla.escudo04, "escudo04")
+
+  Return copia
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Function AveriguarAnchoLargo(imagen As String) As Integer[]
+
+  Dim a As Integer
+  Dim comando As String
+  Dim cadena As String
+  Dim arrayDev As String[]
+  Dim arrayInt As New Integer[]
+
+  comando = "identify -format \"%wx%h\" " & User.home & "/.CreadorOrlas/temporales/FotosPlantillaOrla/" & imagen
+  Shell comando To cadena
+  arrayDev = Split(cadena, "x")
+
+  For a = 0 To arrayDev.Max
+    arrayInt.Add(Val(arrayDev[a]))
+  Next
+
+  Return arrayInt
+
+End
+
+Public Sub sustituyeDimensiones(nombrefichero As String, nombreEscudo As String, etiqueta As String)
+
+  Dim linea As String
+  Dim comando As String
+  Dim sitio As String
+  Dim numero As Integer
+  Dim dimensionHeight As Integer
+  Dim ANCHOLARGO As New Integer[]
+  'etiqueta es: escudo01, escudo02,escudo03,escudo04
+  'nombrefichero: plantilla .svg
+
+  comando = "cat " & nombrefichero & " |grep -n 'id=\"" & etiqueta & "\"'|cut -d \":\" -f1"
+  Shell comando To linea
+
+  If linea <> "" Then
+    ANCHOLARGO = AveriguarAnchoLargo(ModuleGestionOrla.orla.escudo01)
+    dimensionHeight = ancholargo[1] * 150 / ancholargo[0]
+
+    numero = Val(linea)
+    'comando = "sed -i '" & Str$(numero - 1) & "/.*/height=\"" & Str$(dimensionHeight) & "\"/' " & nombrefichero
+    Exec ["sed", "-i", "'" & Str$(numero - 1) & "/.*/height=\"" & Str$(dimensionHeight) & "\"/'", nombrefichero] Wait
+    'comando = "sed -i '" & Str$(numero - 2) & "/.*/width=\"" & "150" & "\"/' " & nombrefichero
+
+    Exec ["sed", "-i", "'" & Str$(numero - 2) & "/.*/width=\"" & "150" & "\"/'", nombrefichero] Wait
+
+  Else
+    'no he encontrado nada
+    Return
+  Endif
+
+End

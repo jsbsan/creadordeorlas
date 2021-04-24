@@ -1,0 +1,198 @@
+' Gambas module file
+
+Private rutatrabajo As String = "/tmp/pruebasFotito/"
+
+Public Sub nohacerlesnada(dibujoRuta As String, dibujoDestino As String)
+  'solo ajusto tamaño...
+
+  Dim comando As String
+
+  comando = "convert " & dibujoRuta & " -resize 249x339 /tmp/dibujoReducido.png"
+
+  Shell comando Wait
+  comando = "cp /tmp/dibujoReducido.png " & dibujoDestino
+  Shell comando Wait
+
+End
+
+Public Sub ponerMarco(dibujoRuta As String, dibujoDestino As String, marco As Boolean, colormarco As Integer) As String
+
+  Dim imagendestino, imagenorigen, texto, comando As String
+  Dim a As Integer
+
+  If Not Exist(rutatrabajo) Then
+    Mkdir rutatrabajo
+  Endif
+
+  If Not Exist(rutatrabajo & "trasparente250x348.png") Then
+    Copy "Editor/trasparente250x348.png" To rutatrabajo & "trasparente250x348.png"
+  Endif
+
+  comando = "convert " & rutatrabajo & "trasparente250x348.png" & " -resize 249x339 " & rutatrabajo & "trasparente250x348.png"
+  Shell comando Wait
+
+  If Exist(rutatrabajo & "t.png") Then
+    Kill rutatrabajo & "t.png"
+  Endif
+
+  Try Copy dibujoRuta To rutatrabajo & "t.png"
+  'proceso a repetir por cada registro
+
+  comando = "convert " & rutatrabajo & "t.png" & " -resize 249x339 " & rutatrabajo & "t.png"
+  'ajuste solo una dimentsion
+  'comando = "convert " & rutatrabajo & "t.png" & " -resize 93x " & rutatrabajo & "t.png"
+  Shell comando Wait
+
+  imagenorigen = rutatrabajo & "t.png"
+
+  imagendestino = rutatrabajo & "fotito.png"
+
+  '¿es un marco o una elipse?
+
+  If marco = False Then
+    CrearElipse(imagenorigen, dibujoDestino)
+  Else
+    CrearMarco(imagenorigen, dibujoDestino, colormarco)
+
+  Endif
+
+  Return dibujoDestino
+
+End
+
+'' hay  que mirarlo mejor CREAR ALUMNOS para añadirles marcos...
+Public Sub crearAlumnos(registros As ClassAlumno[], marco As Boolean, colormarco As Integer)
+
+  Dim imagendestino, imagenorigen, texto, comando As String
+  Dim a As Integer
+
+  If Not Exist(rutatrabajo) Then
+    Mkdir rutatrabajo
+  Endif
+
+  If Not Exist(rutatrabajo & "150x120.png") Then
+    Copy "Editor/150x120.png" To rutatrabajo & "150x120.png"
+  Endif
+
+  'proceso a repetir por cada registro
+  For a = 0 To registros.Max
+    'copio la imagen al directorio temporal
+
+    If registros[a].Foto <> "" Then
+      imagenorigen = User.Home & "/.CreadorOrlas/temporales/FotosAlumnos/" & registros[a].Foto
+    Else
+      If Not Exist(rutatrabajo & "Alu.png") Then
+        Copy "Editor/Alu.png" To rutatrabajo & "Alu.png"
+      Endif
+
+      imagenorigen = rutatrabajo & "Alu.png"
+    Endif
+    imagendestino = rutatrabajo & "fotito.png"
+
+    '¿es un marco o una elipse?
+
+    If marco = False Then
+      CrearElipse(imagenorigen, imagendestino)
+    Else
+      CrearMarco(imagenorigen, imagendestino, colormarco)
+
+    Endif
+
+    'hacer texto 1
+    textoAimagen(registros[a].Nombre, rutatrabajo & "paso1.png")
+    'hacer texto 2
+    textoAimagen(registros[a].Apellidos, rutatrabajo & "paso2.png")
+
+    '------------------------------------
+    'Si es un alumno....
+    '------------------------------------
+    'hacer texto 3
+    'comproprobar si se desea escribir el pueblo y la provincia...
+    texto = registros[a].Pueblo
+    texto &= "-" & registros[a].Provincia
+    '
+    textoAimagen(texto, rutatrabajo & "paso3.png")
+    'monto imagen 150x100 con fotito.png
+
+    comando = "composite -gravity North " & rutatrabajo & "fotito.png" & " " & rutatrabajo & "150x120.png " & rutatrabajo & "north.png"
+
+    Shell comando Wait
+    'montar las 4 imagenes
+    comando = "montage " & rutatrabajo & "north.png " & rutatrabajo & "paso1.png " & rutatrabajo & "paso2.png " & rutatrabajo & "paso3.png -tile 1x4 -geometry +0+0 " & rutatrabajo & "vertical.png"
+    Shell comando Wait
+
+    If Exist(rutatrabajo & "vertical.png") Then
+      Try Kill User.Home & "/.CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
+      Copy rutatrabajo & "vertical.png" To User.Home & "/.CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
+
+      registros[a].FotoRellena = User.Home & "/.CreadorOrlas/temporales/FotosAlumnosMini/" & "Alumno_" & Str$(a) & ".png"
+    Else
+      Message.Warning(("No ha sido posible crear la foto con los datos"))
+    Endif
+
+  Next
+
+End
+
+Public Sub textoAimagen(texto As String, ruta As String)
+
+  Dim comando As String
+
+  comando = "convert -size 150x14 -font Bookman-DemiItalic -pointsize 12 -gravity center caption:'" & texto & "' " & ruta
+  Shell comando Wait
+
+End
+
+Public Sub CrearElipse(origen As String, destino As String)
+
+  Dim comando As String
+
+  comando = "convert " & origen & " -background None -vignette 9x5 " & destino
+  Shell comando Wait
+
+End
+
+Public Sub CrearMarco(origen As String, destino As String, colormarco As String)
+
+  Dim comando As String
+
+  ' Try Kill destino
+  comando = "convert " & origen & " -mattecolor '#" & Hex$(colormarco) & "'  -frame 30x30+15+15  " & destino
+
+  Shell comando Wait
+
+End
+
+Public Sub SuperPonerForma(RutaImagenForma As String, RutaImagenOrigen As String, RutaImagenDestino As String, Optional marcoespecial As Boolean) As String
+
+  Dim comando As String
+
+  If marcoespecial = True Then
+    Try Kill "/tmp/dibujoReducido.png"
+    comando = "convert " & RutaImagenOrigen & " -resize 200x272 /tmp/dibujoReducido.png"
+    Shell comando Wait
+
+    'componercon un marco especial
+    Try Kill "/tmp/marcoespecial.png"
+    comando = "convert " & RutaImagenForma & " -resize 249x339 /tmp/marcoespecial.png"
+    Shell comando Wait
+    comando = "composite -gravity Center /tmp/dibujoReducido.png /tmp/marcoespecial.png " & RutaImagenDestino
+    Shell comando Wait
+    comando = "composite -gravity Center /tmp/marcoespecial.png " & RutaImagenDestino & " " & RutaImagenDestino
+    Shell comando Wait
+
+  Else
+    Try Kill "/tmp/dibujoReducido.png"
+    comando = "convert " & RutaImagenOrigen & " -resize 249x339 /tmp/dibujoReducido.png"
+    Shell comando Wait
+
+    'comando = "convert " & RutaImagenOrigen & " -resize 93x113 /tmp/dibujoReducido.png"
+    'comando = "composite -gravity Center /tmp/marcoespecial.png /tmp/dibujoReducido.png " & RutaImagenDestino
+    comando = "composite -compose Dst_In -gravity center " & RutaImagenForma & " /tmp/dibujoReducido.png -alpha set " & RutaImagenDestino
+    Shell comando Wait
+
+  Endif
+
+  Return RutaImagenDestino
+
+End

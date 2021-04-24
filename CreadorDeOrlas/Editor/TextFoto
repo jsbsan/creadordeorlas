@@ -1,0 +1,8 @@
+<image 
+       x="COORDENADA_X" 
+       id="ID_IMAGEN" 
+       xlink:href="RUTA_FICHERO_EXT" 
+       y="COORDENADA_Y" 
+       width="92" 
+       height="113" /> 
+  

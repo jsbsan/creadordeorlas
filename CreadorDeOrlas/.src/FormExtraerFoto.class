@@ -1,0 +1,153 @@
+' Gambas class file
+
+Public ruta As String
+Public resultadofinal As String = ""
+Private escalaimagen As Float
+
+Public Sub Form_Open()
+  'dibujar
+
+End
+
+Public Sub form_Show()
+
+  Me.Center
+  dibujaPNG()
+
+End
+
+Public Sub dibujaPNG()
+
+  Dim hbrush As PaintBrush
+  Dim himage As Image
+  Dim mascara As Image
+  Dim escalax, escalay As Float
+
+  himage = Image.Load(ruta)
+  mascara = Image.Load("mascara.png")
+
+  AreaDibujo.Cached = True
+  AreaDibujo.Border = 1
+  '  AreaDibujo.Painted = True
+
+  Paint.Begin(AreaDibujo)
+
+  hbrush = Paint.Image(himage)
+  hbrush.Translate(SliderX.value, - SliderY.value)
+
+  ''nota:si se cambia la linea siguiente hay que cambiar la misma linea
+  escalax = AreaDibujo.W / himage.Width * (1 + SliderZ.value / 25)
+  paint.Scale(escalax, escalax)
+  escalaimagen = escalax
+
+  Paint.Brush = hbrush
+  Paint.Rectangle(SliderX.value, - SliderY.value, himage.w, himage.h)
+  Paint.Fill()
+  Paint.End
+
+  '------------------------------------------------
+
+  Paint.Begin(AreaDibujo)
+  hbrush = Paint.Image(mascara)
+  hbrush.Translate(0, 0)
+  escalax = AreaDibujo.W - mascara.Width / 2
+  escalay = AreaDibujo.h - mascara.H / 2
+
+  paint.Scale(0.99, 0.99)
+
+  Paint.Brush = hbrush
+  Paint.Rectangle(0, 0, mascara.w, mascara.h)
+  Paint.Fill()
+  Paint.End
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub Cambio_Change()
+
+  dibujaPNG()
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub ToolButtonCancelar_Click()
+
+  Me.close
+
+End
+
+Public Sub ToolButtonAceptar_Click()
+
+  Dim comando As String
+  Dim TrozoImagen As New Picture
+
+  Dim hbrush As PaintBrush
+  Dim himage As Image
+  Dim mascara As Image
+  Dim escalax, escalay As Float
+
+  himage = Image.Load(ruta)
+  mascara = Image.Load("mascara.png")
+
+  'copiar archivo imagen en blacon
+  If Exist("/tmp/518x364.png") Then
+    Kill "/tmp/518x364.png"
+  Endif
+
+  Copy "518x364.png" To "/tmp/518x364.png"
+  TrozoImagen = Picture.load("/tmp/518x364.png")
+
+  Paint.Begin(TrozoImagen)
+
+  hbrush = Paint.Image(himage)
+  hbrush.Translate(SliderX.value, - SliderY.value)
+  ''debede ser igual que la linea 39 (cambiando el TrozoImagen.W)
+  escalax = TrozoImagen.W / himage.Width * (1 + SliderZ.value / 25)
+
+  paint.Scale(escalax, escalax)
+  escalaimagen = escalax
+
+  Paint.Brush = hbrush
+  Paint.Rectangle(SliderX.value, - SliderY.value, himage.w, himage.h)
+  Paint.Fill()
+  Paint.End
+
+  '------------------------------------------------
+
+  Paint.Begin(TrozoImagen)
+  hbrush = Paint.Image(mascara)
+  hbrush.Translate(0, 0)
+  escalax = TrozoImagen.W - mascara.Width / 2
+  escalay = TrozoImagen.h - mascara.H / 2
+
+  paint.Scale(0.99, 0.99)
+
+  Paint.Brush = hbrush
+  Paint.Rectangle(0, 0, mascara.w, mascara.h)
+  Paint.Fill()
+  Paint.End
+
+  TrozoImagen.Save("/tmp/518x364.png")
+  comando = "convert /tmp/518x364.png -crop " & Str$(126) & "x" & Str$(175) & "+" & Str$(194) & "+" & Str$(37) & " /tmp/extraido.png"
+  comando = "convert /tmp/518x364.png -crop " & Str$(252) & "x" & Str$(350) & "+" & Str$(138) & "+" & Str$(5) & " /tmp/extraido.png"
+
+  Shell comando Wait
+  resultadofinal = "/tmp/extraido.png"
+  Kill ruta
+  Copy resultadofinal To ruta
+  Me.Close()
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub AreaDibujo_MouseDown()
+
+  '  Print Mouse.x, Mouse.y
+
+End
