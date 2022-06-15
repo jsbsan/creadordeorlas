@@ -4,6 +4,7 @@ Private MiHttp As New HttpClient
 
 Public Sub comprobar(nombreprograma As String, actualversion As String, rutaUrl As String, Optional texto As String) '' NombrePrograma: nombre del programa, ActualVersion= es la version del programa actual, rutaUrL= es url donde tengo que leer el archivo update,label etiqueta para que aparezca texto de espere...
 
+  If True Then Return
   Dim a As Integer
   Dim Buffer, programa, VersionEnInternet, mensaje, mejoras, direccion As String
   Dim res As Integer

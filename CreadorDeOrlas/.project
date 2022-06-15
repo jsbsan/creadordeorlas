@@ -1,14 +1,13 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.9.2
 Title=Creador De Orlas
 Startup=FMain
 Icon=orlaicono.png
-Version=0.0.69
+Version=0.0.70
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
-Component=gb.desktop.x11
 Component=gb.desktop
+Component=gb.desktop.x11
 Component=gb.form.dialog
 Component=gb.net
 Component=gb.net.curl
@@ -22,7 +21,7 @@ Maintainer=Julio Sanchez Berro
 Address=jusabejusabe@gmail.com
 Url=http://jsbsan.blogspot.com.es
 License=General Public License
-PackageName=creadordeorlas-0.0.68
+PackageName=creadordeorlas-0.0.70
 CreateEachDirectory=1
 Packager=1
 Systems=debian

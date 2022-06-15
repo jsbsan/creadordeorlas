@@ -15,7 +15,7 @@ Public Sub comprobarEntorno()
   Endif
 
   If Not comun.instalado("pdftk") Then
-    texto &= ("pdftk") & "\n"
+    texto &= ("pdftk. Si tienes problemas de instalacion del pdftk, instalelo mediante paquete snap: sudo snap install pdftk") & "\n"
     falta = True
   Endif
 

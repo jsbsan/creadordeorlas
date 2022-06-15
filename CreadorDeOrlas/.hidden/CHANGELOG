@@ -1,3 +1,9 @@
+* Wed Jun 15 2022 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.70
+- inhabilito funcion comprobar()  e indico instalacion del pdftk con snap
+
+* Wed Jun 15 2022 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.70
+- inhabilito funcion comprobar() en el módulo ModuleUpdate.module, al dar errores en las nuevas versiones de gambas3
+
 * Tue May 12 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.68
 - agregado traduccion ultimos cambios al gallego
 
