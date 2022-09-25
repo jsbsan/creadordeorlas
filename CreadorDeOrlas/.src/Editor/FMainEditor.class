@@ -247,8 +247,8 @@ Public Sub capturaDown(mouseScreenx As Integer, mouseScreeny As Integer)
           LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
           LabelCoordenada.Visible = True
 
-          distanciaSeleccionX = - MousescreenX + objtemp.screenX
-          distanciaSeleccionY = - MousescreenY + objtemp.screenY
+          distanciaSeleccionX = -MousescreenX + objtemp.screenX
+          distanciaSeleccionY = -MousescreenY + objtemp.screenY
 
           If ModuleGestionOrla.orla.PosicionesDefinidas = True Then
             Message.Title = "Posiciones Bloqueadas de las Imagenes"
@@ -271,8 +271,8 @@ Public Sub capturaDown(mouseScreenx As Integer, mouseScreeny As Integer)
             LabelCoordenada.text = "(" & objetoCapturado.x & "," & objetoCapturado.y & ")"
             LabelCoordenada.Visible = True
 
-            distanciaSeleccionX = - MousescreenX + objtemp.screenX
-            distanciaSeleccionY = - MousescreenY + objtemp.screenY
+            distanciaSeleccionX = -MousescreenX + objtemp.screenX
+            distanciaSeleccionY = -MousescreenY + objtemp.screenY
 
             If ModuleGestionOrla.orla.PosicionesDefinidas = True Then
               Message.Title = "Posiciones Bloqueadas de las Imagenes"

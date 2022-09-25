@@ -33,7 +33,7 @@ Public Sub dibujaPNG()
   Paint.Begin(AreaDibujo)
 
   hbrush = Paint.Image(himage)
-  hbrush.Translate(SliderX.value, - SliderY.value)
+  hbrush.Translate(SliderX.value, -SliderY.value)
 
   ''nota:si se cambia la linea siguiente hay que cambiar la misma linea
   escalax = AreaDibujo.W / himage.Width * (1 + SliderZ.value / 25)
@@ -41,7 +41,7 @@ Public Sub dibujaPNG()
   escalaimagen = escalax
 
   Paint.Brush = hbrush
-  Paint.Rectangle(SliderX.value, - SliderY.value, himage.w, himage.h)
+  Paint.Rectangle(SliderX.value, -SliderY.value, himage.w, himage.h)
   Paint.Fill()
   Paint.End
 
@@ -104,7 +104,7 @@ Public Sub ToolButtonAceptar_Click()
   Paint.Begin(TrozoImagen)
 
   hbrush = Paint.Image(himage)
-  hbrush.Translate(SliderX.value, - SliderY.value)
+  hbrush.Translate(SliderX.value, -SliderY.value)
   ''debede ser igual que la linea 39 (cambiando el TrozoImagen.W)
   escalax = TrozoImagen.W / himage.Width * (1 + SliderZ.value / 25)
 
@@ -112,7 +112,7 @@ Public Sub ToolButtonAceptar_Click()
   escalaimagen = escalax
 
   Paint.Brush = hbrush
-  Paint.Rectangle(SliderX.value, - SliderY.value, himage.w, himage.h)
+  Paint.Rectangle(SliderX.value, -SliderY.value, himage.w, himage.h)
   Paint.Fill()
   Paint.End
 

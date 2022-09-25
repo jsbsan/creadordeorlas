@@ -21,7 +21,7 @@ Public Sub Form_Open()
     Wait 0.5
     LabelVersion.text = "Versión: Beta " & Application.Version
     Me.center
-    ModuleUpdate.comprobar("CreadorDeOrlas", Application.Version, "http://creadordeorlas.blogspot.com.es/2013/03/version.html", "no mensaje")
+    'ModuleUpdate.comprobar("CreadorDeOrlas", Application.Version, "http://creadordeorlas.blogspot.com.es/2013/03/version.html", "no mensaje")
 
     ' ModulePruebas.escribe()
     comun.comprobarEntorno()

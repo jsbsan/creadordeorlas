@@ -1,3 +1,6 @@
+* Sun Sep 25 2022 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.72
+- indica al inicio del programa que es necesario crear el directorio /tmp
+
 * Wed Jun 15 2022 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.70
 - inhabilito funcion comprobar()  e indico instalacion del pdftk con snap
 

@@ -5,6 +5,10 @@ Public Sub comprobarEntorno()
   Dim texto As String
   Dim falta As Boolean = False
 
+  If Exist("/tmp") Then
+    Message.Info("Es necesario crear en el directorio raiz (y darle los permisos de escritura) el directorio: /tmp \nUse los comandos siguientes:\n    sudo mkdir /tmp \n    sudo chmod +777 /tmp \n y vuelva a ejecutar el programa CreadorDeOrlas")
+  Endif
+
   If Not comun.instalado("inkscape") Then
     texto = ("inkscape") & "\n"
     falta = True
