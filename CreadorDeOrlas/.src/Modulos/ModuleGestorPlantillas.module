@@ -35,6 +35,8 @@ End
 
 Public Sub cargaprevisualizacion(lbox As ListBox, area As DrawingArea)
 
+  If lbox.Index = -1 Then Return
+
   If Exist(rutaPlantillasOrla & lbox.List[lbox.Index] & ".png") Then
   Else
     creaPng(rutaPlantillasOrla & lbox.List[lbox.Index])
